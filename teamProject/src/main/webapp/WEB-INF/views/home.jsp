@@ -8,6 +8,7 @@
 </head>
 <body>
 <h4>오늘의 공지사항</h4>
+<a href="test.jsp">테스트 페이지 입니다.</a>
 <ul>
 	<c:forEach items="${noticeList }" var="tmp">
 		<li>${tmp }</li>
