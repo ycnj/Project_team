@@ -12,7 +12,7 @@
 	<c:forEach items="${noticeList }" var="tmp">
 		<li>${tmp }</li>
 	</c:forEach>
-
+<a href="test.jsp">테스트 페이지</a>
 </ul>
 </body>
 </html>
