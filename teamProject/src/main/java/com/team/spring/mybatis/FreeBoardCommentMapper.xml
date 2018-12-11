@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="freeboardComment">
+	<update id="update" parameterType="freeboardCommentDto">
+		UPDATE freeboardComment
+		SET content=#{content}
+		WHERE num=#{num}
+	</update>
+
+	<update id="delete" parameterType="int">
+		UPDATE freeboardComment
+		SET deleted='yes'
+		WHERE num=#{num}
+	</update>
+
+	<insert id="insert" parameterType="freeboardCommentDto">
+		INSERT INTO freeboardComment
+		(num, id, content, target_id, ref_group, comment_group, regdate )
+		VALUES(#{num}, #{id}, #{content}, #{target_id}, 
+			#{ref_group}, #{comment_group}, SYSDATE)
+	</insert>
+
+	<select id="getSequence" resultType="int">
+		SELECT freeboard_seq.NEXTVAL
+		FROM DUAL
+	</select>
+
+	<select id="getList" parameterType="int" resultType="freeboardCommentDto">
+		SELECT num, id, content, target_id, ref_group, comment_group,
+		 deleted, regdate
+		FROM freeboardComment
+		WHERE ref_group=#{num}
+		ORDER BY comment_group ASC, num ASC
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

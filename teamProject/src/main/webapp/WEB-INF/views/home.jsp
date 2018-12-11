@@ -12,7 +12,7 @@
 	<c:forEach items="${noticeList }" var="tmp">
 		<li>${tmp }</li>
 	</c:forEach>
-
+<li><a href="freeboard/list.do">게시판 목록보기</a></li>
 </ul>
 </body>
 </html>
