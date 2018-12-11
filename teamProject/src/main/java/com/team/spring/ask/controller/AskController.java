@@ -37,7 +37,7 @@ public class AskController {
 		//새글을 저장한다. 
 		service.saveContent(dto);
 		//글 목록 보기로 리다일렉트 이동
-		return new ModelAndView("redirect:/cafe/list.do");
+		return new ModelAndView("redirect:/ask/list.do");
 	}
 	@RequestMapping("/ask/detail")
 	public ModelAndView detail(HttpServletRequest request) {
@@ -45,10 +45,10 @@ public class AskController {
 		return new ModelAndView("ask/detail");
 	}
 	
-	@RequestMapping("/cafe/delete")
+	@RequestMapping("/ask/delete")
 	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
 		service.deleteContent(num);
-		return new ModelAndView("redirect:/cafe/list.do");
+		return new ModelAndView("redirect:/ask/list.do");
 	}
 	@RequestMapping("/ask/updateform")
 	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, 

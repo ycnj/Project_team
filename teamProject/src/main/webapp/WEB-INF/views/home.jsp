@@ -13,6 +13,7 @@
 		<li>${tmp }</li>
 	</c:forEach>
 	<li><a href="ask/list.do">질의응답 게시판</a></li>
+	<li><a href="ask/home.do">질문페이지</a></li>
 </ul>
 </body>
 </html>

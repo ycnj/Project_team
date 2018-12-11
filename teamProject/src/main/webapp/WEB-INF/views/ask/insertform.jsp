@@ -12,7 +12,7 @@
 <body>
 <div class="container">
 	<p><strong>${id }</strong>님 로그인중...</p>
-	<h3>질의 응답 게시판.</h3>
+	<h3>1대1 문의하기</h3>
 	<form action="insert.do" method="post">
 		<label for="title">제목</label>
 		<input type="text" name="title" id="title"/>
