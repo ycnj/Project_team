@@ -7,7 +7,26 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	<beans:bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<beans:property name="jndiName" value="java:comp/env/jdbc/myoracle"/>
+	</beans:bean>
+	
+	<!-- SqlSessionFactory 객체 -->
+	<beans:bean id="sessionFactory" 
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="configLocation"
+	value="classpath:com/team/spring/mybatis/Configuration.xml"/>
+	</beans:bean>
+
+	<!-- 
+		SqlSession 인터페이스를 구현한 SqlSessionTemplate(SqlSession) 객체 
+		Dao 가 의존하는 객체 
+	-->
+	<beans:bean class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg name="sqlSessionFactory" 
+			ref="sessionFactory"/>
+	</beans:bean>
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
@@ -22,7 +41,8 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.team.spring" />
-	
+	<!-- users 하위 페키지를 모두 컴포넌트 스켄하기 -->
+	<context:component-scan base-package="com.team.spring.users.*" />
 	
 	
 </beans:beans>

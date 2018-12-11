@@ -6,6 +6,7 @@ public class UsersResDto {
 	private int num;
 	private String movieName;
 	private int price;
+	private String paymentWay;
 	private int currCon;
 	private int point;
 	private String regdate;
@@ -13,12 +14,13 @@ public class UsersResDto {
 	//디폴트 생성자 
 	public UsersResDto() {}
 
-	public UsersResDto(String id, int num, String movieName, int price, int currCon, int point, String regdate) {
+	public UsersResDto(String id, int num, String movieName, int price, String paymentWay, int currCon, int point, String regdate) {
 		super();
 		this.id = id;
 		this.num = num;
 		this.movieName = movieName;
 		this.price = price;
+		this.paymentWay=paymentWay;
 		this.currCon = currCon;
 		this.point = point;
 		this.regdate = regdate;
@@ -54,6 +56,15 @@ public class UsersResDto {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	
+	
+	public String getPaymentWay() {
+		return paymentWay;
+	}
+
+	public void setPaymentWay(String paymentWay) {
+		this.paymentWay = paymentWay;
 	}
 
 	public int getCurrCon() {

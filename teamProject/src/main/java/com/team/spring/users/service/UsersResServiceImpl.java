@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.team.spring.users.dao.UsersResDao;
 import com.team.spring.users.dto.UsersResDto;
-/*
- *  users 에 관련된 비즈니스 로직을 처리할 객체 
- */
+
 @Service
 public class UsersResServiceImpl implements UsersResService{
 	@Autowired

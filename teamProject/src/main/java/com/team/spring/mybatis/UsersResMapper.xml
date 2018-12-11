@@ -3,8 +3,8 @@
 <mapper namespace="usersRes">
 	<insert id="insert" parameterType="usersRes">
 		INSERT INTO usersRes
-		(id, movieName, moviePrice, condCurr, point, regdate)
-		VALUES(1, #{movieName}, #{moviePrice}, #{currCon}, #{point}, SYSDATE)
+		(id, num, movieName, moviePrice, paymentWay, condCurr, point, regdate)
+		VALUES(1, usersRes_seq.NEXTVAL, #{movieName}, #{moviePrice}, #{paymentWay}, #{currCon}, #{point}, SYSDATE)
 	</insert>
 	<select id="getSumPrice" parameterType="string" resultType="int">
 		SELECT sum(moviePrice)
@@ -12,7 +12,7 @@
 		WHERE id=1 AND currCon=1
 	</select>
 	<select id="getData" parameterType="string" resultType="usersRes">
-		SELECT id, movieName, moviePrice, condCurr, point, regdate
+		SELECT id, num, movieName, moviePrice, paymentWay, condCurr, point, regdate
 		FROM usersRes
 		WHERE id=1
 	</select>
