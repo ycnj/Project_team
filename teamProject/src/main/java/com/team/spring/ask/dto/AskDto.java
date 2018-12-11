@@ -15,6 +15,20 @@ public class AskDto {
 	private int nextNum;
 	//생성자
 	public AskDto() {}
+	public AskDto(int num, String writer, String title, String content, int viewCount, String regdate, int startRowNum,
+			int endRowNum, int prevNum, int nextNum) {
+		super();
+		this.num = num;
+		this.writer = writer;
+		this.title = title;
+		this.content = content;
+		this.viewCount = viewCount;
+		this.regdate = regdate;
+		this.startRowNum = startRowNum;
+		this.endRowNum = endRowNum;
+		this.prevNum = prevNum;
+		this.nextNum = nextNum;
+	}
 	public int getNum() {
 		return num;
 	}
@@ -75,20 +89,18 @@ public class AskDto {
 	public void setNextNum(int nextNum) {
 		this.nextNum = nextNum;
 	}
-	public AskDto(int num, String writer, String title, String content, int viewCount, String regdate, int startRowNum,
-			int endRowNum, int prevNum, int nextNum) {
-		super();
-		this.num = num;
-		this.writer = writer;
-		this.title = title;
-		this.content = content;
-		this.viewCount = viewCount;
-		this.regdate = regdate;
-		this.startRowNum = startRowNum;
-		this.endRowNum = endRowNum;
-		this.prevNum = prevNum;
-		this.nextNum = nextNum;
-	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
