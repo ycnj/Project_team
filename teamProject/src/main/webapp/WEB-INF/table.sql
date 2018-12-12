@@ -1,4 +1,4 @@
-CREATE TABLE userRes_mp(
+CREATE TABLE usersRes_mp(
 id VARCHAR2(50),			--(users id foreign key)
 num Number Primary Key,		--예매번호
 movieName VARCHAR2(50),		--예매한 영화 이름

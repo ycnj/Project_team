@@ -15,7 +15,7 @@ public class UsersResServiceImpl implements UsersResService{
 
 	@Override
 	public void showInfo(HttpServletRequest request) {
-		dao.getData(request.getSession().getId());		
+		request.setAttribute("dto", dao.getData((String)request.getSession().getAttribute("id")));	
 	}
 
 	@Override
@@ -26,17 +26,17 @@ public class UsersResServiceImpl implements UsersResService{
 	@Override
 	public void getSumPrice(HttpServletRequest request) {
 		int sumPrice=dao.getSumPrice((String)request.getSession().getAttribute("id"));
-		int grade = 4;
+		String grade = "일반";
 		if(sumPrice>1000000) {
-			grade=0;
+			grade="다이아";
 		}else if(sumPrice>500000) {
-			grade=1;
+			grade="골드";
 		}else if(sumPrice>100000) {
-			grade=2;
+			grade="실버";
 		}else if(sumPrice>50000) {
-			grade=3;
+			grade="브론즈";
 		}else{
-			grade=4;
+			grade="일반";
 		}
 		request.setAttribute("grade", grade);
 	}

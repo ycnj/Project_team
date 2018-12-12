@@ -16,6 +16,7 @@ public class UsersResController {
 	@RequestMapping("/users/usersRes/detail")
 	public String getData(HttpServletRequest request) {
 		service.showInfo(request);
+		service.getSumPrice(request);
 		return "users/usersRes/detail";
 	}
 	
@@ -23,12 +24,6 @@ public class UsersResController {
 	public String buyTicket(UsersResDto dto) {
 		service.buyTicket(dto);
 		return "users/usersRes/detail";
-	}
-
-	@RequestMapping("/users/usersRes/grade")
-	public String showGrade(HttpServletRequest request) {
-		service.getSumPrice(request);	
-		return "users/usersRes/grade";
 	}
 
 	@RequestMapping("/users/usersRes/cancel")

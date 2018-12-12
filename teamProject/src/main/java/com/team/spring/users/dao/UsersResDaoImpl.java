@@ -15,7 +15,7 @@ public class UsersResDaoImpl implements UsersResDao{
 	private SqlSession session;
 
 	@Override
-	public UsersResDto getData(String id) {		
+	public UsersResDto getData(String id) {
 		return session.selectOne("usersRes.getData", id);
 	}
 
