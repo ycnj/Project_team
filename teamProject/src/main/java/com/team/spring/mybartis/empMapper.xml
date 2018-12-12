@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!--  별명지정(중복만 안되면 됨)  -->    
+<mapper namespace="mybatis.empMapper">
+ 
+ <!-- resultType:sqlmapConfig.xml에서 알리아스설정때문에 간단히씀 -->
+<!--  select 시작 -->
+    <select id="empList" resultType="EmpVO" useCache="true">
+        select * from emp
+    </select>   
+</mapper>
+
