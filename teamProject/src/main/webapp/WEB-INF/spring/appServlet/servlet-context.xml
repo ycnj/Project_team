@@ -8,6 +8,27 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	<!-- 상단 절취선 비고 -->
+	<beans:bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<beans:property name="jndiName" value="java:comp/env/jdbc/myoracle"/>
+	</beans:bean>
+	
+	<!-- SqlSessionFactory 객체 -->
+	<beans:bean id="sessionFactory" 
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="configLocation"
+	value="classpath:com/team/mybatis/Configuration.xml"/>
+	</beans:bean>
+
+	<!-- 
+		SqlSession 인터페이스를 구현한 SqlSessionTemplate(SqlSession) 객체 
+		Dao 가 의존하는 객체 
+	-->
+	<beans:bean class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg name="sqlSessionFactory" 
+			ref="sessionFactory"/>
+	</beans:bean>
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
@@ -21,8 +42,19 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- bean 생성을 위한 컴포넌트 스캔 -->
 	<context:component-scan base-package="com.team.spring" />
+	<!-- event 하위 패키지를 모두 컴포넌트 스캔 -->
+	<context:component-scan base-package="com.team.event.*"/>
 	
+	<!-- Multipart 폼 전송 처리를 위한 bean 설정 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10240000"/>
+	</beans:bean>	
+	<!-- bean 의 이름으로 view 를 찾아갈수 있도록 설정 -->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"/>
+	</beans:bean>
 	
 	
 </beans:beans>

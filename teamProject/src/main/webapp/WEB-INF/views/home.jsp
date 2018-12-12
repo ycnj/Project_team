@@ -8,7 +8,7 @@
 </head>
 <body>
 <h4>오늘의 공지사항</h4>
-<a href="event.list.jsp">이벤트 페이지 입니다.</a>
+<a href="event/list.do">이벤트 페이지 입니다.</a>
 <ul>
 	<c:forEach items="${noticeList }" var="tmp">
 		<li>${tmp }</li>
