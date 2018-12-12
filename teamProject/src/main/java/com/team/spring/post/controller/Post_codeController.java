@@ -27,7 +27,7 @@ public class Post_codeController {
     public static final String ZIPCODE_API_URL = "http://biz.epost.go.kr/KpostPortal/openapi";
 
 
-	 @RequestMapping(value = "/zip_codeList", method = RequestMethod.POST, produces = "text/planin;charset=UTF-8")
+	 @RequestMapping(value = "/zip_codeList", method = {RequestMethod.POST,RequestMethod.GET}, produces = "text/planin;charset=UTF-8")
 	    public @ResponseBody String zip_codeList(@RequestParam("query") String query) throws Exception {
 	        Map<String, Object> paramMap = new HashMap<String, Object>();
 	        StringBuilder queryUrl = new StringBuilder();

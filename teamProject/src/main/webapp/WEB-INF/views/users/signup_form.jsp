@@ -76,7 +76,7 @@ function validate() {
                 <span class = "input-group-addon">우편번호</span>
                 <input type = "text" class = "form-control" id = "zip_code" name = "zip_code">
                 <span class = "input-group-addon">
-                <a href = "${pageContext.request.contextPath}/zip_codeList.do" id = "zip_codeBtn" data-toggle="modal" data-target="#zip_codeModal">검색하기</a>
+                <a href = "#" id = "zip_codeBtn" data-toggle="modal" data-target="#zip_codeModal">검색하기</a>
                 </span>                
             </div>
         </div>
@@ -185,6 +185,7 @@ $("#signupForm").on("submit", function(){
 $(function(){
     // 검색버튼 눌렸을 때 함수 실행
     $("#searchBtn").click(function(e){
+    	console.log($("#zip_codeForm").serialize());
         e.preventDefault();
         // ajax
         $.ajax({
@@ -228,7 +229,7 @@ $(function(){
                 // 완성된 html(우편번호 list)를 zip_codeList밑에 append
                 $("#zip_codeList").append(html);
             }
-        });
+        }); 
     });
 });
  
