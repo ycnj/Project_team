@@ -149,6 +149,8 @@ function validate() {
 </div>
 
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.3.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+
 <script>
 //폼의 유효성 여부 
 var formValid=false;
@@ -197,7 +199,8 @@ $(function(){
             // dataType 은 json형태로 보냅니다.
             dataType : "json",
             success : function(result){
-                $("#zip_codeList").empty();
+				alert("ㅇㅇ");
+            	$("#zip_codeList").empty();
                 var html = "";
                 if(result.errorCode != null && result.errorCode != ""){
                     html += "<tr>";

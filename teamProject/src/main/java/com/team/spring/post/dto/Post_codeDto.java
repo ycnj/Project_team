@@ -6,11 +6,6 @@ public class Post_codeDto {
 	
 	public Post_codeDto() {}
 
-	public Post_codeDto(String address, String zipcode) {
-		super();
-		this.address = address;
-		this.zipcode = zipcode;
-	}
 
 	public String getAddress() {
 		return address;
