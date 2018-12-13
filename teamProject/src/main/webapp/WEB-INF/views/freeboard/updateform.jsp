@@ -21,15 +21,29 @@
 		<label for="content">내용</label>
 		<textarea name="content" id="content" style="width:100%;height:400px;display:none;">${dto.content }</textarea>
 		<div>
-			<input type="button" onclick="../file/upload_form.do;" value="파일업로드" />
-			<input type="button" onclick="submitContents(this);" value="서버로 내용 전송" />
-			<input type="button" onclick="reset" value="취소" />
+			<input type="button" onclick="location.href='../file/upload_form.do'" value="파일업로드" />
+			<input type="button" onclick="submitContents(this);" value="확인" />
+			<input type="button" onclick="history.back()" value="취소" />
 		</div>	
 	</form>
 </div>
 <script>
 	
+	var isEmpty=funtion(title){
+		if(title==""||title==null){
+			return alert("제목을 입력하세요")
+		} else{
+			return null
+		}
+	}
 	
+	var isEmpty=funtion(content){
+		if(content==""||title==null){
+			return alert("내용을 입력하세요")
+		} else{
+			return null
+		}
+	}
 	
 	var oEditors = [];
 
@@ -65,6 +79,7 @@
 			elClickedObj.form.submit();
 		} catch(e) {}
 	}
+
 
 </script>
 </body>

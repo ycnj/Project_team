@@ -24,7 +24,7 @@
 	<insert id="insert" parameterType="freeboardDto">
 		INSERT INTO freeboard
 		(num, id, title, content, viewCount, regdate)
-		VALUES(freeboard_seq.NEXTVAL, #{writer}, #{title}, #{content},
+		VALUES(freeboard_seq.NEXTVAL, #{id}, #{title}, #{content},
 		#{viewCount}, SYSDATE)
 	</insert>
 	<update id="update" parameterType="freeboardDto">
@@ -73,7 +73,7 @@
 			        FROM freeboard
 			        <where>
 						<if test="id != null">
-							OR writer LIKE '%'||#{id}||'%'
+							OR id LIKE '%'||#{id}||'%'
 						</if>
 						<if test="title != null">
 							OR title LIKE '%'||#{title}||'%'

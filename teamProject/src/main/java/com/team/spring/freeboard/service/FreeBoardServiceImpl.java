@@ -195,7 +195,7 @@ import com.team.spring.freeboard.dto.FreeBoardDto;
 		@Override
 		public void saveComment(HttpServletRequest request) {
 			//댓글 작성자
-			String writer=(String)request.getSession().getAttribute("id");
+			String id=(String)request.getSession().getAttribute("id");
 			//댓글의 그룹번호
 			int ref_group=Integer.parseInt(request.getParameter("ref_group"));
 			//댓글의 대상자 아이디
@@ -209,7 +209,7 @@ import com.team.spring.freeboard.dto.FreeBoardDto;
 			//댓글 정보를 CafeCommentDto 객체에 담는다.
 			FreeBoardCommentDto dto=new FreeBoardCommentDto();
 			dto.setNum(seq);
-			dto.setId(writer);
+			dto.setId(id);
 			dto.setTarget_id(target_id);
 			dto.setRef_group(ref_group);
 			dto.setContent(content);
