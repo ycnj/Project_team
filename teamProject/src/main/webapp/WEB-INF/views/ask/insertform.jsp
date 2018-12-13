@@ -24,6 +24,7 @@
 			<input type="button" onclick="location.href='list.do'" value="목록으로 가기"/>
 		</div>	
 	</form>
+
 </div>
 <script>
 	var oEditors = [];
