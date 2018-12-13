@@ -47,13 +47,14 @@ public class Post_codeController {
 	        queryUrl.append("postNew");
 	        queryUrl.append("&query=");
 	        queryUrl.append(query.replaceAll(" ", ""));
+	        queryUrl.append("&countPerPage=20&currentPage=1");
 	        System.out.println(queryUrl);
 	        // document 선언
 	        Document document = Jsoup.connect(queryUrl.toString()).get();
-	        System.out.println(Jsoup.connect(queryUrl.toString()));
+	        System.out.println(document);
 	        // errorCode 선언
 	        String errorCode = document.select("error_code").text();
-	        
+	        System.out.println(errorCode);
 	        if(null == errorCode || "".equals(errorCode))
 	        {
 	            Elements elements = document.select("item");
