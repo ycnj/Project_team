@@ -93,7 +93,11 @@
 		</tr>
 	</table>
 	<div class="content">${dto.content }</div>
+	<!-- 로그인된 아이디와 글작성자가 같을때만 수정, 삭제 링크 제공 -->
+	<c:if test="${ sessionScope.id eq dto.writer }">
+		<a href="updateform.do?num=${dto.num }">수정</a>
 		<a href="javascript:deleteConfirm(${dto.num })">삭제</a>
+	</c:if>
 	<!-- 댓글 목록 -->
 	<div class="comments">
 		<ul>
@@ -229,7 +233,7 @@
 		var isLogin=${not empty id};
 		if(isLogin==false){
 			alert("로그인 페이지로 이동 합니다.");
-			location.href="${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/cafe/detail.do?num=${dto.num}";
+			location.href="${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/ask/detail2.do?num=${dto.num}";
 			return false;//폼 전송 막기 
 		}
 	});

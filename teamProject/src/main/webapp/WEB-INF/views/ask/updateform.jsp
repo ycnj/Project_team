@@ -23,7 +23,6 @@
 		<div>
 				<input type="button" onclick="submitContents(this);" value="작성완료" />
 				<input type="button" onclick="history.back()" value="취소" />
-				<input type="button" onclick="location.href='../home.do'" value="돌아가기"/>>
 		</div>	
 	</form>
 </div>
