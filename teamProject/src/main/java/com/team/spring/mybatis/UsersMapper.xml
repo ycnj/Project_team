@@ -2,41 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="users">
 	<insert id="insert" parameterType="usersDto">
-		INSERT INTO users
-		(id, pwd, email, regdate)
-		VALUES(#{id}, #{pwd}, #{email}, SYSDATE)
+		INSERT INTO users_mp
+		(name, rrn, id, pwd, email, phon, addr1, addr2, addr3, gender, gubun, rdate)
+		VALUES(#{name}, #{rrn}, #{id}, #{pwd}, #{email},
+		 #{phon}, #{addr1}, #{addr2}, #{addr3}, #{gender}, 1, SYSDATE)
 	</insert>
 	<select id="getId" parameterType="usersDto" resultType="string">
 		SELECT id
-		FROM users
+		FROM users_mp
 		WHERE id=#{id} AND pwd=#{pwd}
 	</select>
 	<select id="isExist" parameterType="string" resultType="string">
 		SELECT id
-		FROM users
+		FROM users_mp
 		WHERE id=#{id}
 	</select>
 	<select id="getData" parameterType="string" resultType="usersDto">
-		SELECT id, email, regdate
-		FROM users
+		SELECT name, rrn, id, email, phon, addr1, addr2, addr3, gender, to_char(rdate, 'yyyy-mm-dd') rdate
+		FROM users_mp
 		WHERE id=#{id}
 	</select>
 	<update id="update" parameterType="usersDto">
-		UPDATE users
-		SET email=#{email}
+		UPDATE users_mp
+		SET email=#{email}, phon=#{phon}, addr1=#{addr1}, addr2=#{addr2}, addr3=#{addr3}
 		WHERE id=#{id}
 	</update>
 	<delete id="delete" parameterType="string">
-		DELETE FROM users
+		DELETE FROM users_mp
 		WHERE id=#{id}
 	</delete>
 	<select id="getPwd" parameterType="string" resultType="string">
 		SELECT pwd
-		FROM users
+		FROM users_mp
 		WHERE id=#{id}
 	</select>
 	<update id="updatePwd" parameterType="usersDto">
-		UPDATE users
+		UPDATE users_mp
 		SET pwd=#{pwd}
 		WHERE id=#{id}
 	</update>

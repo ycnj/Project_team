@@ -8,51 +8,13 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <!-- Google reCaptcha 에 관련된 자바 스크립트 로딩 -->
 <script src='https://www.google.com/recaptcha/api.js'></script>
-<script>
-function validate() {
-    var re = /^[a-zA-Z0-9]{4,12}$/
-    // 아이디와 패스워드가 적합한지 검사할 정규식
-    var re2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    // 이메일이 적합한지 검사할 정규식
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
-    var id = document.getElementById("id");
-    var pw = document.getElementById("pw");
-    var email = document.getElementById("email");
-    if(!check(re,id,"아이디는 4~12자의 영문 대소문자와 숫자로만 입력")) {
-        return false;
-    }
 
-    if(!check(re,pw,"패스워드는 4~12자의 영문 대소문자와 숫자로만 입력")) {
-        return false;
-    }
-    if(join.pw.value != join.pw2.value) {
-        alert("비밀번호가 다릅니다. 다시 확인해 주세요.");
-        join.checkupw.value = "";
-        join.checkupw.focus();
-        return false;
-    }
-
-    if(email.value=="") {
-        alert("이메일을 입력해 주세요");
-        email.focus();
-        return false;
-    }
-
-    if(!check(re2, email, "적합하지 않은 이메일 형식입니다.")) {
-        return false;
-    }
-
-    if(join.name.value=="") {
-        alert("이름을 입력해 주세요");
-        join.uname.focus();
-        return false;
-    }
-}
-</script>
 </head>
 <body>
 <h3>회원 가입 페이지 입니다.</h3>
-	<form action="signup.do" onsubmit="return validate();" name="join" method="post" id="signupForm" novalidate>
+	<form action="signup.do" method="post" id="signupForm" novalidate>
 		<label for="name">이름</label>
 		<input type="text" name="name" id="name" /><br />
 		<label for="rrn">생년월일</label>
@@ -69,84 +31,24 @@ function validate() {
 		<input type="email" name="email" id="email" /><br/>
 		<label for="phon">폰</label>
 		<input type="tel" name="phon" id="phon" /><br/>
-		
-<div class = "row">
-        <div class = "col-md-4">
-            <div class = "input-group">
-                <span class = "input-group-addon">우편번호</span>
-                <input type = "text" class = "form-control" id = "zip_code" name = "zip_code">
-                <span class = "input-group-addon">
-                <a href = "#" id = "zip_codeBtn" data-toggle="modal" data-target="#zip_codeModal">검색하기</a>
-                </span>                
-            </div>
-        </div>
-    </div>
-    <div class = "row">
-        <div class = "col-md-4">
-            <div class = "input-group">
-                <span class = "input-group-addon">주소</span>
-                <input type = "text" class = "form-control" id = "address1">                
-            </div>
-        </div>
-    </div>        
-    <div class = "row">
-        <div class = "col-md-4">
-            <div class = "input-group">
-                <span class = "input-group-addon">상세주소</span>
-                <input type = "text" class = "form-control" id = "address2">        
-            </div>
-        </div>
-    </div>    
-
-
+<div class="form-group">                   
+<input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly" >
+    <button type="button" class="btn btn-default" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>                               
+</div>
+<div class="form-group">
+    <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="addr2" id="addr2" type="text" readonly="readonly" />
+</div>
+<div class="form-group">
+    <input class="form-control" placeholder="상세주소" name="addr3" id="addr3" type="text"  />
+</div>		
 
 		<label for="gender">성별</label>
 		<input type="radio" name="gender" id="gender1" value="M" checked="checked" />남
 		<input type="radio" name="gender" id="gender2" value="F" />여		
 
-	<button type="submit" 
-	 	class='g-recaptcha'
-        data-sitekey='6LfpjHYUAAAAAGOFF-ysLI67xF8MIXiBCgglrTw9'
-        data-callback='onSubmit'>가입</button>
+	<button type="submit" >가입</button>
+
 </form>
-<div class="modal fade" id="zip_codeModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <h3 class="modal-title" id="myModalLabel">우편번호</h3>
-            </div>    
-            <div class="modal-body text-center">
-                 <form id = "zip_codeForm">
-                         <div class = "input-group">
-                            <span class = "input-group-addon">동 입력</span>
-                            <input type="text" class = "form-control" name="query" id="query">
-                            <span class = "input-group-btn">                                                
-                                <input type="submit" class = "btn btn-warning" value="검색" id="searchBtn" onkeydown="javascript:if(event.keyCode==13)">                                            
-                            </span>
-                        </div>
-                </form>
-                <p>
-                </p>
-                <div>
-                <div style="width:100%; height:200px; overflow:auto">
-                       <table class = "table text-center">
-                        <thead>
-                            <tr>
-                                <th style="width:150px;">우편번호</th>
-                                <th style="width:600px;">주소</th>
-                                </tr>
-                        </thead>
-                        <tbody id="zip_codeList"></tbody>
-                    </table>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.3.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
@@ -165,6 +67,8 @@ $("#checkBtn").click(function(){
 		method:"get",
 		data:{inputId:inputId},
 		success:function(responseData){
+			console.log($("#id").val());
+			console.log(responseData);
 			if(responseData.canUse){//사용 가능한 아이디라면
 				$("#checkResult").text("사용가능");
 				formValid=true;
@@ -183,68 +87,51 @@ $("#signupForm").on("submit", function(){
 	}
 });
 
-//우편번호
-$(function(){
-    // 검색버튼 눌렸을 때 함수 실행
-    $("#searchBtn").click(function(e){
-    	console.log($("#zip_codeForm").serialize());
-        e.preventDefault();
-        // ajax
-        $.ajax({
-            // zip_codeList controller 진입 url
-            url : "zip_codeList.do",
-            // zip_codeForm을 serialize 해줍니다.
-            data : $("#zip_codeForm").serialize(),
-            type : "POST",
-            // dataType 은 json형태로 보냅니다.
-            dataType : "json",
-            success : function(result){
-				alert("ㅇㅇ");
-            	$("#zip_codeList").empty();
-                var html = "";
-                if(result.errorCode != null && result.errorCode != ""){
-                    html += "<tr>";
-                    html += "    <td colspan='2'>";
-                    html +=            result.errorMessage;
-                    html += "    </td>";
-                    html += "</tr>";
-                }
-                else{
-                    // 검색결과를 list에 담는다.
-                    var list = result.list;
-                    
-                    for(var i = 0; i < list.length; i++){
-                        html += "<tr>";
-                        html += "    <td>";
-                        // 우편번호
-                        var zipcode = list[i].zipcode;
-                        // 주소
-                        var address = list[i].address;
+//다음에서 제공하는 주소검색
+function execPostCode() {
+         new daum.Postcode({
+             oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
  
-                        html +=         list[i].zipcode;
-                        html += "    </td>";
-                        html += "    <td>";
-                        html +=     '<a href="#" onclick="put(\'' + list[i].address + '\',\'' + zipcode + '\')">' + address + '</a>';
-                        html += "    </td>";
-                        html += "</tr>";
-                    }
+                // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+                var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+ 
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
                 }
-                // 완성된 html(우편번호 list)를 zip_codeList밑에 append
-                $("#zip_codeList").append(html);
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+                // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+                if(fullRoadAddr !== ''){
+                    fullRoadAddr += extraRoadAddr;
+                }
+ 
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                console.log(data.zonecode);
+                console.log(fullRoadAddr);
+                
+                
+                $("[name=addr1]").val(data.zonecode);
+                $("[name=addr2]").val(fullRoadAddr);
+                
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('addr1').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('addr2').value = fullAddr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("addr3").focus();
             }
-        }); 
-    });
-});
- 
-// 원하는 우편번호 선택시 함수 실행
-function put(address,zipcode){
-    var address = address;
-    var zipcode = zipcode;
-    // 모달창 닫기
-    $("#zip_codeModal").modal("hide");
-    $("#zip_code").val(zipcode);
-    $("#address1").val(address);
-}
+         }).open();
+     }
 
 
 </script>
