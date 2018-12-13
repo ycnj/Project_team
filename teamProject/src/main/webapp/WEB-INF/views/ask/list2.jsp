@@ -11,6 +11,7 @@
 <body>
 <div class="container">
 	<a href="insertform.do">새글 작성</a>
+	<a href="../home.do">메인으로 돌아가기</a>
 	<h3>FAQ 게시판 목록입니다.</h3>
 	<table class="table table-bordered">
 		<thead>
@@ -25,7 +26,7 @@
 		<c:forEach items="${list }" var="tmp">
 			<tr>
 				<td>${tmp.num }</td>
-				<td><a href="detail.do?num=${tmp.num }&condition=${condition}&keyword=${encodedKeyword}">${tmp.title }</a></td>
+				<td><a href="detail2.do?num=${tmp.num }&condition=${condition}&keyword=${encodedKeyword}">${tmp.title }</a></td>
 				<td>${tmp.viewCount }</td>
 				<td>${tmp.regdate }</td>
 			</tr>

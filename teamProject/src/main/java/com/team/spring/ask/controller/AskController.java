@@ -54,6 +54,12 @@ public class AskController {
 		return new ModelAndView("ask/detail");
 	}
 	
+	@RequestMapping("/ask/detail2")
+	public ModelAndView detail2(HttpServletRequest request) {
+		service.getDetail(request);
+		return new ModelAndView("ask/detail2");
+	}
+	
 	@RequestMapping("/ask/delete")
 	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
 		service.deleteContent(num);

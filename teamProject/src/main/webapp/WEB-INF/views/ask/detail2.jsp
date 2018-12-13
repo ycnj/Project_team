@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/ask/detail.jsp</title>
+<title>/views/ask/detail2.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <style>
 	/* 글내용의 경계선 표시 */
@@ -63,16 +63,16 @@
 </head>
 <body>
 <div class="container">
-	<a href="list.do">글 목록보기</a>
+	<a href="list2.do">글 목록보기</a>
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
 	<h3>카페 글 상세 보기</h3>
 	<c:if test="${dto.prevNum ne 0 }">
-		<a href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
+		<a href="detail2.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
 	</c:if>
 	<c:if test="${dto.nextNum ne 0 }">
-		<a href="detail.do?num=${dto.nextNum }&condition=${condition}&keyword=${encodedKeyword}">다음글</a>
+		<a href="detail2.do?num=${dto.nextNum }&condition=${condition}&keyword=${encodedKeyword}">다음글</a>
 	</c:if>
 	<table class="table table-bordered table-condensed">
 		<tr>
