@@ -24,6 +24,15 @@ public class AskController {
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
 		return new ModelAndView("ask/list");
 	}
+	
+	@RequestMapping("/ask/list2")
+	public ModelAndView getList2(HttpServletRequest request) {
+		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
+		service.getList(request);
+		//view 페이지로 forward 이동해서 글 목록 출력하기 
+		return new ModelAndView("ask/list2");
+	}
+	
 	@RequestMapping("/ask/insertform")
 	public ModelAndView authInsertform(HttpServletRequest request) {
 		//view 페이지로 forward 이동해서 새글 작성 폼 출력하기 

@@ -25,6 +25,7 @@
 <ul>
 	<li><a href="users/signup_form.do">회원가입</a></li>
 	<li><a href="ask/list.do">QnA게시판 바로가기</a></li>
+	<li><a href="ask/list2.do">QnA게시판 바로가기</a></li>
 	<li><a href="ask/insertform.do">질문하러 가기</a></li>
 </ul>
 </body>
