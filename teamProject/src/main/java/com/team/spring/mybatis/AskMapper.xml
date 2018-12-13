@@ -24,7 +24,7 @@
 	<insert id="insert" parameterType="askDto">
 		INSERT INTO board_ask
 		(num, writer, title, content, viewCount, regdate)
-		VALUES(board_cafe_seq.NEXTVAL, #{writer}, #{title}, #{content},
+		VALUES(board_ask_seq.NEXTVAL, #{writer}, #{title}, #{content},
 		#{viewCount}, SYSDATE)
 	</insert>
 	<update id="update" parameterType="askDto">
@@ -50,7 +50,7 @@
 		FROM (SELECT num, writer, title, content, viewCount, regdate,
 				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
 				LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum
-			  FROM board_cafe
+			  FROM board_ask
 	        <where>
 				<if test="writer != null">
 					OR writer LIKE '%'||#{writer}||'%'

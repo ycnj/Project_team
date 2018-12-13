@@ -21,27 +21,13 @@
 	</c:otherwise>
 </c:choose>
 
-<h3>인덱스 페이지 입니다.</h3>
+<h3>페이지1</h3>
 <ul>
 	<li><a href="users/signup_form.do">회원가입</a></li>
-	<li><a href="ask/list.do">질문게시판 목록보기</a></li>
-	<li><a href="angular1/http.jsp">angular $http 테스트</a></li>
-</ul>
-<h4>공지사항</h4>
-<ul>
-	<c:forEach var="tmp" items="${noticeList }">
-		<li>${tmp }</li>
-	</c:forEach>
+	<li><a href="ask/list.do">QnA게시판 바로가기</a></li>
+	<li><a href="ask/insertform.do">질문하러 가기</a></li>
 </ul>
 </body>
 </html>
-
-
-
-
-
-
-
-
 
 
