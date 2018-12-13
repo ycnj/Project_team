@@ -7,18 +7,18 @@ public class UsersDto {
 	private String id; //회원아이디
 	private String pwd; //회원비밀번호
 	private String email;//회원이메일
-	private int phon; //핸드폰
+	private String phon; //핸드폰
 	private String addr1; //지번
 	private String addr2; //주소
 	private String addr3; //상세주소
 	private String gender; //성별
 	private int gubun; //구분
-	private String date; //가입일
+	private String rdate; //가입일
 	
 	public UsersDto() {}
 
-	public UsersDto(String name, String rrn, String id, String pwd, String email, int phon, String addr1, String addr2,
-			String addr3, String gender, int gubun, String date) {
+	public UsersDto(String name, String rrn, String id, String pwd, String email, String phon, String addr1, String addr2,
+			String addr3, String gender, int gubun, String rdate) {
 		super();
 		this.name = name;
 		this.rrn = rrn;
@@ -31,7 +31,7 @@ public class UsersDto {
 		this.addr3 = addr3;
 		this.gender = gender;
 		this.gubun = gubun;
-		this.date = date;
+		this.rdate = rdate;
 	}
 
 	public String getName() {
@@ -74,11 +74,11 @@ public class UsersDto {
 		this.email = email;
 	}
 
-	public int getPhon() {
+	public String getPhon() {
 		return phon;
 	}
 
-	public void setPhon(int phon) {
+	public void setPhon(String phon) {
 		this.phon = phon;
 	}
 
@@ -122,12 +122,12 @@ public class UsersDto {
 		this.gubun = gubun;
 	}
 
-	public String getDate() {
-		return date;
+	public String getRdate() {
+		return rdate;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setRdate(String date) {
+		this.rdate = date;
 	}
 
 	
