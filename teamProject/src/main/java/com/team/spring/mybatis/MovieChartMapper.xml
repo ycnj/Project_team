@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="movieChart">
+	<select id="getCount" resultType="int" parameterType="movieChartDto">
+		SELECT NVL(MAX(ROWNUM), 0) 
+		FROM movieInfo
+		<where>
+			<if test="writer != null">
+				OR writer LIKE '%'||#{writer}||'%'
+			</if>
+			<if test="title != null">
+				OR title LIKE '%'||#{title}||'%'
+			</if>
+			<if test="orgFileName != null">
+				OR orgFileName LIKE '%'||#{orgFileName}||'%'
+			</if>
+		</where>
+	</select>
+	<select id="getList" parameterType="movieChartDto" resultType="movieChartDto">
+	   SELECT *
+	   FROM (SELECT result1.*, ROWNUM rnum
+	   		 FROM (SELECT num,writer,title,content,opendate,liketo,orgFileName,fileSize,regdate
+		           FROM movieInfo
+					<where>
+						<if test="writer != null">
+							OR writer LIKE '%'||#{writer}||'%'
+						</if>
+						<if test="title != null">
+							OR title LIKE '%'||#{title}||'%'
+						</if>
+						<if test="orgFileName != null">
+							OR orgFileName LIKE '%'||#{orgFileName}||'%'
+						</if>
+					</where>		           
+		           ORDER BY num DESC) result1 )
+	   <![CDATA[ 
+	    WHERE rnum >= #{startRowNum} AND rnum <=  #{endRowNum}
+	   ]]>
+	</select>
+	<delete id="delete" parameterType="int">
+		DELETE FROM movieInfo
+		WHERE num=#{num}
+	</delete>
+	<select id="getData" parameterType="int" resultType="movieChartDto">
+		SELECT num,writer,title,content,opendate,liketo,orgFileName,saveFileName,fileSize,
+		downCount,regdate
+		FROM movieInfo
+		WHERE num=#{num}
+	</select>
+	<insert id="insert" parameterType="movieChartDto">
+		INSERT INTO movieInfo
+		(num, writer, title,content,opendate,liketo, orgFileName, saveFileName, fileSize, regdate)
+		VALUES(movieInfo_seq.NEXTVAL, #{writer}, #{title},#{content},#{opendate},#{liketo},
+		#{orgFileName}, #{saveFileName}, #{fileSize}, SYSDATE)
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

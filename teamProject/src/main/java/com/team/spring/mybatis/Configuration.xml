@@ -4,11 +4,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.team.spring.users.dto.UsersResDto" alias="usersRes"/>
+		<typeAlias type="com.team.spring.users.dto.UsersResDto" alias="usersResDto"/>
+		<typeAlias type="com.team.spring.movieChart.dto.MovieChartDto" alias="movieChartDto"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="com/team/spring/mybatis/UsersResMapper.xml"/>
+		<mapper resource="com/team/spring/mybatis/MovieChartMapper.xml"/>
 	</mappers>	
 </configuration>
 

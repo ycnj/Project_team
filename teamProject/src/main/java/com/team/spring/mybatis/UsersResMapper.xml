@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="usersRes">
-	<insert id="insert" parameterType="usersRes">
+	<insert id="insert" parameterType="usersResDto">
 		INSERT INTO usersRes_mp
 		(id, num, movieName, price, paymentWay, currCon, point, regdate)
 		VALUES(#{id}, usersRes_seq.NEXTVAL, #{movieName}, #{moviePrice}, #{paymentWay}, #{currCon}, #{point}, SYSDATE)
@@ -11,12 +11,12 @@
 		FROM usersRes_mp
 		WHERE id=#{id} AND currCon=0
 	</select>
-	<select id="getData" parameterType="string" resultType="usersRes">
+	<select id="getData" parameterType="string" resultType="usersResDto">
 		SELECT id, num, movieName, price, paymentWay, currCon, point, regdate
 		FROM usersRes_mp
 		WHERE id=#{id}
 	</select>
-	<update id="cancelRes" parameterType="usersRes">
+	<update id="cancelRes" parameterType="usersResDto">
 		UPDATE usersRes_mp
 		SET currCon=1, point=#{point}
 		WHERE id=#{id}
