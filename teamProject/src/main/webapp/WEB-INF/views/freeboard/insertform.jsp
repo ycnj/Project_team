@@ -12,7 +12,7 @@
 <body>
 <div class="container">
 	<p><strong>${id }</strong>님 로그인중...</p>
-	<h3>카페 새글 작성 폼 입니다.</h3>
+	<h3>게시판 새 글</h3>
 	<form action="insert.do" method="post">
 		<label for="title">제목</label>
 		<input type="text" name="title" id="title"/>
@@ -20,10 +20,10 @@
 		<label for="content">내용</label>
 		<textarea name="content" id="content" style="width:100%;height:400px;display:none;"></textarea>
 		<div>
-			<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
-			<input type="button" onclick="showHTML();" value="본문 내용 가져오기" />
-			<input type="button" onclick="submitContents(this);" value="서버로 내용 전송" />
-			<input type="button" onclick="setDefaultFont();" value="기본 폰트 지정하기 (궁서_24)" />
+			<input type="button" onclick="location.href='../file/upload_form.do'" value="파일업로드" />
+			<input type="button" onclick="submitContents(this);" value="확인" />
+			<input type="button" onclick="history.back()" value="취소" />
+
 		</div>	
 	</form>
 </div>
@@ -53,15 +53,6 @@
 		fCreator: "createSEditor2"
 	});
 
-	function pasteHTML() {
-		var sHTML = "<span style='color:#FF0000;'>이미지도 같은 방식으로 삽입합니다.<\/span>";
-		oEditors.getById["content"].exec("PASTE_HTML", [sHTML]);
-	}
-
-	function showHTML() {
-		var sHTML = oEditors.getById["content"].getIR();
-		alert(sHTML);
-	}
 		
 	function submitContents(elClickedObj) {
 		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
@@ -73,11 +64,7 @@
 		} catch(e) {}
 	}
 
-	function setDefaultFont() {
-		var sDefaultFont = '궁서';
-		var nFontSize = 24;
-		oEditors.getById["content"].setDefaultFont(sDefaultFont, nFontSize);
-	}
+	
 </script>
 </body>
 </html>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="file">	
+	<select id="getCount" resultType="int" parameterType="fileDto">
+		SELECT NVL(MAX(ROWNUM), 0) 
+		FROM fileboard
+		<where>
+			<if test="id != null">
+				OR id LIKE '%'||#{id}||'%'
+			</if>
+			<if test="title != null">
+				OR title LIKE '%'||#{title}||'%'
+			</if>
+			<if test="orgFileName != null">
+				OR orgFileName LIKE '%'||#{orgFileName}||'%'
+			</if>
+		</where>
+	</select>
+	<select id="getList" parameterType="fileDto" resultType="fileDto">
+	   SELECT *
+	   FROM (SELECT result1.*, ROWNUM rnum
+	   		 FROM (SELECT num,id,title,orgFileName,fileSize,downCount,regdate
+		           FROM fileboard
+					<where>
+						<if test="id != null">
+							OR id LIKE '%'||#{id}||'%'
+						</if>
+						<if test="title != null">
+							OR title LIKE '%'||#{title}||'%'
+						</if>
+						<if test="orgFileName != null">
+							OR orgFileName LIKE '%'||#{orgFileName}||'%'
+						</if>
+					</where>		           
+		           ORDER BY num DESC) result1 )
+	   <![CDATA[ 
+	    WHERE rnum >= #{startRowNum} AND rnum <=  #{endRowNum}
+	   ]]>
+	</select>
+	<delete id="delete" parameterType="int">
+		DELETE FROM fileboard
+		WHERE num=#{num}
+	</delete>
+	<select id="getData" parameterType="int" resultType="fileDto">
+		SELECT num,id,title,orgFileName,saveFileName,fileSize,
+		downCount,regdate
+		FROM fileboard
+		WHERE num=#{num}
+	</select>
+	<insert id="insert" parameterType="fileDto">
+		INSERT INTO fileboard
+		(num, id, title, orgFileName, saveFileName, fileSize, regdate)
+		VALUES(fileboard_seq.NEXTVAL, #{id}, #{title},
+		#{orgFileName}, #{saveFileName}, #{fileSize}, SYSDATE)
+	</insert>
+	<update id="addDownCount" parameterType="int">
+		UPDATE fileboard
+		SET downCount=downCount+1
+		WHERE num=#{num}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
