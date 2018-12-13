@@ -11,6 +11,7 @@
 <body>
 <div class="container">
 	<h3>FAQ 게시판 목록입니다.</h3>
+	<a href="../home.do">메인페이지로 돌아가기</a>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
