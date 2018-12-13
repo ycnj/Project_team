@@ -9,6 +9,20 @@ CREATE TABLE event_board
   VIEWCOUNT NUMBER,
   startRowNum NUMBER,
   endRowNum NUMBER
-)
+);
 
-CREATE SEQUENCE event_board_SEQ
+CREATE SEQUENCE event_board_SEQ;
+
+CREATE TABLE event_mp
+(
+  NUM        NUMBER,
+  WRITER     VARCHAR2(100 BYTE)                 NOT NULL,
+  TITLE      VARCHAR2(100 BYTE)                 NOT NULL,
+  CONTENT    CLOB,
+  VIEWCOUNT  NUMBER,
+  startRowNum NUMBER,
+  endRowNum NUMBER,
+  REGDATE    DATE
+);
+
+CREATE SEQUENCE event_mp_SEQ;

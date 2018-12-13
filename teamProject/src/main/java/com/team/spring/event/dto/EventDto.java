@@ -1,33 +1,32 @@
-package com.team.event.dto;
+package com.team.spring.event.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
 public class EventDto {
 	private int num;
 	private String writer;
-	private String caption;
 	private String content;
-	private String imagePath;
-	private String regdate;
 	private long viewCount;
-	
+	private String regdate;	
 	private int startRowNum;
 	private int endRowNum;
+	private int prevNum;
+	private int nextNum;
 	
 	public EventDto() {}
 
-	public EventDto(int num, String writer, String caption, String content, String imagePath, String regdate,
-			long viewCount, int startRowNum, int endRowNum) {
+	public EventDto(int num, String writer, String content, long viewCount, String regdate, int startRowNum,
+			int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.num = num;
 		this.writer = writer;
-		this.caption = caption;
 		this.content = content;
-		this.imagePath = imagePath;
-		this.regdate = regdate;
 		this.viewCount = viewCount;
+		this.regdate = regdate;
 		this.startRowNum = startRowNum;
 		this.endRowNum = endRowNum;
+		this.prevNum = prevNum;
+		this.nextNum = nextNum;
 	}
 
 	public int getNum() {
@@ -46,14 +45,6 @@ public class EventDto {
 		this.writer = writer;
 	}
 
-	public String getCaption() {
-		return caption;
-	}
-
-	public void setCaption(String caption) {
-		this.caption = caption;
-	}
-
 	public String getContent() {
 		return content;
 	}
@@ -62,12 +53,12 @@ public class EventDto {
 		this.content = content;
 	}
 
-	public String getImagePath() {
-		return imagePath;
+	public long getViewCount() {
+		return viewCount;
 	}
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setViewCount(long viewCount) {
+		this.viewCount = viewCount;
 	}
 
 	public String getRegdate() {
@@ -76,14 +67,6 @@ public class EventDto {
 
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
-	}
-
-	public long getViewCount() {
-		return viewCount;
-	}
-
-	public void setViewCount(long viewCount) {
-		this.viewCount = viewCount;
 	}
 
 	public int getStartRowNum() {
@@ -100,6 +83,22 @@ public class EventDto {
 
 	public void setEndRowNum(int endRowNum) {
 		this.endRowNum = endRowNum;
+	}
+
+	public int getPrevNum() {
+		return prevNum;
+	}
+
+	public void setPrevNum(int prevNum) {
+		this.prevNum = prevNum;
+	}
+
+	public int getNextNum() {
+		return nextNum;
+	}
+
+	public void setNextNum(int nextNum) {
+		this.nextNum = nextNum;
 	}
 	
 }
