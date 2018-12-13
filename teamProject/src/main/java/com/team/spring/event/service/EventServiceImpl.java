@@ -38,7 +38,7 @@ public class EventServiceImpl implements EventService {
 				int endRowNum=pageNum*PAGE_ROW_COUNT;
 				
 				//전체 row 의 갯수를 읽어온다.
-				int totalRow=EventDa
+				int totalRow=10;
 				//전체 페이지의 갯수 구하기
 				int totalPageCount=(int)Math.ceil(totalRow/(double)PAGE_ROW_COUNT);
 				//시작 페이지 번호
