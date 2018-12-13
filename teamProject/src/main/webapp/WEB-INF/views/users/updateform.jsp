@@ -84,12 +84,14 @@ function execPostCode() {
                 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('addr1').value = data.zonecode; //5자리 새우편번호 사용
-                document.getElementById('addr2').value = fullAddr;
+                document.getElementById('addr2').value = fullRoadAddr;
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById("addr3").focus();
             }
          }).open();
      }
+
+
 </script>
 <a href="pwd_updateform.do">비밀번호 수정</a>
 </body>
