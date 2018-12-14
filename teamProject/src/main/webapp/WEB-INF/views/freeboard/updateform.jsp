@@ -6,13 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/freeboard/updateform.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
-<script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<script
+	src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 </head>
 <body>
 <div class="container">
-	<p><strong>${dto.id }</strong>님이 작성한글</p>
-	<h3>글 정보 수정 폼</h3>
+	<p><strong>${dto.writer }</strong>님이 작성한글</p>
+	<h3>글 정보 수정 </h3>
 	<form action="update.do" method="post">
 		<input type="hidden" name="num" value="${dto.num }" />
 		<label for="title">제목</label>
@@ -20,13 +22,15 @@
 		<br/>
 		<label for="content">내용</label>
 		<textarea name="content" id="content" style="width:100%;height:400px;display:none;">${dto.content }</textarea>
-		<div>
-			<input type="button" onclick="location.href='../file/upload_form.do'" value="파일업로드" />
-			<input type="button" onclick="submitContents(this);" value="확인" />
-			<input type="button" onclick="history.back()" value="취소" />
-		</div>	
-	</form>
-</div>
+			<div>
+				<input type="button" onclick="location.href='../file/upload_form.do'" value="파일업로드" />
+				<input type="button" onclick="submitContents(this);" value="확인" />
+				<input type="button" onclick="history.back()" value="취소" />
+
+			</div>
+		</form>
+	</div>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 <script>
 	
 	var isEmpty=funtion(title){
@@ -75,11 +79,21 @@
 		
 		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
 		
-		try {
-			elClickedObj.form.submit();
-		} catch(e) {}
-	}
-
+	var title=$("#title").val();
+			var content=$("#content").val();
+			if (title== "" || title == null) {
+				alert("제목을 입력하세요");
+				return false;
+			}
+			if (content == '<p>&nbsp;</p>') {
+				alert("내용을 입력하세요");
+				return false;
+			}
+			try {
+				elClickedObj.form.submit();
+			} catch (e) {
+			}
+		}
 
 </script>
 </body>

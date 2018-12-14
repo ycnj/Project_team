@@ -11,7 +11,7 @@ CREATE SEQUENCE freeboard_seq
 
 
 --댓글 정보 저장 테이블
-CREATE TABLE freeboard_comment(
+CREATE TABLE freeboardComment(
 num NUMBER PRIMARY KEY,						--댓글 글번호
 id VARCHAR2(100),							--댓글 작성자
 content VARCHAR2(500),						-- 내용
