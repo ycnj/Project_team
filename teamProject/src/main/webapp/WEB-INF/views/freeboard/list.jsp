@@ -155,7 +155,6 @@ h4 {
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
-					<a href="insertform.do">새글 작성</a>
 					<h3>게시판 글 목록 </h3>
 					<table class="table table-bordered">
 						<thead>
@@ -179,7 +178,8 @@ h4 {
 						</c:forEach>
 						</tbody>
 					</table>
-					<div class="page-display">
+					<a class="btn btn-primary pull-right" href="insertform.do">글쓰기</a>
+					<div class="page-display " style="text-align:center;">
 						<ul class="pagination">
 						<c:choose>
 							<c:when test="${startPageNum ne 1}">
@@ -193,6 +193,7 @@ h4 {
 								</li>
 							</c:otherwise>
 						</c:choose>
+						
 						<c:forEach var="i" begin="${startPageNum}" end="${endPageNum }" >
 							<c:choose>
 								<c:when test="${pageNum eq i }">
@@ -220,6 +221,7 @@ h4 {
 								</li>
 							</c:otherwise>
 						</c:choose>
+						
 						</ul>
 					</div>
 					<form action="list.do" method="get">

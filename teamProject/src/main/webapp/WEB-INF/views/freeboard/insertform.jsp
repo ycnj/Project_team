@@ -171,7 +171,7 @@ h4 {
 		<p>
 			<strong>${id }</strong>님 로그인중...
 		</p>
-		<h3>게시판 새 글</h3>
+		<h3>새 글 작성</h3>
 		<form action="insert.do" method="post">
 		<label for="title">제목</label>
 		<input type="text" name="title" id="title"/>
