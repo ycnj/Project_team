@@ -162,7 +162,7 @@
 			<form action="comment_insert.do" method="post">
 				<!-- 댓글의 그룹번호는 원글의 글번호 -->
 				<input type="hidden" name="ref_group" value="${dto.num }"/>
-				<!-- 댓글의 대상자는 원글의 작성자 -->
+				<!-- 댓글의 대상자는 z원글의 작성자 -->
 				<input type="hidden" name="target_id" value="${dto.writer }"/>
 				<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다.</c:if></textarea>
 				<button type="submit">등록</button>
@@ -258,6 +258,21 @@
 			location.href="delete.do?num="+num;
 		}
 	}
+    var title=$("#title").val();
+    var content=$("#content").val();
+    if (title== "" || title == null) {
+       alert("제목을 입력하세요");
+       return false;
+    }
+    if (content == '<p>&nbsp;</p>') {
+       alert("내용을 입력하세요");
+       return false;
+    }
+    try {
+       elClickedObj.form.submit();
+    } catch (e) {
+    }
+ }	
 </script>
 </body>
 </html>
