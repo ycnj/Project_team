@@ -46,7 +46,7 @@
 	
 	<context:component-scan base-package="com.team.spring" />
 	<!-- @Aspect 가 bean 이 되도록 컴포넌트 스켄 -->
-	<context:component-scan base-package="com.gura.spring07.aspect" />
+	<context:component-scan base-package="com.team.spring.aspect" />
 	<!-- cafe 하위 페키지를 모두 컴포넌트 스켄하기 -->
 	<context:component-scan base-package="com.team.spring.event.*" />
 		

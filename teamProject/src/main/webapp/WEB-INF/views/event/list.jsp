@@ -10,17 +10,14 @@
 </head>
 <body>
 <div class="container">
-	<a href="eventinsertform.do">새글 작성</a>
+	<a href="insertform.do">관리자용 페이지</a>
 	<h3>이벤트 목록 입니다~</h3>
 	<div class="row">
 	<c:forEach items="${list }" var="tmp">
 		<div class="col-xs-6 col-sm-3">
-			<p>번호(임시) : ${tmp.num }</p>
-			<img src="${pageContext.request.contextPath}${tmp.imagePath}" class="img-responsive" />
-			<p>캡션 : ${tmp.caption }</p>
-			
-		</div>
-		
+			<p>${tmp.content }</p>
+			<p><a href="detail.do?num=${tmp.num }">내용 : ${tmp.title }</a></p>	
+		</div>		
 	</c:forEach>
 	</div>
 </div>

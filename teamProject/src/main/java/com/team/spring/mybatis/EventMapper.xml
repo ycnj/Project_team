@@ -1,15 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="event">	
+	<select id="getCount" resultType="int" parameterType="eventDto">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM event_mp
+	</select>
 	<select id="getList" parameterType="eventDto" resultType="eventDto">
-		SELECT *
-		FROM event_board
+		SELECT writer, title, content, viewCount
+		FROM event_mp
 		ORDER BY num DESC
 	</select>
-	<insert id="insert">
-		INSERT INTO event_board
-		()
+	<update id="addViewCount" parameterType="int">
+		UPDATE event_mp
+		SET viewCount=viewCount+1
+		WHERE num=#{num}
+	</update>
+	<insert id="insert" parameterType="eventDto">
+		INSERT INTO event_mp
+		(num, writer, title, content, viewCount, regdate)
+		VALUES(event_mp_seq.NEXTVAL, #{writer}, #{title}, #{content},
+		#{viewCount}, SYSDATE)
 	</insert>
+	<update id="update" parameterType="eventDto">
+		UPDATE event_mp
+		SET title=#{title}, content=#{content}
+		WHERE num=#{num}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM event_mp
+		WHERE num=#{num}
+	</delete>
+	<select id="getData" parameterType="int" resultType="eventDto">
+		SELECT result1.*
+		FROM (SELECT num, writer, title, content, viewCount, regdate,
+				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
+				LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum
+			  FROM event_mp
+			  ORDER BY num DESC) result1
+		WHERE num=#{num}
+	</select>
+	<select id="getData2" parameterType="eventDto" resultType="eventDto">
+		SELECT result1.*
+		FROM (SELECT num, writer, title, content, viewCount, regdate,
+				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
+				LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum
+			  FROM event_mp
+	        <where>
+				<if test="writer != null">
+					OR writer LIKE '%'||#{writer}||'%'
+				</if>
+				<if test="title != null">
+					OR title LIKE '%'||#{title}||'%'
+				</if>
+				<if test="content != null">
+					OR content LIKE '%'||#{content}||'%'
+				</if>
+			</where>
+			  ORDER BY num DESC) result1
+		WHERE num=#{num}
+	</select>	
 </mapper>
 
 

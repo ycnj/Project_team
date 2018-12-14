@@ -15,14 +15,12 @@ CREATE SEQUENCE event_board_SEQ;
 
 CREATE TABLE event_mp
 (
-  NUM        NUMBER,
-  WRITER     VARCHAR2(100 BYTE)                 NOT NULL,
-  TITLE      VARCHAR2(100 BYTE)                 NOT NULL,
-  CONTENT    CLOB,
-  VIEWCOUNT  NUMBER,
-  startRowNum NUMBER,
-  endRowNum NUMBER,
-  REGDATE    DATE
+  num        NUMBER,
+  writer     VARCHAR2(100 BYTE)                 NOT NULL,
+  title      VARCHAR2(100 BYTE)                 NOT NULL,
+  content    CLOB,
+  viewCount  NUMBER,
+  regdate    DATE
 );
 
 CREATE SEQUENCE event_mp_SEQ;

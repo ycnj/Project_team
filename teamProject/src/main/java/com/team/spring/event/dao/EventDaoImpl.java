@@ -14,6 +14,11 @@ public class EventDaoImpl implements EventDao{
 	private SqlSession session;
 	
 	@Override
+	public int getCount(EventDto dto) {
+		return session.selectOne("event.getCount", dto);
+	}
+	
+	@Override
 	public List<EventDto> getList(EventDto dto) {		
 		return session.selectList("event.getList", dto);
 	}
@@ -36,6 +41,16 @@ public class EventDaoImpl implements EventDao{
 	@Override
 	public void update(EventDto dto) {
 		session.update("event.update", dto);		
+	}
+
+	@Override
+	public EventDto getData(EventDto dto) {
+		return session.selectOne("event.getdata2", dto);
+	}
+
+	@Override
+	public EventDto getData(int num) {
+		return session.selectOne("event.getData", num);
 	}
 
 }

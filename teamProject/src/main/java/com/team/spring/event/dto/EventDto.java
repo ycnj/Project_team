@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class EventDto {
 	private int num;
 	private String writer;
+	private String title;
 	private String content;
 	private long viewCount;
 	private String regdate;	
@@ -15,11 +16,12 @@ public class EventDto {
 	
 	public EventDto() {}
 
-	public EventDto(int num, String writer, String content, long viewCount, String regdate, int startRowNum,
-			int endRowNum, int prevNum, int nextNum) {
+	public EventDto(int num, String writer, String title, String content, long viewCount, String regdate,
+			int startRowNum, int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.num = num;
 		this.writer = writer;
+		this.title = title;
 		this.content = content;
 		this.viewCount = viewCount;
 		this.regdate = regdate;
@@ -43,6 +45,14 @@ public class EventDto {
 
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getContent() {
