@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import com.team.spring.ask.dto.AskCommentDto;
 import com.team.spring.ask.dto.AskDto;
 
 public interface AskService {
@@ -13,6 +14,9 @@ public interface AskService {
 	public void deleteContent(int num);
 	public void getUpdateData(ModelAndView mView, int num);
 	public void updateContent(AskDto dto);
+	public void deleteComment(int num);
+	public void saveComment(HttpServletRequest request);
+	public void updateComment(AskCommentDto dto);
 }
 
 

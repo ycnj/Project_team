@@ -6,11 +6,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="com.team.spring.ask.dto.AskDto" alias="askDto"/>
 		<typeAlias type="com.team.spring.users.dto.UsersDto" alias="usersDto"/>
+		<typeAlias type="com.team.spring.ask.dto.AskCommentDto" 
+			alias="askCommentDto"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="com/team/spring/mybatis/AskMapper.xml" />
 		<mapper resource="com/team/spring/mybatis/UsersMapper.xml" />
+		<mapper resource="com/team/spring/mybatis/AskCommentMapper.xml" />
 	</mappers>	
 </configuration>
 

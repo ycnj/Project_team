@@ -5,7 +5,7 @@ title VARCHAR2(100),
 content CLOB,
 viewCount NUMBER,
 regdate DATE
-)
+);
 
 CREATE SEQUENCE board_Ask_seq;
 

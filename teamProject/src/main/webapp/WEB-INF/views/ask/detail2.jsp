@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/ask/detail.jsp</title>
+<title>/views/ask/detail2.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <style>
 	/* 글내용의 경계선 표시 */
@@ -147,17 +147,6 @@
 		</c:forEach>
 		</ul>
 		<div class="clearfix"></div>
-		<!-- 원글에 댓글을 작성할수 있는 폼 -->
-		<div class="comment_form">
-			<form action="comment_insert.do" method="post">
-				<!-- 댓글의 그룹번호는 원글의 글번호 -->
-				<input type="hidden" name="ref_group" value="${dto.num }"/>
-				<!-- 댓글의 대상자는 원글의 작성자 -->
-				<input type="hidden" name="target_id" value="${dto.writer }"/>
-				<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다.</c:if></textarea>
-				<button type="submit">등록</button>
-			</form>
-		</div>
 	</div>
 </div>
 </body>

@@ -10,12 +10,13 @@
 </head>
 <body>
 <div class="container">
-	<a href="insertform.do">새글 작성</a>
 	<h3>FAQ 게시판 목록입니다.</h3>
+	<a href="../home.do">메인페이지로 돌아가기</a>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th>번호</th>
+				<th>작성자</th>
 				<th>제목</th>
 				<th>조회수</th>
 				<th>등록일</th>
@@ -25,6 +26,7 @@
 		<c:forEach items="${list }" var="tmp">
 			<tr>
 				<td>${tmp.num }</td>
+				<td>${tmp.writer }</td>
 				<td><a href="detail.do?num=${tmp.num }&condition=${condition}&keyword=${encodedKeyword}">${tmp.title }</a></td>
 				<td>${tmp.viewCount }</td>
 				<td>${tmp.regdate }</td>
