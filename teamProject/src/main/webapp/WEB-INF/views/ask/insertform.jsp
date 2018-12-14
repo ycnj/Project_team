@@ -19,10 +19,10 @@
 		<h3>질문하기</h3>
 		<form action="insert.do" method="post" id="insertId">
 		<label for="title">제목</label>
-		<input type="text" name="title" id="title"/>
+		<input style="height:50px; width:400px"type="text" name="title" id="title"/>
 		<br/>
 		<label for="content">내용</label>
-		<textarea name="content" id="content" style="width:100%;height:400px;display:none;"></textarea>
+		<textarea name="content" id="content" style="width:400px;height:400px;display:none;"></textarea>
 			<div>
 				<input type="button" onclick="submitContents(this);" value="작성완료" />
 				<input type="button" onclick="history.back()" value="취소" />
