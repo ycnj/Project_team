@@ -44,6 +44,8 @@
 			</c:if>				
 	<button type="submit">수정 확인</button>
 </form>
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.3.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
 <script>
 //다음에서 제공하는 주소검색
 function execPostCode() {

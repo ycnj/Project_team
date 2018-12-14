@@ -1,5 +1,6 @@
 package com.team.spring.users_mp.service;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,4 +27,7 @@ public interface UsersService {
 	public void deleteUser(HttpSession session);
 	//비밀번호 수정반영하는 메소드
 	public void updatePwd(HttpServletRequest request);
+	//회원 리스트
+	public void getUsersList(ModelAndView mView);
+
 }

@@ -9,6 +9,8 @@
 <c:choose>
 	<c:when test="${empty sessionScope.id }">
 		<a href="users/loginform.do">로그인</a>
+		<a href="users/findpwd.do">비밀번호 찾기</a>
+
 	</c:when>
 	<c:otherwise>
 		<p>
@@ -18,7 +20,7 @@
 		<br />
 		<p>
 		<c:if test="${sessionScope.id eq 'gura' }">
-			<a href="users/userslist.do">관리자page</a>
+			<a href="users/list.do">관리자page</a>
 		</c:if> </p>
 	</c:otherwise>
 </c:choose>

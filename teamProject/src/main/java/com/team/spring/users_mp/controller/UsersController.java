@@ -102,4 +102,12 @@ public class UsersController {
 		service.deleteUser(request.getSession());
 		return new ModelAndView("users/delete");
 	}
+	
+	@RequestMapping("/users/list")
+	public ModelAndView getList() {
+		ModelAndView mView=new ModelAndView();
+		service.getUsersList(mView);
+		mView.setViewName("users/list");
+		return mView;
+	}
 }

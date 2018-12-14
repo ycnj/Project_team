@@ -1,6 +1,7 @@
 package com.team.spring.users_mp.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -101,6 +102,12 @@ public class UsersServiceImpl implements UsersService {
 		dto.setPwd(encoder.encode(pwd));
 		//dao 를 이용해서 DB 에 수정 반영한다.
 		dao.updatePwd(dto);
+	}
+	@Override
+	public void getUsersList(ModelAndView mView) {
+		List<UsersDto> list=dao.getList();
+		mView.addObject("list",list);
+		
 	}
 	
 }

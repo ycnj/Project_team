@@ -41,6 +41,14 @@
 		SET pwd=#{pwd}
 		WHERE id=#{id}
 	</update>
+	<select id="getList" resultType="usersDto">
+		SELECT result1.*, ROWNUM as rnum
+		FROM	
+			(SELECT  name, rrn, id, email, phon, addr1, addr2, addr3, gender, to_char(rdate, 'yyyy-mm-dd') rdate, gubun
+			FROM users_mp
+			ORDER BY rdate ASC) result1
+		WHERE gubun='1'
+	</select>
 </mapper>
 
 

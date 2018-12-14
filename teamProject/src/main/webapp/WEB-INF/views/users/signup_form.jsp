@@ -82,8 +82,14 @@ $("#checkBtn").click(function(){
 });
 //폼에 submit 이벤트가 일어났을때 실행할 함수 등록
 $("#signupForm").on("submit", function(){
+	var pwd=$("#pwd").val();
+	var pwd2=$("#pwd2").val();
 	if(!formValid){//폼이 유효 하지 않다면
 		return false; //폼 전송 막기
+	}
+	if(pwd != pwd2){
+		alert("비밀번호를 확인 하세요!");
+		return false;//폼전송 막기
 	}
 });
 

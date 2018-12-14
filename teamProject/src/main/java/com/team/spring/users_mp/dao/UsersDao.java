@@ -1,5 +1,7 @@
 package com.team.spring.users_mp.dao;
 
+import java.util.List;
+
 import com.team.spring.users_mp.dto.UsersDto;
 
 public interface UsersDao {
@@ -19,4 +21,6 @@ public interface UsersDao {
 	public String getPwdHash(String id);
 	//비밀번호 수정하는 메소드
 	public void updatePwd(UsersDto dto);
+	//회원 리스트
+	public List<UsersDto> getList();
 }

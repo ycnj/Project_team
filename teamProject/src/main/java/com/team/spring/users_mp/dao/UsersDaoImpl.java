@@ -1,5 +1,7 @@
 package com.team.spring.users_mp.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -69,6 +71,13 @@ public class UsersDaoImpl implements UsersDao {
 	public void updatePwd(UsersDto dto) {
 		//비밀번호만 수정하기 
 		session.update("users.updatePwd", dto);
+	}
+
+	@Override
+	public List<UsersDto> getList() {
+		List<UsersDto> list;
+		list=session.selectList("users.getList");
+		return list;
 	}
 	
 	
