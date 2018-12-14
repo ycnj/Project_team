@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class rschController {
 	@RequestMapping("/rsch/rschJoinList")
-	public ModelAndView getList(HttpServletRequest request) {
+	public ModelAndView list(HttpServletRequest request) {
 	return new ModelAndView("rsch/rschJoinList");
 	}
 	@RequestMapping("/rsch/rschWrite")

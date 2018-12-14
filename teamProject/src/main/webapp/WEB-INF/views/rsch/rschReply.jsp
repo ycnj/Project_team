@@ -22,7 +22,7 @@ $(function() {
 		$.ajax({
 			type: "POST",
 			data: parm,
-			url: "/acorn_servlet/rschReSave.do",
+			url: "/teamProject/rschReSave.do",
 			success: function(data) {
 				if(data.trim() == "1") {
 					alert("참여해주셔서 감사합니다.");

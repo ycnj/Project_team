@@ -1,4 +1,4 @@
-package com.team.spring.mybartis;
+package com.team.spring.mybatis;
 
 import java.io.IOException;
 import java.io.Reader;

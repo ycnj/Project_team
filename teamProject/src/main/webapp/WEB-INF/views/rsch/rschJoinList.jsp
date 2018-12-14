@@ -10,9 +10,9 @@
 <meta charset="UTF-8">
 <title>설문목록</title>
 
-<link rel="stylesheet" href="/resources/css/jquery-ui.css"/>
-<script src="/resources/js/jquery-3.3.1.min.js"></script>
-<script src="/resources/js/jquery-ui.js"></script>
+<link rel="stylesheet" href="../resources/css/jquery-ui.css"/>
+<script src="../resources/js/jquery-3.3.1.min.js"></script>
+<script src="../resources/js/jquery-ui.js"></script>
 </head>
 
 <style>

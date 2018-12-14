@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>설문결과</title>
-<script src="../resources/js/jquery-3.3.1.min.js"></script>
+<script src="/acorn_servlet/js/jquery-3.3.1.min.js"></script>
 </head>
 <style>
 .rschTbl { 

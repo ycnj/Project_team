@@ -10,9 +10,9 @@
 <meta charset="UTF-8">
 <title>설문등록</title>
 
-<link rel="stylesheet" href="/resources/css/jquery-ui.css"/>
-<script src="/resources/js/jquery-3.3.1.min.js"></script>
-<script src="/resources/js/jquery-ui.js"></script>
+<link rel="stylesheet" href="../resources/css/jquery-ui.css"/>
+<script src="../resources/js/jquery-3.3.1.min.js"></script>
+<script src="../resources/js/jquery-ui.js"></script>
 </head>
 
 <style>
@@ -45,11 +45,11 @@ $(function() {
 		$.ajax({
 			type: "POST",
 			data: formData,
-			url: "/acorn_servlet/rschWriteSave.do",
+			url: "${pageContext.request.contextPath }/rschWriteSave.do",
 			success: function(data) {
 				if(data.trim() == "1") {
 					alert("저장하였습니다.");
-					location = "/acorn_servlet/rschList.do";
+					location = "${pageContext.request.contextPath }/rschList.do";
 				} else {
 					alert("저장 실패했습니다. 다시 시도해 주세요.");
 				}
