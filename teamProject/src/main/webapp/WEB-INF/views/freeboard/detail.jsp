@@ -1,4 +1,4 @@
-..<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -162,7 +162,6 @@ h4 {
 			<!-- /main nav -->
 		</div>
 
-		</div>
 	</header>
 	<!--
         End Fixed Navigation
@@ -214,11 +213,12 @@ h4 {
 					</div>
 				</div>
 			</div>
+		</div>
 
 			<!--여기다! 22222222222222222222222222222222222222222222222222222222222  -->
 
-			<div class="row">
-					<div class="container">
+	<div class="row">
+		<div class="container">
 	<a href="list.do">글 목록보기</a>
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
@@ -323,9 +323,9 @@ h4 {
 				<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다.</c:if></textarea>
 				<button type="submit">등록</button>
 			</form>
+		</div>
 	</div>
-
-			</div>
+	</div>
 			<!-- end .row -->
 		</div>
 		<!-- end .container -->

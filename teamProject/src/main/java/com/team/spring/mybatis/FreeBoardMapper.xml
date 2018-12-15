@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="freeboard">
+	
 	<select id="getCount" resultType="int" parameterType="freeboardDto">
 		SELECT NVL(MAX(ROWNUM), 0)
 		FROM freeboard
@@ -8,43 +9,49 @@
 			<if test="id != null">
 				OR id LIKE '%'||#{id}||'%'
 			</if>
-			<if test="id != null">
-				OR id LIKE '%'||#{id}||'%'
+			<if test="title != null">
+				OR title LIKE '%'||#{title}||'%'
 			</if>
 			<if test="content != null">
 				OR content LIKE '%'||#{content}||'%'
 			</if>
 		</where>
 	</select>
+	
 	<update id="addViewCount" parameterType="int"> 
 		UPDATE freeboard
 		SET viewCount=viewCount+1
 		WHERE num=#{num}
 	</update>
+	
 	<insert id="insert" parameterType="freeboardDto">
 		INSERT INTO freeboard
 		(num, id, title, content, viewCount, regdate)
 		VALUES(freeboard_seq.NEXTVAL, #{id}, #{title}, #{content},
 		#{viewCount}, SYSDATE)
 	</insert>
+	
 	<update id="update" parameterType="freeboardDto">
 		UPDATE freeboard
 		SET title=#{title}, content=#{content}
 		WHERE num=#{num}
 	</update>
+	
 	<delete id="delete" parameterType="int">
 		DELETE FROM freeboard
 		WHERE num=#{num}
 	</delete>
+	
 	<select id="getData" parameterType="int" resultType="freeboardDto">
 		SELECT result1.*
 		FROM (SELECT num, id, title, content, viewCount, regdate,
 				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
 				LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum
-			  FROM freeboard
+			  FROM freeboard 
 			  ORDER BY num DESC) result1
 		WHERE num=#{num}
 	</select>
+	
 	<select id="getData2" parameterType="freeboardDto" resultType="freeboardDto">
 		SELECT result1.*
 		FROM (SELECT num, id, title, content, viewCount, regdate,

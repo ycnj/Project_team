@@ -15,6 +15,7 @@ public interface FreeBoardService {
 	public void deleteContent(int num);
 	public void getUpdateData(ModelAndView mView, int num);
 	public void updateContent(FreeBoardDto dto);
+	
 	public void deleteComment(int num);
 	public void saveComment(HttpServletRequest request);
 	public void updateComment(FreeBoardCommentDto dto);

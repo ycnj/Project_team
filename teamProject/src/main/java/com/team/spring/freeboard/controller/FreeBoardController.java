@@ -17,8 +17,6 @@ import com.team.spring.freeboard.dto.FreeBoardCommentDto;
 import com.team.spring.freeboard.dto.FreeBoardDto;
 import com.team.spring.freeboard.service.FreeBoardService;
 
-
-
 @Controller
 public class FreeBoardController {
 	@Autowired

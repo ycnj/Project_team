@@ -156,7 +156,7 @@ import com.team.spring.freeboard.dto.FreeBoardDto;
 			dto.setNum(num);
 			
 			//글정보 얻어오기
-			//CafeDto 객체를 getData() 의 인자로 전달해서 글정보를 얻어온다. 
+			//FreeBoardDto 객체를 getData() 의 인자로 전달해서 글정보를 얻어온다. 
 			FreeBoardDto resultDto=freeboardDao.getData(dto);
 			//글 조회수 올리기
 			freeboardDao.addViewCount(num);

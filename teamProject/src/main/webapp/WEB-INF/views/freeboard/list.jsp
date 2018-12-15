@@ -92,7 +92,7 @@ h4 {
 					<li><a href="./MyInfo.html">MyInfo</a></li>
 					<li><a href="./event.html">Event</a></li>
 					<li><a href="./contact.html">Contact</a></li>
-					<li><a href="./boad.html">boad</a></li>
+					<li><a href="./list.html">boad</a></li>
 					<li><a href="./etc.html">Etc</a></li>
 				</ul>
 			</nav>
