@@ -12,7 +12,7 @@
 <div class="container">
 	<a href="insertform.do">새글 작성</a>
 	<a href="../home.do">메인으로 돌아가기</a>
-	<h3>FAQ 게시판 목록입니다.</h3>
+	<h3>QnA 게시판 목록입니다.</h3>
 	<table class="table table-bordered">
 		<thead>
 			<tr>

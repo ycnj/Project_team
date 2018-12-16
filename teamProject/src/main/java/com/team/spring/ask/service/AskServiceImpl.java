@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.team.spring.ask.dao.AskCommentDao;
 import com.team.spring.ask.dao.AskDao;
 import com.team.spring.ask.dto.AskCommentDto;
@@ -146,7 +147,10 @@ public class AskServiceImpl implements AskService{
 		//글 조회수 올리기
 		askDao.addViewCount(num);
 		//request 에 글정보를 담고
-		request.setAttribute("dto", resultDto);		
+		request.setAttribute("dto", resultDto);
+		List<AskCommentDto> commentList=askCommentDao.getList(num);
+		//request 에 댓글 목록을 담는다.
+		request.setAttribute("commentList", commentList);			
 	}
 
 	@Override
