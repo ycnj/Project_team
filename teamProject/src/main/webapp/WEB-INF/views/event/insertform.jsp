@@ -6,77 +6,82 @@
 <meta charset="UTF-8">
 <title>/views/event/insertform.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
-<script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
+<style>
+	#picForm{ display: none;}
+</style>
 </head>
 <body>
-<div class="container">
-	<!-- <p><strong>${id }</strong>님 로그인중...</p> -->
+<div class="container">	
 	<h3> 새 이벤트 작성 폼 입니다.</h3>
-	<form action="insert.do" method="post">
+	<div class="row">
+	<form action="insert.do" method="post" id="uploadForm">
+		<input type="hidden" name="saveFileName" />
+		<div class="form-group">
 		<label for="title">제목</label>
 		<input type="text" name="title" id="title"/>
 		<br/>
 		<label for="content">내용</label>
-		<textarea name="content" id="content" style="width:100%;height:400px;display:none;"></textarea>
-		<div>
-			<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
-			<input type="button" onclick="showHTML();" value="본문 내용 가져오기" />
-			<input type="button" onclick="submitContents(this);" value="서버로 내용 전송" />
-			<input type="button" onclick="setDefaultFont();" value="기본 폰트 지정하기 (궁서_24)" />
-		</div>	
+		<textarea name="content" id="content" style="width:100%;height:400px;"></textarea>
+		</div>
+		<div class="form-group">
+			<button id="picBtn"><i class="glyphicon glyphicon-picture"></i></button>
+			<br/>
+			<img id="uploadedImg" class="img-responsive"/>
+		</div>		
+		<button type="submit" class="btn btn-primary">업로드</button>	
 	</form>
+	</div>
 </div>
+<form id="picForm" action="ajax_upload.jsp" method="post" enctype="multipart/form-data">
+	<label for="image">이미지</label>
+	<input class="form-control" type="file" 
+		name="image" id="image" accept=".jpg, .jpeg, .png, .JPG, .JPEG"/>
+</form>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.form.min.js"></script>
 <script>
-	var oEditors = [];
-
-	//추가 글꼴 목록
-	//var aAdditionalFontSet = [["MS UI Gothic", "MS UI Gothic"], ["Comic Sans MS", "Comic Sans MS"],["TEST","TEST"]];
-
-	nhn.husky.EZCreator.createInIFrame({
-		oAppRef: oEditors,
-		elPlaceHolder: "content",
-		sSkinURI: "${pageContext.request.contextPath}/SmartEditor/SmartEditor2Skin.html",	
-		htParams : {
-			bUseToolbar : true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-			bUseVerticalResizer : true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-			bUseModeChanger : true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-			//aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
-			fOnBeforeUnload : function(){
-				//alert("완료!");
-			}
-		}, //boolean
-		fOnAppLoad : function(){
-			//예제 코드
-			//oEditors.getById["ir1"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
-		},
-		fCreator: "createSEditor2"
-	});
-
-	function pasteHTML() {
-		var sHTML = "<span style='color:#FF0000;'>이미지도 같은 방식으로 삽입합니다.<\/span>";
-		oEditors.getById["content"].exec("PASTE_HTML", [sHTML]);
+//이미지를 선택했을때 실행할 함수 등록 
+$("#image").on("change", function(){
+	//선택된 파일명을 얻어온다.
+	var fileName=$(this).val();
+	// 마지막 . 의 인덱스
+	var lastIndex=fileName.lastIndexOf(".");
+	// 확장자 얻어오기
+	var extension=fileName.substr(lastIndex, fileName.length);
+	if( extension == ".jpg" || extension == ".jpeg" || extension == ".png"){
+		//이미지 파일을 제대로 선택한 것이다. 
+		//폼 강제 제출
+		$("#picForm").submit();
+	}else{
+		//잘못된 파일을 선택한 것이다.
+		alert("이미지 파일을 선택하세요.");
 	}
+});
+//이미지 폼 submit 이벤트 처리 
+$("#uploadForm").on("submit", function(){
+	if(formValid==false){
+		return false; //폼 전송 막기 
+	}
+});
+//사진 버튼을 눌렀을때 실행할 함수 등록
+$("#picBtn").on("click", function(){
+	// input type=file 에 강제 click 이벤트 발생시켜서
+	// 파일을 선택할수 있도록 한다. 
+	$("#image").click();
+	//이벤트 막기
+	return false;
+});
 
-	function showHTML() {
-		var sHTML = oEditors.getById["content"].getIR();
-		alert(sHTML);
-	}
-		
-	function submitContents(elClickedObj) {
-		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-		
-		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
-		
-		try {
-			elClickedObj.form.submit();
-		} catch(e) {}
-	}
-
-	function setDefaultFont() {
-		var sDefaultFont = '궁서';
-		var nFontSize = 24;
-		oEditors.getById["content"].setDefaultFont(sDefaultFont, nFontSize);
-	}
+// 사진을 선택한 폼이 ajax 요청을 통해서 제출되도록 플러그인을 사용한다.
+$("#picForm").ajaxForm(function(responseData){
+	// responseData =>  {saveFileName:"저장된파일명"}
+	console.log(responseData);
+	//img 요소에 src 에 이미지 경로 지정해서 이미지가 보이도록 한다.
+	var src="${pageContext.request.contextPath}/upload/"+responseData.saveFileName;
+	$("#uploadedImg").attr("src", src);
+	//저장된 파일명이 폼 전송될때 같이 전송되도록 value 값을 넣어준다.
+	$("input[name=saveFileName]").val(responseData.saveFileName);
+});	
 </script>
 </body>
 </html>

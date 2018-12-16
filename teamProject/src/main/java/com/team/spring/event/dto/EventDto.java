@@ -7,6 +7,7 @@ public class EventDto {
 	private String writer;
 	private String title;
 	private String content;
+	private String imagePath;
 	private long viewCount;
 	private String regdate;	
 	private int startRowNum;
@@ -16,13 +17,14 @@ public class EventDto {
 	
 	public EventDto() {}
 
-	public EventDto(int num, String writer, String title, String content, long viewCount, String regdate,
-			int startRowNum, int endRowNum, int prevNum, int nextNum) {
+	public EventDto(int num, String writer, String title, String content, String imagePath, long viewCount,
+			String regdate, int startRowNum, int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.num = num;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
+		this.imagePath = imagePath;
 		this.viewCount = viewCount;
 		this.regdate = regdate;
 		this.startRowNum = startRowNum;
@@ -61,6 +63,14 @@ public class EventDto {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	public long getViewCount() {
@@ -110,5 +120,5 @@ public class EventDto {
 	public void setNextNum(int nextNum) {
 		this.nextNum = nextNum;
 	}
-	
+
 }

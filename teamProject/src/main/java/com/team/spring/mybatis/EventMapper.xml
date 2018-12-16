@@ -45,17 +45,6 @@
 				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
 				LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum
 			  FROM event_mp
-	        <where>
-				<if test="writer != null">
-					OR writer LIKE '%'||#{writer}||'%'
-				</if>
-				<if test="title != null">
-					OR title LIKE '%'||#{title}||'%'
-				</if>
-				<if test="content != null">
-					OR content LIKE '%'||#{content}||'%'
-				</if>
-			</where>
 			  ORDER BY num DESC) result1
 		WHERE num=#{num}
 	</select>	

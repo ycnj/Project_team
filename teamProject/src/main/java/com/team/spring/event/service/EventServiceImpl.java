@@ -50,7 +50,7 @@ public class EventServiceImpl implements EventService {
 				if(totalPageCount < endPageNum){
 					endPageNum=totalPageCount; //보정해준다. 
 				}
-				// startRowNum 과 endRowNum 을 CafeDto 객체에 담고 
+				// startRowNum 과 endRowNum 을 EventDto 객체에 담고 
 				dto.setStartRowNum(startRowNum);
 				dto.setEndRowNum(endRowNum);
 		List<EventDto> list=eventDao.getList(dto);	
@@ -70,7 +70,7 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	public void getDetail(HttpServletRequest request) {
-		int num=1;
+		int num=Integer.parseInt(request.getParameter("num"));
 		EventDto dto=new EventDto();
 		dto.setNum(num);
 		
