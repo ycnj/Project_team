@@ -11,7 +11,7 @@
 <body>
 <div class="container">
 	<a href="insertform.do">새글 작성</a>
-	<h3>카페 글 목록 입니다.</h3>
+	<h3>질문게시판 글목록 입니다.</h3>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
