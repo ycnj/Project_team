@@ -28,6 +28,7 @@
 	<li><a href="ask/list.do">QnA게시판 바로가기 관리자</a></li>
 	</c:if>
 	<li><a href="ask/list2.do">QnA게시판 바로가기 사용자</a></li>
+	<li><a href="user/list.do">질문게시판 바로 가기</a></li>
 	<li><a href="ask/insertform.do">질문하러 가기</a></li>
 </ul>
 </body>

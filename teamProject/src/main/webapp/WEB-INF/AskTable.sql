@@ -46,5 +46,27 @@ CREATE TABLE board_ask_comment(
 CREATE SEQUENCE board_ask_comment_seq;
 
 
+CREATE TABLE board_user(
+num NUMBER PRIMARY KEY,
+writer VARCHAR2(100) NOT NULL,
+title VARCHAR2(100) NOT NULL,
+content CLOB,
+viewCount NUMBER, 
+regdate DATE
+);
 
-;
+CREATE SEQUENCE board_user_seq;
+
+
+CREATE TABLE board_user_comment(
+	num NUMBER PRIMARY KEY, 
+	writer VARCHAR2(100), 
+	content VARCHAR2(500), 
+	target_id VARCHAR2(100), 
+	ref_group NUMBER, 
+	comment_group NUMBER, 
+	deleted CHAR(3) DEFAULT 'no', 
+	regdate DATE  
+);
+
+CREATE SEQUENCE board_user_comment_seq;

@@ -8,12 +8,17 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.team.spring.users.dto.UsersDto" alias="usersDto"/>
 		<typeAlias type="com.team.spring.ask.dto.AskCommentDto" 
 			alias="askCommentDto"/>
+		<typeAlias type="com.team.spring.user.dto.UserDto" alias="userDto"/>
+		<typeAlias type="com.team.spring.user.dto.UserCommentDto" 
+			alias="userCommentDto"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="com/team/spring/mybatis/AskMapper.xml" />
 		<mapper resource="com/team/spring/mybatis/UsersMapper.xml" />
 		<mapper resource="com/team/spring/mybatis/AskCommentMapper.xml" />
+		<mapper resource="com/team/spring/mybatis/UserMapper.xml"/>
+		<mapper resource="com/team/spring/mybatis/UserCommentMapper.xml"/>
 	</mappers>	
 </configuration>
 
