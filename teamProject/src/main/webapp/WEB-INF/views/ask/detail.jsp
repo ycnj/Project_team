@@ -110,7 +110,7 @@
 						</c:if>
 						<dl>
 							<dt>
-								<img src="${pageContext.request.contextPath}/resources/images/user_image.gif"/>
+								<img src="${pageContext.request.contextPath}/resources/images/re.gif"/>
 								<span>${tmp.writer }</span>
 								<c:if test="${tmp.num ne tmp.comment_group }">
 									to <strong>${tmp.target_id }</strong>
