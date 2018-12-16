@@ -19,6 +19,14 @@
 		<beans:property name="configLocation"
 	value="classpath:com/team/spring/mybatis/Configuration.xml"/>
 	</beans:bean>
+	
+	<!-- resource mapping -->
+	<!-- 들어오는 데이터를 처리해주는 multipartResolver 빈을 생성해주는 부분입니다 -->	
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="31457280" /> <!--약 10mb 제한 -->
+		<beans:property name="defaultEncoding" value="utf-8" />	<!-- 인코딩 -->
+	</beans:bean>
 
 	<!-- 
 		SqlSession 인터페이스를 구현한 SqlSessionTemplate(SqlSession) 객체 
@@ -36,6 +44,10 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- location : 물리적 주소 / mapping : 가상 주소 -->
+	<resources  mapping="/upload/*" location="file:/upload/"/>
+	
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

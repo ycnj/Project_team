@@ -168,17 +168,17 @@ h4 {
 
 			<div class="row">
 				<div class="container">
-					<p>
+					<p align="right">
 						<strong>${dto.id }</strong>님이 작성한글
 					</p>
 					<h3>글 정보 수정</h3>
+					<br />
 					<form action="update.do" method="post">
 						<input type="hidden" name="num" value="${dto.num }" /> <label
 							for="title">제목</label> <input type="text" name="title" id="title"
 							value="${dto.title }" /> <br />
 						<label for="content">내용</label>
-						<textarea name="content" id="content"
-							style="width: 100%; height: 400px; display: none;" >gygvgy ${dto.content }hbhhh</textarea>
+						<textarea name="content" id="content" style="width: 100%; height: 400px; display: none;" > ${dto.content }</textarea>
 						<div>
 							<input type="button"
 								onclick="location.href='../file/upload_form.do'" value="파일업로드" />

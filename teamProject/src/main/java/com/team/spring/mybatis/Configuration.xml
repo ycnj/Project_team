@@ -6,13 +6,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="com.team.spring.freeboard.dto.FreeBoardDto" alias="freeboardDto"/>
 		<typeAlias type="com.team.spring.freeboard.dto.FreeBoardCommentDto" alias="freeboardcommentDto"/>
-		<typeAlias type="com.team.spring.file.dto.FileDto" alias="fileDto"/>
+
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="com/team/spring/mybatis/FreeBoardMapper.xml"/>
 		<mapper resource="com/team/spring/mybatis/FreeBoardCommentMapper.xml"/>
-		<mapper resource="com/team/spring/mybatis/FileMapper.xml"/>
+
 	</mappers>	
 </configuration>
 

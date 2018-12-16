@@ -21,59 +21,54 @@ import com.team.spring.freeboard.service.FreeBoardService;
 public class FreeBoardController {
 	@Autowired
 	private FreeBoardService service;
-
+	
 	@RequestMapping("/freeboard/list")
 	public ModelAndView getList(HttpServletRequest request) {
-		// HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다.
+		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		service.getList(request);
-		// view 페이지로 forward 이동해서 글 목록 출력하기
+		//view 페이지로 forward 이동해서 글 목록 출력하기 
 		return new ModelAndView("freeboard/list");
 	}
-
 	@RequestMapping("/freeboard/insertform")
 	public ModelAndView authInsertform(HttpServletRequest request) {
-		// view 페이지로 forward 이동해서 새글 작성 폼 출력하기
+		//view 페이지로 forward 이동해서 새글 작성 폼 출력하기 
 		return new ModelAndView("freeboard/insertform");
 	}
-
 	@RequestMapping("/freeboard/insert")
-	public ModelAndView authInsert(@ModelAttribute FreeBoardDto dto, HttpServletRequest request) {
-		// CafeDto 객체에 작성자의 아이디를 담아서
-		String id = (String) request.getSession().getAttribute("id");
+	public ModelAndView authInsert(@ModelAttribute FreeBoardDto dto,HttpServletRequest request) {
+		//CafeDto 객체에 작성자의 아이디를 담아서 
+		String id=(String)request.getSession().getAttribute("id");
 		dto.setId(id);
-		// 새글을 저장한다.
+		//새글을 저장한다. 
 		service.saveContent(dto);
-		// 글 목록 보기로 리다일렉트 이동
+		//글 목록 보기로 리다일렉트 이동
 		return new ModelAndView("redirect:/freeboard/list.do");
 	}
-
 	@RequestMapping("/freeboard/detail")
 	public ModelAndView detail(HttpServletRequest request) {
 		service.getDetail(request);
 		return new ModelAndView("freeboard/detail");
 	}
-
+	
 	@RequestMapping("/freeboard/delete")
 	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
 		service.deleteContent(num);
 		return new ModelAndView("redirect:/freeboard/list.do");
 	}
-
 	@RequestMapping("/freeboard/updateform")
-	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, HttpServletRequest request) {
+	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, 
+			HttpServletRequest request) {
 		service.getUpdateData(mView, num);
 		mView.setViewName("freeboard/updateform");
 		return mView;
 	}
-
 	@RequestMapping("/freeboard/update")
-	public ModelAndView authUpdate(@ModelAttribute FreeBoardDto dto, HttpServletRequest request) {
-		// 서비스를 이용해서 글을 수정반영하고
+	public ModelAndView authUpdate(@ModelAttribute FreeBoardDto dto,HttpServletRequest request) {
+		//서비스를 이용해서 글을 수정반영하고
 		service.updateContent(dto);
-		// dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
-		return new ModelAndView("redirect:/freeboard/detail.do?num=" + dto.getNum());
+		//dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
+		return new ModelAndView("redirect:/freeboard/detail.do?num="+dto.getNum());
 	}
-	
 	@RequestMapping("/freeboard/comment_delete")
 	@ResponseBody
 	public Map<String, Object> authCommentDelete(@RequestParam int num, HttpServletRequest request) {
@@ -92,7 +87,7 @@ public class FreeBoardController {
 		return new ModelAndView("redirect:/freeboard/detail.do?num="+ref_group);
 	}
 	//댓글 수정 요청 처리
-	@RequestMapping("/freeboard/comment_update")
+	@RequestMapping("/cafe/comment_update")
 	@ResponseBody
 	public Map<String, Object> authCommentUpdate(@ModelAttribute FreeBoardCommentDto dto,
 			HttpServletRequest request){
@@ -102,5 +97,104 @@ public class FreeBoardController {
 		map.put("isSuccess", true);
 		return map;
 	}
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

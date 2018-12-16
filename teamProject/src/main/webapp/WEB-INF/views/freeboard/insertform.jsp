@@ -168,19 +168,22 @@ h4 {
 
 			<div class="row">
 					<div class="container">
-		<p>
+		<p aglign="right">
 			<strong>${id }</strong>님 로그인중...
 		</p>
 		<h3>새 글 작성</h3>
-		<form action="insert.do" method="post">
+		<br />
+		<form action="insert.do" method="post" enctype="multipart/form-data">
 		<label for="title">제목</label>
 		<input type="text" name="title" id="title"/>
 		<br/>
 		<label for="content">내용</label>
 		<textarea name="content" id="content" style="width:100%;height:400px;display:none;"></textarea>
+		<br />
+		<label for="file">파일첨부</label>
+		<input type="file" name="file" id='file' />
+		<br />
 			<div>
-				<input type="button"
-					onclick="location.href='../file/upload_form.do'" value="파일업로드" />
 				<input type="button" onclick="submitContents(this);" value="확인" />
 				<input type="button" onclick="history.back()" value="취소" />
 
