@@ -55,7 +55,23 @@
 <script
 	src="${pageContext.request.contextPath }/resources/js/vendor/modernizr-2.6.2.min.js"></script>
 <script
-	src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>	
+	src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
+
+
+<script>
+	var test = 0;
+	function fileUpload() {
+
+		if (test == 0) {
+			$('#uploadForm').show();
+			test = 1;
+		}else if (test == 1) {
+			$('#uploadForm').hide();
+			test = 0;
+		} 
+	}
+</script>
+
 <style>
 h4 {
 	display: inline;
@@ -64,6 +80,9 @@ h4 {
 
 .btn {
 	padding: 0px 2px;
+}
+#uploadForm{
+	display: none;
 }
 </style>
 </head>
@@ -167,26 +186,38 @@ h4 {
 			<!--여기다! 22222222222222222222222222222222222222222222222222222222222  -->
 
 			<div class="row">
+				<div class="container">
+					<p>
+						<strong>${id }</strong>님 로그인중...
+					</p>
+					<h3>새 글 작성</h3>
+					<form action="insert.do" method="post">
+						<label for="title">제목</label> <input type="text" name="title" id="title" />
+						 	<br /> 
+						<label for="content">내용</label>
+						<textarea name="content" id="content" style="width: 100%; height: 400px; display: none;"></textarea>
+						<div>
+						<!-- <input type="button" onclick="location.href='../file/upload_form.do'" value="파일업로드" /> -->
+						<input type="button" onclick="javascript:fileUpload();"value="파일업로드" /> 
+						<input type="button" onclick="submitContents(this);" value="확인" /> 
+						<input type="button" onclick="history.back()" value="취소" />
+						
+						</div>
+					</form>
+				</div>
+				<br />
+				<div class="row" id="uploadForm">
 					<div class="container">
-		<p>
-			<strong>${id }</strong>님 로그인중...
-		</p>
-		<h3>새 글 작성</h3>
-		<form action="insert.do" method="post">
-		<label for="title">제목</label>
-		<input type="text" name="title" id="title"/>
-		<br/>
-		<label for="content">내용</label>
-		<textarea name="content" id="content" style="width:100%;height:400px;display:none;"></textarea>
-			<div>
-				<input type="button"
-					onclick="location.href='../file/upload_form.do'" value="파일업로드" />
-				<input type="button" onclick="submitContents(this);" value="확인" />
-				<input type="button" onclick="history.back()" value="취소" />
-
-			</div>
-		</form>
-	</div>
+			
+						<form action="upload.do" method="post" enctype="multipart/form-data">
+							<label for="myFile">첨부파일</label> 
+							<input type="file" name="file" id="myFile" /> 
+								<br />
+							<button type="submit">업로드</button>
+						</form>
+					</div>
+				</div>
+				
 
 			</div>
 			<!-- end .row -->
@@ -341,10 +372,9 @@ h4 {
 	<!-- theme custom scripts -->
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 	<script>
-            $("#nav>li:eq(4)").attr("class","current");        
-        </script>
+		$("#nav>li:eq(4)").attr("class", "current");
+	</script>
 	<script>
-
 		var oEditors = [];
 
 		//추가 글꼴 목록
@@ -375,9 +405,9 @@ h4 {
 			oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []); // 에디터의 내용이 textarea에 적용됩니다.
 
 			// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
-			var title=$("#title").val();
-			var content=$("#content").val();
-			if (title== "" || title == null) {
+			var title = $("#title").val();
+			var content = $("#content").val();
+			if (title == "" || title == null) {
 				alert("제목을 입력하세요");
 				return false;
 			}
@@ -390,7 +420,9 @@ h4 {
 			} catch (e) {
 			}
 		}
-	</script>        
+	</script>
+
+
 </body>
 </html>
 
