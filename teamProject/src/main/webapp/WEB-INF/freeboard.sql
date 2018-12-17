@@ -3,6 +3,9 @@ num NUMBER PRIMARY KEY,
 id VARCHAR2(100) not null,
 title VARCHAR2(100) not null,
 content CLOB,
+orgFileName VARCHAR2(100), -- 원본파일명
+saveFileName VARCHAR2(100), -- 파일 시스템에 저장된 파일명
+fileSize NUMBER, -- 파일의 크기(byte)
 viewCount NUMBER,
 regdate DATE
 );

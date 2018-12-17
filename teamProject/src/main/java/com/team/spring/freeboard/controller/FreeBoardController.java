@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.team.spring.freeboard.dto.FreeBoardCommentDto;
 import com.team.spring.freeboard.dto.FreeBoardDto;
 import com.team.spring.freeboard.service.FreeBoardService;
@@ -34,17 +33,6 @@ public class FreeBoardController {
 	public ModelAndView authInsertform(HttpServletRequest request) {
 		// view 페이지로 forward 이동해서 새글 작성 폼 출력하기
 		return new ModelAndView("freeboard/insertform");
-	}
-
-	@RequestMapping("/freeboard/insert")
-	public ModelAndView authInsert(@ModelAttribute FreeBoardDto dto, HttpServletRequest request) {
-		// CafeDto 객체에 작성자의 아이디를 담아서
-		String id = (String) request.getSession().getAttribute("id");
-		dto.setId(id);
-		// 새글을 저장한다.
-		service.saveContent(dto);
-		// 글 목록 보기로 리다일렉트 이동
-		return new ModelAndView("redirect:/freeboard/list.do");
 	}
 
 	@RequestMapping("/freeboard/detail")
@@ -101,6 +89,15 @@ public class FreeBoardController {
 		Map<String, Object> map=new HashMap<>();
 		map.put("isSuccess", true);
 		return map;
+	}
+	//파일 업로드 요청 처리 
+	@RequestMapping("/freeboard/upload")
+	public ModelAndView authUpload(@ModelAttribute FreeBoardDto dto, 
+			HttpServletRequest request) {
+		//FileDto 에는 업로드된 파일의 제목(title)과 파일정보(file)이 들어있다.
+		service.saveContent(dto, request);
+		//파일 목록보기로 리다일렉트 시킨다. 
+		return new ModelAndView("redirect:/freeboard/list.do");
 	}
 	
 }

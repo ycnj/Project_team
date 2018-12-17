@@ -10,7 +10,6 @@ import com.team.spring.freeboard.dto.FreeBoardDto;
 
 public interface FreeBoardService {
 	public void getList(HttpServletRequest request);
-	public void saveContent(FreeBoardDto dto);
 	public void getDetail(HttpServletRequest request);
 	public void deleteContent(int num);
 	public void getUpdateData(ModelAndView mView, int num);
@@ -19,5 +18,7 @@ public interface FreeBoardService {
 	public void deleteComment(int num);
 	public void saveComment(HttpServletRequest request);
 	public void updateComment(FreeBoardCommentDto dto);
+	
+	public void saveContent(FreeBoardDto dto, HttpServletRequest request);
 	
 }	

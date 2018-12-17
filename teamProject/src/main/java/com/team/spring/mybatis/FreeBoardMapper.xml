@@ -26,10 +26,11 @@
 	
 	<insert id="insert" parameterType="freeboardDto">
 		INSERT INTO freeboard
-		(num, id, title, content, viewCount, regdate)
-		VALUES(freeboard_seq.NEXTVAL, #{id}, #{title}, #{content},
-		#{viewCount}, SYSDATE)
+		(num, id, title, content, orgFileName, saveFileName, fileSize, viewCount, regdate)
+		VALUES(freeboard_seq.NEXTVAL, #{id}, #{title}, #{content}, #{orgFileName}, #{saveFileName}, #{fileSize}, #{viewCount}, SYSDATE)
+		<!-- insert into freeboard values(freeboard_seq.NEXTVAL, 'haha', 'df','df','asdf.xml','125asdf.xml',1293,0,sysdate) -->
 	</insert>
+	
 	
 	<update id="update" parameterType="freeboardDto">
 		UPDATE freeboard

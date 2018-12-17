@@ -1,12 +1,18 @@
 package com.team.spring.freeboard.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class FreeBoardDto {
 	private int num;
 	private String id;
 	private String title;
 	private String content;
+	private String orgFileName;
+	private String saveFileName;
+	private long fileSize;
 	private int viewCount;
-	private String regdate;
+	private String regdate;	
+	private MultipartFile file;
 	//페이징 처리
 	private int startRowNum;
 	private int endRowNum;
@@ -15,15 +21,20 @@ public class FreeBoardDto {
 	private int nextNum;
 	//생성자
 	public FreeBoardDto() {}
-	public FreeBoardDto(int num, String id, String title, String content, int viewCount, String regdate,
-			int startRowNum, int endRowNum, int prevNum, int nextNum) {
+	public FreeBoardDto(int num, String id, String title, String content, String orgFileName, String saveFileName,
+			long fileSize, int viewCount, String regdate, MultipartFile file, int startRowNum, int endRowNum,
+			int prevNum, int nextNum) {
 		super();
 		this.num = num;
 		this.id = id;
 		this.title = title;
 		this.content = content;
+		this.orgFileName = orgFileName;
+		this.saveFileName = saveFileName;
+		this.fileSize = fileSize;
 		this.viewCount = viewCount;
 		this.regdate = regdate;
+		this.file = file;
 		this.startRowNum = startRowNum;
 		this.endRowNum = endRowNum;
 		this.prevNum = prevNum;
@@ -53,6 +64,24 @@ public class FreeBoardDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	public String getOrgFileName() {
+		return orgFileName;
+	}
+	public void setOrgFileName(String orgFileName) {
+		this.orgFileName = orgFileName;
+	}
+	public String getSaveFileName() {
+		return saveFileName;
+	}
+	public void setSaveFileName(String saveFileName) {
+		this.saveFileName = saveFileName;
+	}
+	public long getFileSize() {
+		return fileSize;
+	}
+	public void setFileSize(long fileSize) {
+		this.fileSize = fileSize;
+	}
 	public int getViewCount() {
 		return viewCount;
 	}
@@ -64,6 +93,12 @@ public class FreeBoardDto {
 	}
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 	public int getStartRowNum() {
 		return startRowNum;
@@ -89,5 +124,7 @@ public class FreeBoardDto {
 	public void setNextNum(int nextNum) {
 		this.nextNum = nextNum;
 	}
+	
+	
 	
 }

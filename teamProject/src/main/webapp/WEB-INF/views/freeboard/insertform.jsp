@@ -63,10 +63,10 @@
 	function fileUpload() {
 
 		if (test == 0) {
-			$('#uploadForm').show();
+			$('#uploadBtn').show();
 			test = 1;
 		}else if (test == 1) {
-			$('#uploadForm').hide();
+			$('#uploadBtn').hide();
 			test = 0;
 		} 
 	}
@@ -81,7 +81,7 @@ h4 {
 .btn {
 	padding: 0px 2px;
 }
-#uploadForm{
+#uploadBtn{
 	display: none;
 }
 </style>
@@ -191,7 +191,7 @@ h4 {
 						<strong>${id }</strong>님 로그인중...
 					</p>
 					<h3>새 글 작성</h3>
-					<form action="insert.do" method="post">
+					<form action="upload.do" method="post" enctype="multipart/form-data">
 						<label for="title">제목</label> <input type="text" name="title" id="title" />
 						 	<br /> 
 						<label for="content">내용</label>
@@ -203,20 +203,21 @@ h4 {
 						<input type="button" onclick="history.back()" value="취소" />
 						
 						</div>
+						
+						<br />
+						<div class="row" id="uploadBtn">
+							<div class="container">			
+								<label for="myFile">첨부파일</label> 
+								<input type="file" name="file" id="myFile" /> 						
+							</div>					
+						</div>
 					</form>
+						
 				</div>
-				<br />
-				<div class="row" id="uploadForm">
-					<div class="container">
-			
-						<form action="upload.do" method="post" enctype="multipart/form-data">
-							<label for="myFile">첨부파일</label> 
-							<input type="file" name="file" id="myFile" /> 
-								<br />
-							<button type="submit">업로드</button>
-						</form>
-					</div>
-				</div>
+				
+				
+				
+				
 				
 
 			</div>

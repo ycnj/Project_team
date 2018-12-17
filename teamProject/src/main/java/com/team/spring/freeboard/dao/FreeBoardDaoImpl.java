@@ -1,5 +1,6 @@
 package com.team.spring.freeboard.dao;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -29,7 +30,18 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 
 	@Override
 	public void insert(FreeBoardDto dto) {
-		
+		Object obj=dto;
+        for (Field field : obj.getClass().getDeclaredFields()){
+            field.setAccessible(true);
+            Object value;
+			try {
+				value = field.get(obj);
+				System.out.println(field.getName()+","+value);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}            
+        }
 		session.insert("freeboard.insert", dto);
 	}
 

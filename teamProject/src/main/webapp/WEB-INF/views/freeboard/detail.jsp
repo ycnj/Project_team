@@ -223,7 +223,7 @@ h4 {
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
-	<h3>게시판 글 상세 보기</h3>
+	<h3>게시판 글 보기</h3>
 	<c:if test="${dto.prevNum ne 0 }">
 		<a href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
 	</c:if>
@@ -238,6 +238,10 @@ h4 {
 		<tr>
 			<th>작성자</th>
 			<td>${dto.id }</td>
+		</tr>
+		<tr>
+			<th>파일명</th>
+			<td><a href="download.do?num=${tmp.num }">${tmp.orgFileName }</a></td>
 		</tr>
 		<tr>
 			<th>조회수</th>
