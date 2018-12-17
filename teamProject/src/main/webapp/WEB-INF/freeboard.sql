@@ -10,6 +10,19 @@ regdate DATE
 CREATE SEQUENCE freeboard_seq
 
 
+CREATE TABLE fileboard(
+num NUMBER PRIMARY KEY, -- 파일번호
+id VARCHAR2(100), -- 작성자
+title VARCHAR2(100), -- 제목
+orgFileName VARCHAR2(100), -- 원본파일명
+saveFileName VARCHAR2(100), -- 파일 시스템에 저장된 파일명
+fileSize NUMBER, -- 파일의 크기(byte)
+downCount NUMBER DEFAULT 0, -- 다운로드 횟수
+regdate DATE -- 등록일 
+);
+
+CREATE SEQUENCE filebaord_seq;
+
 --댓글 정보 저장 테이블
 CREATE TABLE freeboardComment(
 num NUMBER PRIMARY KEY,						--댓글 글번호
@@ -24,15 +37,3 @@ regdate DATE
 
 CREATE SEQUENCE freeboard_comment_seq;
 
-CREATE TABLE fileboard(
-num NUMBER PRIMARY KEY, -- 파일번호
-id VARCHAR2(100), -- 작성자
-title VARCHAR2(100), -- 제목
-orgFileName VARCHAR2(100), -- 원본파일명
-saveFileName VARCHAR2(100), -- 파일 시스템에 저장된 파일명
-fileSize NUMBER, -- 파일의 크기(byte)
-downCount NUMBER DEFAULT 0, -- 다운로드 횟수
-regdate DATE -- 등록일 
-);
-
-CREATE SEQUENCE filebaord_seq;

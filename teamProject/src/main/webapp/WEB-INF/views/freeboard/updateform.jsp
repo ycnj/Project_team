@@ -55,7 +55,22 @@
 <script
 	src="${pageContext.request.contextPath }/resources/js/vendor/modernizr-2.6.2.min.js"></script>
 <script
-	src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>	
+	src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
+	
+	<script>
+	var test = 0;
+	function fileUpload() {
+
+		if (test == 0) {
+			$('#uploadForm').show();
+			test = 1;
+		}else if (test == 1) {
+			$('#uploadForm').hide();
+			test = 0;
+		} 
+	}
+</script>
+
 <style>
 h4 {
 	display: inline;
@@ -64,6 +79,9 @@ h4 {
 
 .btn {
 	padding: 0px 2px;
+}
+#uploadForm{
+	display: none;
 }
 </style>
 </head>
@@ -180,14 +198,26 @@ h4 {
 						<textarea name="content" id="content"
 							style="width: 100%; height: 400px; display: none;" >gygvgy ${dto.content }hbhhh</textarea>
 						<div>
-							<input type="button"
-								onclick="location.href='../file/upload_form.do'" value="파일업로드" />
-							<input type="button" onclick="submitContents(this);" value="확인" />
-							<input type="button" onclick="history.back()" value="취소" />
-
+							<input type="button" onclick="javascript:fileUpload();"value="파일업로드" /> 
+						<input type="button" onclick="submitContents(this);" value="확인" /> 
+						<input type="button" onclick="history.back()" value="취소" />
+						
 						</div>
 					</form>
 				</div>
+				<br />
+				<div class="row" id="uploadForm">
+					<div class="container">
+			
+						<form action="upload.do" method="post" enctype="multipart/form-data">
+							<label for="myFile">첨부파일</label> 
+							<input type="file" name="file" id="myFile" /> 
+								<br />
+							<button type="submit">업로드</button>
+						</form>
+					</div>
+				</div>
+				
 
 			</div>
 			<!-- end .row -->
