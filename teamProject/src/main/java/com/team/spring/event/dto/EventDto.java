@@ -14,11 +14,12 @@ public class EventDto {
 	private int endRowNum;
 	private int prevNum;
 	private int nextNum;
+	private MultipartFile file;
 	
 	public EventDto() {}
 
 	public EventDto(int num, String writer, String title, String content, String imagePath, long viewCount,
-			String regdate, int startRowNum, int endRowNum, int prevNum, int nextNum) {
+			String regdate, int startRowNum, int endRowNum, int prevNum, int nextNum, MultipartFile file) {
 		super();
 		this.num = num;
 		this.writer = writer;
@@ -31,6 +32,7 @@ public class EventDto {
 		this.endRowNum = endRowNum;
 		this.prevNum = prevNum;
 		this.nextNum = nextNum;
+		this.file = file;
 	}
 
 	public int getNum() {
@@ -121,4 +123,12 @@ public class EventDto {
 		this.nextNum = nextNum;
 	}
 
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	
 }

@@ -22,15 +22,13 @@ public class EventController {
 		service.getList(request);
 		return new ModelAndView("event/list");
 	}
-	@RequestMapping("event/insertform")
+	@RequestMapping("event/upload")
 	public ModelAndView insertform(HttpServletRequest request) {
 		return new ModelAndView("event/insertform");
 	}
 	@RequestMapping("event/insert")
 	public ModelAndView insert(@ModelAttribute EventDto dto, HttpServletRequest request) {
-		String id="ragu";
-		dto.setWriter(id);
-		service.saveContent(dto);
+		service.saveContent(dto, request);
 		return new ModelAndView("redirect:/event/list.do");
 	}
 	@RequestMapping("/event/detail")
@@ -42,7 +40,7 @@ public class EventController {
 	@RequestMapping("/event/delete")
 	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
 		service.deleteContent(num);
-		return new ModelAndView("redirect:/cafe/list.do");
+		return new ModelAndView("redirect:/event/list.do");
 	}
 	@RequestMapping("/event/updateform")
 	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, 
@@ -55,7 +53,7 @@ public class EventController {
 	public ModelAndView authUpdate(@ModelAttribute EventDto dto,HttpServletRequest request) {
 		//서비스를 이용해서 글을 수정반영하고
 		service.updateContent(dto);
-		//dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
+		//dto 에 담긴 글 번호를 이용해	서 글자세히 보기로 리다일렉트 이동시킨다.
 		return new ModelAndView("redirect:/event/detail.do?num="+dto.getNum());
 	}
 }

@@ -6,7 +6,7 @@
 		FROM event_mp
 	</select>
 	<select id="getList" parameterType="eventDto" resultType="eventDto">
-		SELECT writer, title, content, viewCount
+		SELECT writer, title, imagePath, viewCount
 		FROM event_mp
 		ORDER BY num DESC
 	</select>
@@ -17,13 +17,13 @@
 	</update>
 	<insert id="insert" parameterType="eventDto">
 		INSERT INTO event_mp
-		(num, writer, title, content, viewCount, regdate)
+		(num, writer, title, content, imagePath, viewCount, regdate)
 		VALUES(event_mp_seq.NEXTVAL, #{writer}, #{title}, #{content},
-		#{viewCount}, SYSDATE)
+		#{imagePath}, #{viewCount}, SYSDATE)
 	</insert>
 	<update id="update" parameterType="eventDto">
 		UPDATE event_mp
-		SET title=#{title}, content=#{content}
+		SET title=#{title}, content=#{content}, imagePath(imagePath)
 		WHERE num=#{num}
 	</update>
 	<delete id="delete" parameterType="int">
@@ -32,7 +32,7 @@
 	</delete>
 	<select id="getData" parameterType="int" resultType="eventDto">
 		SELECT result1.*
-		FROM (SELECT num, writer, title, content, viewCount, regdate,
+		FROM (SELECT num, writer, title, content, imagePath, viewCount, regdate,
 				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
 				LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum
 			  FROM event_mp
@@ -41,7 +41,7 @@
 	</select>
 	<select id="getData2" parameterType="eventDto" resultType="eventDto">
 		SELECT result1.*
-		FROM (SELECT num, writer, title, content, viewCount, regdate,
+		FROM (SELECT num, writer, title, content, imagePath, viewCount, regdate,
 				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
 				LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum
 			  FROM event_mp

@@ -122,8 +122,8 @@ End #service-bottom
 	<h2>event</h2>
 	<div id="projects" class="clearfix">
 	<c:forEach items="${list }" var="tmp">
-		<figure class="mix portfolio-item photography">		
-			<a href="detail.do?num=${tmp.num }" style="height:500px;">${tmp.content }</a>
+		<figure class="mix portfolio-item photography">					
+			<a href="detail.do?num=${tmp.num }" style="height:500px;"><img class="img-responsive" src="${pageContext.request.contextPath}${tmp.imagePath}"/></a>
 			<figcaption class="mask">
 	            <h3>${tmp.title }</h3>
 	        </figcaption>			

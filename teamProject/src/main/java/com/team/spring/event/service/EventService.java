@@ -8,9 +8,9 @@ import com.team.spring.event.dto.EventDto;
 
 public interface EventService {
 	public void getList(HttpServletRequest request);
-	public void saveContent(EventDto dto);
+	public void saveContent(EventDto dto, HttpServletRequest request);
 	public void getDetail(HttpServletRequest request);
 	public void deleteContent(int num);
 	public void getUpdateData(ModelAndView mView, int num);
-	public void updateContent(EventDto dto);
+	public void updateContent(EventDto dto);	
 }

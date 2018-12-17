@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/event/updateform.jsp</title>
-link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 </head>
 <body>
@@ -14,6 +14,7 @@ link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/boo
 	<h3>글정보 수정 폼입니다.</h3>
 	<form action="update.do" method="post">
 		<input type="hidden" name="num" value="${dto.num }" />
+		<input type="hidden" name="imagePath" value="${dto.imagePath }" />
 		<label for="title">제목</label>
 		<input type="text" name="title" id="title" value="${dto.title }"/>
 		<br/>
