@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 	
-	@RequestMapping("/home")
+	@RequestMapping("home")
 	public ModelAndView home() {
 		//오늘의 공지 사항
 		List<String> noticeList=new ArrayList<>();
