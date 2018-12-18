@@ -22,12 +22,12 @@ public class AskController {
 	@Autowired
 	private AskService service;
 	
-	@RequestMapping("/ask/list")
+	@RequestMapping("/ask/contact_home")
 	public ModelAndView getList(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		service.getList(request);
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("ask/list");
+		return new ModelAndView("ask/contact_home");
 	}
 	
 	@RequestMapping("/ask/list2")
@@ -38,22 +38,37 @@ public class AskController {
 		return new ModelAndView("ask/list2");
 	}
 	
-	@RequestMapping("/ask/list3")
+	@RequestMapping("/ask/qnalist")
 	public ModelAndView getList3(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
-		service.getList(request);
+		service.getList2(request);
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("ask/list3");
+		return new ModelAndView("ask/qnalist");
 	}
 	
-	@RequestMapping("/ask/list4")
-	public ModelAndView getList4(HttpServletRequest request) {
+	@RequestMapping("/ask/qnainsertform")
+	public ModelAndView authgetList4(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		service.getList(request);
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("ask/list4");
+		return new ModelAndView("ask/qnainsertform");
 	}
 	
+	@RequestMapping("/ask/replylist")
+	public ModelAndView getList6(HttpServletRequest request) {
+		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
+		service.getList(request);
+		//view 페이지로 forward 이동해서 글 목록 출력하기 
+		return new ModelAndView("ask/replylist");
+	}	
+	
+	@RequestMapping("/ask/list5")
+	public ModelAndView getList5(HttpServletRequest request) {
+		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
+		service.getList(request);
+		//view 페이지로 forward 이동해서 글 목록 출력하기 
+		return new ModelAndView("ask/list5");
+	}	
 
 	
 	@RequestMapping("/ask/insertform")
@@ -69,7 +84,7 @@ public class AskController {
 		//새글을 저장한다. 
 		service.saveContent(dto);
 		//글 목록 보기로 리다일렉트 이동
-		return new ModelAndView("redirect:/ask/list2.do");
+		return new ModelAndView("redirect:/ask/contact_home.do");
 	}
 	@RequestMapping("/ask/detail")
 	public ModelAndView detail(HttpServletRequest request) {

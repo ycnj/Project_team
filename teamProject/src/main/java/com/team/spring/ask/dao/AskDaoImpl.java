@@ -24,6 +24,12 @@ public class AskDaoImpl implements AskDao{
 		
 		return session.selectList("ask.getList", dto);
 	}
+	
+	@Override
+	public List<AskDto> getList2(AskDto dto) {
+
+		return session.selectList("ask.getList2", dto);
+	}	
 
 	@Override
 	public void insert(AskDto dto) {
@@ -59,6 +65,8 @@ public class AskDaoImpl implements AskDao{
 		session.update("ask.update", dto);
 		
 	}
+
+
 
 
 }

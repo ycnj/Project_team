@@ -5,16 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/ask/list.jsp</title>
+<title>/views/ask/qnalist.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 </head>
 <body>
 <div class="container">
 	<h3>QnA 게시판 목록입니다.</h3>
-	<a href="../home.do">메인페이지로 돌아가기</a>
-	<br />
-	<a href="list2.do">문의페이지로 돌아가기</a>
-	<table class="table table-bordered">
+	<table style="width:880px; height:220px;" class="table table-bordered">
 		<thead>
 			<tr>
 				<th>번호</th>

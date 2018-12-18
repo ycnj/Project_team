@@ -15,7 +15,8 @@
 
         <!-- Site Title -->
         <title>Kasper One Page Template</title>
-        
+        <!-- smarteditor  -->
+        <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
         <!--
         Google Fonts
         ============================================= -->
@@ -87,7 +88,7 @@
                             <li><a href="../home.do">Home</a></li>
                             <li><a href="./MyInfo.html">MyInfo</a></li>
                             <li><a href="./event.html">Event</a></li>                            
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="contact_home.do">Contact</a></li>
                             <li><a href="./etc.html">Etc</a></li>                                                 
                         <c:if test="${sessionScope.id eq 'herais33' }">
                     		<li><a href="list.do">답변하기</a></li>
@@ -130,7 +131,7 @@
          <!--
         #contact
         ========================== -->
-        <section id="contact">
+         <section id="contact">
             <div class="container">
                 <div class="row">
 
@@ -142,25 +143,32 @@
                   
                     <div class="col-md-4 col-sm-3 wow fadeInRight">
                         <div class="contact-details">
-                            <a href="../user/list.do"><span>질문게시판</span></a>
+                            <a href="../user/userlistboard.do"><span>질문게시판으로 가기</span></a>
                         </div> <!-- end .contact-details -->
-
-                        <div class="contact-details">
-                            <a href="list4.do"><span>1:1문의</span></a>               
+					
+					<c:if test="${!empty SessionScope.id }">
+                     	<div class="contact-details">
+                            <a href="list3.do"><span>1:1 문의목록보기</span></a>               
                         </div> <!-- end .contact-details -->
-                        
-                       	<div class="contact-details">
-                            <a href="list3.do"><span>1:1문의목록보기</span></a>               
-                        </div> <!-- end .contact-details -->
-                    	
-              
+                    </c:if>
+     
+                                                                   	             
                     </div> <!-- .col-md-4 -->
-                    
+                    <div class="col-md-8 col-sm-9">
+					<div class="container">
+						<div class="center-block">
+							<jsp:include page="insertform.jsp"></jsp:include>
+						</div>
+					</div>
+				</div>
 
                 </div>
             </div>
         </section>
-        <!--
+
+
+
+	<!--
         End #contact
         ========================== -->
 
@@ -169,7 +177,7 @@
         ========================== -->
         
         <!-- main jQuery -->
-        <script src="${pageContext.request.contextPath}/resources/js/vendor/jquery-1.11.1.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
         <!-- Bootstrap -->
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
         <!-- jquery.nav -->
@@ -190,6 +198,58 @@
         <script src="${pageContext.request.contextPath}/resources/js/wow.min.js"></script>
         <!-- theme custom scripts -->
         <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+
+	<script>
+
+		var oEditors = [];
+
+		//추가 글꼴 목록
+		//var aAdditionalFontSet = [["MS UI Gothic", "MS UI Gothic"], ["Comic Sans MS", "Comic Sans MS"],["TEST","TEST"]];
+
+		nhn.husky.EZCreator
+				.createInIFrame({
+					oAppRef : oEditors,
+					elPlaceHolder : "content",
+					sSkinURI : "${pageContext.request.contextPath}/SmartEditor/SmartEditor2Skin.html",
+					htParams : {
+						bUseToolbar : true, // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+						bUseVerticalResizer : true, // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+						bUseModeChanger : true, // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+						//aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
+						fOnBeforeUnload : function() {
+							//alert("완료!");
+						}
+					}, //boolean
+					fOnAppLoad : function() {
+						//예제 코드
+						//oEditors.getById["ir1"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
+					},
+					fCreator : "createSEditor2"
+				});
+
+		function submitContents(elClickedObj) {
+			oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []); // 에디터의 내용이 textarea에 적용됩니다.
+			
+			// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
+			var title=$("#title").val();
+			var content=$("#content").val();
+			if (title== "" || title == null) {
+				alert("제목을 입력하세요");
+				return false;
+			}
+			if (content == '<p>&nbsp;</p>') {
+				alert("내용을 입력하세요");
+				return false;
+			}
+			try {
+				elClickedObj.form.submit();
+			} catch (e) {
+			}
+			finally{
+				alert('문의사항을 남겨주셔서 감사합니다.');
+			}
+		}
+	</script>        
         <script>
             $("#nav>li:eq(3)").attr("class","current");        
         </script>

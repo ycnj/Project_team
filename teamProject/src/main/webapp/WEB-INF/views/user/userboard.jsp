@@ -1,20 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>/views/ask/list3.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
-</head>
-<body>
 <div class="container">
-	<h3>QnA 게시판 목록입니다.</h3>
-	<a href="../home.do">메인페이지로 돌아가기</a>
+	<h3>질문게시판 글목록 입니다.</h3>
 	<br />
-	<a href="list2.do">문의페이지로 돌아가기</a>
-	<table class="table table-bordered">
+	<br />
+	<table style="width:800px; height:160px;" class="table table-bordered">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -79,6 +70,8 @@
 		</c:choose>
 		</ul>
 	</div>
+	<button type="button" onclick="location.href='list3.do'">글작성하러 가기</button>
+	<button type="button" onclick="location.href='../ask/contact_home.do'">CONTACT 페이지로 돌아가기</button>
 	<form action="list.do" method="get">
 		<label for="condition">검색조건</label>
 		<select name="condition" id="condition">
@@ -94,18 +87,4 @@
 			<strong>${totalRow }</strong> 개의 글이 검색되었습니다.</p>
 	</c:if>	
 </div><!-- /.container -->
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
 

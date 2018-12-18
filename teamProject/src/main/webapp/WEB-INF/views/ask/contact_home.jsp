@@ -84,12 +84,17 @@
                     <!-- main nav -->
                     <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
                         <ul id="nav" class="nav navbar-nav">
-                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="../home.do">Home</a></li>
                             <li><a href="./MyInfo.html">MyInfo</a></li>
                             <li><a href="./event.html">Event</a></li>                            
                             <li><a href="./contact.html">Contact</a></li>
-                            <li><a href="./etc.html">Etc</a></li>                                               
-                            <li><a href="../ask/list.do">문의 게시판</a></li>
+                            <li><a href="./etc.html">Etc</a></li>
+						<c:if test="${!empty sessionScope.id}">                            
+                            <li><a href="../users/logout.do">로그아웃</a></li>
+						</c:if>                                                                             
+                        <c:if test="${sessionScope.id eq 'herais33' }">
+                    		<li><a href="replylist.do">답변하기</a></li>                    		
+                    	</c:if>
                         </ul>
                     </nav>
                     <!-- /main nav -->
@@ -121,7 +126,7 @@
                     </ul>
                 </div>
             </div>
-        </section>
+        </section>        
         <!--
         End #service-bottom
         ========================== -->
@@ -131,26 +136,51 @@
         <section id="contact">
             <div class="container">
                 <div class="row">
-
+				
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>문의사항을 남겨주세요.</h2>
-                        <p></p>
+                        <h2>CONTACT PAGE</h2>                                   
                     </div>
                     
-                    <div class="section-title text-center wow fadeInDown col-md-4 col-sm-3 ">
-                        <jsp:include page="list2.jsp"></jsp:include>
-                    </div>   
- 
+              
+                    <div class="col-md-4 col-sm-4 wow fadeInRight">
+                        <div class="contact-details">
+                        <table style="width:100%">
+                            <tr>                          
+                            	<th><a href="../user/userlistboard.do"><span>질문게시판</span></a></th>
+                            </tr>
+                        </table>
+                        </div> <!-- end .contact-details -->
+                    </div>
+              
 
-                    
-                    
-
-                    
-           
+					<div class="col-md-4 col-sm-4 wow fadeInRight">
+                     	<div class="contact-details">
+                     	<table>
+                     		<tr>
+                     			<c:if test="${not empty sessionScope.id }">
+                            		<th><a href="list5.do"><span>1:1문의목록보기</span></a></th>
+                        		</c:if>
+                        	</tr>
+                        </table>               
+                        </div> <!-- end .contact-details -->
+                    </div>    
+			
+				
+					<div class="col-md-4 col-sm-4 wow fadeInRight">
+                        <div class="contact-details">
+						<table style="width:100%">     
+							<tr>                   
+                            	<th><a href="../ask/qnainsertform.do"><span>1:1문의</span></a></th>
+                            </tr>
+                        </table>               
+                        </div> <!-- end .contact-details -->
+                    </div>                                                             	             
+                    </div> <!-- .col-md-4 -->
                     
 
                 </div>
-            </div>
+  
+            
         </section>
         <!--
         End #contact

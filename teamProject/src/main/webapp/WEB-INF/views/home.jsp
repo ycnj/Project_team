@@ -90,7 +90,7 @@
                             <li><a href="./index.html">Home</a></li>
                             <li><a href="./MyInfo.html">MyInfo</a></li>
                             <li><a href="./event.html">Event</a></li>                            
-                            <li><a href="ask/list2.do">Contact</a></li>
+                            <li><a href="ask/contact_home.do">Contact</a></li>
                             <li><a href="./etc.html">Etc</a></li>
                         </ul>
                     </nav>

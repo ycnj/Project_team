@@ -17,6 +17,7 @@ public interface AskService {
 	public void deleteComment(int num);
 	public void saveComment(HttpServletRequest request);
 	public void updateComment(AskCommentDto dto);
+	public void getList2(HttpServletRequest request);
 }
 
 
