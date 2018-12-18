@@ -155,7 +155,10 @@ import com.team.spring.freeboard.dto.FreeBoardDto;
 			
 			//글정보 얻어오기
 			//FreeBoardDto 객체를 getData() 의 인자로 전달해서 글정보를 얻어온다. 
-			FreeBoardDto resultDto=freeboardDao.getData(dto);
+			FreeBoardDto resultDto=freeboardDao.getData2(dto);
+			System.out.println("-----------------------");
+			System.out.println(dto.getRegdate());
+			System.out.println("-----------------------");
 			//글 조회수 올리기
 			freeboardDao.addViewCount(num);
 			//request 에 글정보를 담고

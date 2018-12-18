@@ -241,7 +241,7 @@ h4 {
 		</tr>
 		<tr>
 			<th>파일명</th>
-			<td><a href="download.do?num=${tmp.num }">${tmp.orgFileName }</a></td>
+			<td><a href="download.do?num=${dto.num }">${dto.orgFileName }</a></td>
 		</tr>
 		<tr>
 			<th>조회수</th>
