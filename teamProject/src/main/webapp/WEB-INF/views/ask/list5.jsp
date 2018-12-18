@@ -147,7 +147,7 @@
                         </div> <!-- end .contact-details -->
 
                         <div class="contact-details">
-                            <a href="list4.do"><span>1:1문의</span></a>               
+                            <a href="qnainsertform.do"><span>1:1문의</span></a>               
                         </div> <!-- end .contact-details -->
                                                                    	             
                     </div> <!-- .col-md-4 -->

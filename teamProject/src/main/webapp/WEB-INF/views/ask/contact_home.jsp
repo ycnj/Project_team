@@ -142,50 +142,96 @@
                     </div>
                     
               
-                    <div class="col-md-4 col-sm-4 wow fadeInRight">
-                        <div class="contact-details">
-                        <table style="width:100%">
-                            <tr>                          
-                            	<th><a href="../user/userlistboard.do"><span>질문게시판</span></a></th>
-                            </tr>
-                        </table>
-                        </div> <!-- end .contact-details -->
-                    </div>
-              
+                    <div class="col-md-12 wow fadeInLeft">
 
-					<div class="col-md-4 col-sm-4 wow fadeInRight">
-                     	<div class="contact-details">
-                     	<table>
-                     		<tr>
-                     			<c:if test="${not empty sessionScope.id }">
-                            		<th><a href="list5.do"><span>1:1문의목록보기</span></a></th>
-                        		</c:if>
-                        	</tr>
-                        </table>               
-                        </div> <!-- end .contact-details -->
-                    </div>    
-			
-				
-					<div class="col-md-4 col-sm-4 wow fadeInRight">
-                        <div class="contact-details">
-						<table style="width:100%">     
-							<tr>                   
-                            	<th><a href="../ask/qnainsertform.do"><span>1:1문의</span></a></th>
-                            </tr>
-                        </table>               
-                        </div> <!-- end .contact-details -->
-                    </div>                                                             	             
-                    </div> <!-- .col-md-4 -->
-                    
+                        <div class="subtitle text-center">
+                            <h3>문의 게시판 목록</h3>
+								<a href="../user/userlistboard.do"><span>질문게시판</span></a>
+							<c:if test="${not empty sessionScope.id }">
+								<a href="list5.do"><span>1:1문의목록보기</span></a>
+							</c:if>
+								<a href="../ask/qnainsertform.do"><span>1:1문의</span></a>
+                        </div>
 
-                </div>
-  
-            
-        </section>
+                        <div id="testimonial">
+
+                            <div class="tst-item clearfix">
+                                <div class="tst-single clearfix">
+                                    <img src="${pageContext.request.contextPath}/resources/img/qna.jpg" alt="Client" class="img-circle">
+                                    <div class="tst-content">
+                                        <a href="../user/userlistboard.do">질문게시판</a>                   
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tst-item">
+                            
+                                <div class="tst-single clearfix">
+                                    <img src="${pageContext.request.contextPath}/resources/img/qna2.jpg" alt="Client" class="img-circle">
+                                    <div class="tst-content">
+                                    <c:if test="${not empty sessionScope.id }">
+                                        <a href="list5.do">1:1문의목록보기</a>
+                            		</c:if>
+                                        <span>로그인이 필요합니다.</span>
+                                    </div>
+                                </div>
+							
+                            </div>
+
+                            <div class="tst-item">
+                                <div class="tst-single clearfix">
+                                    <img src="${pageContext.request.contextPath}/resources/img/qna3.jpg" alt="Client" class="img-circle">
+                                    <div class="tst-content">
+                                        <a href="../ask/qnainsertform.do">1:1문의</a>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
         <!--
-        End #contact
+        End #about-us
         ========================== -->
 
+                <!--
+        #footer
+        ========================== -->
+        <footer id="footer" class="text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="footer-logo wow fadeInDown">
+                            <img src="img/logo.png" alt="logo">
+                        </div>
+
+                        <div class="footer-social wow fadeInUp">
+                            <h3>We are social</h3>
+                            <ul class="text-center list-inline">
+                                <li><a href="http://goo.gl/RqhEjP"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="http://goo.gl/hUfpSB"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                <li><a href="http://goo.gl/r4xzR4"><i class="fa fa-google-plus fa-lg"></i></a></li>
+                                <li><a href="http://goo.gl/k9zAy5"><i class="fa fa-dribbble fa-lg"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="copyright">
+                           
+                           Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--
+        End #footer
+        ========================== -->
         <!--
         JavaScripts
         ========================== -->
