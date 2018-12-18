@@ -13,6 +13,8 @@ public interface AskDao {
 	public void delete(int num);
 	public AskDto getData(int num);
 	public void update(AskDto dto);
+
+
 }
 
 

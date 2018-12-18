@@ -30,6 +30,30 @@ public class UserController {
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
 		return new ModelAndView("user/list");
 	}
+
+	@RequestMapping("/user/list2")
+	public ModelAndView getList2(HttpServletRequest request) {
+		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
+		service.getList(request);
+		//view 페이지로 forward 이동해서 글 목록 출력하기 
+		return new ModelAndView("user/list2");
+	}
+	
+	@RequestMapping("/user/list3")
+	public ModelAndView getList3(HttpServletRequest request) {
+		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
+		service.getList(request);
+		//view 페이지로 forward 이동해서 글 목록 출력하기 
+		return new ModelAndView("user/list3");
+	}
+	
+	@RequestMapping("/user/list4")
+	public ModelAndView getList4(HttpServletRequest request) {
+		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
+		service.getList(request);
+		//view 페이지로 forward 이동해서 글 목록 출력하기 
+		return new ModelAndView("user/list4");
+	}
 	@RequestMapping("/user/insertform")
 	public ModelAndView authInsertform(HttpServletRequest request) {
 		//view 페이지로 forward 이동해서 새글 작성 폼 출력하기 
@@ -50,6 +74,13 @@ public class UserController {
 		service.getDetail(request);
 		return new ModelAndView("user/detail");
 	}
+	
+	@RequestMapping("/user/detail2")
+	public ModelAndView detail2(HttpServletRequest request) {
+		service.getDetail(request);
+		return new ModelAndView("user/detail2");
+	}
+		
 	
 	@RequestMapping("/user/delete")
 	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {

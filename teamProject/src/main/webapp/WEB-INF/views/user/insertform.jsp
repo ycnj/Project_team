@@ -20,12 +20,10 @@
 		<input style="height:30px; width:400px"type="text" name="title" id="title"/>
 		<br/>
 		<label for="content">내용</label>
-		<textarea name="content" id="content" style="width:400px;height:400px;display:none;"></textarea>
+		<textarea name="content" id="content" style="width:400px;height:400px;display:none;margin:center;"></textarea>
 			<div>
 				<input type="button" onclick="submitContents(this);" value="작성완료" />
-				<input type="button" onclick="history.back()" value="취소" />
-				<input type="button" onclick="location.href='../home.do'" value="돌아가기"/>
-
+				<input type="button" onclick="history.back()" value="취소" />	
 			</div>
 		</form>
 	</div>

@@ -60,6 +60,7 @@ public class AskDaoImpl implements AskDao{
 		
 	}
 
+
 }
 
 

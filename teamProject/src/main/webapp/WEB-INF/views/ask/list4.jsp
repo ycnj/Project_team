@@ -84,12 +84,14 @@
                     <!-- main nav -->
                     <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
                         <ul id="nav" class="nav navbar-nav">
-                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="../home.do">Home</a></li>
                             <li><a href="./MyInfo.html">MyInfo</a></li>
                             <li><a href="./event.html">Event</a></li>                            
                             <li><a href="./contact.html">Contact</a></li>
-                            <li><a href="./etc.html">Etc</a></li>                                               
-                            <li><a href="../ask/list.do">문의 게시판</a></li>
+                            <li><a href="./etc.html">Etc</a></li>                                                 
+                        <c:if test="${sessionScope.id eq 'herais33' }">
+                    		<li><a href="list.do">답변하기</a></li>
+                    	</c:if>
                         </ul>
                     </nav>
                     <!-- /main nav -->
@@ -133,21 +135,13 @@
                 <div class="row">
 
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>문의사항을 남겨주세요.</h2>
+                        <h2>문의사항을 남겨주세요.</h2>           
                         <p></p>
                     </div>
                     
                     <div class="section-title text-center wow fadeInDown col-md-4 col-sm-3 ">
-                        <jsp:include page="list2.jsp"></jsp:include>
+                        <jsp:include page="insertform.jsp"></jsp:include>
                     </div>   
- 
-
-                    
-                    
-
-                    
-           
-                    
 
                 </div>
             </div>

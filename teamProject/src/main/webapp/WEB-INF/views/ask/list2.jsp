@@ -84,13 +84,14 @@
                     <!-- main nav -->
                     <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
                         <ul id="nav" class="nav navbar-nav">
-                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="../home.do">Home</a></li>
                             <li><a href="./MyInfo.html">MyInfo</a></li>
                             <li><a href="./event.html">Event</a></li>                            
                             <li><a href="./contact.html">Contact</a></li>
-                            <li><a href="./etc.html">Etc</a></li>                       
-                            <li><a href="../user/list.do">유저 질문게시판</a></li>
-                            <li><a href="../ask/list.do">문의 게시판</a></li>
+                            <li><a href="./etc.html">Etc</a></li>                                                 
+                        <c:if test="${sessionScope.id eq 'herais33' }">
+                    		<li><a href="list.do">답변하기</a></li>
+                    	</c:if>
                         </ul>
                     </nav>
                     <!-- /main nav -->
@@ -134,27 +135,25 @@
                 <div class="row">
 
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>문의사항을 남겨주세요.</h2>
+                        <h2>문의사항을 남겨주세요.</h2>           
                         <p></p>
                     </div>
-
                     
-                    
+                  
                     <div class="col-md-4 col-sm-3 wow fadeInRight">
                         <div class="contact-details">
                             <a href="../user/list.do"><span>질문게시판</span></a>
                         </div> <!-- end .contact-details -->
 
                         <div class="contact-details">
-                            <a href="insertform.do"><span>1:1문의</span></a>               
+                            <a href="list4.do"><span>1:1문의</span></a>               
+                        </div> <!-- end .contact-details -->
+                        
+                       	<div class="contact-details">
+                            <a href="list3.do"><span>1:1문의목록보기</span></a>               
                         </div> <!-- end .contact-details -->
                     	
-                    	<div class="contact-details">
-                    	<c:if test="${sessionScope.id eq 'herais33' }">
-                    		<a href="list.do">답변하기</a>
-                    	</c:if>
-                    	</div>
-                    
+              
                     </div> <!-- .col-md-4 -->
                     
 

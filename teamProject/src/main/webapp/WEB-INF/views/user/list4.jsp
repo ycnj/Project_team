@@ -88,7 +88,7 @@
                             <li><a href="./MyInfo.html">MyInfo</a></li>
                             <li><a href="./event.html">Event</a></li>                            
                             <li><a href="./contact.html">Contact</a></li>
-                            <li><a href="./etc.html">Etc</a></li>                                               
+                            <li><a href="./etc.html">Etc</a></li>                                                   
                             <li><a href="../ask/list.do">문의 게시판</a></li>
                         </ul>
                     </nav>
@@ -136,11 +136,11 @@
                         <h2>문의사항을 남겨주세요.</h2>
                         <p></p>
                     </div>
-                    
+                                    
+                      
                     <div class="section-title text-center wow fadeInDown col-md-4 col-sm-3 ">
-                        <jsp:include page="list2.jsp"></jsp:include>
+                        <jsp:include page="detail.jsp"></jsp:include>
                     </div>   
- 
 
                     
                     

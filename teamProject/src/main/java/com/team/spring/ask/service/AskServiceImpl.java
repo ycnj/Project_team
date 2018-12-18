@@ -214,9 +214,16 @@ public class AskServiceImpl implements AskService{
 		//CafeCommentDao 객체를 이용해서 댓글 내용을 update 한다. 
 		askCommentDao.update(dto);
 	}
+
+
+
+		
+}
+
+
 	
 
-}
+
 
 
 

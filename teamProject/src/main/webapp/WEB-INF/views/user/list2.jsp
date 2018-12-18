@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <div class="container">
-	<a href="insertform.do">글 작성하러 가기</a>
 	<h3>질문게시판 글목록 입니다.</h3>
+	<br />
+	<br />
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -69,6 +70,8 @@
 		</c:choose>
 		</ul>
 	</div>
+	<button type="button" onclick="location.href='list3.do'">글작성하러 가기</button>
+	<button type="button" onclick="location.href='../ask/list2.do'">CONTACT 페이지로 돌아가기</button>
 	<form action="list.do" method="get">
 		<label for="condition">검색조건</label>
 		<select name="condition" id="condition">
