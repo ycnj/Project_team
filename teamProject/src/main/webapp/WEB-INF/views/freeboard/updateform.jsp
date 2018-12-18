@@ -191,14 +191,16 @@ h4 {
 					</p>
 					<h3>글 정보 수정</h3>
 					<form action="update.do" method="post">
-						<input type="hidden" name="num" value="${dto.num }" /> <label
-							for="title">제목</label> <input type="text" name="title" id="title"
-							value="${dto.title }" /> <br />
+						<input type="hidden" name="num" value="${dto.num }" /> 
+						<label for="title">제목</label> <input type="text" name="title" id="title" value="${dto.title }" />
+						 <br />
 						<label for="content">내용</label>
-						<textarea name="content" id="content"
-							style="width: 100%; height: 400px; display: none;" >gygvgy ${dto.content }hbhhh</textarea>
+						<textarea name="content" id="content" style="width: 100%; height: 400px; display: none;" > ${dto.content }</textarea>
 						<div>
-							<input type="button" onclick="javascript:fileUpload();"value="파일업로드" /> 
+						
+						<td><a href="download.do?num=${dto.num }">${dto.orgFileName }</a></td>
+						<br />
+						<input type="button" onclick="javascript:fileUpload();"value="파일업로드" /> 
 						<input type="button" onclick="submitContents(this);" value="확인" /> 
 						<input type="button" onclick="history.back()" value="취소" />
 						
