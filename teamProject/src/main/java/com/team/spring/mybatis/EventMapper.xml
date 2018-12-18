@@ -6,9 +6,14 @@
 		FROM event_mp
 	</select>
 	<select id="getList" parameterType="eventDto" resultType="eventDto">
-		SELECT writer, title, imagePath, viewCount
+		SELECT *
+		FROM (SELECT result1.*, ROWNUM rnum
+		FROM(SELECT num, writer, title, orgFileName, saveFileName, fileSize, viewCount, regdate
 		FROM event_mp
-		ORDER BY num DESC
+		ORDER BY num DESC) result1)
+		 <![CDATA[ 
+	    WHERE rnum >= #{startRowNum} AND rnum <=  #{endRowNum}
+	   ]]>
 	</select>
 	<update id="addViewCount" parameterType="int">
 		UPDATE event_mp
@@ -17,9 +22,9 @@
 	</update>
 	<insert id="insert" parameterType="eventDto">
 		INSERT INTO event_mp
-		(num, writer, title, content, imagePath, viewCount, regdate)
-		VALUES(event_mp_seq.NEXTVAL, #{writer}, #{title}, #{content},
-		#{imagePath}, #{viewCount}, SYSDATE)
+		(num, writer, title, content, orgFileName, saveFileName, fileSize, viewCount, regdate)
+		VALUES(event_mp_seq.NEXTVAL, #{writer}, #{title}, #{content}, 
+		#{orgFileName}, #{saveFileName}, #{fileSize}, #{viewCount}, SYSDATE)
 	</insert>
 	<update id="update" parameterType="eventDto">
 		UPDATE event_mp
@@ -32,22 +37,13 @@
 	</delete>
 	<select id="getData" parameterType="int" resultType="eventDto">
 		SELECT result1.*
-		FROM (SELECT num, writer, title, content, imagePath, viewCount, regdate,
+		FROM (SELECT num, writer, title, content, orgFileName, saveFileName, fileSize, viewCount, regdate,
 				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
 				LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum
 			  FROM event_mp
 			  ORDER BY num DESC) result1
 		WHERE num=#{num}
 	</select>
-	<select id="getData2" parameterType="eventDto" resultType="eventDto">
-		SELECT result1.*
-		FROM (SELECT num, writer, title, content, imagePath, viewCount, regdate,
-				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
-				LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum
-			  FROM event_mp
-			  ORDER BY num DESC) result1
-		WHERE num=#{num}
-	</select>	
 </mapper>
 
 

@@ -7,9 +7,12 @@ public class EventDto {
 	private String writer;
 	private String title;
 	private String content;
-	private String imagePath;
+	private String orgFileName;
+	private String saveFileName;
+	private long fileSize;
 	private long viewCount;
 	private String regdate;	
+	
 	private int startRowNum;
 	private int endRowNum;
 	private int prevNum;
@@ -18,14 +21,17 @@ public class EventDto {
 	
 	public EventDto() {}
 
-	public EventDto(int num, String writer, String title, String content, String imagePath, long viewCount,
-			String regdate, int startRowNum, int endRowNum, int prevNum, int nextNum, MultipartFile file) {
+	public EventDto(int num, String writer, String title, String content, String orgFileName, String saveFileName,
+			long fileSize, long viewCount, String regdate, int startRowNum, int endRowNum, int prevNum, int nextNum,
+			MultipartFile file) {
 		super();
 		this.num = num;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
-		this.imagePath = imagePath;
+		this.orgFileName = orgFileName;
+		this.saveFileName = saveFileName;
+		this.fileSize = fileSize;
 		this.viewCount = viewCount;
 		this.regdate = regdate;
 		this.startRowNum = startRowNum;
@@ -67,12 +73,28 @@ public class EventDto {
 		this.content = content;
 	}
 
-	public String getImagePath() {
-		return imagePath;
+	public String getOrgFileName() {
+		return orgFileName;
 	}
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setOrgFileName(String orgFileName) {
+		this.orgFileName = orgFileName;
+	}
+
+	public String getSaveFileName() {
+		return saveFileName;
+	}
+
+	public void setSaveFileName(String saveFileName) {
+		this.saveFileName = saveFileName;
+	}
+
+	public long getFileSize() {
+		return fileSize;
+	}
+
+	public void setFileSize(long fileSize) {
+		this.fileSize = fileSize;
 	}
 
 	public long getViewCount() {
@@ -130,5 +152,5 @@ public class EventDto {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
-	
+
 }

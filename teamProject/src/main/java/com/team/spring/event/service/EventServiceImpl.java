@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,10 +19,10 @@ public class EventServiceImpl implements EventService {
 
 	@Autowired
 	private EventDao eventDao;
-	static final int PAGE_ROW_COUNT=5;
+	static final int PAGE_ROW_COUNT=8;
 	//하단 디스플레이 페이지 갯수 
 	static final int PAGE_DISPLAY_COUNT=3;	
-	
+	//목록 출력 서비스
 	@Override
 	public void getList(HttpServletRequest request) {
 		EventDto dto=new EventDto();
@@ -64,34 +65,37 @@ public class EventServiceImpl implements EventService {
 		//전체 글의 갯수도 request 에 담는다.
 		request.setAttribute("totalRow", totalRow);	
 	}
-
+	// 상세 정보 서비스
 	@Override
-	public void getDetail(HttpServletRequest request) {
-		int num=Integer.parseInt(request.getParameter("num"));
-		EventDto dto=new EventDto();
-		dto.setNum(num);
-		
-		EventDto resultDto=eventDao.getData(dto);
-		eventDao.addViewCount(num);
-		request.setAttribute("dto", resultDto);
-	}
-
-	@Override
-	public void deleteContent(int num) {
-		eventDao.delete(num);
-	}
-
-	@Override
-	public void getUpdateData(ModelAndView mView, int num) {
+	public void getDetail(ModelAndView mView, int num) {
 		EventDto dto=eventDao.getData(num);
 		mView.addObject("dto", dto);
 	}
-
+	// 컨텐츠 삭제 서비스
+	@Override
+	public void deleteContent(int num, HttpServletRequest request,
+			HttpServletResponse response) {
+		EventDto dto=eventDao.getData(num);
+		String id=(String)request.getSession().getAttribute("id");
+		if(!id.equals(dto.getWriter())) {
+			try {
+				response.sendError(HttpServletResponse.SC_FORBIDDEN);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			return;
+		}
+		eventDao.delete(num);
+		String path=request.getServletContext().getRealPath("upload")+
+				File.separator+dto.getSaveFileName();
+		new File(path).delete();
+	}
+	// 컨텐츠 수정 서비스
 	@Override
 	public void updateContent(EventDto dto) {
 		eventDao.update(dto);
 	}
-
+	// 컨텐츠 저장 서비스
 	@Override
 	public void saveContent(EventDto dto, HttpServletRequest request) {
 		//파일을 저장할 폴더의 절대 경로를 얻어온다.
@@ -116,11 +120,20 @@ public class EventServiceImpl implements EventService {
 			mFile.transferTo(new File(filePath+saveFileName));
 		}catch(Exception e){
 			e.printStackTrace();
-		}		
-		dto.setImagePath(filePath);
+		}
+		String id="ragu";//(String)request.getSession().getAttribute("id");
+		dto.setWriter(id);
+		dto.setOrgFileName(orgFileName);
+		dto.setSaveFileName(saveFileName);
+		dto.setFileSize(fileSize);
 		//FileDao 객체를 이용해서 DB 에 저장하기
 		eventDao.insert(dto);	
 		
+	}
+	// 조회수 증가 서비스
+	@Override
+	public void addViewCount(int num) {
+		eventDao.addViewCount(num);
 	}
 
 }

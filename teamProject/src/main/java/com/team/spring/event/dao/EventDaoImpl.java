@@ -44,11 +44,6 @@ public class EventDaoImpl implements EventDao{
 	}
 
 	@Override
-	public EventDto getData(EventDto dto) {
-		return session.selectOne("event.getdata2", dto);
-	}
-
-	@Override
 	public EventDto getData(int num) {
 		return session.selectOne("event.getData", num);
 	}

@@ -86,7 +86,7 @@ CSS
                   <li><a href="./event.html">Event</a></li>                            
                   <li><a href="./contact.html">Contact</a></li>
                   <li><a href="./etc.html">Etc</a></li>
-                  <li><a href="insertform.do">이벤트 관리자</a></li>
+                  <li><a href="uploadform.do">이벤트 관리자</a></li>
               </ul>
           </nav>
           <!-- /main nav -->
@@ -120,10 +120,15 @@ End #service-bottom
 <section id="portfolio">
 <div class="section-title text-center wow fadeInDown">
 	<h2>event</h2>
+	<!-- 
+	<h4>이미지 로드 테스트 혜워니~</h4>
+	<img src="${pageContext.request.contextPath}/upload/20181217151443f3f45907-6d87-4969-aa54-06537dddfd48.jpg" alt="" />
+	-->
+</div>	
 	<div id="projects" class="clearfix">
 	<c:forEach items="${list }" var="tmp">
-		<figure class="mix portfolio-item photography">					
-			<a href="detail.do?num=${tmp.num }" style="height:500px;"><img class="img-responsive" src="${pageContext.request.contextPath}${tmp.imagePath}"/></a>
+		<figure class="mix portfolio-item" style="display: inline-block;">					
+			<a href="detail.do?num=${tmp.num }"><img style="width:372px;height:290px;"  class="img-responsive" src="${pageContext.request.contextPath}/upload/${tmp.saveFileName}"/></a>
 			<figcaption class="mask">
 	            <h3>${tmp.title }</h3>
 	        </figcaption>			
@@ -131,7 +136,7 @@ End #service-bottom
 	</c:forEach>
 	</div>
 	<!-- 페이징 처리 -->
-	<div class="page-display">
+	<div class="page-display text-center">
 		<ul class="pagination">
 		<c:choose>
 			<c:when test="${startPageNum ne 1}">

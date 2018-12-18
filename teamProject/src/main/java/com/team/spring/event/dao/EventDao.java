@@ -8,7 +8,6 @@ public interface EventDao {
 	public int getCount(EventDto dto);
 	public List<EventDto> getList(EventDto dto);
 	public void insert(EventDto dto);
-	public EventDto getData(EventDto dto);
 	public void addViewCount(int num);
 	public void delete(int num);
 	public EventDto getData(int num);

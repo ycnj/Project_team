@@ -1,6 +1,7 @@
 package com.team.spring.event.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,24 +23,26 @@ public class EventController {
 		service.getList(request);
 		return new ModelAndView("event/list");
 	}
-	@RequestMapping("event/upload")
-	public ModelAndView insertform(HttpServletRequest request) {
-		return new ModelAndView("event/insertform");
+	@RequestMapping("event/uploadform")
+	public ModelAndView authUploadForm(HttpServletRequest request) {
+		return new ModelAndView("event/uploadform");
 	}
-	@RequestMapping("event/insert")
-	public ModelAndView insert(@ModelAttribute EventDto dto, HttpServletRequest request) {
+	@RequestMapping("event/upload")
+	public ModelAndView authUpload(@ModelAttribute EventDto dto,
+			HttpServletRequest request) {
 		service.saveContent(dto, request);
 		return new ModelAndView("redirect:/event/list.do");
 	}
 	@RequestMapping("/event/detail")
 	public ModelAndView detail(HttpServletRequest request) {
-		service.getDetail(request);
+		service.getDetail(mView, num);
 		return new ModelAndView("event/detail");
 	}
 	
 	@RequestMapping("/event/delete")
-	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
-		service.deleteContent(num);
+	public ModelAndView authDelete(@RequestParam int num, 
+			HttpServletRequest request, HttpServletResponse response) {
+		service.deleteContent(num, request, response);
 		return new ModelAndView("redirect:/event/list.do");
 	}
 	@RequestMapping("/event/updateform")
