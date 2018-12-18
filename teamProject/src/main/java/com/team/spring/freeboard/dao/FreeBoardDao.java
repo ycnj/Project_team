@@ -12,6 +12,7 @@ public interface FreeBoardDao {
 	public FreeBoardDto getData2(FreeBoardDto dto);
 	public void addViewCount(int num);
 	public void delete(int num);
+	public void delete2(int num);
 	public FreeBoardDto getData(int num);
 	public void update(FreeBoardDto dto);
 }

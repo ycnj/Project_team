@@ -53,4 +53,14 @@
 		<beans:property name="maxUploadSize" value="10240000"/>
 	</beans:bean>
 	
+		<!-- bean 의 이름으로 view 를 찾아갈수 있도록 설정 -->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"/>
+	</beans:bean>
+	
+	<!-- Spring  DataSourceTransactionManager bean -->
+	<beans:bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<beans:property name="dataSource" ref="dataSource"/>
+	</beans:bean>
+	
 </beans:beans>

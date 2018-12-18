@@ -150,15 +150,14 @@ import com.team.spring.freeboard.dto.FreeBoardDto;
 				request.setAttribute("encodedKeyword", encodedKeyword);
 				request.setAttribute("keyword", keyword);
 			}		
+			// 테스트
+			
 			//CafeDto 에 글번호도 담기
 			dto.setNum(num);
 			
 			//글정보 얻어오기
 			//FreeBoardDto 객체를 getData() 의 인자로 전달해서 글정보를 얻어온다. 
 			FreeBoardDto resultDto=freeboardDao.getData2(dto);
-			System.out.println("-----------------------");
-			System.out.println(dto.getRegdate());
-			System.out.println("-----------------------");
 			//글 조회수 올리기
 			freeboardDao.addViewCount(num);
 			//request 에 글정보를 담고
@@ -170,7 +169,11 @@ import com.team.spring.freeboard.dto.FreeBoardDto;
 		}
 
 		@Override
-		public void deleteContent(int num) {
+		public void deleteContent(int num, FreeBoardDto dto, HttpServletRequest request) {
+			//3. 파일 시스템에서 실제 파일 삭제 
+			String path=request.getServletContext().getRealPath("/upload")+
+					File.separator+dto.getSaveFileName();
+			new File(path).delete();
 			freeboardDao.delete(num);
 		}
 
@@ -184,6 +187,7 @@ import com.team.spring.freeboard.dto.FreeBoardDto;
 
 		@Override
 		public void updateContent(FreeBoardDto dto) {
+			
 			freeboardDao.update(dto);
 		}
 
@@ -271,5 +275,15 @@ import com.team.spring.freeboard.dto.FreeBoardDto;
 			//FileDao 객체를 이용해서 DB 에 저장하기
 			freeboardDao.insert(dto);
 		}
+
+
+		@Override
+		public void getFileData(ModelAndView mView, int num) {
+			//번호에 해당하는 파일 정보를 얻어온다.
+			FreeBoardDto dto=freeboardDao.getData(num);
+			//ModelAndView 객체에 담는다.
+			mView.addObject("dto", dto);
+		}
+	
 		
 }

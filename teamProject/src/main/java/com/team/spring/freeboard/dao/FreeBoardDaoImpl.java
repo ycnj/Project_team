@@ -60,14 +60,19 @@ public class FreeBoardDaoImpl implements FreeBoardDao{
 	}
 
 	@Override
-	public FreeBoardDto getData(int num) {
-		
+	public FreeBoardDto getData(int num) {		
 		return session.selectOne("freeboard.getData", num);
 	}
 
 	@Override
 	public void update(FreeBoardDto dto) {
 		session.update("freeboard.update", dto);
+	}
+
+	@Override
+	public void delete2(int num) {
+		session.delete("freeboard.delete2", num);
+		
 	}
 	
 }

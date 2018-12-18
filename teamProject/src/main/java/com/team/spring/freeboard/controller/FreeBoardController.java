@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,8 +43,9 @@ public class FreeBoardController {
 	}
 
 	@RequestMapping("/freeboard/delete")
-	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
-		service.deleteContent(num);
+	public ModelAndView authDelete(@RequestParam int num, 
+			HttpServletRequest request, @ModelAttribute FreeBoardDto dto ) {
+		service.deleteContent(num, dto, request);
 		return new ModelAndView("redirect:/freeboard/list.do");
 	}
 
@@ -90,6 +92,11 @@ public class FreeBoardController {
 		map.put("isSuccess", true);
 		return map;
 	}
+	@RequestMapping("/freeboard/upload_form")
+	public ModelAndView authUploadForm(HttpServletRequest request) {
+		
+		return new ModelAndView("freeboard/upload_form");
+	}
 	//파일 업로드 요청 처리 
 	@RequestMapping("/freeboard/upload")
 	public ModelAndView authUpload(@ModelAttribute FreeBoardDto dto, 
@@ -99,5 +106,20 @@ public class FreeBoardController {
 		//파일 목록보기로 리다일렉트 시킨다. 
 		return new ModelAndView("redirect:/freeboard/list.do");
 	}
+	//파일 다운로드 요청 처리
+		@RequestMapping("/freeboard/download")
+		public ModelAndView download(ModelAndView mView, @RequestParam int num) {
+			/* 파라미터로 전달되는 다운로드할 파일의 번호를 이용해서
+			 * 파일정보를 DB 에서 읽어와서 
+			 * ModelAndView 객체에 담고
+			 * 파일을 다운로드 시켜줄 view 로 이동해서 다운로드 시켜주기 
+			 */
+			service.getFileData(mView, num);
+			// 추상 view 의 이름 : "fileDownView" 
+			mView.setViewName("fileDownView");
+			return mView;
 	
+		}
+
+
 }
