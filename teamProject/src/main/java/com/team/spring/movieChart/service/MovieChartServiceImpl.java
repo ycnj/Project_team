@@ -24,9 +24,9 @@ public class MovieChartServiceImpl implements MovieChartService{
 	private MovieChartDao dao;
 	
 	//한 페이지에 나타낼 row 의 갯수 
-	static final int PAGE_ROW_COUNT=5;
+	static final int PAGE_ROW_COUNT=8;
 	//하단 디스플레이 페이지 갯수 
-	static final int PAGE_DISPLAY_COUNT=3;
+	static final int PAGE_DISPLAY_COUNT=5;
 	
 	@Override
 	public void getList(HttpServletRequest request) {
@@ -102,15 +102,6 @@ public class MovieChartServiceImpl implements MovieChartService{
 		
 		// startRowNum 과 endRowNum 에 해당하는 파일 목록을 select 해 온다.
 		List<MovieChartDto> list=dao.getList(dto);		
-		List<String> list2 = new ArrayList<>();
-		for(int i=0; i<list.size(); i++) {
-			String path=request.getServletContext().getRealPath("/upload")+
-					File.separator+list.get(i).getOrgFileName();
-			list2.add(path);			
-		}
-		System.out.println(list2.get(0)+"네?");
-		System.out.println("뭐하냐?");
-		request.setAttribute("list2", list2);
 		// view 페이지에서 필요한 값 request 에 담기 
 		request.setAttribute("list", list);
 		request.setAttribute("startPageNum", startPageNum);
@@ -155,7 +146,6 @@ public class MovieChartServiceImpl implements MovieChartService{
 		System.out.println(realPath);
 		
 		MultipartFile mFile=dto.getFile();
-		System.out.println(mFile);
 		//원본 파일명
 		String orgFileName=mFile.getOriginalFilename();
 		//파일 사이즈

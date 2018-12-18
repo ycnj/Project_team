@@ -19,7 +19,7 @@
 	<select id="getList" parameterType="movieChartDto" resultType="movieChartDto">
 	   SELECT *
 	   FROM (SELECT result1.*, ROWNUM rnum
-	   		 FROM (SELECT num,writer,title,content,opendate,liketo,orgFileName,fileSize,regdate
+	   		 FROM (SELECT num,writer,title,content,opendate,liketo,orgFileName,saveFileName,fileSize,regdate
 		           FROM movieInfo
 					<where>
 						<if test="writer != null">
@@ -42,8 +42,7 @@
 		WHERE num=#{num}
 	</delete>
 	<select id="getData" parameterType="int" resultType="movieChartDto">
-		SELECT num,writer,title,content,opendate,liketo,orgFileName,saveFileName,fileSize,
-		downCount,regdate
+		SELECT num,writer,title,content,opendate,liketo,orgFileName,saveFileName,fileSize,regdate
 		FROM movieInfo
 		WHERE num=#{num}
 	</select>

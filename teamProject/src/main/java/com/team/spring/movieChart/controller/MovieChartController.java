@@ -20,7 +20,6 @@ public class MovieChartController {
 	
 	@RequestMapping("/movie/listChart")
 	public String getList(HttpServletRequest request) {
-		System.out.println("뭐하냐고");
 		service.getList(request);
 		// view 페이지로 forward 이동해서 파일 목록 출력하기 
 		return "movie/client/listChart";
@@ -44,6 +43,11 @@ public class MovieChartController {
 		//파일 목록보기로 리다일렉트 시킨다. 
 		return new ModelAndView("redirect:/movie/listChart.do");
 	}
+	//파일 업로드 요청 처리 
+	@RequestMapping("/movie/liketo")
+	public void authLiketo(HttpServletRequest request) {
+		service.liketo(request);
+	}	
 
 }
 

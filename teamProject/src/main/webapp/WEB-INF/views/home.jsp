@@ -10,6 +10,6 @@
 <h4>인덱스 페이지 입니다.</h4>
 <a href="movie/uploadChart_form.do">영화등록하기</a>
 <a href="movie/listChart.do">리스트보기</a>
-
+<a href="users/usersRes/detail.do">디테일</a>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<%-- <%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -22,14 +22,19 @@
 	th,td {
 	    text-align: center;
 	}
+	img{
+		width: 250px;
+    	height: auto;
+	}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="container">	
 	<h1>무비차트</h1>
 	<a href="uploadChart_form.do"><button class="btn btn-info upbtn">업로드 하러 가기</button></a>
 	<hr style="height: 3px;" color="black" />
-	<br />	
+	<br />
+	<img src="${pageContext.request.contextPath }/upload/1545104915880fantastic-beasts-the-crimes-of-grindelwald.jpg"/>
 	<div class="row">
 		<div class="col-xs-12">
 			<table class="table table-bordered">
@@ -48,9 +53,9 @@
 					</tr>
 				</thead>
 				<tbody>
-				<c:forEach items="${list }" var="tmp">
-					<tr>
-						<td>${tmp.num }</td>
+				<c:forEach items="${list }" var="tmp">								
+					<tr>						
+						<td>${tmp.num }${tmp.saveFileName}</td>
 						<td>${tmp.writer }</td>
 						<td>${tmp.title }</td>
 						<td><c:out value="${fn:substring(tmp.content, 0, 33)}..."/></td>
@@ -65,8 +70,8 @@
 							<fmt:parseDate value="${tmp.regdate }" var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss" />
 							<fmt:formatDate value="${dateFmt }" pattern="yyyy-MM-dd HH:mm" />
 						</td>
-						<td><a href="${pageContext.request.contextPath }/file/delete.do?num=${tmp.num }">삭제</a></td>
-					</tr>
+						<td><a href="${pageContext.request.contextPath }/movie/delete.do?num=${tmp.num }">삭제</a></td>
+					</tr>				
 				</c:forEach>
 				</tbody>
 			</table>
@@ -140,4 +145,3 @@
 
 
 
- --%>
