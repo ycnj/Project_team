@@ -24,4 +24,4 @@ fileSize NUMBER, 			-- 파일의 크기(byte)
 regdate DATE 				-- 등록일 
 );
 
-CREATE SEQUENCE movieContent_seq;
+CREATE SEQUENCE movieInfo_seq;

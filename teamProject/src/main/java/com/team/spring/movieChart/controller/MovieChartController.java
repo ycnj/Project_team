@@ -20,8 +20,7 @@ public class MovieChartController {
 	
 	@RequestMapping("/movie/listChart")
 	public String getList(HttpServletRequest request) {
-		//FileService 객체의 getList() 메소드에 HttpServletRequest 객체의 
-		//참조값을 전달해서 view 페이지에 필요한 값이 request 영역에 담기게 한다. 
+		System.out.println("뭐하냐고");
 		service.getList(request);
 		// view 페이지로 forward 이동해서 파일 목록 출력하기 
 		return "movie/client/listChart";

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -100,8 +101,16 @@ public class MovieChartServiceImpl implements MovieChartService{
 		dto.setEndRowNum(endRowNum);
 		
 		// startRowNum 과 endRowNum 에 해당하는 파일 목록을 select 해 온다.
-		List<MovieChartDto> list=dao.getList(dto);
-		
+		List<MovieChartDto> list=dao.getList(dto);		
+		List<String> list2 = new ArrayList<>();
+		for(int i=0; i<list.size(); i++) {
+			String path=request.getServletContext().getRealPath("/upload")+
+					File.separator+list.get(i).getOrgFileName();
+			list2.add(path);			
+		}
+		System.out.println(list2.get(0)+"네?");
+		System.out.println("뭐하냐?");
+		request.setAttribute("list2", list2);
 		// view 페이지에서 필요한 값 request 에 담기 
 		request.setAttribute("list", list);
 		request.setAttribute("startPageNum", startPageNum);
