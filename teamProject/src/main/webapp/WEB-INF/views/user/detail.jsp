@@ -63,7 +63,7 @@
 </head>
 <body>
 <div class="container">
-	<a href="list.do">글 목록보기</a>
+	<a href="userboardview.do">글 목록보기</a>
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>

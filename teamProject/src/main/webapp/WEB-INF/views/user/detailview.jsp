@@ -84,7 +84,7 @@
                     <!-- main nav -->
                     <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
                         <ul id="nav" class="nav navbar-nav">
-                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="../home.do">Home</a></li>
                             <li><a href="./MyInfo.html">MyInfo</a></li>
                             <li><a href="./event.html">Event</a></li>                            
                             <li><a href="./contact.html">Contact</a></li>

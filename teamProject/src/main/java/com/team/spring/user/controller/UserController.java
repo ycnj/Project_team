@@ -23,12 +23,12 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
-	@RequestMapping("/user/userlistboard")
+	@RequestMapping("/user/userboardview")
 	public ModelAndView getList(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		service.getList(request);
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("user/userlistboard");
+		return new ModelAndView("user/userboardview");
 	}
 
 	@RequestMapping("/user/userboard")
@@ -39,12 +39,13 @@ public class UserController {
 		return new ModelAndView("user/userboard");
 	}
 	
-	@RequestMapping("/user/list3")
+	
+	@RequestMapping("/user/insertformview")
 	public ModelAndView authgetList3(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		service.getList(request);
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("user/list3");
+		return new ModelAndView("user/insertformview");
 	}
 	
 	@RequestMapping("/user/detailview")
@@ -67,7 +68,7 @@ public class UserController {
 		//새글을 저장한다. 
 		service.saveContent(dto);
 		//글 목록 보기로 리다일렉트 이동
-		return new ModelAndView("redirect:/user/userlistboard.do");
+		return new ModelAndView("redirect:/user/userboardview.do");
 	}
 	@RequestMapping("/user/detail")
 	public ModelAndView detail(HttpServletRequest request) {
@@ -79,7 +80,7 @@ public class UserController {
 	@RequestMapping("/user/delete")
 	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
 		service.deleteContent(num);
-		return new ModelAndView("redirect:/user/userlistboard.do");
+		return new ModelAndView("redirect:/user/userboardview.do");
 	}
 	@RequestMapping("/user/updateform")
 	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, 

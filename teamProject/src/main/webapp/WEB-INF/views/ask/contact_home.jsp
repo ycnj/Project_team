@@ -146,7 +146,7 @@
 
                         <div class="subtitle text-center">
                             <h3>문의 게시판 목록</h3>
-								<a href="../user/userlistboard.do"><span>질문게시판</span></a>
+								<a href="../user/userboardview.do"><span>질문게시판</span></a>
 							<c:if test="${not empty sessionScope.id }">
 								<a href="qnalistview.do"><span>1:1문의목록보기</span></a>
 							</c:if>
@@ -159,7 +159,7 @@
                                 <div class="tst-single clearfix">
                                     <img src="${pageContext.request.contextPath}/resources/img/qna.jpg" alt="Client" class="img-circle">
                                     <div class="tst-content">
-                                        <a href="../user/userlistboard.do">질문게시판</a>                   
+                                        <a href="../user/userboardview.do">질문게시판</a>                   
                                     </div>
                                 </div>
 

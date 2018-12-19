@@ -151,7 +151,7 @@
                                                           
                                                           
 						<div class="contact-details">
-							<a href="list3.do">글 작성하기</a>
+							<a href="insertformview.do">글 작성하기</a>
 						</div>                                   
 						
 						<div class="contact-details">
