@@ -178,6 +178,9 @@ h4 {
 				</div>
 				<h3 class="col-md-8 col-md-offset-2">글 정보 수정 </h3>
 						<br />
+						<p>
+						<strong>${dto.id }</strong>님이 작성한글
+					</p>
 			</div>
 
 			<!--여기다! 22222222222222222222222222222222222222222222222222222222222  -->
@@ -186,9 +189,6 @@ h4 {
 				<div class="container">
 							<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-					<p>
-						<strong>${dto.id }</strong>님이 작성한글
-					</p>
 					<br />
 					<form action="update.do" method="post">
 						<input type="hidden" name="num" value="${dto.num }" /> 

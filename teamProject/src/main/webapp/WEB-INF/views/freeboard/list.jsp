@@ -154,7 +154,8 @@ h4 {
 						<thead >
 							<tr >
 								<td style="text-align:center;">번호</td>
-								<td style="text-align:center;">작성자</td>								<td style="text-align:center;">제목</td>
+								<td style="text-align:center;">작성자</td>								
+								<td style="text-align:center;">제목</td>
 								<td style="text-align:center;">조회수</td>
 								<td style="text-align:center;">등록일</td>
 							</tr>

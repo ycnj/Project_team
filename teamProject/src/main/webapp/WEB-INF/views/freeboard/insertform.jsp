@@ -179,6 +179,9 @@ h4 {
 				</div>
 				<h3 class="col-md-8 col-md-offset-2">새 글 작성 </h3>
 					<br />
+					<p>
+						<strong>${id }</strong>님 로그인중...
+					</p>
 			</div>
 
 			<!--여기다! 22222222222222222222222222222222222222222222222222222222222  -->
@@ -187,9 +190,6 @@ h4 {
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-					<p>
-						<strong>${id }</strong>님 로그인중...
-					</p>
 					<br />
 					<form action="upload.do" method="post" enctype="multipart/form-data">
 						<label for="title">제목</label> 
