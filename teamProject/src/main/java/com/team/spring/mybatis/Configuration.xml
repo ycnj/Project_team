@@ -5,12 +5,15 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.team.spring.users_mp.dto.UsersDto" alias="usersDto"/>
-
+		<typeAlias type="com.team.spring.freeboard.dto.FreeBoardDto" alias="freeboardDto"/>
+		<typeAlias type="com.team.spring.freeboard.dto.FreeBoardCommentDto" alias="freeboardCommentDto"/>
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="com/team/spring/mybatis/UsersMapper.xml"/>
-	</mappers>
+		<mapper resource="com/team/spring/mybatis/UsersMapper.xml"/>	
+		<mapper resource="com/team/spring/mybatis/FreeBoardMapper.xml"/>
+		<mapper resource="com/team/spring/mybatis/FreeBoardCommentMapper.xml"/>
+	</mappers>	
 </configuration>
 
 

@@ -43,10 +43,12 @@
                     <nav class="collapse navigation navbar-collapse navbar-right " role="navigation">
                         <ul id="nav" class="nav navbar-nav">
                             <li><a href="./index.html">Home</a></li>
-<!--                             <li><a href="./MyInfo.html"></a></li>
-                            <li><a href="./event.html"></a></li>                
-                            <li><a href="./contact.html"></a></li>
-                            <li><a href="./etc.html"></a></li> -->
+                            <li><a href="">영화정보</a></li>
+                            <li><a href="#">예메하기</a></li>
+							<li><a href="freeboard/list.do">자유게시판</a></li>
+                            <li><a href="#"></a>이벤트</li>     
+                            <li><a href="#">설문조사</a></li>           
+                            <li><a href="#">문의게시판</a></li>
                         <c:choose>
                         	<c:when test="${empty sessionScope.id }">
                             <li><a href="users/loginform.do">Login</a></li>
@@ -62,7 +64,7 @@
 									<li><a href="#">3-3번 메뉴</a></li>
 								</ul> -->
 							</li>
-							<c:if test="${sessionScope.id eq 'gura' }">
+							<c:if test="${sessionScope.id eq 'master' }">
 							<li><a href="users/list.do">관리자page</a></li>	
 							</c:if>
                             <li><a href="users/logout.do">logout</a></li>
@@ -231,5 +233,6 @@
 <script>
 	$("#nav>li:eq(0)").attr("class", "current");
 </script>
+
 </body>
 </html>

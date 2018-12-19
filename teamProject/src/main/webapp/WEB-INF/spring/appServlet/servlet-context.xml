@@ -4,10 +4,13 @@
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
 
 	<beans:bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<beans:property name="jndiName" value="java:comp/env/jdbc/myoracle"/>
@@ -29,9 +32,13 @@
 		<beans:constructor-arg name="sqlSessionFactory" 
 			ref="sessionFactory"/>
 	</beans:bean>
+
+	
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
+	<annotation-driven /> 
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
@@ -48,9 +55,29 @@
 	<context:component-scan base-package="com.team.spring.users_mp.*" />
 	<context:component-scan base-package="com.team.spring.aspect" />
 	<context:component-scan base-package="com.team.spring.post.*" />
+	<!-- freeboard -->
+	<context:component-scan base-package="com.team.spring.freeboard.*" />
+	<!-- file -->
+	<context:component-scan base-package="com.team.spring.file.*" />
+	
+	
 
 	<!-- 어노테이션 기반으로 aop 적용하기 위한 설정 -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>	
 	
+	<!-- Multipart 폼 전송 처리를 위한 bean 설정 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10240000"/>
+	</beans:bean>
+	
+		<!-- bean 의 이름으로 view 를 찾아갈수 있도록 설정 -->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"/>
+	</beans:bean>
+	
+	<!-- Spring  DataSourceTransactionManager bean -->
+	<beans:bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<beans:property name="dataSource" ref="dataSource"/>
+	</beans:bean>
 	
 </beans:beans>
