@@ -10,7 +10,7 @@ viewCount NUMBER,
 regdate DATE
 );
 
-CREATE SEQUENCE freeboard_seq
+CREATE SEQUENCE freeboard_seq;
 
 
 --댓글 정보 저장 테이블

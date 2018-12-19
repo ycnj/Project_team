@@ -56,18 +56,18 @@
 	src="${pageContext.request.contextPath }/resources/js/vendor/modernizr-2.6.2.min.js"></script>
 <script
 	src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
-	
-	<script>
+
+<script>
 	var test = 0;
 	function fileUpload() {
 
 		if (test == 0) {
 			$('#uploadForm').show();
 			test = 1;
-		}else if (test == 1) {
+		} else if (test == 1) {
 			$('#uploadForm').hide();
 			test = 0;
-		} 
+		}
 	}
 </script>
 
@@ -80,7 +80,8 @@ h4 {
 .btn {
 	padding: 0px 2px;
 }
-#uploadForm{
+
+#uploadForm {
 	display: none;
 }
 </style>
@@ -92,43 +93,7 @@ h4 {
         ==================================== -->
 	<header id="navigation" class="navbar-fixed-top">
 		<div class="container">
-
-			<div class="navbar-header">
-				<!-- responsive nav button -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<!-- /responsive nav button -->
-
-				<!-- logo -->
-				<h1 class="navbar-brand">
-					<a href="#body"> <img
-						src="${pageContext.request.contextPath }/resources/images/logo.png"
-						alt="Kasper Logo">
-					</a>
-				</h1>
-				<!-- /logo -->
-
-			</div>
-
-			<!-- main nav -->
-			<nav class="collapse navigation navbar-collapse navbar-right"
-				role="navigation">
-				<ul id="nav" class="nav navbar-nav">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./MyInfo.html">MyInfo</a></li>
-					<li><a href="./event.html">Event</a></li>
-					<li><a href="./contact.html">Contact</a></li>
-					<li><a href="./list.html">boad</a></li>
-					<li><a href="./etc.html">Etc</a></li>
-				</ul>
-			</nav>
-			<!-- /main nav -->
-		</div>
-
+			<jsp:include page="../include/header.jsp" />
 		</div>
 	</header>
 	<!--
@@ -178,49 +143,46 @@ h4 {
 						<h2>자유게시판</h2>
 					</div>
 				</div>
-				<h3 class="col-md-8 col-md-offset-2">글 정보 수정 </h3>
-						<br />
+				<h3 class="col-md-8 col-md-offset-2">글 정보 수정</h3>
+				<br />
 			</div>
 
 			<!--여기다! 22222222222222222222222222222222222222222222222222222222222  -->
 
 			<div class="row">
 				<div class="container">
-					<p>
-						<strong>${dto.id }</strong>님이 작성한글
-					</p>
-					<br />
-					<form action="update.do" method="post">
-						<input type="hidden" name="num" value="${dto.num }" /> 
-						<label for="title">제목</label> <input type="text" name="title" id="title" value="${dto.title }" />
-						 <br />
-						<label for="content">내용</label>
-						<textarea name="content" id="content" style="width: 100%; height: 400px; display: none;" > ${dto.content }</textarea>
-						<div>
-						
-						<a href="download.do?num=${dto.num }">${dto.orgFileName }</a>
-						<br />
-						<input type="button" onclick="javascript:fileUpload();"value="파일업로드" /> 
-						<input type="button" onclick="submitContents(this);" value="확인" /> 
-						<input type="button" onclick="history.back()" value="취소" />
-						
-						</div>
-					</form>
-				</div>
-				<br />
-				<div class="row" id="uploadForm">
-					<div class="container">
-			
-						<form action="upload.do" method="post" enctype="multipart/form-data">
-							<label for="myFile">첨부파일</label> 
-							<input type="file" name="file" id="myFile" /> 
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<p>
+								<strong>${dto.id }</strong>님이 작성한글
+							</p>
+							<br />
+							
+							<form action="update.do" method="post" enctype="multipart/form-data">
+								<input type="hidden" name="num" value="${dto.num }" /> <label
+									for="title">제목</label> <input type="text" name="title"
+									id="title" value="${dto.title }" /> <br /> <label
+									for="content">내용</label>
+								<textarea name="content" id="content"
+									style="width: 100%; height: 400px; display: none;"> ${dto.content }</textarea>
+								<div>
+									<a href="download.do?num=${dto.num }">${dto.orgFileName }</a> <br />
+									<input type="button" onclick="javascript:fileUpload();"
+										value="파일업로드" /> <input type="button"
+										onclick="submitContents(this);" value="확인" /> <input
+										type="button" onclick="history.back()" value="취소" />
+								</div>
 								<br />
-							<button type="submit">업로드</button>
-						</form>
+								<div class="row" id="uploadForm">
+									<div class="container">
+										<label for="myFile">첨부파일</label> <input type="file"
+											name="file" id="myFile" />
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
-				
-
 			</div>
 			<!-- end .row -->
 		</div>
@@ -374,10 +336,6 @@ h4 {
 	<!-- theme custom scripts -->
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 	<script>
-            $("#nav>li:eq(4)").attr("class","current");        
-        </script>
-	<script>
-
 		var oEditors = [];
 
 		//추가 글꼴 목록
@@ -408,9 +366,9 @@ h4 {
 			oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []); // 에디터의 내용이 textarea에 적용됩니다.
 
 			// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
-			var title=$("#title").val();
-			var content=$("#content").val();
-			if (title== "" || title == null) {
+			var title = $("#title").val();
+			var content = $("#content").val();
+			if (title == "" || title == null) {
 				alert("제목을 입력하세요");
 				return false;
 			}
@@ -423,7 +381,10 @@ h4 {
 			} catch (e) {
 			}
 		}
-	</script>        
+		<!-- nvi -->
+		$("#nav>li:eq(3)").attr("class", "current");
+		
+	</script>
 </body>
 </html>
 
