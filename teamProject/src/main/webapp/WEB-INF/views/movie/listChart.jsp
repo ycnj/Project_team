@@ -168,7 +168,8 @@
         End #service-bottom
         ========================== -->
 	<!-- 메인 -->
-	
+		<br />
+		<br />
         <div class="container contFont">	
 			<h1>무비차트</h1>
 			<c:if test="${id eq 'master' }">
