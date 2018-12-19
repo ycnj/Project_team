@@ -128,8 +128,6 @@ h4 {
 			</nav>
 			<!-- /main nav -->
 		</div>
-
-		</div>
 	</header>
 	<!--
         End Fixed Navigation
@@ -186,42 +184,38 @@ h4 {
 
 			<div class="row">
 				<div class="container">
+							<div class="row">
+						<div class="col-md-8 col-md-offset-2">
 					<p>
 						<strong>${dto.id }</strong>님이 작성한글
 					</p>
 					<br />
 					<form action="update.do" method="post">
 						<input type="hidden" name="num" value="${dto.num }" /> 
-						<label for="title">제목</label> <input type="text" name="title" id="title" value="${dto.title }" />
+						<label for="title">제목</label> 
+						<input type="text" name="title" id="title" value="${dto.title }" />
 						 <br />
 						<label for="content">내용</label>
 						<textarea name="content" id="content" style="width: 100%; height: 400px; display: none;" > ${dto.content }</textarea>
 						<div>
-						
 						<a href="download.do?num=${dto.num }">${dto.orgFileName }</a>
 						<br />
 						<input type="button" onclick="javascript:fileUpload();"value="파일업로드" /> 
 						<input type="button" onclick="submitContents(this);" value="확인" /> 
 						<input type="button" onclick="history.back()" value="취소" />
-						
+						</div>
+						<br />
+						<div class="row" id="uploadForm">
+							<div class="container">
+								<label for="myFile">첨부파일</label> 
+								<input type="file" name="file" id="myFile" /> 
+							</div>
 						</div>
 					</form>
 				</div>
-				<br />
-				<div class="row" id="uploadForm">
-					<div class="container">
-			
-						<form action="upload.do" method="post" enctype="multipart/form-data">
-							<label for="myFile">첨부파일</label> 
-							<input type="file" name="file" id="myFile" /> 
-								<br />
-							<button type="submit">업로드</button>
-						</form>
-					</div>
-				</div>
-				
-
 			</div>
+		</div>
+	</div>
 			<!-- end .row -->
 		</div>
 		<!-- end .container -->

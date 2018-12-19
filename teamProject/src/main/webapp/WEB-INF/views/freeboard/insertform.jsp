@@ -129,8 +129,6 @@ h4 {
 			</nav>
 			<!-- /main nav -->
 		</div>
-
-		</div>
 	</header>
 	<!--
         End Fixed Navigation
@@ -176,25 +174,27 @@ h4 {
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section-title text-center wow fadeInDown">
-						<h2>Services</h2>
-						<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at
-							sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+						<h2>자유게시판</h2>
 					</div>
 				</div>
+				<h3 class="col-md-8 col-md-offset-2">새 글 작성 </h3>
+					<br />
 			</div>
 
 			<!--여기다! 22222222222222222222222222222222222222222222222222222222222  -->
 
 			<div class="row">
 				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
 					<p>
 						<strong>${id }</strong>님 로그인중...
 					</p>
-					<h3>새 글 작성</h3>
 					<br />
 					<form action="upload.do" method="post" enctype="multipart/form-data">
-						<label for="title">제목</label> <input type="text" name="title" id="title" />
-						 	<br /> 
+						<label for="title">제목</label> 
+						<input type="text" name="title" id="title" />
+						 <br /> 
 						<label for="content">내용</label>
 						<textarea name="content" id="content" style="width: 100%; height: 400px; display: none;"></textarea>
 						<div>
@@ -202,9 +202,7 @@ h4 {
 						<input type="button" onclick="javascript:fileUpload();"value="파일업로드" /> 
 						<input type="button" onclick="submitContents(this);" value="확인" /> 
 						<input type="button" onclick="history.back()" value="취소" />
-						
 						</div>
-						
 						<br />
 						<div class="row" id="uploadBtn">
 							<div class="container">			
@@ -212,16 +210,11 @@ h4 {
 								<input type="file" name="file" id="myFile" /> 						
 							</div>					
 						</div>
-					</form>
-						
+					</form>	
 				</div>
-				
-				
-				
-				
-				
-
 			</div>
+		</div>
+	</div>
 			<!-- end .row -->
 		</div>
 		<!-- end .container -->

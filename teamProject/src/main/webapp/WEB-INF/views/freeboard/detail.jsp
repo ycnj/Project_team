@@ -210,6 +210,8 @@ h4 {
 						<h2>자유게시판</h2>
 					</div>
 				</div>
+					<h3 class="col-md-8 col-md-offset-2">게시판 글</h3>
+					<br />
 			</div>
 		</div>
 
@@ -217,13 +219,12 @@ h4 {
 
 	<div class="row">
 		<div class="container">
-	<a href="list.do">글 목록보기</a>
-	<br />
+	<div class="row">
+	<div class="col-md-8 col-md-offset-2">
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
 	<br />
-	<h3  style="text-align:center;">게시판 글 보기</h3>
 	<br />
 	<c:if test="${dto.prevNum ne 0 }">
 		<a href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
@@ -256,9 +257,10 @@ h4 {
 	</table>
 	<div class="content">${dto.content }</div>
 	<!-- 로그인된 아이디와 글작성자가 같을때만 수정, 삭제 링크 제공 -->
+	<a class="btn btn-primary" href="list.do">목록</a>
 	<c:if test="${ sessionScope.id eq dto.id }">
-		<a href="updateform.do?num=${dto.num }">수정</a>
-		<a href="javascript:deleteConfirm(${dto.num })">삭제</a>
+		<a class="btn btn-success" href="updateform.do?num=${dto.num }">수정</a>
+		<a class="btn btn-warning" href="javascript:deleteConfirm(${dto.num })">삭제</a>
 	</c:if>
 	<!-- 댓글 목록 -->
 	<div class="comments">
@@ -330,6 +332,8 @@ h4 {
 				<button type="submit">등록</button>
 			</form>
 		</div>
+	</div>
+	</div>
 	</div>
 	</div>
 			<!-- end .row -->
