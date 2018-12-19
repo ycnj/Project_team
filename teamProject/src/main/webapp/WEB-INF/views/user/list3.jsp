@@ -140,7 +140,7 @@
                     
                     <div class="col-md-4 col-sm-3 wow fadeInRight">
                         <div class="contact-details">
-                            <a href="../user/list.do"><span>질문게시판</span></a>
+                            <a href="../user/userlistboard.do"><span>질문게시판</span></a>
                         </div> <!-- end .contact-details -->
 
                         <div class="contact-details">

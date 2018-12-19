@@ -91,7 +91,7 @@
                             <li><a href="./contact.html">Contact</a></li>
                             <li><a href="./etc.html">Etc</a></li>                                                 
                         <c:if test="${sessionScope.id eq 'herais33' }">
-                    		<li><a href="list.do">답변하기</a></li>
+                    		<li><a href="replylist.do">답변하기</a></li>
                     	</c:if>
                         </ul>
                     </nav>

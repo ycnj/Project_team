@@ -69,7 +69,14 @@ public class AskController {
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
 		return new ModelAndView("ask/list5");
 	}	
-
+	
+	@RequestMapping("/ask/detailviewpage")
+	public ModelAndView getList7(HttpServletRequest request) {
+		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
+		service.getList(request);
+		//view 페이지로 forward 이동해서 글 목록 출력하기 
+		return new ModelAndView("ask/detailviewpage");
+	}		
 	
 	@RequestMapping("/ask/insertform")
 	public ModelAndView authInsertform(HttpServletRequest request) {
@@ -89,13 +96,7 @@ public class AskController {
 	@RequestMapping("/ask/detail")
 	public ModelAndView detail(HttpServletRequest request) {
 		service.getDetail(request);
-		return new ModelAndView("ask/detail");
-	}
-	
-	@RequestMapping("/ask/detail2")
-	public ModelAndView detail2(HttpServletRequest request) {
-		service.getDetail(request);
-		return new ModelAndView("ask/detail2");
+		return new ModelAndView("ask/detailviewpage");
 	}
 	
 	@RequestMapping("/ask/delete")

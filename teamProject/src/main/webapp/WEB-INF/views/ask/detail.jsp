@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/ask/detail.jsp</title>
+<title>/views/cafe/detail.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <style>
 	/* 글내용의 경계선 표시 */
@@ -63,11 +63,11 @@
 </head>
 <body>
 <div class="container">
-	<a href="replylist.do">답변할 글 목록보기</a>
+	<a href="list.do">글 목록보기</a>
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
-	<h3>문의 글 상세 보기</h3>
+	<h3>카페 글 상세 보기</h3>
 	<c:if test="${dto.prevNum ne 0 }">
 		<a href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
 	</c:if>
@@ -110,12 +110,22 @@
 						</c:if>
 						<dl>
 							<dt>
-								<img src="${pageContext.request.contextPath}/resources/images/re.gif"/>
+								<img src="${pageContext.request.contextPath}/resources/images/user_image.gif"/>
 								<span>${tmp.writer }</span>
 								<c:if test="${tmp.num ne tmp.comment_group }">
 									to <strong>${tmp.target_id }</strong>
 								</c:if>
 								<span>${tmp.regdate }</span>
+								<a href="javascript:" class="reply_link">답글</a> |
+								<c:choose>
+									<c:when test="${id eq tmp.writer }">
+										<a href="javascript:" class="comment-update-link">수정</a>&nbsp;&nbsp;
+										<a href="javascript:deleteComment(${tmp.num })">삭제</a>
+									</c:when>
+									<c:otherwise>
+										<a href="javascript:">신고</a>
+									</c:otherwise>
+								</c:choose>
 							</dt>
 							<dd>
 								<pre>${tmp.content }</pre>
@@ -223,7 +233,7 @@
 		var isLogin=${not empty id};
 		if(isLogin==false){
 			alert("로그인 페이지로 이동 합니다.");
-			location.href="${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/cafe/detail.do?num=${dto.num}";
+			location.href="${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/ask/detail.do?num=${dto.num}";
 			return false;//폼 전송 막기 
 		}
 	});

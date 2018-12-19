@@ -36,7 +36,7 @@
 		DELETE FROM board_ask
 		WHERE num=#{num}
 	</delete>
-	<select id="getData" parameterType="int" resultType="askDto">
+	<select id="getData2" parameterType="int" resultType="askDto">
 		SELECT result1.*
 		FROM (SELECT num, writer, title, content, viewCount, regdate,
 				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
@@ -45,7 +45,7 @@
 			  ORDER BY num DESC) result1
 		WHERE num=#{num}
 	</select>
-	<select id="getData2" parameterType="askDto" resultType="askDto">
+	<select id="getData" parameterType="askDto" resultType="askDto">
 		SELECT result1.*
 		FROM (SELECT num, writer, title, content, viewCount, regdate,
 				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,

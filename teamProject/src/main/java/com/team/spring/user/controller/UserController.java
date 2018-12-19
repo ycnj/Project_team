@@ -72,13 +72,7 @@ public class UserController {
 	@RequestMapping("/user/detail")
 	public ModelAndView detail(HttpServletRequest request) {
 		service.getDetail(request);
-		return new ModelAndView("user/detail");
-	}
-	
-	@RequestMapping("/user/detail2")
-	public ModelAndView detail2(HttpServletRequest request) {
-		service.getDetail(request);
-		return new ModelAndView("user/detail2");
+		return new ModelAndView("user/list4");
 	}
 		
 	

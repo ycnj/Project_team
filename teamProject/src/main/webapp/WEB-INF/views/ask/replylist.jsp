@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/ask/list.jsp</title>
+<title>/views/ask/replylist.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 </head>
 <body>
@@ -41,7 +41,7 @@
 		<c:choose>
 			<c:when test="${startPageNum ne 1}">
 				<li>
-					<a href="list.do?pageNum=${startPageNum-1 }&condition=${condition}&keyword=${encodedKeyword}">&laquo;</a>
+					<a href="replylist.do?pageNum=${startPageNum-1 }&condition=${condition}&keyword=${encodedKeyword}">&laquo;</a>
 				</li>
 			</c:when>
 			<c:otherwise>
@@ -54,12 +54,12 @@
 			<c:choose>
 				<c:when test="${pageNum eq i }">
 					<li class="active">
-						<a href="list.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="replylist.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:when>
 				<c:otherwise>
 					<li>
-						<a href="list.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="replylist.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:otherwise>
 			</c:choose>
@@ -68,7 +68,7 @@
 		<c:choose>
 			<c:when test="${endPageNum lt totalPageCount }">
 				<li>
-					<a href="list.do?pageNum=${endPageNum+1 }&condition=${condition}&keyword=${encodedKeyword}">&raquo;</a>
+					<a href="replylist.do?pageNum=${endPageNum+1 }&condition=${condition}&keyword=${encodedKeyword}">&raquo;</a>
 				</li>
 			</c:when>
 			<c:otherwise>
@@ -79,7 +79,7 @@
 		</c:choose>
 		</ul>
 	</div>
-	<form action="list.do" method="get">
+	<form action="replylist.do" method="get">
 		<label for="condition">검색조건</label>
 		<select name="condition" id="condition">
 			<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>

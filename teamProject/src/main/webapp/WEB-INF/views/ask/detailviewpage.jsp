@@ -84,12 +84,12 @@
                     <!-- main nav -->
                     <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
                         <ul id="nav" class="nav navbar-nav">
-                            <li><a href="../home.do">Home</a></li>
+                            <li><a href="./index.html">Home</a></li>
                             <li><a href="./MyInfo.html">MyInfo</a></li>
                             <li><a href="./event.html">Event</a></li>                            
-                            <li><a href="../ask/contact_home.do">Contact</a></li>
-                            <li><a href="./etc.html">Etc</a></li>                                               
-                            <li><a href="	../ask/qnalist.do">문의 게시판</a></li>
+                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="./etc.html">Etc</a></li>                                                   
+                            <li><a href="../ask/list.do">문의 게시판</a></li>
                         </ul>
                     </nav>
                     <!-- /main nav -->
@@ -136,36 +136,12 @@
                         <h2>문의사항을 남겨주세요.</h2>
                         <p></p>
                     </div>
-                  
-                    <div class="col-md-2 col-sm-2 wow fadeInRight">
-					
-					<c:if test="${!empty sessionScope.id }">
-                        <div class="contact-details">
-                            <a href="../ask/qnainsertform.do"><span>1:1문의하러 가기</span></a>               
-                        </div> <!-- end .contact-details -->
-                    </c:if>
-                    
-                        <div class="contact-details">
-                            <a href="../ask/contact_home.do"><span>문의게시판으로 가기</span></a>               
-                        </div> <!-- end .contact-details -->                    
-                                                          
-                                                          
-						<div class="contact-details">
-							<a href="list3.do">글 작성하기</a>
-						</div>                                   
-						
-						<div class="contact-details">
-							<a href="../home.do">메인페이지로 돌아가기</a>
-						</div>
-						                                	             
-                    </div> <!-- .col-md-2 -->
-                    <div class="col-md-10 col-sm-10">
-					<div class="container">
-						<div class="center-block">
-							 <jsp:include page="userboard.jsp"></jsp:include>
-						</div>
-					</div>
-				</div>                    
+                                    
+                      
+                    <div class="section-title text-center wow fadeInDown col-md-4 col-sm-3 ">
+                        <jsp:include page="detail.jsp"></jsp:include>
+                    </div>   
+
                     
                     
 

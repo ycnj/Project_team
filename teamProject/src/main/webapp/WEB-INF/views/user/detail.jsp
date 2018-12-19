@@ -63,11 +63,11 @@
 </head>
 <body>
 <div class="container">
-	<a href="userboard.do">글 목록보기</a>
+	<a href="list.do">글 목록보기</a>
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
-	<h3>게시판 글 상세 보기</h3>
+	<h3>카페 글 상세 보기</h3>
 	<c:if test="${dto.prevNum ne 0 }">
 		<a href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
 	</c:if>
@@ -110,7 +110,7 @@
 						</c:if>
 						<dl>
 							<dt>
-								<img src="${pageContext.request.contextPath}/resources/images/user_image.gif"/>
+								<img src="${pageContext.request.contextPath}/resources/images/re.gif"/>
 								<span>${tmp.writer }</span>
 								<c:if test="${tmp.num ne tmp.comment_group }">
 									to <strong>${tmp.target_id }</strong>

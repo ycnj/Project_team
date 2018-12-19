@@ -11,9 +11,6 @@
 <body>
 <div class="container">
 	<h3>QnA 게시판 목록입니다.</h3>
-	<a href="../home.do">메인페이지로 돌아가기</a>
-	<br />
-	<a href="contact_home.do">문의페이지로 돌아가기</a>
 	<table style="width:880px; height:220px;"class="table table-bordered">
 		<thead>
 			<tr>
@@ -41,7 +38,7 @@
 		<c:choose>
 			<c:when test="${startPageNum ne 1}">
 				<li>
-					<a href="list.do?pageNum=${startPageNum-1 }&condition=${condition}&keyword=${encodedKeyword}">&laquo;</a>
+					<a href="userlistboard.do?pageNum=${startPageNum-1 }&condition=${condition}&keyword=${encodedKeyword}">&laquo;</a>
 				</li>
 			</c:when>
 			<c:otherwise>
@@ -54,12 +51,12 @@
 			<c:choose>
 				<c:when test="${pageNum eq i }">
 					<li class="active">
-						<a href="list.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="userlistboard.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:when>
 				<c:otherwise>
 					<li>
-						<a href="list.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="userlistboard.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:otherwise>
 			</c:choose>
@@ -68,7 +65,7 @@
 		<c:choose>
 			<c:when test="${endPageNum lt totalPageCount }">
 				<li>
-					<a href="list.do?pageNum=${endPageNum+1 }&condition=${condition}&keyword=${encodedKeyword}">&raquo;</a>
+					<a href="userlistboard.do?pageNum=${endPageNum+1 }&condition=${condition}&keyword=${encodedKeyword}">&raquo;</a>
 				</li>
 			</c:when>
 			<c:otherwise>
@@ -79,7 +76,7 @@
 		</c:choose>
 		</ul>
 	</div>
-	<form action="list.do" method="get">
+	<form action="userlistboard.do" method="get">
 		<label for="condition">검색조건</label>
 		<select name="condition" id="condition">
 			<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>

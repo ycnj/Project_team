@@ -40,7 +40,7 @@ public class AskDaoImpl implements AskDao{
 	@Override
 	public AskDto getData(AskDto dto) {
 		
-		return session.selectOne("ask.getData2", dto);
+		return session.selectOne("ask.getData", dto);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class AskDaoImpl implements AskDao{
 	@Override
 	public AskDto getData(int num) {
 		
-		return session.selectOne("ask.getData", num);
+		return session.selectOne("ask.getData2", num);
 	}
 
 	@Override

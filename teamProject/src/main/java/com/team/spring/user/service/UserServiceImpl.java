@@ -156,6 +156,7 @@ public class UserServiceImpl implements UserService{
 		dto.setNum(num);
 		
 		//글정보 얻어오기
+		
 		//userDto 객체를 getData() 의 인자로 전달해서 글정보를 얻어온다. 
 		UserDto resultDto=userDao.getData(dto);
 		//글 조회수 올리기
