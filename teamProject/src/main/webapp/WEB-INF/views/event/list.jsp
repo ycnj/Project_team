@@ -58,10 +58,8 @@
 <section id="portfolio">
 <div class="section-title text-center wow fadeInDown">
 	<h2>event</h2>
-	<!-- 
-	<h4>이미지 로드 테스트 혜워니~</h4>
-	<img src="${pageContext.request.contextPath}/upload/20181217151443f3f45907-6d87-4969-aa54-06537dddfd48.jpg" alt="" />
-	-->
+	<br />
+	<h1><a class="btn btn-info" href="${pageContext.request.contextPath}/event/uploadform.do">이벤트 업로드</a></h1>
 </div>	
 	<div id="projects" class="clearfix">
 	<c:forEach items="${list }" var="tmp">
@@ -116,10 +114,7 @@
 			</c:otherwise>
 		</c:choose>			
 		</ul>
-	</div>
-	<div class="container">
-		<a class="btn btn-info" href="${pageContext.request.contextPath}/event/uploadform.do">이벤트 업로드</a>
-	</div>
+	</div>	
 </section>
 	
 	<!-- 본문 끝 -->
