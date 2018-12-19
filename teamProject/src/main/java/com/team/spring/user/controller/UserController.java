@@ -47,12 +47,12 @@ public class UserController {
 		return new ModelAndView("user/list3");
 	}
 	
-	@RequestMapping("/user/list4")
+	@RequestMapping("/user/detailview")
 	public ModelAndView getList4(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		service.getList(request);
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("user/list4");
+		return new ModelAndView("user/detailview");
 	}
 	@RequestMapping("/user/insertform")
 	public ModelAndView authInsertform(HttpServletRequest request) {
@@ -72,7 +72,7 @@ public class UserController {
 	@RequestMapping("/user/detail")
 	public ModelAndView detail(HttpServletRequest request) {
 		service.getDetail(request);
-		return new ModelAndView("user/list4");
+		return new ModelAndView("user/detailview");
 	}
 		
 	
