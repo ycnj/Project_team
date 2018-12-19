@@ -18,63 +18,7 @@
         ==================================== -->
         <header id="navigation" class="navbar-fixed-top">
             <div class="container">
-
-                <div class="navbar-header">
-                    <!-- responsive nav button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- /responsive nav button -->
-
-                    <!-- logo -->
-                    <h1 class="navbar-brand">
-                        <a href="#body">
-                            <img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="Kasper Logo">
-                        </a>
-                    </h1>
-                    <!-- /logo -->
-
-				</div>
-
-                    <!-- main nav -->
-                    <nav class="collapse navigation navbar-collapse navbar-right " role="navigation">
-                        <ul id="nav" class="nav navbar-nav">
-                            <li><a href="./index.html">Home</a></li>
-                            <li><a href="">영화정보</a></li>
-                            <li><a href="#">예메하기</a></li>
-							<li><a href="freeboard/list.do">자유게시판</a></li>
-                            <li><a href="#"></a>이벤트</li>     
-                            <li><a href="#">설문조사</a></li>           
-                            <li><a href="#">문의게시판</a></li>
-                        <c:choose>
-                        	<c:when test="${empty sessionScope.id }">
-                            <li><a href="users/loginform.do">Login</a></li>
-                            </c:when>
-                            <c:otherwise>
-                            
-                            <li class="dropdown">
-								<a href="users/info.do">
-								${id } for Info<b class="caret"></b></a>
-<!-- 								<ul class="dropdown-menu">
-									<li><a href="#">3-1번 메뉴</a></li>
-									<li><a href="#">3-2번 메뉴</a></li>
-									<li><a href="#">3-3번 메뉴</a></li>
-								</ul> -->
-							</li>
-							<c:if test="${sessionScope.id eq 'master' }">
-							<li><a href="users/list.do">관리자page</a></li>	
-							</c:if>
-                            <li><a href="users/logout.do">logout</a></li>
-                            </c:otherwise>
-                        </c:choose>
-                        
-                        </ul>
-                    </nav>
-                    <!-- /main nav -->
-
+				<jsp:include page="include/header.jsp" />
             </div>
         </header>
         <!--

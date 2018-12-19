@@ -91,47 +91,11 @@ h4 {
 	<!--
         Fixed Navigation
         ==================================== -->
-	<header id="navigation" class="navbar-fixed-top">
-		<div class="container">
-
-			<div class="navbar-header">
-				<!-- responsive nav button -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<!-- /responsive nav button -->
-
-				<!-- logo -->
-				<h1 class="navbar-brand">
-					<a href="#body"> <img
-						src="${pageContext.request.contextPath }/resources/images/logo.png"
-						alt="Kasper Logo">
-					</a>
-				</h1>
-				<!-- /logo -->
-
-			</div>
-
-			<!-- main nav -->
-			<nav class="collapse navigation navbar-collapse navbar-right"
-				role="navigation">
-				<ul id="nav" class="nav navbar-nav">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./MyInfo.html">MyInfo</a></li>
-					<li><a href="./event.html">Event</a></li>
-					<li><a href="./contact.html">Contact</a></li>
-					<li><a href="./list.html">boad</a></li>
-					<li><a href="./etc.html">Etc</a></li>
-				</ul>
-			</nav>
-			<!-- /main nav -->
-		</div>
-
-		</div>
-	</header>
+        <header id="navigation" class="navbar-fixed-top" >
+        	<div class="container">
+				<jsp:include page="../include/header.jsp" />
+            </div>			
+        </header>
 	<!--
         End Fixed Navigation
         ==================================== -->
@@ -374,7 +338,7 @@ h4 {
 	<!-- theme custom scripts -->
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 	<script>
-		$("#nav>li:eq(4)").attr("class", "current");
+		$("#nav>li:eq(3)").attr("class", "current");
 	</script>
 	<script>
 		var oEditors = [];

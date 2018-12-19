@@ -24,7 +24,6 @@ public class HomeController {
 		mView.addObject("noticeList", noticeList);
 		mView.setViewName("home");
 		
-		request.getSession().setAttribute("id", "haha");
 		return mView;
 	}
 	

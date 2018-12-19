@@ -36,63 +36,13 @@
         <!--
         Fixed Navigation
         ==================================== -->
-        <header id="navigation" class="navbar-fixed-top" >
+
+        <header id="navigation" class="navbar-fixed-top">
             <div class="container">
-
-                <div class="navbar-header" >
-                    <!-- responsive nav button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- /responsive nav button -->
-
-                    <!-- logo -->
-                    <h1 class="navbar-brand">
-                        <a href="#body">
-                            <img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="Kasper Logo">
-                        </a>
-                    </h1>
-                    <!-- /logo -->
-
-				</div>
-
-                    <!-- main nav -->
-                    <nav class="collapse navigation navbar-collapse navbar-right " role="navigation"  >
-                        <ul id="nav" class="nav navbar-nav" >
-                            <li><a href="${pageContext.request.contextPath}/home.do">Home</a></li>
-<!--                             <li><a href="./MyInfo.html"></a></li>
-                            <li><a href="./event.html"></a></li>                
-                            <li><a href="./contact.html"></a></li>
-                            <li><a href="./etc.html"></a></li> -->
-                        <c:choose>
-                        	<c:when test="${empty sessionScope.id }">
-                            <li><a href="users/loginform.do">Login</a></li>
-                            </c:when>
-                            <c:otherwise>
-                            
-                            <li class="dropdown">
-								<a href="info.do">
-								${id } for Info<b class="caret"></b></a>
-<!-- 								<ul class="dropdown-menu">
-									<li><a href="#">3-1번 메뉴</a></li>
-									<li><a href="#">3-2번 메뉴</a></li>
-									<li><a href="#">3-3번 메뉴</a></li>
-								</ul> -->
-							</li>
-							
-                            <li><a href="logout.do">logout</a></li>
-                            </c:otherwise>
-                        </c:choose>
-                        
-                        </ul>
-                    </nav>
-                    <!-- /main nav -->
-
+				<jsp:include page="../include/header.jsp" />
             </div>
         </header>
+
         <!--
         End Fixed Navigation
         ==================================== -->
@@ -249,7 +199,7 @@
 		}
 	}
 
-	$("#nav>li:eq(1)").attr("class", "current");
+	$("#nav>li:eq(6)").attr("class", "current");
 
 	$(function(){
 
