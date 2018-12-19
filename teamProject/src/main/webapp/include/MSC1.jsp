@@ -32,7 +32,7 @@
 		
 		
 		<!-- Modernizer Script for old Browsers -->
-        <script src="${pageContext.request.contextPath}/resources/js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/modernizr-2.6.2.min.js"></script>
 		<style>
             h4{
                 display : inline;

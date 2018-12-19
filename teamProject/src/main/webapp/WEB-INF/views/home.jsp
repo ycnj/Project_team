@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<html class="no-js">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<!DOCTYPE html>
+
+<html  class="no-js">
+<!--<![endif]-->
 <head>
 <!-- link 로딩 -->
 <jsp:include page="include/MSC1.jsp" />
 	<title>Home</title>
 </head>
+
     <body>
 
         <!--
@@ -36,14 +40,35 @@
 				</div>
 
                     <!-- main nav -->
-                    <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
+                    <nav class="collapse navigation navbar-collapse navbar-right " role="navigation">
                         <ul id="nav" class="nav navbar-nav">
                             <li><a href="./index.html">Home</a></li>
-                            <li><a href="./MyInfo.html">MyInfo</a></li>
-                            <li><a href="./event.html">Event</a></li>                
-                            <li><a href="./contact.html">Contact</a></li>
-                            <li><a href="./etc.html">Etc</a></li>
-                            <li><a href="login.do">Login</a></li>
+<!--                             <li><a href="./MyInfo.html"></a></li>
+                            <li><a href="./event.html"></a></li>                
+                            <li><a href="./contact.html"></a></li>
+                            <li><a href="./etc.html"></a></li> -->
+                        <c:choose>
+                        	<c:when test="${empty sessionScope.id }">
+                            <li><a href="users/loginform.do">Login</a></li>
+                            </c:when>
+                            <c:otherwise>
+                            
+                            <li class="dropdown">
+								<a href="users/info.do">
+								${id } for Info<b class="caret"></b></a>
+<!-- 								<ul class="dropdown-menu">
+									<li><a href="#">3-1번 메뉴</a></li>
+									<li><a href="#">3-2번 메뉴</a></li>
+									<li><a href="#">3-3번 메뉴</a></li>
+								</ul> -->
+							</li>
+							<c:if test="${sessionScope.id eq 'gura' }">
+							<li><a href="users/list.do">관리자page</a></li>	
+							</c:if>
+                            <li><a href="users/logout.do">logout</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                        
                         </ul>
                     </nav>
                     <!-- /main nav -->
@@ -69,7 +94,7 @@
 
                 <div class="carousel-inner">
 
-                    <div class="item active"  style="background-image: url('${pageContext.request.contextPath}/resources/images/slider/베놈2.jpg')" >
+                    <div class="item active" style="background-image: url('${pageContext.request.contextPath}/resources/images/slider/베놈2.jpg')" >
                         <div class="carousel-caption">
                             <div class="animated bounceInRight">
                                 <h2>베놈</h2>
@@ -198,9 +223,13 @@
         End #footer
         ========================== -->
 
+
+
 <!-- js파일 로딩 -->
 <jsp:include page="include/MSC2.jsp" />
 <!-- javascript	 -->
-
-    </body>
+<script>
+	$("#nav>li:eq(0)").attr("class", "current");
+</script>
+</body>
 </html>

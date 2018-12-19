@@ -1,97 +1,202 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
-<meta charset="UTF-8">
-<title>/users/signup_form.jsp</title>
+	<title>users/Loginform.do</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/loginrsc/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/loginrsc/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/loginrsc/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/loginrsc/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/loginrsc/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/loginrsc/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/loginrsc/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/loginrsc/css/util.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/loginrsc/css/main.css">
+<!--===============================================================================================-->
+<style>
+.btn-success {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+</style>
+<!-- bootstrap -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<!-- angular -->
+<script src="${pageContext.request.contextPath}/resources/js/angular.min.js"></script>
 <!-- Google reCaptcha 에 관련된 자바 스크립트 로딩 -->
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<!-- myApp -->
+<script>
+// "myApp" 이라는 이름의 모듈 만들기 
+angular.module("myApp", [])
+.controller("myCtrl", function($scope, $http){//"myCtrl" 이라는 이름의 컨트롤러 만들기
+	//id 사용 가능여부를 관리할 모델
+	$scope.canUseId=false;
+	//두개의 비밀번호 일치여부를 관리할 모델
+	$scope.pwdEqual=false;
+	//비밀번호 입력란에 입력할때 마다 호출되는 함수 
+	$scope.isPwdEqual=function(){
+		//비밀번호가 일치하는지여부를 pwdEqual 에 대입한다. 
+		$scope.pwdEqual = $scope.pwd == $scope.pwd2;
+	};
 
-
+	//id 입력란이 포커스를 잃었을때 호출되는 함수
+	$scope.idCheck=function(){
+		//입력한 아이디를 ajax 요청을 통해서 서버에 보내기 
+		$http({
+			url:"checkid.do",
+			method:"get",
+			params:{inputId:$scope.id}
+		})
+		.success(function(responseData){
+			//responseData 는 {canUse:true} or {canUse:false}
+			$scope.canUseId=responseData.canUse;
+		});
+	};
+});
+</script>
 </head>
-<body>
-<h3>회원 가입 페이지 입니다.</h3>
-	<form action="signup.do" method="post" id="signupForm" novalidate>
-		<label for="name">이름</label>
-		<input type="text" name="name" id="name" /><br />
-		<label for="rrn">생년월일</label>
-		<input type="date" name="rrn" id="rrn" /><br/>
-		<label for="id">아이디</label>
-		<input type="text" name="id" id="id"/>
-		<button id="checkBtn">중복확인</button>
-		<span id="checkResult"></span><br/>
-		<label for="pwd">비밀번호</label>
-		<input type="password" name="pwd" id="pwd"/><br/>
-		<label for="pwd2">비밀번호 확인</label>
-		<input type="password" name="pwd2" id="pwd2"/><br/>
-		<label for="email">이메일</label>
-		<input type="email" name="email" id="email" /><br/>
-		<label for="phon">폰</label>
-		<input type="text" name="phon" id="phon" /><br/>
-<div class="form-group">                   
-<input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly" >
-    <button type="button" class="btn btn-default" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>                               
-</div>
-<div class="form-group">
-    <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="addr2" id="addr2" type="text" readonly="readonly" />
-</div>
-<div class="form-group">
-    <input class="form-control" placeholder="상세주소" name="addr3" id="addr3" type="text"  />
-</div>		
 
-		<label for="gender">성별</label>
-		<input type="radio" name="gender" id="gender1" value="M" checked="checked" />남
-		<input type="radio" name="gender" id="gender2" value="F" />여		
+<body ng-controller="myCtrl">
 
-	<button type="submit" >가입</button>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-50 p-b-30">
+				<!-- 			<span class="login100-form-title p-b-55">
+				M & P SIGNUP
+				</span> -->
+				<h3 style="text-align: center;">M & P SIGNUP</h3><br />
+				<form action="signup.do" method="post" id="signupForm" name="f" novalidate>
+				
+					<div class="form-group has-feedback" 
+					ng-class="{'has-success':f.name.$valid,'has-error':f.name.$invalid && f.name.$dirty}">
+					<label for="name">이름</label>
+					<input ng-model="name" ng-required="true" class="form-control" type="text" name="name" id="name" /><br />
+					<span ng-show="f.name.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+					<span ng-show="f.name.$invalid && f.name.$dirty" class="glyphicon glyphicon-remove form-control-feedback"></span>
+					<p ng-show="f.name.$invalid && f.name.$dirty" class="help-block">이름을 반드시 입력하세요.</p>
+					</div>
+		
+					<div class="form-group has-feedback" 
+					ng-class="{'has-success':f.rrn.$valid,'has-error':f.rrn.$invalid && f.rrn.$dirty}">
+					<label for="rrn">생년월일</label>
+					<input ng-model="rrn" ng-required="true" class="form-control" type="date" name="rrn" id="rrn" /><br />
+					<span ng-show="f.rrn.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+					<span ng-show="f.rrn.$invalid && f.rrn.$dirty" class="glyphicon glyphicon-remove form-control-feedback"></span>
+					<p ng-show="f.rrn.$invalid && f.rrn.$dirty" class="help-block">생년월일을 반드시 입력하세요.</p>
+					</div>			
+		
+					<div class="form-group has-feedback"
+					ng-class="{'has-success': canUseId ,'has-error': !canUseId && f.id.$dirty}">
+					<label class="control-label" for="id">아이디</label>
+					<input class="form-control" type="text" name="id" id="id"
+						ng-model="id" ng-blur="idCheck()" ng-required="true"/>
+					<span ng-show="f.id.$valid && canUseId" class="glyphicon glyphicon-ok form-control-feedback"></span>
+					<span ng-show="(f.id.$invalid || !canUseId) && f.id.$dirty" class="glyphicon glyphicon-remove form-control-feedback"></span>
+					<p ng-show="f.id.$error.required && f.id.$dirty" class="help-block">반드시 입력해야 합니다.</p>
+					<p ng-show="!canUseId && f.id.$dirty" class="help-block">이미 등록된 아이디 입니다.</p>
+					</div>
+							
+					<div class="form-group has-feedback"
+						ng-class="{'has-success':f.pwd.$valid,'has-error':f.pwd.$invalid && f.pwd.$dirty}">
+						<label class="control-label" for="pwd">비밀번호</label>
+						<input ng-keyup="isPwdEqual()" ng-required="true" ng-model="pwd" ng-pattern="/^[a-zA-Z0-9]{5,10}$/" class="form-control" type="password" name="pwd" id="pwd"/>
+						<span ng-show="f.pwd.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+						<span ng-show="f.pwd.$invalid && f.pwd.$dirty" class="glyphicon glyphicon-remove form-control-feedback"></span>
+						<p ng-show="f.pwd.$invalid && f.pwd.$dirty" class="help-block">특수문자 제외 5자 이상 10자 내로 입력하세요.</p>
+						<p ng-show="!pwdEqual && f.pwd.$dirty" class="help-block">비밀번호를 아래와 같게 입력하세요.</p>
+					</div>
+					<div class="form-group">
+						<label for="pwd2">비밀번호 확인</label>
+						<input ng-keyup="isPwdEqual()" class="form-control" type="password" id="pwd2" name="pwd2" ng-model="pwd2"/>
+					</div>
+						
+					<div class="form-group has-feedback" 
+						ng-class="{'has-success':f.email.$valid,'has-error':f.email.$invalid && f.email.$dirty}">
+						<label class="control-label" for="email">이메일</label>
+						<input ng-model="email" ng-required="true" ng-pattern="/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i" class="form-control" type="text" name="email" id="email" />
+						<span ng-show="f.email.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+						<span ng-show="f.email.$invalid && f.email.$dirty" class="glyphicon glyphicon-remove form-control-feedback"></span>
+						<p ng-show="f.email.$invalid && f.email.$dirty" class="help-block">이메일 형식에 맞게 입력하세요.</p>
+					</div>
+						 
+					<div class="form-group has-feedback" 
+					ng-class="{'has-success':f.phon.$valid,'has-error':f.phon.$invalid && f.phon.$dirty}">
+					<label for="phon">전화번호</label>
+					<input ng-model="phon" ng-required="true" class="form-control" type="text" name="phon" id="phon" /><br />
+					<span ng-show="f.phon.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+					<span ng-show="f.phon.$invalid && f.phon.$dirty" class="glyphicon glyphicon-remove form-control-feedback"></span>
+					<p ng-show="f.phon.$invalid && f.phon.$dirty" class="help-block">전화번호를 입력해 주세요.</p>
+					</div>
+		
+					<div class="form-group">
+						<input class="form-control" style="width: 40%; display: inline;"
+							placeholder="우편번호" name="addr1" id="addr1" type="text"
+							readonly="readonly">
+						<button type="button" class="btn btn-default"
+							onclick="execPostCode();">
+							<i class="fa fa-search"></i> 우편번호 찾기
+						</button>
+					</div>
+					<div class="form-group">
+						<input class="form-control" style="top: 5px;" placeholder="도로명 주소"
+							name="addr2" id="addr2" type="text" readonly="readonly" />
+					</div>
+					<div class="form-group">
+						<input class="form-control" placeholder="상세주소" name="addr3"
+							id="addr3" type="text" />
+					</div>
+					
+					<div class="form-group">
+					<label for="gender">성별</label>
+					<label class="btn btn-primary">
+					<input class="" type="radio" name="gender"
+						id="gender1" value="M" checked="checked" />남 
+					</label>
+					<label class="btn btn-primary">
+					<input type="radio"
+						name="gender" id="gender2" value="F" />여
+					</label>
+					</div>
+					<div align="center">
+				<button style="width: 90%; height: 50px;" ng-disabled="f.$invalid || !canUseId || !pwdEqual" class="btn btn-primary" type="submit">작성 완료
+				</button>
+				<a href="loginform.do">
+				<button style="width: 90%; height: 50px;" class="btn btn-warning" type="button">뒤로가기</button>
+				</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
 
-</form>
-
-<script src="${pageContext.request.contextPath }/resources/js/jquery-3.3.1.min.js"></script>
-<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	
+<!--===============================================================================================-->	
+	<script src="${pageContext.request.contextPath}/loginrsc/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/loginrsc/vendor/bootstrap/js/popper.js"></script>
+	<script src="${pageContext.request.contextPath}/loginrsc/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/loginrsc/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/loginrsc/js/main.js"></script>
 
 <script>
-//폼의 유효성 여부 
-var formValid=false;
-
-//아이디 중복 확인 버튼을 눌렀을때 실행할 함수 등록
-$("#checkBtn").click(function(){
-	//입력한 아이디를 읽어와서 
-	var inputId=$("#id").val();
-	//ajax 요청을 통해서 서버에 보내서 사용가능 여부를 json 으로 응답받기
-	$.ajax({
-		url:"checkid.do",
-		method:"get",
-		data:{inputId:inputId},
-		success:function(responseData){
-			console.log($("#id").val());
-			console.log(responseData);
-			if(responseData.canUse){//사용 가능한 아이디라면
-				$("#checkResult").text("사용가능");
-				formValid=true;
-			}else{
-				$("#checkResult").text("사용불가");
-				formValid=false;
-			}
-		}
-	});
-	return false;// 폼 제출 막기 
-});
-//폼에 submit 이벤트가 일어났을때 실행할 함수 등록
-$("#signupForm").on("submit", function(){
-	var pwd=$("#pwd").val();
-	var pwd2=$("#pwd2").val();
-	if(!formValid){//폼이 유효 하지 않다면
-		return false; //폼 전송 막기
-	}
-	if(pwd != pwd2){
-		alert("비밀번호를 확인 하세요!");
-		return false;//폼전송 막기
-	}
-});
 
 //다음에서 제공하는 주소검색
 function execPostCode() {
