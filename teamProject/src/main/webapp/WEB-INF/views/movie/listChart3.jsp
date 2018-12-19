@@ -94,7 +94,7 @@
 
 <div class="container">	
 	<h1>무비차트</h1>
-	<c:if test="${id eq master }">
+	<c:if test="${id eq 'master' }">
 		<a href="uploadChart_form.do"><button class="btn btn-info upbtn">업로드 하러 가기</button></a>
 	</c:if>
 	<hr style="height: 3px;" color="black" />
@@ -106,7 +106,7 @@
 					<div class="panel-heading"
 					 style="<c:if test="${status.count gt 4 }">color: #fff; background-color: black; border-color: black;</c:if>" >
 						<h4>NO.${status.count}</h4>
-						<c:if test="${id eq master }">
+						<c:if test="${id eq 'master' }">
 							<a class="btn pull-right" href="${pageContext.request.contextPath }/movie/delete.do?num=${tmp.num }">
 								<span class="glyphicon glyphicon-remove"></span>
 							</a>

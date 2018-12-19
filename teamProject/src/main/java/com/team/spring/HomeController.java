@@ -23,7 +23,7 @@ public class HomeController {
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("noticeList", noticeList);
 		mView.setViewName("home");
-		request.getSession().setAttribute("id", "1");
+		request.getSession().setAttribute("id", "master");
 		return mView;
 	}
 	

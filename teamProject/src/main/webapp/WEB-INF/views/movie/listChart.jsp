@@ -70,12 +70,16 @@
 		.panel-heading h4{
 			display: inline-block;
 			font-weight: bold;
+			margin-top: 10px;
 		}
-		.panel-heading a{
+		.panel-heading a{	
 			margin-top: 5px;
 		}
 		.panel-heading > a{
 			color: #a94442;
+		}
+		.panel-heading{
+			height: 60px;
 		}
 		@media (min-width: 768px) {
 		  .container {
@@ -132,6 +136,31 @@
 			line-height: 1.42857143;
 			color: #333;
 		 }
+		
+	 	.btn {
+		    display: inline-block;
+		    padding: 6px 12px;
+		    margin-bottom: 0;
+		    font-size: 14px;
+		    font-weight: normal;
+		    line-height: 1.42857143;
+		    text-align: center;
+		    white-space: nowrap;
+		    vertical-align: middle;
+		    -ms-touch-action: manipulation;
+		    touch-action: manipulation;
+		    cursor: pointer;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		    background-image: none;
+		    border: 1px solid transparent;
+		    border-radius: 4px;
+		}
+		.upbtn{
+			margin-top: 0
+		}
 	</style>
 
     </head>
@@ -214,7 +243,7 @@
         ========================== -->
         <div class="container contFont">	
 			<h1>무비차트</h1>
-			<c:if test="${id eq master }">
+			<c:if test="${id eq 'master' }">
 				<a href="uploadChart_form.do"><button class="btn btn-info upbtn">업로드 하러 가기</button></a>
 			</c:if>
 			<hr style="height: 3px;" color="black" />
@@ -226,7 +255,7 @@
 							<div class="panel-heading"
 							 style="<c:if test="${status.count gt 4 }">color: #fff; background-color: black; border-color: black;</c:if>" >
 								<h4>NO.${status.count}</h4>
-								<c:if test="${id eq master }">
+								<c:if test="${id eq 'master' }">
 									<a class="btn pull-right" href="${pageContext.request.contextPath }/movie/delete.do?num=${tmp.num }">
 										<span class="glyphicon glyphicon-remove"></span>
 									</a>
