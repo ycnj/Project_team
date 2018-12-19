@@ -92,13 +92,11 @@ h4 {
 					<li><a href="./MyInfo.html">MyInfo</a></li>
 					<li><a href="./event.html">Event</a></li>
 					<li><a href="./contact.html">Contact</a></li>
-					<li><a href="./list.html">boad</a></li>
+					<li><a href="./list.jsp">boad</a></li>
 					<li><a href="./etc.html">Etc</a></li>
 				</ul>
 			</nav>
 			<!-- /main nav -->
-		</div>
-
 		</div>
 	</header>
 	<!--
@@ -144,9 +142,10 @@ h4 {
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section-title text-center wow fadeInDown">
-						<h2>Services</h2>
-						<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at
-							sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+						<h2>자유게시판</h2>
+						<br />
+						<br />
+						<h3 style="text-align:center;">게시판 글 목록 </h3>
 					</div>
 				</div>
 			</div>
@@ -154,9 +153,8 @@ h4 {
 
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8">
-					<h3>게시판 글 목록 </h3>
-					<table class="table table-bordered">
+						<div class="col-md-8 col-md-offset-2">
+					<table class="table table-bordered" > <!-- style="text-align:center; width:880px; height:220px;" -->
 						<thead>
 							<tr>
 								<th>번호</th>
