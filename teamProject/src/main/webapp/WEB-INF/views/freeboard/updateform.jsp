@@ -175,11 +175,11 @@ h4 {
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section-title text-center wow fadeInDown">
-						<h2>Services</h2>
-						<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at
-							sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+						<h2>자유게시판</h2>
 					</div>
 				</div>
+				<h3 class="col-md-8 col-md-offset-2">글 정보 수정 </h3>
+						<br />
 			</div>
 
 			<!--여기다! 22222222222222222222222222222222222222222222222222222222222  -->
@@ -189,7 +189,7 @@ h4 {
 					<p>
 						<strong>${dto.id }</strong>님이 작성한글
 					</p>
-					<h3>글 정보 수정</h3>
+					<br />
 					<form action="update.do" method="post">
 						<input type="hidden" name="num" value="${dto.num }" /> 
 						<label for="title">제목</label> <input type="text" name="title" id="title" value="${dto.title }" />
@@ -198,7 +198,7 @@ h4 {
 						<textarea name="content" id="content" style="width: 100%; height: 400px; display: none;" > ${dto.content }</textarea>
 						<div>
 						
-						<td><a href="download.do?num=${dto.num }">${dto.orgFileName }</a></td>
+						<a href="download.do?num=${dto.num }">${dto.orgFileName }</a>
 						<br />
 						<input type="button" onclick="javascript:fileUpload();"value="파일업로드" /> 
 						<input type="button" onclick="submitContents(this);" value="확인" /> 

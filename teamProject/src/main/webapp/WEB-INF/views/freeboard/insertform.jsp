@@ -191,6 +191,7 @@ h4 {
 						<strong>${id }</strong>님 로그인중...
 					</p>
 					<h3>새 글 작성</h3>
+					<br />
 					<form action="upload.do" method="post" enctype="multipart/form-data">
 						<label for="title">제목</label> <input type="text" name="title" id="title" />
 						 	<br /> 

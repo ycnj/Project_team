@@ -143,35 +143,33 @@ h4 {
 				<div class="col-md-12">
 					<div class="section-title text-center wow fadeInDown">
 						<h2>자유게시판</h2>
-						<br />
-						<br />
-						<h3 style="text-align:center;">게시판 글 목록 </h3>
 					</div>
 				</div>
+						<h3 class="col-md-8 col-md-offset-2">게시판 글 목록 </h3>
+						<br />
 			</div>
 			<div class="row">
-
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 					<table class="table table-bordered" > <!-- style="text-align:center; width:880px; height:220px;" -->
-						<thead>
-							<tr>
-								<th>번호</th>
-								<th>작성자</th>
-								<th>제목</th>
-								<th>조회수</th>
-								<th>등록일</th>
+						<thead >
+							<tr >
+								<td style="text-align:center;">번호</td>
+								<td style="text-align:center;">작성자</td>
+								<td style="text-align:center;">제목</td>
+								<td style="text-align:center;">조회수</td>
+								<td style="text-align:center;">등록일</td>
 							</tr>
 						</thead>
 						<tbody>
 						<c:forEach items="${list }" var="tmp">
 							<tr>
-								<td>${tmp.num }</td>
-								<td>${tmp.id }</td>
-								<td><a href="detail.do?num=${tmp.num }&condition=${condition}&keyword=${encodedKeyword}">${tmp.title }</a></td>
-								<td>${tmp.viewCount }</td>
-								<td>${tmp.regdate }</td>
+								<td style="text-align:center;">${tmp.num }</td>
+								<td style="text-align:center;">${tmp.id }</td>
+								<td style="text-align:center;"><a href="detail.do?num=${tmp.num }&condition=${condition}&keyword=${encodedKeyword}">${tmp.title }</a></td>
+								<td style="text-align:center;">${tmp.viewCount }</td>
+								<td style="text-align:center;">${tmp.regdate }</td>
 							</tr>
 						</c:forEach>
 						</tbody>
