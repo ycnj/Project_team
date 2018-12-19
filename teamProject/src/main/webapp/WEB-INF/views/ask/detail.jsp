@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/cafe/detail.jsp</title>
+<title>/views/ask/detail.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <style>
 	/* 글내용의 경계선 표시 */
@@ -63,7 +63,7 @@
 </head>
 <body>
 <div class="container">
-	<a href="list5.do">글 목록보기</a>
+	<a href="qnalistview.do">글 목록보기</a>
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
@@ -78,6 +78,10 @@
 		<tr>
 			<th>글번호</th>
 			<td>${dto.num }</td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td>${dto.title }</td>
 		</tr>
 		<tr>
 			<th>작성자</th>

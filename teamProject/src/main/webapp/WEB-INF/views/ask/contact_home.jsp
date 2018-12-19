@@ -148,9 +148,9 @@
                             <h3>문의 게시판 목록</h3>
 								<a href="../user/userlistboard.do"><span>질문게시판</span></a>
 							<c:if test="${not empty sessionScope.id }">
-								<a href="list5.do"><span>1:1문의목록보기</span></a>
+								<a href="qnalistview.do"><span>1:1문의목록보기</span></a>
 							</c:if>
-								<a href="../ask/qnainsertform.do"><span>1:1문의</span></a>
+								<a href="qnainsertform.do"><span>1:1문의</span></a>
                         </div>
 
                         <div id="testimonial">
@@ -171,7 +171,7 @@
                                     <img src="${pageContext.request.contextPath}/resources/img/qna2.jpg" alt="Client" class="img-circle">
                                     <div class="tst-content">
                                     <c:if test="${not empty sessionScope.id }">
-                                        <a href="list5.do">1:1문의목록보기</a>
+                                        <a href="qnalistview.do">1:1문의목록보기</a>
                             		</c:if>
                                         <span>로그인이 필요합니다.</span>
                                     </div>

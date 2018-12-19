@@ -55,12 +55,12 @@ public class AskController {
 		return new ModelAndView("ask/replylist");
 	}	
 	
-	@RequestMapping("/ask/list5")
+	@RequestMapping("/ask/qnalistview")
 	public ModelAndView getList5(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		service.getList(request);
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("ask/list5");
+		return new ModelAndView("ask/qnalistview");
 	}	
 	
 	@RequestMapping("/ask/detailview")

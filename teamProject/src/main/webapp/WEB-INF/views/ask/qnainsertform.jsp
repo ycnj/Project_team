@@ -91,7 +91,7 @@
                             <li><a href="contact_home.do">Contact</a></li>
                             <li><a href="./etc.html">Etc</a></li>                                                 
                         <c:if test="${sessionScope.id eq 'herais33' }">
-                    		<li><a href="list.do">답변하기</a></li>
+                    		<li><a href="replylist.do">답변하기</a></li>
                     	</c:if>
                         </ul>
                     </nav>
@@ -146,9 +146,9 @@
                             <a href="../user/userlistboard.do"><span>질문게시판으로 가기</span></a>
                         </div> <!-- end .contact-details -->
 					
-					<c:if test="${!empty SessionScope.id }">
+					<c:if test="${!empty sessionScope.id }">
                      	<div class="contact-details">
-                            <a href="list3.do"><span>1:1 문의목록보기</span></a>               
+                            <a href="qnalistview.do"><span>1:1 문의목록보기</span></a>               
                         </div> <!-- end .contact-details -->
                     </c:if>
      

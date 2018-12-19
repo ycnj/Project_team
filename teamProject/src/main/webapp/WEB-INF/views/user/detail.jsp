@@ -80,6 +80,10 @@
 			<td>${dto.num }</td>
 		</tr>
 		<tr>
+			<th>제목</th>
+			<td>${dto.title }</td>
+		</tr>
+		<tr>
 			<th>작성자</th>
 			<td>${dto.writer }</td>
 		</tr>
