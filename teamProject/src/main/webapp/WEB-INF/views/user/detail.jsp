@@ -67,7 +67,7 @@
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
-	<h3>카페 글 상세 보기</h3>
+	<h3>게시판글 상세보기</h3>
 	<c:if test="${dto.prevNum ne 0 }">
 		<a href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
 	</c:if>
@@ -99,7 +99,7 @@
 	<div class="content">${dto.content }</div>
 	<!-- 로그인된 아이디와 글작성자가 같을때만 수정, 삭제 링크 제공 -->
 	<c:if test="${ sessionScope.id eq dto.writer }">
-		<a href="updateform.do?num=${dto.num }">수정</a>
+		<a href="${pageContext.request.contextPath}/user/updateformview.do?num=${dto.num }">수정</a>
 		<a href="javascript:deleteConfirm(${dto.num })">삭제</a>
 	</c:if>
 	<!-- 댓글 목록 -->

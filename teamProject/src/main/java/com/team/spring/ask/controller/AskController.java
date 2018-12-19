@@ -30,6 +30,13 @@ public class AskController {
 		return new ModelAndView("ask/contact_home");
 	}
 	
+	@RequestMapping("/ask/updateformview")
+	public ModelAndView updateview(HttpServletRequest request) {
+		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
+		service.getList(request);
+		//view 페이지로 forward 이동해서 글 목록 출력하기 
+		return new ModelAndView("ask/updateformview");
+	}		
 	
 	@RequestMapping("/ask/qnalist")
 	public ModelAndView getList3(HttpServletRequest request) {
@@ -95,7 +102,7 @@ public class AskController {
 	@RequestMapping("/ask/delete")
 	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
 		service.deleteContent(num);
-		return new ModelAndView("redirect:/ask/list.do");
+		return new ModelAndView("redirect:/ask/qnalistview.do");
 	}
 	@RequestMapping("/ask/updateform")
 	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, 

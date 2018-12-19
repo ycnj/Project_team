@@ -98,8 +98,8 @@
 	</table>
 	<div class="content">${dto.content }</div>
 	<!-- 로그인된 아이디와 글작성자가 같을때만 수정, 삭제 링크 제공 -->
-	<c:if test="${ sessionScope.id eq dto.writer }">
-		<a href="updateform.do?num=${dto.num }">수정</a>
+	<c:if test="${ sessionScope.id eq dto.writer || sessionScope.id eq 'master' }">
+		<a href="updateformview.do?num=${dto.num }">수정</a>
 		<a href="javascript:deleteConfirm(${dto.num })">삭제</a>
 	</c:if>
 	<!-- 댓글 목록 -->
@@ -135,7 +135,8 @@
 								<pre>${tmp.content }</pre>
 							</dd>
 						</dl>
-						<form class="comment-insert-form" action="comment_insert.do" method="post">
+						<c:if test="${id eq 'master' }">
+							<form class="comment-insert-form" action="comment_insert.do" method="post">
 							<!-- 덧글 그룹 -->
 							<input type="hidden" name="ref_group" value="${dto.num }" />
 							<!-- 덧글 대상 -->
@@ -143,9 +144,10 @@
 							<input type="hidden" name="comment_group" value="${tmp.comment_group }" />
 							<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다.</c:if></textarea>
 							<button type="submit">등록</button>
-						</form>	
+							</form>	
+						</c:if>
 						<!-- 로그인한 아이디와 댓글의 작성자와 같으면 수정폼 출력 -->				
-						<c:if test="${id eq tmp.writer }">
+						<c:if test="${id eq 'master' }">
 							<form class="comment-update-form" action="comment_update.do">
 								<input type="hidden" name="num" value="${tmp.num }" />
 								<textarea name="content">${tmp.content }</textarea>
