@@ -45,6 +45,13 @@
 			<artifactId>spring-security-web</artifactId>
 			<version>4.0.0.RELEASE</version>
 		</dependency>	
+		<!-- https://mvnrepository.com/artifact/com.servlets/cos -->
+		<dependency>
+		    <groupId>com.servlets</groupId>
+		    <artifactId>cos</artifactId>
+		    <version>09May2002</version>
+		</dependency>
+		
 		
 		<!-- Logging -->
 		<dependency>
@@ -123,6 +130,12 @@
 			<scope>test</scope>
 		</dependency> 
 		<!-- 5. 추가 의존 라이브러리 -->
+		<!-- json-simple 라이브러리 -->
+		<dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
 		<!-- MyBatis 라이브러리 -->
 	  	<dependency>
 			<groupId>org.mybatis</groupId>
