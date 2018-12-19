@@ -63,7 +63,7 @@
 	<img style="width:372px;height:290px;" class="img-responsive" src="${pageContext.request.contextPath}/upload/${dto.saveFileName}"/>		
 	</div><div><h2>${dto.content }</h2></div>          
 	<ul  class="list-inline" style="display: inline;">
-		<li><a href="list.do">목록으로</a></li>
+		<li><a href="list.do">이벤트 목록</a></li>
 		<li><a href="updateform.do?num=${dto.num }">이벤트 수정</a></li>
 		<li><a href="delete.do?num=${dto.num }">이벤트 삭제</a></li>
 	</ul>
