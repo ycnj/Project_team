@@ -67,9 +67,14 @@ public class EventServiceImpl implements EventService {
 	}
 	// 상세 정보 서비스
 	@Override
-	public void getDetail(ModelAndView mView, int num) {
-		EventDto dto=eventDao.getData(num);
-		mView.addObject("dto", dto);
+	public void getDetail(HttpServletRequest request) {
+		int num=Integer.parseInt(request.getParameter("num"));
+		EventDto dto=new EventDto();
+		dto.setNum(num);
+		
+		EventDto resultDto=eventDao.getData(num);
+		eventDao.addViewCount(num);
+		request.setAttribute("dto", resultDto);
 	}
 	// 컨텐츠 삭제 서비스
 	@Override

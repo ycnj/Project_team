@@ -83,10 +83,10 @@ CSS
               <ul id="nav" class="nav navbar-nav">
                   <li><a href="./index.html">Home</a></li>
                   <li><a href="./MyInfo.html">MyInfo</a></li>
-                  <li><a href="./event.html">Event</a></li>                            
+                  <li><a href="list.do">Event</a></li>                            
                   <li><a href="./contact.html">Contact</a></li>
                   <li><a href="./etc.html">Etc</a></li>
-                  <li><a href="insertform.do">이벤트 관리자</a></li>
+                  <li><a href="uploadform.do">이벤트 관리자</a></li>
               </ul>
           </nav>
           <!-- /main nav -->
@@ -120,60 +120,12 @@ End #service-bottom
 <section id="portfolio">
 <div class="section-title text-center wow fadeInDown">
 	<h2>event</h2>
-	<div id="projects" class="clearfix">
-		<figure class="mix portfolio-item photography">		
-			<p>${tmp.content }</p>
-			<figcaption class="mask">
-	            <h3>${tmp.title }</h3>
-	        </figcaption>			
-       	</figure>		
+	<h3>${dto.title }</h3>
+	<div id="projects" class="clearfix">	
+	<img style="width:372px;height:290px;"  class="img-responsive" src="${pageContext.request.contextPath}/upload/${dto.saveFileName}"/>		
+	<p>${dto.content }</p>	          
 	</div>
-	<!-- 페이징 처리 -->
-	<div class="page-display">
-		<ul class="pagination">
-		<c:choose>
-			<c:when test="${startPageNum ne 1}">
-				<li>
-					<a href="list.do?pageNum=${startPageNum-1 }">&laquo;</a>
-				</li>
-			</c:when>
-			<c:otherwise>
-				<li class="disabled">
-					<a href="javascript:">&laquo;</a>
-				</li>
-			</c:otherwise>
-		</c:choose>
-		<c:forEach var="i" begin="${startPageNum}" end="${endPageNum }" >
-			<c:choose>
-				<c:when test="${pageNum eq i }">
-					<li class="active">
-						<a href="list.do?pageNum=${i }">${i }</a>
-					</li>
-				</c:when>
-				<c:otherwise>
-					<li>
-						<a href="list.do?pageNum=${i }">${i }</a>
-					</li>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-		
-		<c:choose>
-			<c:when test="${endPageNum lt totalPageCount }">
-				<li>
-					<a href="list.do?pageNum=${endPageNum+1 }">&raquo;</a>
-				</li>
-			</c:when>
-			<c:otherwise>
-				<li class="disabled">
-					<a href="javascript:">&raquo;</a>
-				</li>
-			</c:otherwise>
-		</c:choose>			
-		</ul>
-	</div>
-</div>
-</section>
+</div>	
 <!--
 #footer
 ========================== -->

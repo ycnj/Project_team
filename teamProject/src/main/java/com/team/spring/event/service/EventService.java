@@ -9,7 +9,7 @@ import com.team.spring.event.dto.EventDto;
 
 public interface EventService {
 	public void getList(HttpServletRequest request);
-	public void getDetail(ModelAndView mView, int num);
+	public void getDetail(HttpServletRequest request);
 	public void saveContent(EventDto dto, HttpServletRequest request);	
 	public void deleteContent(int num, HttpServletRequest request, HttpServletResponse response);
 	public void updateContent(EventDto dto);	

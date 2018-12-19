@@ -35,7 +35,7 @@ public class EventController {
 	}
 	@RequestMapping("/event/detail")
 	public ModelAndView detail(HttpServletRequest request) {
-		service.getDetail(mView, num);
+		service.getDetail(request);
 		return new ModelAndView("event/detail");
 	}
 	
@@ -48,7 +48,6 @@ public class EventController {
 	@RequestMapping("/event/updateform")
 	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, 
 			HttpServletRequest request) {
-		service.getUpdateData(mView, num);
 		mView.setViewName("event/updateform");
 		return mView;
 	}
