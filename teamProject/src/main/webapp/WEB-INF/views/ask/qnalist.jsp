@@ -1,14 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>/views/ask/qnalist.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
-</head>
-<body>
+
 <div class="container">
 	<h3>QnA 게시판 목록입니다.</h3>
 	<table style="width:880px; height:220px;" class="table table-bordered">
@@ -91,10 +84,6 @@
 			<strong>${totalRow }</strong> 개의 글이 검색되었습니다.</p>
 	</c:if>	
 </div><!-- /.container -->
-</body>
-</html>
-
-
 
 
 

@@ -39,7 +39,7 @@
                             <c:otherwise>
                             
                             <li class="dropdown">
-								<a href="users/info.do">
+								<a href="${pageContext.request.contextPath}/users/info.do">
 								${id } for Info<b class="caret"></b></a>
 <!-- 								<ul class="dropdown-menu">
 									<li><a href="#">3-1번 메뉴</a></li>
