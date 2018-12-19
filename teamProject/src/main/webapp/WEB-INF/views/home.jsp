@@ -96,9 +96,11 @@
                 <div class="row">
 
                     <div class="section-title text-center wow fadeInUp">
-                        <h2>About Us</h2>    
-                        <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
-                    </div>
+                        <h2>About Us</h2>
+					<a href="movie/uploadChart_form.do">영화등록하기</a> 
+					<a href="movie/listChart.do">리스트보기</a> 
+					<a href="users/usersRes/detail.do">디테일</a>
+				</div>
                     
                     <div class="about-us text-center wow fadeInDown">
                         <img src="${pageContext.request.contextPath}/resources/images/movie1.png" alt="About Us" class="img-responsive">
