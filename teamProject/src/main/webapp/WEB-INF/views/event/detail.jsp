@@ -64,7 +64,6 @@
 	</div><div><h2>${dto.content }</h2></div>          
 	<ul  class="list-inline" style="display: inline;">
 		<li><a href="list.do">목록으로</a></li>
-		<li><a href="uploadform.do">이벤트 업로드</a></li>
 		<li><a href="updateform.do?num=${dto.num }">이벤트 수정</a></li>
 		<li><a href="delete.do?num=${dto.num }">이벤트 삭제</a></li>
 	</ul>
