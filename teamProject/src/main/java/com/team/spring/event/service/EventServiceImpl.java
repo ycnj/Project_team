@@ -81,15 +81,6 @@ public class EventServiceImpl implements EventService {
 	public void deleteContent(int num, HttpServletRequest request,
 			HttpServletResponse response) {
 		EventDto dto=eventDao.getData(num);
-		String id=(String)request.getSession().getAttribute("id");
-		if(!id.equals(dto.getWriter())) {
-			try {
-				response.sendError(HttpServletResponse.SC_FORBIDDEN);
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
-			return;
-		}
 		eventDao.delete(num);
 		String path=request.getServletContext().getRealPath("upload")+
 				File.separator+dto.getSaveFileName();

@@ -12,6 +12,6 @@ public interface EventService {
 	public void getDetail(HttpServletRequest request);
 	public void saveContent(EventDto dto, HttpServletRequest request);	
 	public void deleteContent(int num, HttpServletRequest request, HttpServletResponse response);
-	public void updateContent(EventDto dto);	
+	public void updateContent(EventDto dto, HttpServletRequest request);	
 	public void addViewCount(int num);
 }

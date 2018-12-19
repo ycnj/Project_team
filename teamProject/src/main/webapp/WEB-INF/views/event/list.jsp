@@ -83,15 +83,14 @@ CSS
               <ul id="nav" class="nav navbar-nav">
                   <li><a href="./index.html">Home</a></li>
                   <li><a href="./MyInfo.html">MyInfo</a></li>
-                  <li><a href="list.do">Event</a></li>                           
+                  <li><a href="list.do">Event</a></li>
+                  <li><a href="uploadform.do">이벤트 업로드</a></li>                           
                   <li><a href="./contact.html">Contact</a></li>
                   <li><a href="./etc.html">Etc</a></li>
-                  <li><a href="uploadform.do">이벤트 관리자</a></li>
               </ul>
           </nav>
           <!-- /main nav -->
         </div>
-    </div>
 </header>
 <!--
 #service-bottom
@@ -179,7 +178,6 @@ End #service-bottom
 		</c:choose>			
 		</ul>
 	</div>
-</div>
 </section>
 <!--
 #footer

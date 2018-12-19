@@ -23,11 +23,11 @@ public class EventController {
 		service.getList(request);
 		return new ModelAndView("event/list");
 	}
-	@RequestMapping("event/uploadform")
+	@RequestMapping("/event/uploadform")
 	public ModelAndView authUploadForm(HttpServletRequest request) {
 		return new ModelAndView("event/uploadform");
 	}
-	@RequestMapping("event/upload")
+	@RequestMapping("/event/upload")
 	public ModelAndView authUpload(@ModelAttribute EventDto dto,
 			HttpServletRequest request) {
 		service.saveContent(dto, request);

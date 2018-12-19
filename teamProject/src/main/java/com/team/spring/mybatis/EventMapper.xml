@@ -28,7 +28,8 @@
 	</insert>
 	<update id="update" parameterType="eventDto">
 		UPDATE event_mp
-		SET title=#{title}, content=#{content}, imagePath(imagePath)
+		SET title=#{title}, content=#{content}, orgFileName={orgFileName}, saveFileName=#{saveFileName},
+		fileSize=#{fileSize}, regdate=SYSDATE
 		WHERE num=#{num}
 	</update>
 	<delete id="delete" parameterType="int">

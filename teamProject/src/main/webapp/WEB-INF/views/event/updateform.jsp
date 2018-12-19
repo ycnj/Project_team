@@ -5,7 +5,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
-<title>/views/event/detail.jsp</title>
+<title>/views/event/list.jsp</title>
 <!-- Mobile Specific Meta -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Always force latest IE rendering engine -->
@@ -83,7 +83,9 @@ CSS
               <ul id="nav" class="nav navbar-nav">
                   <li><a href="./index.html">Home</a></li>
                   <li><a href="./MyInfo.html">MyInfo</a></li>
-                  <li><a href="list.do">Event</a></li>                            
+                  <li><a href="list.do">Event</a></li>
+                  <li><a href="updateform.do">Updateform</a></li> 
+                  <li><a href="uploadform.do">Uploadform</a></li>                              
                   <li><a href="./contact.html">Contact</a></li>
                   <li><a href="./etc.html">Etc</a></li>
                   <li><a href="uploadform.do">이벤트 관리자</a></li>
@@ -117,18 +119,18 @@ CSS
 End #service-bottom
 ========================== -->
 <section id="portfolio">
-<div class="section-title text-center wow fadeInDown">
-	<h2>event</h2>
-	<h3>${dto.title }</h3>
-	<div id="projects" class="clearfix">	
-	<img style="width:372px;height:290px;" class="img-responsive" src="${pageContext.request.contextPath}/upload/${dto.saveFileName}"/>		
-	</div><div><h2>${dto.content }</h2></div>          
-	<ul  class="list-inline" style="display: inline;">
-		<li><a href="list.do">목록으로</a></li>
-		<li><a href="uploadform.do">이벤트 업로드</a></li>
-		<li><a href="updateform.do?num=${dto.num }">이벤트 수정</a></li>
-		<li><a href="delete.do?num=${dto.num }">이벤트 삭제</a></li>
-	</ul>
+<div class="section-title text-center wow fadeInDown container">
+	<h2>이벤트 수정</h2>
+	<form class="text-center" action="update.do" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="num" value="${dto.num }" />
+		<label for="title">${dto.title }</label>
+		<input type="text" name="title" id="title"/><br/>
+		<label for="content"></label>
+		<textarea name="content" id="content" cols="30" rows="10">{dto.content}</textarea>
+		<label for="myFile">첨부파일</label>
+		<input type="file" name="file" id="myFile" /><br/>
+		<button type="submit">업데이트</button>
+	</form>
 </div>	
 </section>
 <!--
@@ -189,7 +191,7 @@ End #footer
 <!-- theme custom scripts -->
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 <script>
-	$("#nav>li:eq(2)").attr("class","current");        
+	$("#nav>li:eq(3)").attr("class","current");        
 </script>
 </body>
 </html>
