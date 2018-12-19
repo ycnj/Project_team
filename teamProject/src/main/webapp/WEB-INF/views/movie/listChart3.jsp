@@ -66,13 +66,37 @@
 	.panel-footer  a:hover {
 	 	color: blue; text-decoration: none;
 	 }
+	 .font-sizeUp{
+	 	font-size: 20px;
+    	font-weight: bold; 
+	 }
+	 .glyphicon-heart{
+	 	color: red;
+	 }
+	 .glyphicon-heart:hover{
+	 	color: blue;
+	 	cursor: pointer;
+	 }
+	 #condition, #keyword{
+	 	width:200px;	
+	 	display:inline-block; 	
+	 }
+	 #condition{
+		padding-top: 3px;
+	 }
+	 .form-group{
+	 	display:inline-block;
+	 }
 </style>
 	 
 </head>
 <body>
+
 <div class="container">	
 	<h1>무비차트</h1>
-	<a href="uploadChart_form.do"><button class="btn btn-info upbtn">업로드 하러 가기</button></a>
+	<c:if test="${id eq master }">
+		<a href="uploadChart_form.do"><button class="btn btn-info upbtn">업로드 하러 가기</button></a>
+	</c:if>
 	<hr style="height: 3px;" color="black" />
 	<br />
 	<div class="row">
@@ -82,21 +106,32 @@
 					<div class="panel-heading"
 					 style="<c:if test="${status.count gt 4 }">color: #fff; background-color: black; border-color: black;</c:if>" >
 						<h4>NO.${status.count}</h4>
-						<a class="btn pull-right" href="${pageContext.request.contextPath }/movie/delete.do?num=${tmp.num }">
-							<span class="glyphicon glyphicon-remove"></span>
-						</a>
+						<c:if test="${id eq master }">
+							<a class="btn pull-right" href="${pageContext.request.contextPath }/movie/delete.do?num=${tmp.num }">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+						</c:if>						
 					</div>
 					<div class="panel-body">
 						<img class="img-responsive" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName }"/>
 					</div>
 					<div class="panel-footer">
-						<div class="textFit">${tmp.title }</div>
+						<div class="font-sizeUp">
+							<c:choose>
+								<c:when test="${fn:length(tmp.title) > 12}">
+									<c:out value="${fn:substring(tmp.title, 0, 11)}..."/>
+         							</c:when>
+								<c:otherwise>
+									<c:out value="${tmp.title}" />
+								</c:otherwise>
+							</c:choose>
+						</div>
 						<fmt:parseDate value="${tmp.opendate }" var="dateFmt2" pattern="yyyy-MM-dd HH:mm:ss" />
 						<fmt:formatDate value="${dateFmt2 }" pattern="yyyy-MM-dd" /> &nbsp;개봉 <br />
 						<form id="liketo_form">
-						${tmp.liketo } <a href="#" id="liketo"><span class="glyphicon glyphicon-heart"></span></a>
+							<span class="liketo">${tmp.liketo }</span>  
+							<span class="glyphicon glyphicon-heart"></span>
 							<input type="hidden" name="movieInfoNum" value="${tmp.num }" />
-							<input type="hidden" name="name" value="${tmp.writer }" />
 						</form>	
 					</div>
 				</div>
@@ -146,27 +181,32 @@
 			</div>
 			
 			<!-- ------------------------------------페이지 처리2------------------------------------ -->				
-	
-		<!-- keyword 검색어 form -->
-		<form action="${pageContext.request.contextPath }/file/list.do" method="post">
-			<label for="condition">검색조건</label>
-			<select name="condition" id="condition">
-				<option value="titlename" <c:if test="${condition eq 'titlename' }"> selected</c:if>>제목+파일명</option>
-				<option value="title" <c:if test="${condition eq 'title' }"> selected</c:if>>제목</option>
-				<option value="writer" <c:if test="${condition eq 'writer' }"> selected</c:if>>작성자</option>
-			</select>
-			<input type="text" value="${keyword }" name="keyword" placeholder="검색어..." />
-			<button type="submit">검색</button>
-		</form>
-		<c:choose>
-			<c:when test="${not empty keyword }">
-				<p><strong>${keyword }</strong> 검색어로 검색된 
-				<strong>${totalRow }</strong>개의 파일이 있습니다.</p>
-			</c:when>
-			<c:otherwise>
-				<p><strong>${totalRow }</strong>개의 파일이 있습니다.</p>
-			</c:otherwise>
-		</c:choose>	
+		<div class="col-sm-6 col-sm-offset-3">
+			<!-- keyword 검색어 form -->
+			<form action="${pageContext.request.contextPath }/file/list.do" method="post">
+				<div class="form-group">
+					<label for="condition">검색조건</label><br />
+					<select class="form-control" name="condition" id="condition">
+						<option value="titlename" <c:if test="${condition eq 'titlename' }"> selected</c:if>>제목+파일명</option>
+						<option value="title" <c:if test="${condition eq 'title' }"> selected</c:if>>제목</option>
+						<option value="id" <c:if test="${condition eq 'id' }"> selected</c:if>>작성자</option>
+					</select>
+				</div>
+				<div class="form-group">						
+					<input class="form-control" type="text" value="${keyword }" name="keyword" id="keyword" placeholder="검색어..." />		
+				</div>
+				<button class="btn btn-sm" type="submit">검색</button>
+			</form>
+			<c:choose>
+				<c:when test="${not empty keyword }">
+					<p><strong>${keyword }</strong> 검색어로 검색된 
+					<strong>${totalRow }</strong>개의 파일이 있습니다.</p>
+				</c:when>
+				<c:otherwise>
+					<p><strong>${totalRow }</strong>개의 파일이 있습니다.</p>
+				</c:otherwise>
+			</c:choose>
+		</div>
 		
 	</div><!-- .row -->
 </div><!-- .container -->
@@ -175,56 +215,30 @@
 </div>
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.3.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath }/resources/js/textFit.min.js"></script>
 <script>
-	textFit(document.getElementsByClassName('textFit'));
 	
-	$("#liketo").click(function(){
-		var data=$("#liketo_form").serialize();
-		var name='${id}';
-		$.ajax({
-			url:url,
-			method:"post",
-			data:data,
-			success:function(responseData){
-				// responseData : {isSuccess:true}
-				if(responseData.isSuccess){
-					//폼을 안보이게 한다 
-					$this.slideUp(200);
-					//폼에 입력한 내용 읽어오기
-					var content=$this.find("textarea").val();
-					//pre 요소에 수정 반영하기 
-					$this.parent().find("pre").text(content);
-				}
-			}
-		});
-	})
-	$(".like-update-form").on("submit", function(){		
-		var data=$(this).serialize();
-		var name='${name}';
-		if(name==null || name==""){
+	$(".glyphicon-heart").click(function(){
+		var $this=$(this);
+		var data=$this.parent().serialize();
+		var id='${id}';
+		if(id==null || id==""){
 			alert("로그인하세요.");
 			return;
-		}
+		}		
 		$.ajax({
-			url: "${pageContext.request.contextPath }/cafe/private/like.do",
+			url:"${pageContext.request.contextPath }/movie/liketo.do",
 			method:"post",
 			data:data,
 			success:function(responseData){
-				if(responseData.isSuccess){
-					$(this)
-					.find("button")
-					.text(${dto.likeCnt+1}+" 좋아요!");
-				}else{					
-					$(this)
-					.find("button")
-					.text(${dto.likeCnt-1}+" 좋아요!");
-				}
+				$this
+				.parent()
+				.find('.liketo')
+				.text(responseData.liketo);			
 			}
 		});
-		//폼 제출 막긱
 		return false;
-	});
+	})
+
 </script>
 </body>
 </html>

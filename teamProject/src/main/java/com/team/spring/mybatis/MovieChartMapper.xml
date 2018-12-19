@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="movieChart">
+	<update id="addLikeCnt" parameterType="int">
+		UPDATE movieInfo
+		SET liketo=(SELECT SUM(like_check) liketo FROM movieInfo_like WHERE movieInfoNum=#{num})
+		WHERE num=#{num}
+	</update>	
 	<select id="getCount" resultType="int" parameterType="movieChartDto">
 		SELECT NVL(MAX(ROWNUM), 0) 
 		FROM movieInfo
 		<where>
-			<if test="writer != null">
-				OR writer LIKE '%'||#{writer}||'%'
+			<if test="id != null">
+				OR id LIKE '%'||#{id}||'%'
 			</if>
 			<if test="title != null">
 				OR title LIKE '%'||#{title}||'%'
@@ -19,11 +24,11 @@
 	<select id="getList" parameterType="movieChartDto" resultType="movieChartDto">
 	   SELECT *
 	   FROM (SELECT result1.*, ROWNUM rnum
-	   		 FROM (SELECT num,writer,title,content,opendate,liketo,orgFileName,saveFileName,fileSize,regdate
+	   		 FROM (SELECT num,id,title,content,opendate,liketo,orgFileName,saveFileName,fileSize,regdate
 		           FROM movieInfo
 					<where>
-						<if test="writer != null">
-							OR writer LIKE '%'||#{writer}||'%'
+						<if test="id != null">
+							OR id LIKE '%'||#{id}||'%'
 						</if>
 						<if test="title != null">
 							OR title LIKE '%'||#{title}||'%'
@@ -42,14 +47,14 @@
 		WHERE num=#{num}
 	</delete>
 	<select id="getData" parameterType="int" resultType="movieChartDto">
-		SELECT num,writer,title,content,opendate,liketo,orgFileName,saveFileName,fileSize,regdate
+		SELECT num,id,title,content,opendate,liketo,orgFileName,saveFileName,fileSize,regdate
 		FROM movieInfo
 		WHERE num=#{num}
 	</select>
 	<insert id="insert" parameterType="movieChartDto">
 		INSERT INTO movieInfo
-		(num, writer, title,content,opendate,liketo, orgFileName, saveFileName, fileSize, regdate)
-		VALUES(movieInfo_seq.NEXTVAL, #{writer}, #{title},#{content},#{opendate},#{liketo},
+		(num, id, title,content,opendate,liketo, orgFileName, saveFileName, fileSize, regdate)
+		VALUES(movieInfo_seq.NEXTVAL, #{id}, #{title},#{content},#{opendate},#{liketo},
 		#{orgFileName}, #{saveFileName}, #{fileSize}, SYSDATE)
 	</insert>
 </mapper>

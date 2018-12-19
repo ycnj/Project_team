@@ -1,5 +1,7 @@
 package com.team.spring.movieChart.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.team.spring.movieChart.dto.MovieChartDto;
@@ -22,8 +25,9 @@ public class MovieChartController {
 	public String getList(HttpServletRequest request) {
 		service.getList(request);
 		// view 페이지로 forward 이동해서 파일 목록 출력하기 
-		return "movie/client/listChart";
+		return "movie/listChart";
 	}
+	
 	@RequestMapping("/movie/delete")
 	public ModelAndView authDelete(@RequestParam int num, 
 			HttpServletRequest request, HttpServletResponse response) {
@@ -45,10 +49,10 @@ public class MovieChartController {
 	}
 	//파일 업로드 요청 처리 
 	@RequestMapping("/movie/liketo")
-	public void authLiketo(HttpServletRequest request) {
-		service.liketo(request);
+	@ResponseBody
+	public Map<String, Object> authLiketo(HttpServletRequest request) {
+		return service.liketo(request);
 	}	
-
 }
 
 

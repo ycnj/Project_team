@@ -16,6 +16,7 @@ public interface MovieChartDao {
 	public MovieChartDto getData(int num);
 	//업로드된 파일 정보를 저장하는 메소드
 	public void insert(MovieChartDto dto);
+	public boolean addLikeCnt(int num);
 }
 
 

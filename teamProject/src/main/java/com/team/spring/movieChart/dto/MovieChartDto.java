@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MovieChartDto {
 	private int num;
-	private String writer;
+	private String id;
 	private String title;
 	private String content;
 	private String opendate;
@@ -23,12 +23,12 @@ public class MovieChartDto {
 	
 	public MovieChartDto() {}
 
-	public MovieChartDto(int num, String writer, String title, String content, String opendate, int liketo,
+	public MovieChartDto(int num, String id, String title, String content, String opendate, int liketo,
 			String orgFileName, String saveFileName, long fileSize, String regdate, int startRowNum, int endRowNum,
 			MultipartFile file) {
 		super();
 		this.num = num;
-		this.writer = writer;
+		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.opendate = opendate;
@@ -50,12 +50,12 @@ public class MovieChartDto {
 		this.num = num;
 	}
 
-	public String getWriter() {
-		return writer;
+	public String getId() {
+		return id;
 	}
 
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getTitle() {

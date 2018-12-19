@@ -4,8 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,12 +17,16 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.team.spring.movieChart.dao.MovieChartDao;
+import com.team.spring.movieChart.dao.MovieChartLikeDao;
 import com.team.spring.movieChart.dto.MovieChartDto;
+import com.team.spring.movieChart.dto.MovieChartLikeDto;
 
 @Service
 public class MovieChartServiceImpl implements MovieChartService{
 	@Autowired
 	private MovieChartDao dao;
+	@Autowired
+	private MovieChartLikeDao likedao;
 	
 	//한 페이지에 나타낼 row 의 갯수 
 	static final int PAGE_ROW_COUNT=8;
@@ -49,7 +54,7 @@ public class MovieChartServiceImpl implements MovieChartService{
 			}else if(condition.equals("title")) {//제목 검색
 				dto.setTitle(keyword);
 			}else if(condition.equals("writer")) {//작성자 검색
-				dto.setWriter(keyword);
+				dto.setId(keyword);
 			}
 			//request 에 검색 조건과 키워드 담기
 			request.setAttribute("condition", condition);
@@ -118,7 +123,7 @@ public class MovieChartServiceImpl implements MovieChartService{
 		MovieChartDto dto=dao.getData(num);
 		//남의 파일을 삭제 할수 없도록 세션의 아이디와 파일의 작성자 비교
 		String id=(String)request.getSession().getAttribute("id");
-		if(!id.equals(dto.getWriter())) {
+		if(!id.equals(dto.getId())) {
 			//로그인된 아이디와 파일의 작성자가 다르면
 			try {
 				// 403 forbidden 에러 발생 시키기  
@@ -166,7 +171,7 @@ public class MovieChartServiceImpl implements MovieChartService{
 			e.printStackTrace();
 		}
 		String id=(String)request.getSession().getAttribute("id");
-		dto.setWriter(id); //작성자
+		dto.setId(id); //작성자
 		dto.setOrgFileName(orgFileName);
 		dto.setSaveFileName(saveFileName);
 		dto.setFileSize(fileSize);
@@ -180,6 +185,29 @@ public class MovieChartServiceImpl implements MovieChartService{
 		MovieChartDto dto=dao.getData(num);
 		//ModelAndView 객체에 담는다.
 		mView.addObject("dto", dto);
+	}
+
+	@Override
+	public Map<String, Object> liketo(HttpServletRequest request) {
+		String id=(String)request.getSession().getAttribute("id");
+		int movieInfoNum=Integer.parseInt(request.getParameter("movieInfoNum"));
+		MovieChartLikeDto dto=new MovieChartLikeDto();
+		dto.setId(id);
+		dto.setMovieInfoNum(movieInfoNum);
+		boolean check=likedao.isLiked(dto);
+		if(check) {			
+			likedao.updateCancel(dto);
+		}else {
+			likedao.updateAdd(dto);
+		}		
+		//좋아요 개수 업데이트
+		dao.addLikeCnt(movieInfoNum);
+		MovieChartDto dto2=dao.getData(movieInfoNum);
+		int liketo=dto2.getLiketo();
+		Map<String, Object> map=new HashMap<>();
+		map.put("liketo", liketo);
+		
+		return map;
 	}
 	
 }

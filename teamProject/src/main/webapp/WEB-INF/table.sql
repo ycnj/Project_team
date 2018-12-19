@@ -13,7 +13,7 @@ CREATE SEQUENCE userRes_mp_seq;
 
 CREATE TABLE movieInfo(
 	num NUMBER PRIMARY KEY, 	-- 파일번호
-	writer VARCHAR2(100), 		-- 작성자
+	id VARCHAR2(100), 			-- 작성자
 	title VARCHAR2(100), 		-- 영화제목
 	content CLOB,				-- 영화주요정보
 	opendate DATE,				-- 개봉날짜
