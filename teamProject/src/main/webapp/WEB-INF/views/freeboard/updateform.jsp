@@ -114,11 +114,12 @@
 								<textarea name="content" id="content"
 									style="width: 100%; height: 400px; display: none;"> ${dto.content }</textarea>
 								<div>
-									<a href="download.do?num=${dto.num }">${dto.orgFileName }</a> <br />
-									<input type="button" onclick="javascript:fileUpload();"
-										value="파일업로드" /> <input type="button"
-										onclick="submitContents(this);" value="확인" /> <input
-										type="button" onclick="history.back()" value="취소" />
+									<a href="download.do?num=${dto.num }">${dto.orgFileName }</a>
+									<innput type="button' name= "delete" >
+									 <br />
+									<input type="button" onclick="javascript:fileUpload();" value="파일업로드" /> <input type="button"
+										onclick="submitContents(this);" value="확인" />
+										 <input type="button" onclick="history.back()" value="취소" />
 								</div>
 								<br />
 								<div class="row" id="uploadForm">

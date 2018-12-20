@@ -26,11 +26,11 @@
                     <nav class="collapse navigation navbar-collapse navbar-right " role="navigation">
                         <ul id="nav" class="nav navbar-nav">
                         	<li><a href="${pageContext.request.contextPath}/home.do">홈</a></li>
-                            <li><a href="">영화정보</a></li>
-                            <li><a href="">예매하기</a></li>
+                            <li><a href="${pageContext.request.contextPath}/movie/listChart.do">영화정보</a></li>
+                            <li><a href="">예메하기</a></li>
 							<li><a href="${pageContext.request.contextPath}/freeboard/list.do">자유게시판</a></li>
-                            <li><a href="">이벤트</a></li>                
-                            <li><a href="">문의</a></li>
+                            <li><a href="${pageContext.request.contextPath}/event/list.do">이벤트</a></li>                
+                            <li><a href="${pageContext.request.contextPath}/ask/contact_home.do">문의</a></li>
                         <c:choose>
                         	<c:when test="${empty sessionScope.id }">
                             <li><a href="${pageContext.request.contextPath}/users/loginform.do">Login</a></li>
@@ -38,7 +38,7 @@
                             <c:otherwise>
                             
                             <li class="dropdown">
-								<a href="users/info.do">
+								<a href="${pageContext.request.contextPath}/users/info.do">
 								${id } for Info<b class="caret"></b></a>
 <!-- 								<ul class="dropdown-menu">
 									<li><a href="#">3-1번 메뉴</a></li>
