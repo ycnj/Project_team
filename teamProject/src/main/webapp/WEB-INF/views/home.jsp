@@ -96,9 +96,11 @@
                 <div class="row">
 
                     <div class="section-title text-center wow fadeInUp">
-                        <h2>About Us</h2>    
-                        <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
-                    </div>
+                        <h2>About Us</h2>
+					<a href="movie/uploadChart_form.do">영화등록하기</a> 
+					<a href="movie/listChart.do">리스트보기</a> 
+					<a href="users/usersRes/detail.do">디테일</a>
+				</div>
                     
                     <div class="about-us text-center wow fadeInDown">
                         <img src="${pageContext.request.contextPath}/resources/images/movie1.png" alt="About Us" class="img-responsive">
@@ -113,61 +115,19 @@
 
 
 
-        <!--
-        #quotes
-        ========================== -->
+        <!-- #quotes -->
         <section id="quotes">
-            <div class="container">
-                <div class="row wow zoomIn">
-                    <div class="col-lg-12">
-                        <div class="call-to-action text-center">
-                            <p>“ACCUMSAN ID CURABITUR ET PORTITOR MAURIS BLANDIT DOLOR LOREM SOME EST OUR DONEC STIN LORTIOS”</p>
-                            <span>John Doe</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<jsp:include page="include/quotes.jsp" />
         </section>
-        <!--
-        End #quotes
-        ========================== -->
+        
+        <!-- End #quotes -->
 
 
-        <!--
-        #footer
-        ========================== -->
+        <!-- #footer -->
         <footer id="footer" class="text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-
-                        <div class="footer-logo wow fadeInDown">
-                            <img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="logo">
-                        </div>
-
-                        <div class="footer-social wow fadeInUp">
-                            <h3>We are social</h3>
-                            <ul class="text-center list-inline">
-                                <li><a href="http://goo.gl/RqhEjP"><i class="fa fa-facebook fa-lg"></i></a></li>
-                                <li><a href="http://goo.gl/hUfpSB"><i class="fa fa-twitter fa-lg"></i></a></li>
-                                <li><a href="http://goo.gl/r4xzR4"><i class="fa fa-google-plus fa-lg"></i></a></li>
-                                <li><a href="http://goo.gl/k9zAy5"><i class="fa fa-dribbble fa-lg"></i></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="copyright">
-                           
-                           Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+   			<jsp:include page="include/footer.jsp" />
         </footer>
-        <!--
-        End #footer
-        ========================== -->
+        <!-- End #footer -->
 
 
 
@@ -180,3 +140,4 @@
 
 </body>
 </html>
+

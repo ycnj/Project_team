@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="movieChart">
+	<select id="isLiked" parameterType="movieChartLikeDto" resultType="int">
+		SELECT NVL(MAX(like_check),0)
+		FROM movieInfo_like
+		WHERE movieInfoNum=#{movieInfoNum} AND id=#{id}
+	</select>
+	<insert id="like_cancel" parameterType="movieChartLikeDto">
+		MERGE INTO movieInfo_like a
+                 USING ( SELECT MAX(num) num
+                 		 FROM movieInfo_like
+                 		 WHERE movieInfoNum = #{movieInfoNum } AND id = #{id} ) b
+                 ON (a.num=b.num)        
+            WHEN MATCHED THEN                                  
+                     UPDATE SET 
+                        movieInfoNum = #{movieInfoNum },
+                        id = #{id},
+                        like_check = 0           
+            WHEN NOT MATCHED THEN                           
+            INSERT (num,movieInfoNum, id) VALUES (movieInfo_seq.NEXTVAL,#{movieInfoNum },#{id}) 
+	</insert>
+	<insert id="like_add" parameterType="movieChartLikeDto">
+		MERGE INTO movieInfo_like a
+                 USING ( SELECT MAX(num) num
+                 		 FROM movieInfo_like
+                 		 WHERE movieInfoNum = #{movieInfoNum } AND id = #{id} ) b
+                 ON (a.num=b.num)        
+            WHEN MATCHED THEN                                  
+                     UPDATE SET 
+                       like_check = 1         
+            WHEN NOT MATCHED THEN                           
+            INSERT (num,movieInfoNum, id, like_check) VALUES (movieInfo_seq.NEXTVAL, #{movieInfoNum }, #{id}, 1)
+	</insert>	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

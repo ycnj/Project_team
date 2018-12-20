@@ -33,12 +33,4 @@
 		
 		<!-- Modernizer Script for old Browsers -->
         <script src="${pageContext.request.contextPath}/resources/js/modernizr-2.6.2.min.js"></script>
-		<style>
-            h4{
-                display : inline;
-                margin-right: 10px;
-            }
-            .btn{
-                padding: 0px 2px;
-            }
-        </style>
+
