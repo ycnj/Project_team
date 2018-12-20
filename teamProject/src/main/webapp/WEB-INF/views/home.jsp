@@ -12,7 +12,7 @@
 	<c:forEach items="${noticeList }" var="tmp">
 		<li>${tmp }</li>
 	</c:forEach>
-	<li><a href="rsch/rschJoinList.do">테스트</a></li>
+	<li><a href="rsch/rschList.do">테스트</a></li>
 	<li><a href="rsch/rschWrite.do">쓰기</a></li>
 
 </ul>

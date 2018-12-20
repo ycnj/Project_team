@@ -40,16 +40,11 @@ $(function() {
     		$("#title").val("");
     		$("#title").focus();
     		return false;
-    	} 
-    	var formData = $("#frm").serialize();
-		$.ajax({
-			type: "POST",
-			data: formData,
-			url: "${pageContext.request.contextPath }/rschWriteSave.do",
+    	}
 			success: function(data) {
 				if(data.trim() == "1") {
 					alert("저장하였습니다.");
-					location = "${pageContext.request.contextPath }/rschList.do";
+					location = "${pageContext.request.contextPath }/rsch/rschList.do";
 				} else {
 					alert("저장 실패했습니다. 다시 시도해 주세요.");
 				}
@@ -57,6 +52,7 @@ $(function() {
 			error: function () {
 				alert("오류발생 ");
 			}
+			document.submit();
 		}); 
     });
 

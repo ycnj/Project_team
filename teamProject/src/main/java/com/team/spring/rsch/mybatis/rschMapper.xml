@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rsch">
+	<!-- 01.게시글 전체 목록 -->
+	<select id="listAll" resultType="com.team.spring.rsch.vo.RschVo">
+		SELECT
+			cd,
+			title,
+			sdate,
+			edate,
+			use,
+			rdate
+		FROM
+			RSCHMAIN
+		ORDER BY
+			cd desc,
+			rdate desc	
+	</select>
+	<!-- 02. 게시글 작성 -->
+	<insert id = "insert">
+		INSERT INTO RSCHMAIN (
+			cd,
+			title,
+			comm
+			#{title},
+			#{content},
+			#{writer}
+		)
+	</insert>
+	<!-- 03. 게시글 상세보기 -->
+	<select id="view" resultType="com.team.spring.rsch.vo.RschVo">
+		SELECT * FROM RSCHSUB
+		WHERE cd = #{cd}
+	</select>
+	<!-- 수정처리 -->
+	<update id="updateArticle">
+		UPDATE RSCHSUB SET
+			title = #{title},
+			comm = #{comm}
+		WHERE cd = #{cd}
+	</update>
+	<!-- 게시글 삭제 -->
+	<delete id="deleteArticle">
+		DELETE FROM RSCHMAIN
+		WHERE cd= #{cd}
+	</delete>
+</mapper>

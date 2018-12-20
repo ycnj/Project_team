@@ -7,9 +7,11 @@ public class rschListDto {
 	private int edate;
 	private String use;
 	private int rdate;
+
 	
 	public rschListDto() {}
-	public rschListDto(int cd, String title, int sdate, int edate, String use, int rdate) {
+	public rschListDto(int cd, String title, int sdate, int edate, String use, int rdate, int startRowNum,
+			int endRowNum, int prevNum, int nextNum) {
 		
 		super();
 		this.cd = cd;
@@ -18,6 +20,7 @@ public class rschListDto {
 		this.edate = edate;
 		this.use = use;
 		this.rdate = rdate;
+
 	}
 	public int getCd() {
 		return cd;
@@ -55,4 +58,7 @@ public class rschListDto {
 	public void setRdate(int rdate) {
 		this.rdate = rdate;
 	}
+
+	
 }
+
