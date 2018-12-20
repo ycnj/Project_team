@@ -13,7 +13,6 @@
 	.table{
 		width: 95%;
 		color: black;
-
 	}
 	.table th{
 		width: 200px;
@@ -24,8 +23,8 @@
 		color: blue;
 	}
 	.section-center{
-	margin : 0 auto 50px;
-	width: 600px;
+		margin : 0 auto 50px;
+		width: 600px;
 	}
 	
 	.pagination-lg > li > a,
