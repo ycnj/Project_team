@@ -54,14 +54,6 @@ public class AskController {
 		return new ModelAndView("ask/qnainsertform");
 	}
 	
-	@RequestMapping("/ask/replylist")
-	public ModelAndView getList6(HttpServletRequest request) {
-		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
-		service.getList(request);
-		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("ask/replylist");
-	}	
-	
 	@RequestMapping("/ask/qnalistview")
 	public ModelAndView getList5(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
@@ -116,7 +108,7 @@ public class AskController {
 		//서비스를 이용해서 글을 수정반영하고
 		service.updateContent(dto);
 		//dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
-		return new ModelAndView("redirect:/ask/detail.do?num="+dto.getNum());
+		return new ModelAndView("redirect:/ask/detailview.do?num="+dto.getNum());
 	}
 	@RequestMapping("/ask/comment_delete")
 	@ResponseBody

@@ -67,7 +67,7 @@
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
-	<h3>카페 글 상세 보기</h3>
+	<h3>문의목록 입니다.</h3>
 	<c:if test="${dto.prevNum ne 0 }">
 		<a href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
 	</c:if>
@@ -114,7 +114,7 @@
 						</c:if>
 						<dl>
 							<dt>
-								<img src="${pageContext.request.contextPath}/resources/images/user_image.gif"/>
+								<img src="${pageContext.request.contextPath}/resources/images/master_icon.png"/>
 								<span>${tmp.writer }</span>
 								<c:if test="${tmp.num ne tmp.comment_group }">
 									to <strong>${tmp.target_id }</strong>
@@ -165,14 +165,16 @@
 		<div class="clearfix"></div>
 		<!-- 원글에 댓글을 작성할수 있는 폼 -->
 		<div class="comment_form">
+			<c:if test="${id eq 'master' }">
 			<form action="comment_insert.do" method="post">
 				<!-- 댓글의 그룹번호는 원글의 글번호 -->
 				<input type="hidden" name="ref_group" value="${dto.num }"/>
 				<!-- 댓글의 대상자는 원글의 작성자 -->
 				<input type="hidden" name="target_id" value="${dto.writer }"/>
-				<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다.</c:if></textarea>
+				<textarea name="content"></textarea>
 				<button type="submit">등록</button>
 			</form>
+			</c:if>		
 		</div>
 	</div>
 </div>
@@ -226,7 +228,7 @@
 				success:function(responseData){
 					if(responseData.isSuccess){
 						var sel="#comment"+num;
-						$(sel).text("삭제된 댓글 입니다.");
+						$(sel).text("관리자에 의해 삭제된 댓글입니다.");
 					}
 				}
 			});

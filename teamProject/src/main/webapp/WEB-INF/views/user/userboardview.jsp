@@ -67,21 +67,21 @@
 					
 					<c:if test="${!empty sessionScope.id }">
                         <div class="contact-details">
-                            <a href="../ask/qnainsertform.do"><span>1:1문의하러 가기</span></a>               
+                        	<a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/qnainsertform.do">1:1 문의하러 가기</a>                                 
                         </div> <!-- end .contact-details -->
                     </c:if>
                     
                         <div class="contact-details">
-                            <a href="../ask/contact_home.do"><span>문의게시판으로 가기</span></a>               
+							<a class="btn btn-info" href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터로 가기</a>                                           
                         </div> <!-- end .contact-details -->                    
                                                           
                                                           
 						<div class="contact-details">
-							<a href="insertformview.do">글 작성하기</a>
+							<a class="btn btn-success" href="${pageContext.request.contextPath}/user/insertformview.do">글 작성하기</a>
 						</div>                                   
 						
 						<div class="contact-details">
-							<a href="../home.do">메인페이지로 돌아가기</a>
+							<a class="btn btn-warning" href="${pageContext.request.contextPath}/home.do">메인페이지로 돌아가기</a>
 						</div>
 						                                	             
                     </div> <!-- .col-md-2 -->

@@ -66,20 +66,28 @@
                     </div>
                     
                   
-                    <div class="col-md-4 col-sm-3 wow fadeInRight">
+                    <div class="col-md-2 col-sm-2 wow fadeInRight">
                         <div class="contact-details">
-                            <a href="${pageContext.request.contextPath}/user/userboardview.do"><span>질문게시판으로 가기</span></a>
+                            <a class="btn btn-info" href="${pageContext.request.contextPath}/user/userboardview.do"><span>질문게시판으로 가기</span></a>
                         </div> <!-- end .contact-details -->
 					
 					<c:if test="${!empty sessionScope.id }">
                      	<div class="contact-details">
-                            <a href="qnalistview.do"><span>1:1 문의목록보기</span></a>               
+                            <a class="btn btn-success" href="${pageContext.request.contextPath}/ask/qnalistview.do"><span>1:1 문의목록보기</span></a>               
                         </div> <!-- end .contact-details -->
                     </c:if>
+                    
+                    	<div class="contact-details">
+                    		<a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터로 가기</a>
+                    	</div>
+                    	
+                  		<div class="contact-details">
+                    		<a class="btn btn-warning" href="${pageContext.request.contextPath}/home.do">메인페이지로 돌아가기</a>
+                    	</div>
      
                                                                    	             
                     </div> <!-- .col-md-4 -->
-                    <div class="col-md-8 col-sm-9">
+                    <div class="col-md-10 col-sm-10">
 					<div class="container">
 						<div class="center-block">
 							<jsp:include page="insertform.jsp"></jsp:include>

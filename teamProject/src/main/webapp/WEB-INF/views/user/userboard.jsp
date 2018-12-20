@@ -31,8 +31,8 @@
 				<td>${tmp.regdate }</td>
 			</tr>
 		</c:forEach>
-		</tbody>
-	</table>
+		</tbody>					
+	</table>    
 	<div class="page-display">
 		<ul class="pagination">
 		<c:choose>

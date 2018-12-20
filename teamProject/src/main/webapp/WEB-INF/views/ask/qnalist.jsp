@@ -44,12 +44,12 @@
 			<c:choose>
 				<c:when test="${pageNum eq i }">
 					<li class="active">
-						<a href="qnalist.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="qnalistview.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:when>
 				<c:otherwise>
 					<li>
-						<a href="qnalist.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="qnalistview.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:otherwise>
 			</c:choose>
