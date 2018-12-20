@@ -44,17 +44,17 @@
 			height: 60px;
 		}
 		@media (min-width: 768px) {
-		  .container {
+		  .c1 {
 		    width: 1100px;
 		  }
 		}
 		@media (min-width: 992px) {
-		  .container {
+		  .c1 {
 		    width: 1100px;
 		  }
 		}
 		@media (min-width: 1200px) {
-		  .container {
+		  .c1 {
 		    width: 1100px;
 		  }
 		}
@@ -143,7 +143,7 @@
 	<!-- 메인 -->
 		<br />
 		<br />
-        <div class="container contFont">	
+        <div class="container contFont c1">	
 			<h1>무비차트</h1>
 			<c:if test="${id eq 'master' }">
 				<a href="uploadChart_form.do"><button class="btn btn-info upbtn">업로드 하러 가기</button></a>

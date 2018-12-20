@@ -347,7 +347,7 @@ h4 {
 	<!-- theme custom scripts -->
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 	<script>
-            $("#nav>li:eq(3)").attr("class","current");        
+            $("#nav>li:eq(2)").attr("class","current");        
         </script>
 </body>
 </html>

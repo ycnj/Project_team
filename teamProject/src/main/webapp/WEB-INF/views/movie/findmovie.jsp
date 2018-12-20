@@ -7,7 +7,7 @@
 <head>
 <!-- link 로딩 -->
 <jsp:include page="../include/MSC1.jsp" />
-	<title>event/list.jsp</title>
+	<title>movie/findmovie.jsp</title>
 </head>
 <body>
 
@@ -58,10 +58,7 @@
 <section id="portfolio">
 <div class="section-title text-center wow fadeInDown">
 	<h2>event</h2>
-	<!-- 
-	<h4>이미지 로드 테스트 혜워니~</h4>
-	<img src="${pageContext.request.contextPath}/upload/20181217151443f3f45907-6d87-4969-aa54-06537dddfd48.jpg" alt="" />
-	-->
+
 </div>	
 	<div id="projects" class="clearfix">
 	<c:forEach items="${list }" var="tmp">
@@ -144,7 +141,7 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
-	$("#nav>li:eq(3)").attr("class", "current");
+	$("#nav>li:eq(1)").attr("class", "current");
 </script>
 
 </body>
