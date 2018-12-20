@@ -50,7 +50,6 @@
 	.row{
 		text-align: center;
 	}
-	
 </style>
 </head>
 
