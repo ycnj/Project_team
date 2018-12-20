@@ -32,7 +32,7 @@ public class FreeBoardController {
 
 	@RequestMapping("/freeboard/insertform")
 	public ModelAndView authInsertform(HttpServletRequest request) {
-		// view 페이지로 forward 이동해서 새글 작성 폼 출력하기
+		// view 페이지로 forward 이동해서 새 글 작성 폼 출력하기
 		return new ModelAndView("freeboard/insertform");
 	}
 
@@ -49,6 +49,9 @@ public class FreeBoardController {
 		return new ModelAndView("redirect:/freeboard/list.do");
 	}
 
+	//첨부파일 삭제 컨트롤러 매핑
+	
+	
 	@RequestMapping("/freeboard/updateform")
 	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, HttpServletRequest request) {
 		service.getUpdateData(mView, num);

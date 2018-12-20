@@ -20,7 +20,6 @@
                         </a>
                     </h1>
                     <!-- /logo -->
-
 				</div>
 
                     <!-- main nav -->
@@ -28,7 +27,7 @@
                         <ul id="nav" class="nav navbar-nav">
                         	<li><a href="${pageContext.request.contextPath}/home.do">홈</a></li>
                             <li><a href="">영화정보</a></li>
-                            <li><a href="">예메하기</a></li>
+                            <li><a href="">예매하기</a></li>
 							<li><a href="${pageContext.request.contextPath}/freeboard/list.do">자유게시판</a></li>
                             <li><a href="">이벤트</a></li>                
                             <li><a href="">문의</a></li>
