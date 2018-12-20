@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="event">	
+	<select id="getCount" resultType="int" parameterType="eventDto">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM event_mp
+	</select>
+	<select id="getList" parameterType="eventDto" resultType="eventDto">
+		SELECT *
+		FROM (SELECT result1.*, ROWNUM rnum
+		FROM(SELECT num, writer, title, orgFileName, saveFileName, fileSize, viewCount, regdate
+		FROM event_mp
+		ORDER BY num DESC) result1)
+		 <![CDATA[ 
+	    WHERE rnum >= #{startRowNum} AND rnum <=  #{endRowNum}
+	   ]]>
+	</select>
+	<update id="addViewCount" parameterType="int">
+		UPDATE event_mp
+		SET viewCount=viewCount+1
+		WHERE num=#{num}
+	</update>
+	<insert id="insert" parameterType="eventDto">
+		INSERT INTO event_mp
+		(num, writer, title, content, orgFileName, saveFileName, fileSize, viewCount, regdate)
+		VALUES(event_mp_seq.NEXTVAL, #{writer}, #{title}, #{content}, 
+		#{orgFileName}, #{saveFileName}, #{fileSize}, #{viewCount}, SYSDATE)
+	</insert>
+	<update id="update" parameterType="eventDto">
+		UPDATE event_mp
+		SET title=#{title}, content=#{content}, orgFileName={orgFileName}, saveFileName=#{saveFileName},
+		fileSize=#{fileSize}, regdate=SYSDATE
+		WHERE num=#{num}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM event_mp
+		WHERE num=#{num}
+	</delete>
+	<select id="getData" parameterType="int" resultType="eventDto">
+		SELECT result1.*
+		FROM (SELECT num, writer, title, content, orgFileName, saveFileName, fileSize, viewCount, regdate,
+				LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum,
+				LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum
+			  FROM event_mp
+			  ORDER BY num DESC) result1
+		WHERE num=#{num}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,14 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <title>/views/users/list.jsp</title>
 </head>
 <body>
 <a href="${pageContext.request.contextPath}/home.do">홈으로</a>
 <h3>회원 목록입니다.</h3>
 <c:choose>
-	<c:when test="${sessionScope.id eq 'gura' }">
-		<table>
+	<c:when test="${sessionScope.id eq 'master' }">
+		<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th>번호</th>

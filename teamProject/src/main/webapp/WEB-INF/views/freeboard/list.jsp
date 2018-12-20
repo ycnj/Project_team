@@ -287,7 +287,7 @@ h4 {
 				<div class="col-lg-12">
 
 					<div class="footer-logo wow fadeInDown">
-						<img src="${pageContext.request.contextPath }/resources/img/logo.png" alt="logo">
+						<img src="${pageContext.request.contextPath }/resources/images/logo.png" alt="logo">
 					</div>
 
 					<div class="footer-social wow fadeInUp">

@@ -13,6 +13,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.team.spring.ask.dto.AskCommentDto" alias="askCommentDto"/>
 		<typeAlias type="com.team.spring.user.dto.UserDto" alias="userDto"/>
 		<typeAlias type="com.team.spring.user.dto.UserCommentDto" alias="userCommentDto"/>
+		<!-- 영화차트 -->
+		<typeAlias type="com.team.spring.users.dto.UsersResDto" alias="usersResDto"/>
+		<typeAlias type="com.team.spring.movieChart.dto.MovieChartDto" alias="movieChartDto"/>
+		<typeAlias type="com.team.spring.movieChart.dto.MovieChartLikeDto" alias="movieChartLikeDto"/>
+		<!-- 이벤트 -->
+		<typeAlias type="com.team.spring.event.dto.EventDto" alias="eventDto"/>		
 	</typeAliases>
 	
 	<mappers>
@@ -25,7 +31,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/team/spring/mybatis/AskMapper.xml" />
 		<mapper resource="com/team/spring/mybatis/AskCommentMapper.xml" />
 		<mapper resource="com/team/spring/mybatis/UserMapper.xml"/>
-		<mapper resource="com/team/spring/mybatis/UserCommentMapper.xml"/>		
+		<mapper resource="com/team/spring/mybatis/UserCommentMapper.xml"/>	
+		<!-- 영화차트 -->
+		<mapper resource="com/team/spring/mybatis/UsersResMapper.xml"/>
+		<mapper resource="com/team/spring/mybatis/MovieChartMapper.xml"/>
+		<mapper resource="com/team/spring/mybatis/MovieChartLikeMapper.xml"/>
+		<!-- 이벤트 -->
+		<mapper resource="com/team/spring/mybatis/EventMapper.xml"/>	
 	</mappers>	
 </configuration>
 
