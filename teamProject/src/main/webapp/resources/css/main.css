@@ -212,7 +212,7 @@ width: 11px;
 }
 
 .search-form > #search-sub {
-  background: url("../img/icons/search.png") no-repeat scroll 0 0 transparent;
+  background: url("../images/icons/search.png") no-repeat scroll 0 0 transparent;
   border: 0 ;
   bottom: 11px;
   height: 15px;
@@ -416,7 +416,7 @@ width: 11px;
 }
 
 .service-features ul li {
-  background: url("../img/icons/list-bg.png") no-repeat scroll 0 13px transparent;
+  background: url("../images/icons/list-bg.png") no-repeat scroll 0 13px transparent;
   font-size: 16px;
   line-height: 36px;
   padding-left: 50px;
@@ -468,7 +468,7 @@ width: 11px;
 }
 
 .plus {
-  background: url("../img/icons/plus.png") no-repeat scroll center center #0faed9;
+  background: url("../images/icons/plus.png") no-repeat scroll center center #0faed9;
   border-radius: 50%;
   display: block;
   height: 80px;
