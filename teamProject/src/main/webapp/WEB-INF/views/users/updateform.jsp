@@ -47,10 +47,13 @@
 	.col-xs-offset-3 {
 	    margin-left: 15%;
 	}
+<<<<<<< HEAD
 	.row{
 		text-align: center;
 	}
 	
+=======
+>>>>>>> branch 'MasterCommit_chan' of https://github.com/ycnj/Project_team.git
 </style>
 </head>
 
@@ -84,7 +87,11 @@
 		==================================== -->
 		<div class="container contFont">
 			<div class="row">
+<<<<<<< HEAD
 				<div class="col-sm-6 col-sm-offset-3 col-xs-offset-2">
+=======
+				<div class="col-sm-6 col-sm-offset-4 col-xs-offset-2">
+>>>>>>> branch 'MasterCommit_chan' of https://github.com/ycnj/Project_team.git
 					<ul class="pagination pagination-lg">
 					  <li class="active"><a href="${pageContext.request.contextPath }/users/info.do">개인정보 <span class="sr-only">(current)</span></a></li>
 					  <li><a href="${pageContext.request.contextPath }/users/resDetail.do">예매내역 <span class="sr-only">(current)</span></a></li>

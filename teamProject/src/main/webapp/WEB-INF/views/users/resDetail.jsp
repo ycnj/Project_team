@@ -76,6 +76,7 @@
 		.col-xs-offset-3 {
 		    margin-left: 15%;
 		}
+<<<<<<< HEAD
 		.row{
 			text-align: center;
 		}
@@ -115,6 +116,43 @@
 		<div class="container contFont">
 			<div class="row">
 				<div class="col-sm-6 col-sm-offset-3 col-xs-offset-2">
+=======
+	</style>	
+</head>
+<body>
+	<!--
+        Fixed Navigation
+        ==================================== -->
+        <header id="navigation" class="navbar-fixed-top" >
+        	<div class="container">
+				<jsp:include page="../include/header.jsp" />
+            </div>			
+        </header>
+	<!--
+        End Fixed Navigation
+        ==================================== -->
+
+
+	<!--
+        #service-bottom
+        ========================== -->
+
+	<section id="service-bottom" style="height: 200px;" >
+            <div class="container" >
+                    
+            </div>
+        </section>
+	<!--
+        End #service-bottom
+        ========================== -->
+    	<br /><br />
+	 	<!--
+		Selection Menu
+		==================================== -->
+		<div class="container contFont">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-4 col-xs-offset-2">
+>>>>>>> branch 'MasterCommit_chan' of https://github.com/ycnj/Project_team.git
 					<ul class="pagination pagination-lg">
 					  <li><a href="${pageContext.request.contextPath }/users/info.do">개인정보 <span class="sr-only">(current)</span></a></li>
 					  <li class="active"><a href="${pageContext.request.contextPath }/users/resDetail.do">예매내역 <span class="sr-only">(current)</span></a></li>
