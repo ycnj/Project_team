@@ -27,7 +27,28 @@
 	margin : 0 auto 50px;
 	width: 600px;
 	}
-
+	
+	.pagination-lg > li > a,
+	.pagination-lg > li > span {
+	  padding: 40px 40px;
+	  font-size: 18px;
+	  line-height: 1.3333333;
+	}
+	
+	#about{
+		padding-top: 10px;
+	}
+	
+	.section-title{
+		margin-bottom: 55px;
+	}
+	.col-xs-offset-3 {
+	    margin-left: 15%;
+	}
+	.row{
+		text-align: center;
+	}
+	
 </style>
 </head>
 
@@ -57,64 +78,80 @@
         <!--
         End #home Slider
         ========================== -->
-
-   
+		<br /><br />
+		<!--
+		Selection Menu
+		==================================== -->
+		<div class="container contFont">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3 col-xs-offset-2">
+					<ul class="pagination pagination-lg">
+					  <li class="active"><a href="${pageContext.request.contextPath }/users/info.do">개인정보 <span class="sr-only">(current)</span></a></li>
+					  <li><a href="${pageContext.request.contextPath }/users/resDetail.do">예매내역 <span class="sr-only">(current)</span></a></li>
+					</ul>
+				</div>				
+			</div>
+		</div>
+		<!--
+       Selection Menu
+       ========================== -->
+       <br /><br />
  
         <!--
         #about
         ========================== -->
         <section id="about">
             <div class="container" >
-                <div class="row">
+            	<div class="row">
+            	
 
                     <div class="section-title text-center wow fadeInUp">
                         <h2><strong>${id }</strong> 님 개인정보입니다.</h2>    
                     </div>
                     <div class="section-center text-center">
-                    <table class="table table-bordered" >
-
-		<tr>
-			<th>이름</th>
-			<td>${dto.name }</td>
-		</tr>
-		<tr>
-			<th>생년월일</th>
-			<td>${dto.rrn }</td>
-		</tr>		
-		<tr>
-			<th>아이디</th>
-			<td>${dto.id }</td>
-		</tr>
-		<tr>
-			<th>이메일</th>
-			<td>${dto.email }</td>
-		</tr>
-		<tr>
-			<th>전화번호</th>
-			<td>${dto.phon }</td>
-		</tr>
-		<tr>
-			<th>지번</th>
-			<td>${dto.addr1 }</td>
-		</tr>
-		<tr>
-			<th>주소</th>
-			<td>${dto.addr2 } ${dto.addr3 } </td>
-		</tr>
-		<tr>
-			<th>성별</th>
-			<c:if test="${dto.gender eq 'M' }">
-			<td>남자</td>
-			</c:if>
-			<c:if test="${dto.gender eq 'F' }">
-			<td>여자</td>
-			</c:if>			
-		</tr>								
-		<tr>
-			<th>가입일</th>
-			<td>${dto.rdate }</td>
-		</tr>
-</table>
+						<table class="table table-bordered" >						
+							<tr>
+								<th>이름</th>
+								<td>${dto.name }</td>
+							</tr>
+							<tr>
+								<th>생년월일</th>
+								<td>${dto.rrn }</td>
+							</tr>		
+							<tr>
+								<th>아이디</th>
+								<td>${dto.id }</td>
+							</tr>
+							<tr>
+								<th>이메일</th>
+								<td>${dto.email }</td>
+							</tr>
+							<tr>
+								<th>전화번호</th>
+								<td>${dto.phon }</td>
+							</tr>
+							<tr>
+								<th>지번</th>
+								<td>${dto.addr1 }</td>
+							</tr>
+							<tr>
+								<th>주소</th>
+								<td>${dto.addr2 } ${dto.addr3 } </td>
+							</tr>
+							<tr>
+								<th>성별</th>
+								<c:if test="${dto.gender eq 'M' }">
+								<td>남자</td>
+								</c:if>
+								<c:if test="${dto.gender eq 'F' }">
+								<td>여자</td>
+								</c:if>			
+							</tr>								
+							<tr>
+								<th>가입일</th>
+								<td>${dto.rdate }</td>
+							</tr>
+						</table>
                     	<a class="btn btn-info" href="updateform.do">회원정보 수정</a>
 						<a class="btn btn-warning" href="javascript:deleteConfirm()">회원 탈퇴</a>
                     </div>

@@ -29,7 +29,28 @@
 	margin : 0 auto 50px;
 	width: 600px;
 	}
-
+	
+	.pagination-lg > li > a,
+	.pagination-lg > li > span {
+	  padding: 40px 40px;
+	  font-size: 18px;
+	  line-height: 1.3333333;
+	}
+	
+	#about{
+		padding-top: 10px;
+	}
+	
+	.section-title{
+		margin-bottom: 55px;
+	}
+	.col-xs-offset-3 {
+	    margin-left: 15%;
+	}
+	.row{
+		text-align: center;
+	}
+	
 </style>
 </head>
 
@@ -51,13 +72,30 @@
         ==================================== -->
          <section id="service-bottom" style="height: 200px;" >
             <div class="container" >
-                    
+            	               
             </div>
         </section>
         <!--
         End #home Slider
         ========================== -->
-
+        <br /><br />
+       <!--
+		Selection Menu
+		==================================== -->
+		<div class="container contFont">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3 col-xs-offset-2">
+					<ul class="pagination pagination-lg">
+					  <li class="active"><a href="${pageContext.request.contextPath }/users/info.do">개인정보 <span class="sr-only">(current)</span></a></li>
+					  <li><a href="${pageContext.request.contextPath }/users/resDetail.do">예매내역 <span class="sr-only">(current)</span></a></li>
+					</ul>
+				</div>				
+			</div>
+		</div>
+		<!--
+       Selection Menu
+       ========================== -->
+		<br /><br />
    
  
         <!--
@@ -66,7 +104,7 @@
         <section id="about">
             <div class="container" >
                 <div class="row">
-
+	            	
                     <div class="section-title text-center wow fadeInUp">
                         <h2><strong>${id }</strong> 님 정보 수정중..</h2>    
                     </div>

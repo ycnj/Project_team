@@ -28,15 +28,11 @@ public class UsersResServiceImpl implements UsersResService{
 		int sumPrice=dao.getSumPrice((String)request.getSession().getAttribute("id"));
 		String grade = "일반";
 		if(sumPrice>1000000) {
-			grade="다이아";
+			grade="VVIP";
 		}else if(sumPrice>500000) {
-			grade="골드";
-		}else if(sumPrice>100000) {
-			grade="실버";
+			grade="VIP PREMIUM";
 		}else if(sumPrice>50000) {
-			grade="브론즈";
-		}else{
-			grade="일반";
+			grade="VIP";
 		}
 		request.setAttribute("grade", grade);
 	}
