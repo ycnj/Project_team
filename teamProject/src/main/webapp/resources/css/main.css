@@ -423,17 +423,6 @@ width: 11px;
 }
 
 /*============================================================
-    Service Bottom
-============================================================*/
-
-
-#service-side {
-	width: 300px;
-	top: 200px;
-	position: relative;
-}
-
-/*============================================================
     Portfolio
 ============================================================*/
 
@@ -977,3 +966,22 @@ figcaption.mask span {
 .copyright p:first-child {
     margin-bottom: 15px;
 }
+
+
+/*============================================================
+    User CSS
+============================================================*/
+
+
+#service-side {
+	width: 300px;
+	top: 200px;
+	position: relative;
+}
+
+.contFont{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+ }
