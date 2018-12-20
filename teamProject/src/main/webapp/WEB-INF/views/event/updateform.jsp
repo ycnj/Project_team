@@ -60,8 +60,9 @@
 	<h2>이벤트 수정</h2>
 	<form class="text-center" action="update.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="num" value="${dto.num }" />
-		<label for="title">${dto.title }</label>
-		<input type="text" name="title" id="title"/><br/>
+		<label for="title"></label>
+		<input type="text" name="title" id="title"value="${dto.title }"/>
+		<br/>
 		<label for="content"></label>
 		<textarea name="content" id="content" cols="30" rows="10">${dto.content}</textarea>
 		<label for="myFile">첨부파일</label>

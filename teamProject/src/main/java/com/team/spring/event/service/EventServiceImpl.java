@@ -113,14 +113,13 @@ public class EventServiceImpl implements EventService {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		String id="ragu";//(String)request.getSession().getAttribute("id");
+		String id=(String)request.getSession().getAttribute("id");
 		dto.setWriter(id);
 		dto.setOrgFileName(orgFileName);
 		dto.setSaveFileName(saveFileName);
 		dto.setFileSize(fileSize);
-		//FileDao 객체를 이용해서 DB 에 저장하기
-		eventDao.insert(dto);	
-		
+		//EventDao 객체를 이용해서 DB 에 저장하기
+		eventDao.insert(dto);		
 	}
 	// 조회수 증가 서비스
 	@Override
@@ -131,7 +130,36 @@ public class EventServiceImpl implements EventService {
 	//컨텐츠 수정 서비스
 	@Override
 	public void updateContent(EventDto dto, HttpServletRequest request) {
-		eventDao.update(dto);		
+		//파일을 저장할 폴더의 절대 경로를 얻어온다.
+		String realPath=request.getSession()
+				.getServletContext().getRealPath("/upload");				
+		MultipartFile mFile=dto.getFile();
+		//원본 파일명
+		String orgFileName=mFile.getOriginalFilename();
+		//파일 사이즈
+		long fileSize=mFile.getSize();
+		//저장할 파일의 상세 경로
+		String filePath=realPath+File.separator;
+		//디렉토리를 만들 파일 객체 생성
+		File file=new File(filePath);
+		if(!file.exists()){//디렉토리가 존재하지 않는다면
+			file.mkdir();//디렉토리를 만든다.
+		}
+		//파일 시스템에 저장할 파일명을 만든다. (겹치치 않게)
+		String saveFileName=System.currentTimeMillis()+orgFileName;
+		try{
+			//upload 폴더에 파일을 저장한다.
+			mFile.transferTo(new File(filePath+saveFileName));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		String id=(String)request.getSession().getAttribute("id");
+		dto.setWriter(id);
+		dto.setOrgFileName(orgFileName);
+		dto.setSaveFileName(saveFileName);
+		dto.setFileSize(fileSize);
+		//EventDao 객체를 이용해서 DB 에 저장하기			
+		eventDao.update(dto);	
 	}
 
 }

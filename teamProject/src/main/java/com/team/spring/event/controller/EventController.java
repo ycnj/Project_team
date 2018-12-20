@@ -48,6 +48,7 @@ public class EventController {
 	@RequestMapping("/event/updateform")
 	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, 
 			HttpServletRequest request) {
+		service.getDetail(request);
 		mView.setViewName("event/updateform");
 		return mView;
 	}
@@ -55,7 +56,7 @@ public class EventController {
 	public ModelAndView authUpdate(@ModelAttribute EventDto dto,HttpServletRequest request) {
 		//서비스를 이용해서 글을 수정반영하고
 		service.updateContent(dto, request); //수정
-		//dto 에 담긴 글 번호를 이용해	서 글자세히 보기로 리다일렉트 이동시킨다.
+		//dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
 		return new ModelAndView("redirect:/event/detail.do?num="+dto.getNum());
 	}
 }
