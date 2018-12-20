@@ -240,7 +240,7 @@
 							영화등록하기</a> 
 						</div>
 						<div class="form-group">
-							<label class="btn btn-warning" for="condition">검색조건</label><br />
+							<label class="btn btn-warning btn-sm" for="condition">검색조건</label><br /><br />
 							<select class="form-control" name="condition" id="condition">
 								<option value="titlename" <c:if test="${condition eq 'titlename' }"> selected</c:if>>제목+파일명</option>
 								<option value="title" <c:if test="${condition eq 'title' }"> selected</c:if>>제목</option>
