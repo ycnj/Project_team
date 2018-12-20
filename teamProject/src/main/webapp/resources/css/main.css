@@ -110,9 +110,9 @@ width: 11px;
     font-size: 13px;
 }
 
-.btn {
+/* .btn {
     border-radius: 0;
-}
+} */
 
 .btn:hover,
 .btn:focus {
@@ -422,7 +422,10 @@ width: 11px;
   padding-left: 50px;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'MasterComiit' of https://github.com/ycnj/Project_team.git
 /*============================================================
     Portfolio
 ============================================================*/
@@ -967,3 +970,22 @@ figcaption.mask span {
 .copyright p:first-child {
     margin-bottom: 15px;
 }
+
+
+/*============================================================
+    User CSS
+============================================================*/
+
+
+#service-side {
+	width: 300px;
+	top: 200px;
+	position: relative;
+}
+
+.contFont{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+ }
