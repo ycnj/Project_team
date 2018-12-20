@@ -13,17 +13,17 @@
 	<title>Home</title>
 	<style>		
 		@media (min-width: 768px) {
-		  .container {
+		  .container2 {
 		    width: 1100px;
 		  }
 		}
 		@media (min-width: 992px) {
-		  .container {
+		  .container2 {
 		    width: 1100px;
 		  }
 		}
 		@media (min-width: 1200px) {
-		  .container {
+		  .container2 {
 		    width: 1100px;
 		  }
 		}
@@ -132,7 +132,7 @@
         #about
         ========================== -->
         <section id="about">
-			<div class="container contFont">
+			<div class="container contFont container2">
 				<div class="row">
 	            	<div class="col-sm-10 col-sm-offset-1">
 	            		<div class="section-title text-center wow fadeInUp">

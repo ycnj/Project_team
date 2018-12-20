@@ -18,7 +18,7 @@
 		button:first-child{
 			float: right;
 			margin-right: 10px;
-			margin-top: 25px;
+			margin-top: -50px;
 		}
 		th,td {
 		    text-align: center;
@@ -44,17 +44,17 @@
 			height: 60px;
 		}
 		@media (min-width: 768px) {
-		  .container {
+		  .container2 {
 		    width: 1100px;
 		  }
 		}
 		@media (min-width: 992px) {
-		  .container {
+		  .container2 {
 		    width: 1100px;
 		  }
 		}
 		@media (min-width: 1200px) {
-		  .container {
+		  .container2 {
 		    width: 1100px;
 		  }
 		}
@@ -91,9 +91,16 @@
 		 }
 		 .form-group{
 		 	display:inline-block;
-		 }		 
-		.upbtn{
-			margin-top: 0
+		 }
+		 .top-img{
+             position: relative;
+             height: 400px;
+             padding: 0;
+             background: url(${pageContext.request.contextPath }/resources/img/배경화면/모털엔진.jpg) 50% 0 no-repeat;
+             background-size: cover;
+         }
+         .service-features {
+		    background-color: #6e94b599;
 		}
 
 	</style>	
@@ -117,15 +124,10 @@
         ========================== -->
 
 	<section id="service-bottom">
+		<div class="top-img">
+		</div>
 		<div class="container">
-			<div class="mobile-device">
-				<img data-wow-delay="0.2s"
-					class="img-responsive black  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-black.png" alt="iPhone Black"> <img
-					data-wow-delay="0.5s"
-					class="img-responsive white  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-white.png" alt="iPhone White">
-			</div>
+			
 			<div class="service-features wow fadeInRight">
 				<h3>OUR DESIGNS COMES WITH...</h3>
 				<ul>
@@ -141,12 +143,15 @@
         End #service-bottom
         ========================== -->
 	<!-- 메인 -->
-		<br />
-		<br />
-        <div class="container contFont">	
-			<h1>무비차트</h1>
+		<br /><br /><br />			
+        <div class="container contFont container2">
+			<div class="section-title text-center wow fadeInUp">
+	            <h2><strong>무비차트</strong></h2>    
+	        </div>
+	        <div class="section-center text-center">
+	        </div>
 			<c:if test="${id eq 'master' }">
-				<a href="uploadChart_form.do"><button class="btn btn-info upbtn">업로드 하러 가기</button></a>
+				<a href="uploadChart_form.do"><button class="btn btn-info">업로드 하러 가기</button></a>
 			</c:if>
 			<hr style="height: 3px;" color="black" />
 			<br />
@@ -198,7 +203,7 @@
 					<ul class="pagination">
 					<c:if test="${startPageNum ne 1 }">
 						<li>
-							<a href="list.do?pageNum=${startPageNum-1}&condition=${condition }&keyword=${encodedKeyword }">&laquo;</a>
+							<a href="listChart.do?pageNum=${startPageNum-1}&condition=${condition }&keyword=${encodedKeyword }">&laquo;</a>
 						</li>
 					</c:if>
 					<c:if test="${startPageNum eq 1 }">
@@ -209,18 +214,18 @@
 						<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }" step="1">
 							<c:if test="${pageNum eq i }">
 								<li>
-									<a href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedKeyword }">${i }</a>
+									<a href="listChart.do?pageNum=${i }&condition=${condition }&keyword=${encodedKeyword }">${i }</a>
 								</li>
 							</c:if>
 							<c:if test="${pageNum ne i }">
 								<li>					
-									<a href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedKeyword }">${i }</a>
+									<a href="listChart.do?pageNum=${i }&condition=${condition }&keyword=${encodedKeyword }">${i }</a>
 								</li>
 							</c:if>
 						</c:forEach>
 						<c:if test="${endPageNum lt totalPageCount}">
 							<li>
-								<a href="list.do?pageNum=${endPageNum+1 }&condition=${condition }&keyword=${encodedKeyword }">&raquo;</a>
+								<a href="listChart.do?pageNum=${endPageNum+1 }&condition=${condition }&keyword=${encodedKeyword }">&raquo;</a>
 							</li>
 						</c:if>
 						<c:if test="${endPageNum ge totalPageCount}">
@@ -234,13 +239,9 @@
 				<!-- ------------------------------------페이지 처리2------------------------------------ -->				
 				<div class="col-sm-6 col-sm-offset-3">
 					<!-- keyword 검색어 form -->
-					<form action="${pageContext.request.contextPath }/file/list.do" method="post">
-						<div class="container" style="width: 80%;" align="right">
-							<a class="btn btn-info" href="${pageContext.request.contextPath}/movie/uploadChart_form.do">
-							영화등록하기</a> 
-						</div>
+					<form action="${pageContext.request.contextPath }/movie/listChart.do" method="post">
 						<div class="form-group">
-							<label class="btn btn-warning btn-sm" for="condition">검색조건</label><br /><br />
+							<label for="condition">검색조건</label>
 							<select class="form-control" name="condition" id="condition">
 								<option value="titlename" <c:if test="${condition eq 'titlename' }"> selected</c:if>>제목+파일명</option>
 								<option value="title" <c:if test="${condition eq 'title' }"> selected</c:if>>제목</option>
@@ -357,6 +358,19 @@
 <!-- javascript	 -->
 <script>
 	$("#nav>li:eq(1)").attr("class", "current");
+	
+	$(function(){
+
+	    jQuery(window).scroll(function () {
+	        if (jQuery(window).scrollTop() > 50) {
+	            jQuery("#navigation").css("background-color","#00C7FC");
+	            jQuery("#navigation").addClass("animated-nav");
+	        } else {
+	            jQuery("#navigation").css("background-color","transparent");
+	            jQuery("#navigation").removeClass("animated-nav");
+	        }
+	    });
+	});
 </script>
 
 </body>
