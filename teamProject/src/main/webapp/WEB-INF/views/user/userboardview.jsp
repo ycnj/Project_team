@@ -67,7 +67,7 @@
 					
 					<c:if test="${!empty sessionScope.id }">
                         <div class="contact-details">
-                        	<a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/qnainsertform.do">1:1 문의하러 가기</a>                                 
+                        	<a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/insertformview.do">1:1 문의하러 가기</a>                                 
                         </div> <!-- end .contact-details -->
                     </c:if>
                     

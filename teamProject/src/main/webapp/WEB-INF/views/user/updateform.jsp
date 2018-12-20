@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
-</head>
-<body>
+
 <div class="container">
-	<p><strong>${dto.writer }</strong>님이 작성한글</p>
-	<h3>글정보 수정 폼입니다.</h3>
+	<h3>수정 </h3>
 	<form action="update.do" method="post">
 		<input type="hidden" name="num" value="${dto.num }" />
 		<label for="title">제목</label>

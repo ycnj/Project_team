@@ -62,11 +62,17 @@
                         <h2>문의사항을 남겨주세요.</h2>
                         <p></p>
                     </div>
-                                    
-                      
-                    <div class="section-title text-center wow fadeInDown col-md-4 col-sm-3 ">
-                        <jsp:include page="detail.jsp"></jsp:include>
-                    </div>                   
+
+                        <c:choose>
+                        	<c:when test="${dto.writer eq id || id eq 'master' }">
+                        		<jsp:include page="detail.jsp"></jsp:include>               
+                        	</c:when>
+                        	<c:otherwise>
+                        	<span id="idw"></span> 	
+                        	</c:otherwise>
+                        	
+                        </c:choose>										               
+                              
 
                 </div>
             </div>
@@ -92,9 +98,14 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
+ $("#idw").val(function(){
+	alert("${id}님의 문의사항만 볼 수 있습니다.");
+	location.href="${pageContext.request.contextPath}/ask/qnalistview.do?num=${tmp.num }";
+ });
+
 	$("#nav>li:eq(5)").attr("class", "current");
 </script>
-
+				
 </body>
 </html>
 

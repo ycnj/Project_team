@@ -70,7 +70,7 @@
                         </div> <!-- end .contact-details -->
 
                         <div class="contact-details">
-                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/qnainsertform.do"><span>1:1문의</span></a>               
+                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/insertformview.do"><span>1:1문의</span></a>               
                         </div> <!-- end .contact-details -->
                                                                    	             
                     </div> <!-- .col-md-4 -->
@@ -106,6 +106,8 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
+
+
 	$("#nav>li:eq(5)").attr("class", "current");
 </script>
 

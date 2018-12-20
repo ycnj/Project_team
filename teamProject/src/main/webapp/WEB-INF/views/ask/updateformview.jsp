@@ -67,7 +67,7 @@
 					
 					<c:if test="${!empty sessionScope.id }">
                         <div class="contact-details">
-                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/qnainsertform.do"><span>1:1문의하러 가기</span></a>               
+                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/insertformview.do"><span>1:1문의하러 가기</span></a>               
                         </div> <!-- end .contact-details -->
                     </c:if>
                     
@@ -77,7 +77,7 @@
                                                           
                                                           
 						<div class="contact-details">
-							<a class="btn btn-success" href="${pageContext.request.contextPath}/ask/insertformview.do">글 작성하기</a>
+							<a class="btn btn-success" href="${pageContext.request.contextPath}/ask/qnainsertformview.do">글 작성하기</a>
 						</div>                                   
 						
 						<div class="contact-details">

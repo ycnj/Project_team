@@ -27,6 +27,7 @@
 		VALUES(board_ask_seq.NEXTVAL, #{writer}, #{title}, #{content},
 		#{viewCount}, SYSDATE)
 	</insert>
+	
 	<update id="update" parameterType="askDto">
 		UPDATE board_ask
 		SET title=#{title}, content=#{content}
@@ -85,11 +86,12 @@
 			        ORDER BY num DESC) result1)
 		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
 	</select>
+	
 	<select id="getList2" parameterType="askDto" resultType="askDto">
 		SELECT *
 		FROM (SELECT result1.*, ROWNUM AS rnum
 		 	  FROM (SELECT num, writer, title, content, viewCount, regdate
-			        FROM board_ask
+			        FROM board_ask_user
 			        <where>
 						<if test="writer != null">
 							OR writer LIKE '%'||#{writer}||'%'

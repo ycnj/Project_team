@@ -7,6 +7,8 @@
 <head>
 <!-- link 로딩 -->
 <jsp:include page="../include/MSC1.jsp" />
+<script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
+
 	<title>Home</title>
 </head>
 <body>
@@ -67,7 +69,7 @@
 					
 					<c:if test="${!empty sessionScope.id }">
                         <div class="contact-details">
-                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/qnainsertform.do"><span>1:1문의하러 가기</span></a>               
+                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/insertformview.do"><span>1:1문의하러 가기</span></a>               
                         </div> <!-- end .contact-details -->
                     </c:if>
                     
@@ -88,7 +90,7 @@
                     <div class="col-md-10 col-sm-10">
 					<div class="container">
 						<div class="center-block">
-							 <jsp:include page="updateform.jsp"></jsp:include>
+							 <jsp:include page="updateform.jsp" />
 						</div>
 					</div>
 				</div>                    

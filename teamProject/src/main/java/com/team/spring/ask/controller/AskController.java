@@ -30,32 +30,16 @@ public class AskController {
 		return new ModelAndView("ask/contact_home");
 	}
 	
-	@RequestMapping("/ask/updateformview")
-	public ModelAndView updateview(HttpServletRequest request) {
+	@RequestMapping("/ask/qnalist")
+	public ModelAndView getListQNA(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		service.getList(request);
-		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("ask/updateformview");
-	}		
-	
-	@RequestMapping("/ask/qnalist")
-	public ModelAndView getList3(HttpServletRequest request) {
-		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
-		service.getList2(request);
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
 		return new ModelAndView("ask/qnalist");
 	}
 	
-	@RequestMapping("/ask/qnainsertform")
-	public ModelAndView authgetList4(HttpServletRequest request) {
-		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
-		service.getList(request);
-		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("ask/qnainsertform");
-	}
-	
 	@RequestMapping("/ask/qnalistview")
-	public ModelAndView getList5(HttpServletRequest request) {
+	public ModelAndView getListQNAVIEW(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		service.getList(request);
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
@@ -75,6 +59,13 @@ public class AskController {
 		//view 페이지로 forward 이동해서 새글 작성 폼 출력하기 
 		return new ModelAndView("ask/insertform");
 	}
+	
+	@RequestMapping("/ask/insertformview")
+	public ModelAndView authinsertform(HttpServletRequest request) {
+		service.getList(request);
+		return new ModelAndView("ask/insertformview");
+	}	
+	
 	@RequestMapping("/ask/insert")
 	public ModelAndView authInsert(@ModelAttribute AskDto dto,HttpServletRequest request) {
 		//askDto 객체에 작성자의 아이디를 담아서 
@@ -83,8 +74,10 @@ public class AskController {
 		//새글을 저장한다. 
 		service.saveContent(dto);
 		//글 목록 보기로 리다일렉트 이동
-		return new ModelAndView("redirect:/ask/contact_home.do");
+		return new ModelAndView("redirect:/ask/qnalistview.do");
 	}
+	
+	
 	@RequestMapping("/ask/detail")
 	public ModelAndView detail(HttpServletRequest request) {
 		service.getDetail(request);
@@ -96,11 +89,11 @@ public class AskController {
 		service.deleteContent(num);
 		return new ModelAndView("redirect:/ask/qnalistview.do");
 	}
-	@RequestMapping("/ask/updateform")
+	@RequestMapping("/ask/updateformview")
 	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, 
 			HttpServletRequest request) {
 		service.getUpdateData(mView, num);
-		mView.setViewName("ask/updateform");
+		mView.setViewName("ask/updateformview");
 		return mView;
 	}
 	@RequestMapping("/ask/update")
@@ -108,7 +101,7 @@ public class AskController {
 		//서비스를 이용해서 글을 수정반영하고
 		service.updateContent(dto);
 		//dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
-		return new ModelAndView("redirect:/ask/detailview.do?num="+dto.getNum());
+		return new ModelAndView("redirect:/ask/detail.do?num="+dto.getNum());
 	}
 	@RequestMapping("/ask/comment_delete")
 	@ResponseBody

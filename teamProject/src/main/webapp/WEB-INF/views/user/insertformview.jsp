@@ -73,6 +73,14 @@
                         <div class="contact-details">
                             <a class="btn btn-warning" href="${pageContext.request.contextPath}/ask/contact_home.do"><span>고객센터로 바로가기</span></a>               
                         </div> <!-- end .contact-details -->
+                        
+                        <div class="contact-details">
+                        	<a class="btn btn-success" href="${pageContext.request.contextPath}/ask/insertformview.do"><span>1:1문의글 작성하기</span></a>
+                        </div>
+ 						
+ 						<div class="contact-details">
+                        	<a class="btn btn-info" href="${pageContext.request.contextPath}/ask/home.do"><span>메인 페이지로 바로가기</span></a>
+                        </div>                        
                                                                    	             
                     </div> <!-- .col-md-4 -->
                     <div class="col-md-10 col-sm-10">

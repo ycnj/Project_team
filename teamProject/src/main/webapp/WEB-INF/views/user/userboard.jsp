@@ -38,7 +38,7 @@
 		<c:choose>
 			<c:when test="${startPageNum ne 1}">
 				<li>
-					<a href="userlistboard.do?pageNum=${startPageNum-1 }&condition=${condition}&keyword=${encodedKeyword}">&laquo;</a>
+					<a href="userboardview.do?pageNum=${startPageNum-1 }&condition=${condition}&keyword=${encodedKeyword}">&laquo;</a>
 				</li>
 			</c:when>
 			<c:otherwise>
@@ -51,12 +51,12 @@
 			<c:choose>
 				<c:when test="${pageNum eq i }">
 					<li class="active">
-						<a href="userlistboard.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="userboardview.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:when>
 				<c:otherwise>
 					<li>
-						<a href="userlistboard.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="userboardview.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:otherwise>
 			</c:choose>

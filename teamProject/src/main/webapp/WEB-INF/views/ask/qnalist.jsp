@@ -6,7 +6,7 @@
 	<h3>QnA 게시판 목록입니다.</h3>
 	<table style="width:880px; height:220px;" class="table table-bordered">
 		<thead>
-			<tr>
+			<tr>				
 				<th>번호</th>
 				<th>작성자</th>
 				<th>제목</th>
