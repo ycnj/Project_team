@@ -16,7 +16,8 @@ public class HomeController {
 
 		ModelAndView mView=new ModelAndView();
 			mView.setViewName("home");	
-
+			
+		
 		return mView;
 	}
 	

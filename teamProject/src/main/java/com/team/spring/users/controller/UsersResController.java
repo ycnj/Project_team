@@ -13,23 +13,23 @@ public class UsersResController {
 	@Autowired
 	private UsersResService service;
 	
-	@RequestMapping("/users/usersRes/detail")
+	@RequestMapping("/users/resDetail")
 	public String getData(HttpServletRequest request) {
 		service.showInfo(request);
 		service.getSumPrice(request);
-		return "users/usersRes/detail";
+		return "users/resDetail";
 	}
 	
-	@RequestMapping("/users/usersRes/reservation")
+	@RequestMapping("/users/reservation")
 	public String buyTicket(UsersResDto dto) {
 		service.buyTicket(dto);
-		return "users/usersRes/detail";
+		return "users/resDetail";
 	}
 
-	@RequestMapping("/users/usersRes/cancel")
+	@RequestMapping("/users/cancel")
 	public String cancelRes(HttpServletRequest request, UsersResDto dto) {
 		service.cancelRes(request, dto);	
-		return "users/usersRes/detail";
+		return "users/resDetail";
 	}
 }
 
