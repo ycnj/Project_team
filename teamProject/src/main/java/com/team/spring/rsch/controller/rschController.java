@@ -15,53 +15,48 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.team.spring.rsch.dto.RschListDto;
 import com.team.spring.rsch.service.RschService;
-import com.team.spring.rsch.vo.RschVO;
+
 
 @Controller
-@RequestMapping("/rsch/*")
 public class rschController {
 	@Autowired
-	RschService rschService;
+	private RschService rschService;
+	
 	//게시글 목록
-	@RequestMapping("rschList.do")
-	public ModelAndView list() throws Exception{
-	List<RschVO> list= rschService.listAll();
-	//modelAndView - 모델과 뷰
-	ModelAndView mav = new ModelAndView();
-	mav.setViewName("rsch/rschList");
-	mav.addObject("rschList", list);
-	return mav;
+	@RequestMapping("/rsch/rschList")
+	public ModelAndView getList(HttpServletRequest request) {
+		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
+		rschService.getList(request);
+		//view 페이지로 forward 이동(해서 글 목록 출력하기 
+		return new ModelAndView("rsch/list");
 	}
 	//게시글 작성화면
-	@RequestMapping(value="rschWrite.do", method=RequestMethod.GET)
-	public String write() {
-		return "rsch/rschWrite";
+	@RequestMapping("/rsch/rschWrite")
+	public ModelAndView authrschWrite(HttpServletRequest requset) {
+		return new ModelAndView("rsch/rschWrite");
 	}
 	//게시글 작성처리
-	@RequestMapping(value="insert.do", method=RequestMethod.POST)
-	public String insert(@ModelAttribute RschVO vo) throws Exception{
-		rschService.create(vo);
-		return "redirect:rschList.do";
+	@RequestMapping("/rsch/insert")
+	public ModelAndView authCreate(@ModelAttribute RschListDto dto, HttpServletRequest request) {
+		rschService.saveContent(dto);
+		return new ModelAndView("redirect:/rsch/rschList.do");
 	}
 	//게시글 상세조회
-	@RequestMapping(value="rschJoinList.do", method=RequestMethod.GET)
-	public ModelAndView view(@RequestParam int cd, HttpSession session) throws Exception{
-		ModelAndView mav = new ModelAndView();
-		//뷰의이름
-		mav.setViewName("rsch/rschJoinList");
-		//뷰에 전달할 데이터
-		mav.addObject("dto",rschService.read(cd));
-		return mav;
-	}
+	@RequestMapping("/rsch/rschJoinList")
+	public ModelAndView detail(HttpServletRequest request) {
+		rschService.getDetail(request);
+		return new ModelAndView("rsch/rschJoinList");
+}
 	//게시글 수정
-	@RequestMapping(value="update.do", method=RequestMethod.POST)
-	public String update(@ModelAttribute RschVO vo) throws Exception{
-		rschService.update(vo);
+	@RequestMapping("/rsch/update")
+	public String update(@ModelAttribute RschListDto dto) throws Exception{
+		rschService.update(dto);
 		return "redirect:rschList.do";
 	}
 	//게시글 삭제
-	@RequestMapping("delete.do")
+	@RequestMapping("/rsch/delete")
 	public String delete(@RequestParam int cd) throws Exception{
 		rschService.delete(cd);
 		return "redirect:rschList.do";

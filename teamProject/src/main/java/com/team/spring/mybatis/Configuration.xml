@@ -4,10 +4,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<package name="com.team.spring"/>
-
+		<typeAlias type="com.team.spring.rsch.dto.RschListDto" alias="rschListDto"/>
 	</typeAliases>
-
+	
+	<mappers>
+		<mapper resource="com/team/spring/mybatis/rschMapper.xml"/>
+	</mappers>	
 </configuration>
 
 

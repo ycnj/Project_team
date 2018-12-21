@@ -1,17 +1,18 @@
 package com.team.spring.rsch.dto;
 
-public class rschListDto {
+public class RschListDto {
 	private int cd;
 	private String title;
 	private int sdate;
 	private int edate;
 	private String use;
 	private int rdate;
+	private String comm;
+	private int cnt;
 
 	
-	public rschListDto() {}
-	public rschListDto(int cd, String title, int sdate, int edate, String use, int rdate, int startRowNum,
-			int endRowNum, int prevNum, int nextNum) {
+	public RschListDto() {}
+	public RschListDto(int cd, String title, int sdate, int edate, String use, int rdate, String comm, int cnt) {
 		
 		super();
 		this.cd = cd;
@@ -20,6 +21,8 @@ public class rschListDto {
 		this.edate = edate;
 		this.use = use;
 		this.rdate = rdate;
+		this.comm = comm;
+		this.cnt = cnt;
 
 	}
 	public int getCd() {
@@ -57,6 +60,18 @@ public class rschListDto {
 	}
 	public void setRdate(int rdate) {
 		this.rdate = rdate;
+	}
+	public String getComm() {
+		return comm;
+	}
+	public void SetComn(String comm) {
+		this.comm = comm;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void SetCnt(int cnt) {
+		this.cnt = cnt;
 	}
 
 	

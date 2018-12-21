@@ -3,52 +3,64 @@ package com.team.spring.rsch.service;
 import java.util.List;
 
 
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.team.spring.rsch.dao.RschDao;
-import com.team.spring.rsch.vo.RschVO;
+import com.team.spring.rsch.dto.RschListDto;
 
 
+@Service
 public class RschServiceImpl implements RschService {
 	@Autowired
 	RschDao rschDao;
 
 	@Override
-	public void create(RschVO vo) throws Exception {
-		String title = vo.getTitle();
-		String comm = vo.getComm();
-		int cnt = vo.SetCnt();
-		
-		title = title.replace("<", "&lt;");
-		title = title.replace(">", "&gt;");
-		comm = comm.replace("<", "&lt;");
-		comm = comm.replace(">", "&gt;");
-		
-		title = title.replace("  ", "&nbsp;&nbsp;");
-		comm = comm.replace("  ", "&nbsp;&nbsp;");
-	}
-
-	@Override
-	public RschVO read(int cd) throws Exception {
-		return rschDao.read(cd);
-	}
-
-	@Override
-	public void update(RschVO vo) throws Exception {
-		rschDao.update(vo);
+	public void getList(HttpServletRequest request) {
+		RschListDto dto=new RschListDto();
+		RschListDto resultDto=rschDao.getData(dto);
 		
 	}
 
 	@Override
-	public void delete(int cd) throws Exception {
+	public void saveContent(RschListDto dto) {
+		rschDao.insert(dto);
+		
+	}
+
+	@Override
+	public void getDetail(HttpServletRequest request) {
+		int cd=Integer.parseInt(request.getParameter("cd"));
+		RschListDto dto=new RschListDto();
+		dto.setCd(cd);
+		RschListDto resultDto=rschDao.getData(dto);
+		
+	}
+
+	@Override
+	public void deleteContent(int cd) {
 		rschDao.delete(cd);
+		
 	}
 
 	@Override
-	public List<RschVO> listAll() throws Exception {
-		return rschDao.listAll();
+	public void getUpdateData(ModelAndView mView, int num) {
+		//글 수정 폼에 필요한 데이터를 얻어온다.
+				RschListDto dto=rschDao.getData(num);
+				//ModelAndView 객체에 dto를 담아준다. 
+				mView.addObject("dto", dto);
+		
 	}
 
+	@Override
+	public void updateContent(RschListDto dto) {
+		rschDao.update(dto);
+		
+	}
 }
+
