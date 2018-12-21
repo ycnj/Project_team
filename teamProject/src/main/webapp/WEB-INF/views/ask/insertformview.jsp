@@ -72,9 +72,13 @@
 				    		</div>
 				    	</div>    
 				    </div>	
+                    
+                    <div class="section-title text-center wow fadeInDown">
+                        <h2>${id }님 문의를 남겨주세요!</h2>                 
+                    </div>							    
 						                                	             
                     </div> <!-- .col-md-2 -->
-                    <div class="col-md-10 col-sm-10">
+                    <div class="col-md-10 col-sm-10" style="padding-left:100px;">
 					<div class="container">
 						<div class="center-block">
 							 <jsp:include page="insertform.jsp" />

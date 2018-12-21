@@ -79,7 +79,7 @@
                     </div>
 						                                	             
                     </div> <!-- .col-md-2 -->
-                    <div class="col-md-10 col-sm-10">
+                    <div class="col-md-10 col-sm-10" style="padding-left:50px;">
 					<div class="container">
 						<div class="center-block">
 							 <jsp:include page="updateform.jsp" />

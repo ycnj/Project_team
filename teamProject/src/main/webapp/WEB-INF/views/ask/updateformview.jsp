@@ -59,9 +59,9 @@
                 <div class="row">
 					<div class="container contFont container2">                  
 				         <div class="row">           
-							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2">
+							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2" style="padding-left:50px;">
 					            <ul Class="pagination pagination-lg">
-					             	<li class="active"><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>
 					             	<li><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터<span class="sr-only">(current)</span></a></li>                           
 					          		<c:if test="${!empty sessionScope.id }">
 					          		<li><a href="${pageContext.request.contextPath}/ask/insertformview.do">1:1문의<span class="sr-only">(current)</span></a></li>
@@ -71,9 +71,13 @@
 				    		</div>
 				    	</div>    
 				    </div>	
+                    
+                    <div class="section-title text-center wow fadeInDown">
+                        <h2>${dto.writer }님의 ${dto.num }번 글 입니다.</h2>                 
+                    </div>				    
 						                                	             
                     </div> <!-- .col-md-2 -->
-                    <div class="col-md-10 col-sm-10">
+                    <div class="col-md-10 col-sm-10" style="padding-left:100px;">
 					<div class="container">
 						<div class="center-block">
 							 <jsp:include page="updateform.jsp" />

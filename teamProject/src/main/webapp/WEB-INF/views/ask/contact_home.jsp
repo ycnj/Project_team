@@ -60,7 +60,7 @@
                 
 					<div class="container contFont">                  
 				         <div class="row">           
-							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2" style="padding-left: 50px;">
+							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2" style="padding-left: 65px;">
 					            <ul Class="pagination pagination-lg">
 					             	<li class="active"><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터<span class="sr-only">(current)</span></a></li>
 					          		<li><a href="${pageContext.request.contextPath}/ask/insertformview.do">문의작성</a></li>					             	

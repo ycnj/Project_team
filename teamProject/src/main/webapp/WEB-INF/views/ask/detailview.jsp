@@ -72,8 +72,7 @@
 				    	</div>    
 				    </div>	
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>${dto.num }번 글 입니다.</h2>
-                        <p></p>
+                        <h2>${dto.writer }님의 ${dto.num }번 글 입니다.</h2>                 
                     </div>
 
                         <c:choose>

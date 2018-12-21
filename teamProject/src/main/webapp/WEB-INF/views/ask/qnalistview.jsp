@@ -77,7 +77,7 @@
 				    
 				    
 				    <div class="section-title text-center wow fadeInDown">
-                        <h2>${id}님의 문의 목록입니다.</h2>
+                        <h2>${id}님 문의 목록입니다.</h2>
                     </div>        
                     
                     </div> <!-- .col-md-4 -->
