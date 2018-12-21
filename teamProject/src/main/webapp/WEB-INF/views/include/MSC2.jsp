@@ -5,8 +5,6 @@
 	
 	<!-- Bootstrap -->
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
-	<!-- jquery.nav -->
-	<script src="${pageContext.request.contextPath}/resources/js/jquery.nav.js"></script>
 	<!-- Portfolio Filtering -->
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.mixitup.min.js"></script>
 	<!-- Fancybox -->
