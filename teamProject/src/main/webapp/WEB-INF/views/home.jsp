@@ -47,8 +47,17 @@
                 <!--/.carousel-indicators-->
 
                 <div class="carousel-inner">
-
-                    <div class="item active" style="background-image: url('${pageContext.request.contextPath}/resources/images/slider/베놈2.jpg')" >
+					<div class="item active" style="background-image: url('${pageContext.request.contextPath}/resources/images/slider/범블비.jpg')" >
+                        <div class="carousel-caption">
+                            <div class="animated bounceInRight">
+                                <h2>범블비</h2>
+                                <h4>현재 상영중!</h4>&nbsp;&nbsp;<a class="btn btn-danger btn-sm btn-res" href="#">예매</a>
+                                <p>1987년, 범블비는 미국 캘리포니아의 작은 해변가 마을 폐차장에서 피난처를 찾고, 18세가 된 찰리는 세상을 살아가기 위해 고군분투한다. 그러던 중 찰리가 우연히 부서진 범블비를 발견하고 다시 고치려다 범블비가 평범한 폭스바겐 비틀이 아니라는 것을 깨닫게 된다.</p>
+                            </div>
+                        </div>
+                    </div>   
+                    
+                    <%-- <div class="item active" style="background-image: url('${pageContext.request.contextPath}/resources/images/slider/베놈2.jpg')" >
                         <div class="carousel-caption">
                             <div class="animated bounceInRight">
                                 <h2>베놈</h2>
@@ -56,7 +65,7 @@
                                 <p>진실을 위해서라면 몸을 사리지 않고 사회의 부조리를 취재하는 정의로운 열혈 기자 에디 브록(톰 하디). 거대 기업 라이프 파운데이션의 생체실험에 의혹을 품고 뒤를 쫓던 그는 이들의 사무실에 잠입했다가 실험실에서 외계 생물체 심비오트의 기습 공격을 받게 된다. 심비오트가 숙주의 몸과 정신을 지배할 때 능력을 발휘하는 베놈은 에디의 몸에 기생하며 갖가지 소동을 일으킨다. 한편 비밀리에 인간과 심비오트를 결합해 새로운 생명체를 만들려는 시도를 계속하던 라이프 파운데이션의 회장 드레이크(리즈 아메드) 또한 심비오트의 숙주가 된다.</p>
                             </div>
                         </div>
-                    </div>              
+                    </div>  --%>             
 
                     <div class="item" style="background-image: url('${pageContext.request.contextPath}/resources/images/slider/보헤미안 랩소디.jpg')">                
                         <div class="carousel-caption">
