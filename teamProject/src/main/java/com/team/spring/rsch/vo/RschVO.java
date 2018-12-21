@@ -59,10 +59,11 @@ public class RschVO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
+
 	//toString
 	@Override
 	public String toString() {
-		return "rschVO [cd=" + cd +", title=" +title+", sdate="+sdate+", edate="+edate+",use="+use+",rdate="+rdate+"]";
+		return "RschVO [cd=" + cd +", title=" +title+", sdate="+sdate+", edate="+edate+",use="+use+",rdate="+rdate+",comm="+comm+",cnt="+cnt+"]";
 	}
 
 }

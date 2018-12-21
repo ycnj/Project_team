@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,7 +21,7 @@ import com.team.spring.rsch.vo.RschVO;
 @Controller
 @RequestMapping("/rsch/*")
 public class rschController {
-	@Inject
+	@Autowired
 	RschService rschService;
 	//게시글 목록
 	@RequestMapping("rschList.do")

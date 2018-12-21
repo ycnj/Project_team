@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.team.spring.rsch.vo.RschVO;
@@ -13,7 +14,7 @@ import com.team.spring.rsch.vo.RschVO;
 @Repository
 public class RschDaoImpl implements RschDao {
 	
-	@Inject
+	@Autowired
 	SqlSession SqlSession;
 
 	@Override

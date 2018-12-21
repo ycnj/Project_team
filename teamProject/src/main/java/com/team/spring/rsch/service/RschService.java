@@ -2,7 +2,9 @@ package com.team.spring.rsch.service;
 
 import java.util.List;
 
+
 import com.team.spring.rsch.vo.RschVO;
+
 
 public interface RschService {
 	// 게시글 작성

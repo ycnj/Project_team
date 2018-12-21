@@ -19,7 +19,6 @@
 	<!-- 02. 게시글 작성 -->
 	<insert id = "insert">
 		INSERT INTO RSCHMAIN (
-			cd,
 			title,
 			comm
 			#{title},

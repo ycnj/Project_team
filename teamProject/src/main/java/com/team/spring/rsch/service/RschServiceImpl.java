@@ -2,13 +2,17 @@ package com.team.spring.rsch.service;
 
 import java.util.List;
 
+
 import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.team.spring.rsch.dao.RschDao;
 import com.team.spring.rsch.vo.RschVO;
 
+
 public class RschServiceImpl implements RschService {
-	@Inject
+	@Autowired
 	RschDao rschDao;
 
 	@Override

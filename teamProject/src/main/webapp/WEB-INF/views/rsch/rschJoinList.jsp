@@ -53,7 +53,7 @@ function fn_result(cd) {
 	<tr>
 		<th colspan="2">설문목록</th>
 	</tr>	
-	<c:forEach var="result" items="${resultList}" varStatus="status">
+	<c:forEach var="view" items="${resultList}" varStatus="status">
 		<tr>
 			<td>${result.title}</td>
 			<td>
