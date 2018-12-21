@@ -63,7 +63,6 @@
 </head>
 <body>
 <div class="container">
-	<a href="userboardview.do">글 목록보기</a>
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
@@ -110,11 +109,11 @@
 				<c:when test="${tmp.deleted ne 'yes' }">
 					<li class="comment" id="comment${tmp.num }" <c:if test="${tmp.num ne tmp.comment_group }">style="padding-left:50px;"</c:if> >
 						<c:if test="${tmp.num ne tmp.comment_group }">
-							<img class="reply_icon" src="${pageContext.request.contextPath}/resources/images/re.gif"/>
+							<img class="reply_icon" src="${pageContext.request.contextPath}/resources/images/qna.gif"/>
 						</c:if>
 						<dl>
 							<dt>
-								<img src="${pageContext.request.contextPath}/resources/images/re.gif"/>
+								<img src="${pageContext.request.contextPath}/resources/images/qna2.gif"/>
 								<span>${tmp.writer }</span>
 								<c:if test="${tmp.num ne tmp.comment_group }">
 									to <strong>${tmp.target_id }</strong>
