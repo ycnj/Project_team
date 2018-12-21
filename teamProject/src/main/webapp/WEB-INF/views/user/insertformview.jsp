@@ -61,21 +61,29 @@
                 <div class="row">
 
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>질문게시판 입니다.</h2>
+                        <h2>유저간 질문 게시판 입니다.</h2>
                     </div>
                     
                     
-                    <div class="col-md-4 col-sm-3 wow fadeInRight">
+                    <div class="col-md-2 col-sm-2 wow fadeInRight">
                         <div class="contact-details">
-                            <a href="../user/userlistboard.do"><span>질문게시판</span></a>
+                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/user/userboardview.do"><span>질문게시판으로 바로가기</span></a>
                         </div> <!-- end .contact-details -->
 
                         <div class="contact-details">
-                            <a href="../ask/contact_home.do"><span>문의게시판 홈으로</span></a>               
+                            <a class="btn btn-warning" href="${pageContext.request.contextPath}/ask/contact_home.do"><span>고객센터로 바로가기</span></a>               
                         </div> <!-- end .contact-details -->
+                        
+                        <div class="contact-details">
+                        	<a class="btn btn-success" href="${pageContext.request.contextPath}/ask/insertformview.do"><span>1:1문의글 작성하기</span></a>
+                        </div>
+ 						
+ 						<div class="contact-details">
+                        	<a class="btn btn-info" href="${pageContext.request.contextPath}/ask/home.do"><span>메인 페이지로 바로가기</span></a>
+                        </div>                        
                                                                    	             
                     </div> <!-- .col-md-4 -->
-                    <div class="col-md-8 col-sm-9">
+                    <div class="col-md-10 col-sm-10">
 					<div class="container">
 						<div class="center-block">
 						 	<jsp:include page="insertform.jsp"></jsp:include>

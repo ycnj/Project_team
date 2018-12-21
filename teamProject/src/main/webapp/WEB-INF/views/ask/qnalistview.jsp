@@ -66,11 +66,11 @@
                   
                     <div class="col-md-2 col-sm-2 wow fadeInRight">
                         <div class="contact-details">
-                            <a href="../user/userlistboard.do"><span>질문게시판</span></a>
+                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/user/userboardview.do"><span>질문게시판</span></a>
                         </div> <!-- end .contact-details -->
 
                         <div class="contact-details">
-                            <a href="qnainsertform.do"><span>1:1문의</span></a>               
+                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/insertformview.do"><span>1:1문의</span></a>               
                         </div> <!-- end .contact-details -->
                                                                    	             
                     </div> <!-- .col-md-4 -->
@@ -106,6 +106,8 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
+
+
 	$("#nav>li:eq(5)").attr("class", "current");
 </script>
 

@@ -59,7 +59,7 @@
                 <div class="row">
 				
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>CONTACT PAGE</h2>                                   
+                        <h2>고객센터</h2>                                   
                     </div>
                     
               
@@ -67,11 +67,12 @@
 
                         <div class="subtitle text-center">
                             <h3>문의 게시판 목록</h3>
-								<a href="${pageContext.request.contextPath}/user/userboardview.do"><span>질문게시판</span></a>
-							<c:if test="${not empty sessionScope.id }">
-								<a href="qnalistview.do"><span>1:1문의목록보기</span></a>
-							</c:if>
-								<a href="qnainsertform.do"><span>1:1문의</span></a>
+                            <c:if test="${sessionScope.id eq 'master' || not empty id}">
+                            	<a class="btn btn-danger" href="${pageContext.request.contextPath}/ask/qnalistview.do"><span>1:1문의 목록보기 마스터</span></a>
+                            </c:if>
+								<a class="btn btn-success" href="${pageContext.request.contextPath}/user/userboardview.do"><span>질문게시판</span></a>
+
+								<a class="btn btn-warning" href="${pageContext.request.contextPath}/ask/insertformview.do"><span>1:1문의</span></a>
                         </div>
 
                         <div id="testimonial">
@@ -80,7 +81,7 @@
                                 <div class="tst-single clearfix">
                                     <img src="${pageContext.request.contextPath}/resources/images/qna.jpg" alt="Client" class="img-circle">
                                     <div class="tst-content">
-                                        <a href="../user/userboardview.do">질문게시판</a>                   
+                                        <a class="btn btn-success" href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판</a>                   
                                     </div>
                                 </div>
 
@@ -92,7 +93,7 @@
                                     <img src="${pageContext.request.contextPath}/resources/images/qna2.jpg" alt="Client" class="img-circle">
                                     <div class="tst-content">
                                     <c:if test="${not empty sessionScope.id }">
-                                        <a href="qnalistview.do">1:1문의목록보기</a>
+                                        <a class="btn btn-danger" href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록보기</a>                             
                             		</c:if>
                                         <span>로그인이 필요합니다.</span>
                                     </div>
@@ -104,7 +105,7 @@
                                 <div class="tst-single clearfix">
                                     <img src="${pageContext.request.contextPath}/resources/images/qna3.jpg" alt="Client" class="img-circle">
                                     <div class="tst-content">
-                                        <a href="../ask/qnainsertform.do">1:1문의</a>
+                                        <a class="btn btn-info" href="${pageContext.request.contextPath}/ask/insertformview.do">1:1문의</a>
                                     
                                     </div>
                                 </div>

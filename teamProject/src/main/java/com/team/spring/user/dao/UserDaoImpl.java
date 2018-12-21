@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public UserDto getData(int num) {
 		
-		return session.selectOne("user.getData", num);
+		return session.selectOne("user.getData2", num);
 	}
 
 	@Override
