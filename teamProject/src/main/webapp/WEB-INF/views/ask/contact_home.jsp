@@ -68,7 +68,7 @@
                         <div class="subtitle text-center">
                             <h3>문의 게시판 목록</h3>
                             <c:if test="${sessionScope.id eq 'master' || not empty id}">
-                            	<a class="btn btn-danger" href="${pageContext.request.contextPath}/ask/qnalistview.do"><span>1:1문의 목록보기 마스터</span></a>
+                            	<a class="btn btn-danger" href="${pageContext.request.contextPath}/ask/qnalistview.do"><span>1:1문의 목록보기</span></a>
                             </c:if>
 								<a class="btn btn-success" href="${pageContext.request.contextPath}/user/userboardview.do"><span>질문게시판</span></a>
 

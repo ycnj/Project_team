@@ -10,6 +10,14 @@
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 
 	<title>Home</title>
+	<style>
+		.pagination-lg > li > a,
+		.pagination-lg > li > span {
+		  padding: 40px 40px;
+		  font-size: 18px;
+		  line-height: 1.3333333;
+		}
+	</style>
 </head>
 <body>
 
