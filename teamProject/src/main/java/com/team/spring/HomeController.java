@@ -20,12 +20,7 @@ public class HomeController {
 		
 		return mView;
 	}
-	@RequestMapping("/movie/findmovie")
-	public String findMovie() {
 
-		
-		return "movie/findmovie";
-	} 
 	
 }
 

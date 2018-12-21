@@ -60,17 +60,20 @@
 	<h2>event</h2>
 
 </div>	
-	<div id="projects" class="clearfix">
-	<c:forEach items="${list }" var="tmp">
-		<figure class="mix portfolio-item" style="display: inline-block;">					
-			<a href="detail.do?num=${tmp.num }"><img style="width:372px;height:290px;"  class="img-responsive" src="${pageContext.request.contextPath}/upload/${tmp.saveFileName}"/></a>
-			<figcaption class="mask">
-	            <h3>${tmp.title }</h3>
-	        </figcaption>			
-       	</figure>		
-	</c:forEach>
-	</div>
+
 	<!-- 페이징 처리 -->
+	<div class="container">
+		<form action="findmovie.do">
+		<input id="query" name="query" type="text" value="영화제목"/>
+		<button class="btn btn-info" type="submit">전송
+		</button>
+		</form>
+		<table class="table">
+		<tr>
+			<td></td>
+		</tr>
+		</table>
+	</div>
 	<div class="page-display text-center">
 		<ul class="pagination">
 		<c:choose>
@@ -142,6 +145,10 @@
 <!-- javascript	 -->
 <script>
 	$("#nav>li:eq(1)").attr("class", "current");
+	
+	var list=${list };
+	var actors=list.items[0].actor;
+	$("#")
 </script>
 
 </body>
