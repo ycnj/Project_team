@@ -7,7 +7,34 @@
 <head>
 <!-- link 로딩 -->
 <jsp:include page="../include/MSC1.jsp" />
-	<title>event/updateform.jsp</title>
+<title>event/uploadform.jsp</title>
+<style>
+	@media (min-width: 768px) {
+	  .container2 {
+	    width: 1100px;
+	  }
+	}
+	@media (min-width: 992px) {
+	  .container2 {
+	    width: 1100px;
+	  }
+	}
+	@media (min-width: 1200px) {
+	  .container2 {
+	    width: 1100px;
+	  }
+	}
+	.top-img{
+            position: relative;
+            height: 400px;
+            padding: 0;
+            background: url(${pageContext.request.contextPath }/resources/img/배경화면/모털엔진.jpg) 50% 0 no-repeat;
+            background-size: cover;
+        }
+        .service-features {
+	    background-color: #6e94b599;
+	}
+</style>
 </head>
 <body>
 
@@ -57,31 +84,23 @@
 	<br /><br /><br /><br />
 	<div class="container contFont container2">
        	<div class="section-title text-center wow fadeInUp">
-		<h2>이벤트 수정</h2>
-	</div>	
+		<h2>event</h2>
+	</div>
 		<div class="row">
-				<div class="col-sm-8 col-sm-offset-2">		
-				<form action="update.do" method="post" enctype="multipart/form-data">
-					<input type="hidden" name="num" value="${dto.num }" />
-					<div class="form-group has-feedback">
-					<label for="title">제목</label>
-					<input class="form-control" type="text" name="title" id="title"value="${dto.title }"/>
-					</div><br/>
-					<div class="form-group has-feedback">
-					<label class="control-label" for="content">내용</label>
-					<textarea class="form-control" name="content" id="content" style="width:100%;height:300px;">${dto.content}</textarea>
-					</div><br />
-					<div class="form-group has-feedback">
-					<label for="myFile">첨부파일</label>
-					<input type="file" name="file" id="myFile" />
-					</div><br/>
-					<button class="btn btn-success" type="submit">업로드</button>
+			<div class="col-sm-8 col-sm-offset-2">			
+				<form action="saveImage.do" method="post" enctype="multipart/form-data">				
+				<div class="form-group has-feedback">
+				<label for="myFile">첨부파일</label>
+				<input type="file" name="file" id="myFile" />
+				</div><br/>
+				<button class="btn btn-success" type="submit">업로드</button>
 				<button class="btn btn-warning" type="reset">취소</button>
-				<a class="btn btn-primary" href="${pageContext.request.contextPath}/event/list.do">목록</a>
+				<a class="btn btn-primary" href="${pageContext.request.contextPath}/event/detail.do?num=${dto.num }">목록</a>
 				</form>
 			</div>
 		</div>
 	</div>
+	
 	<!-- 본문 끝 -->
 
         <!-- #quotes -->

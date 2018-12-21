@@ -59,4 +59,9 @@ public class EventController {
 		//dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
 		return new ModelAndView("redirect:/event/detail.do?num="+dto.getNum());
 	}
+	@RequestMapping("event/imageUploadfrom")
+	public ModelAndView authImageUploadform(HttpServletRequest request) {
+		
+		return null;
+	}
 }
