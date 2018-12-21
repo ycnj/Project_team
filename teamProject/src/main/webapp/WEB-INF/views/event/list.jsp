@@ -144,7 +144,7 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
-	$("#nav>li:eq(4)").attr("class", "current");
+	$("#nav>li:eq(5)").attr("class", "current");
 </script>
 
 </body>
