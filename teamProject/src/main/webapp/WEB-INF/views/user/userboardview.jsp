@@ -8,6 +8,23 @@
 <!-- link 로딩 -->
 <jsp:include page="../include/MSC1.jsp" />
 	<title>Home</title>
+<style>
+	@media (min-width: 768px) {
+	  .container2 {
+	    width: 1100px;
+	  }
+	}
+	@media (min-width: 992px) {
+	  .container2 {
+	    width: 1100px;
+	  }
+	}
+	@media (min-width: 1200px) {
+	  .container2 {
+	    width: 1100px;
+	  }
+	}
+</style>
 </head>
 <body>
 
@@ -57,44 +74,39 @@
        <section id="contact">
             <div class="container">
                 <div class="row">
-
-                    <div class="section-title text-center wow fadeInDown">
-                        <h2>문의사항을 남겨주세요.</h2>
-                        <p></p>
+					<div class="container contFont container2">                  
+				         <div class="row">           
+							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2">
+					            <ul Class="pagination pagination-lg">
+					             	<li class="active"><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>
+					             	<li><a href="${pageContext.request.contextPath}/user/insertformview.do">글작성하기</a></li>
+					             	<li><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터<span class="sr-only">(current)</span></a></li>                           
+					          		<c:if test="${!empty sessionScope.id }">
+					          		<li><a href="${pageContext.request.contextPath}/ask/insertformview.do">1:1문의<span class="sr-only">(current)</span></a></li>
+					          		</c:if>     					          	
+					          		<li><a href="${pageContext.request.contextPath}/home.do">메인 페이지<span class="sr-only">(current)</span></a></li>
+					    		</ul>
+				    		</div>
+				    	</div>    
+				    </div>	
+                   
+                    <div class="section-title text-center wow fadeInDown" style="padding: 50px; padding-right: 1px;">
+                        <h2>질문게시판</h2>                                   
                     </div>
-                  
-                    <div class="col-md-2 col-sm-2 wow fadeInRight">
-					
-					<c:if test="${!empty sessionScope.id }">
-                        <div class="contact-details">
-                            <a href="../ask/qnainsertform.do"><span>1:1문의하러 가기</span></a>               
-                        </div> <!-- end .contact-details -->
-                    </c:if>
                     
-                        <div class="contact-details">
-                            <a href="../ask/contact_home.do"><span>문의게시판으로 가기</span></a>               
-                        </div> <!-- end .contact-details -->                    
-                                                          
-                                                          
-						<div class="contact-details">
-							<a href="insertformview.do">글 작성하기</a>
-						</div>                                   
-						
-						<div class="contact-details">
-							<a href="../home.do">메인페이지로 돌아가기</a>
-						</div>
+              				    
 						                                	             
                     </div> <!-- .col-md-2 -->
                     <div class="col-md-10 col-sm-10">
 					<div class="container">
-						<div class="center-block">
-							 <jsp:include page="userboard.jsp"></jsp:include>
+						<div class="center-block" style="margin: -100px; margin-left: 30px;">
+							 <jsp:include page="userboard.jsp" />
 						</div>
 					</div>
 				</div>                    
 
                 </div>
-            </div>
+
         </section>
 
         <!-- #quotes -->

@@ -351,7 +351,7 @@
 	    });
 	});
 	
-	$("#nav>li:eq(6)").attr("class", "current");
+	$("#nav>li:eq(7)").attr("class", "current");
 </script>
 
 </body>

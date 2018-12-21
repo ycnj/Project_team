@@ -96,7 +96,7 @@
              position: relative;
              height: 400px;
              padding: 0;
-             background: url(${pageContext.request.contextPath }/resources/img/배경화면/모털엔진.jpg) 50% 0 no-repeat;
+             background: url(${pageContext.request.contextPath }/resources/images/배경화면/모털엔진.jpg) 50% 0 no-repeat;
              background-size: cover;
          }
          .service-features {
@@ -129,12 +129,12 @@
 		<div class="container">
 			
 			<div class="service-features wow fadeInRight">
-				<h3>OUR DESIGNS COMES WITH...</h3>
+				<h3>영화란 무엇인가...</h3>
 				<ul>
-					<li>Responsive Design</li>
-					<li>Modern And Clean Design</li>
-					<li>Clean Code</li>
-					<li>Browser Friendly</li>
+					<li>멜로</li>
+					<li>액션</li>
+					<li>공포</li>
+					<li>코미디</li>
 				</ul>
 			</div>
 		</div>
@@ -338,9 +338,9 @@
 
 
         <!-- #quotes -->
-        <section id="quotes">
+        <%-- <section id="quotes">
 			<jsp:include page="../include/quotes.jsp" />
-        </section>
+        </section> --%>
         
         <!-- End #quotes -->
 
@@ -371,6 +371,28 @@
 	        }
 	    });
 	});
+	
+	$(".glyphicon-heart").click(function(){
+		var $this=$(this);
+		var data=$this.parent().serialize();
+		var id='${id}';
+		if(id==null || id==""){
+			alert("로그인하세요.");
+			return;
+		}		
+		$.ajax({
+			url:"${pageContext.request.contextPath }/movie/liketo.do",
+			method:"post",
+			data:data,
+			success:function(responseData){
+				$this
+				.parent()
+				.find('.liketo')
+				.text(responseData.liketo);			
+			}
+		});
+		return false;
+	})
 </script>
 
 </body>
