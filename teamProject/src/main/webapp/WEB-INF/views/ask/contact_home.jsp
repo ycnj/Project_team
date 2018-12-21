@@ -57,23 +57,33 @@
         <section id="contact">
             <div class="container">
                 <div class="row">
-				
-                    <div class="section-title text-center wow fadeInDown">
+                
+					<div class="container contFont">                  
+				         <div class="row">           
+							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2" style="padding-left: 65px;">
+					            <ul Class="pagination pagination-lg">
+					             	<li class="active"><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터<span class="sr-only">(current)</span></a></li>
+					          		<li><a href="${pageContext.request.contextPath}/ask/insertformview.do">문의작성</a></li>					             	
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             	                          					          		
+					          		<c:if test="${empty id }">
+					          		<li><a href="${pageContext.request.contextPath}/users/loginform.do">로그인</a></li>
+					          		</c:if>
+					          		<c:if test="${not empty id }">
+					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의 목록보기<span class="sr-only">(current)</span></a></li>					          	
+					          		</c:if>
+									<li><a href="${pageContext.request.contextPath}/home.do">메인 페이지<span class="sr-only">(current)</span></a></li>					          		
+					    		</ul>
+				    		</div>
+				    	</div>    
+				    </div>
+					
+					
+                    <div class="section-title text-center wow fadeInDown" style="padding: 50px; padding-right: 1px;">
                         <h2>고객센터</h2>                                   
                     </div>
                     
               
-                    <div class="col-md-12 wow fadeInLeft">
 
-                        <div class="subtitle text-center">
-                            <h3>문의 게시판 목록</h3>
-                            <c:if test="${sessionScope.id eq 'master' || not empty id}">
-                            	<a class="btn btn-danger" href="${pageContext.request.contextPath}/ask/qnalistview.do"><span>1:1문의 목록보기 마스터</span></a>
-                            </c:if>
-								<a class="btn btn-success" href="${pageContext.request.contextPath}/user/userboardview.do"><span>질문게시판</span></a>
-
-								<a class="btn btn-warning" href="${pageContext.request.contextPath}/ask/insertformview.do"><span>1:1문의</span></a>
-                        </div>
 
                         <div id="testimonial">
 

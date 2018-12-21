@@ -57,44 +57,36 @@
        <section id="contact">
             <div class="container">
                 <div class="row">
-
-                    <div class="section-title text-center wow fadeInDown">
-                        <h2>문의사항을 남겨주세요.</h2>
-                        <p></p>
-                    </div>
-                  
-                    <div class="col-md-2 col-sm-2 wow fadeInRight">
-					
-					<c:if test="${!empty sessionScope.id }">
-                        <div class="contact-details">
-                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/insertformview.do"><span>1:1문의하러 가기</span></a>               
-                        </div> <!-- end .contact-details -->
-                    </c:if>
+					<div class="container contFont container2">                  
+				         <div class="row">           
+							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2" style="padding-left:50px;">
+					            <ul Class="pagination pagination-lg">
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>
+					             	<li><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터<span class="sr-only">(current)</span></a></li>                           
+					          		<c:if test="${!empty sessionScope.id }">
+					          		<li><a href="${pageContext.request.contextPath}/ask/insertformview.do">1:1문의<span class="sr-only">(current)</span></a></li>
+					          		</c:if>     
+					          		<li><a href="${pageContext.request.contextPath}/home.do">메인 페이지<span class="sr-only">(current)</span></a></li>
+					    		</ul>
+				    		</div>
+				    	</div>    
+				    </div>	
                     
-                        <div class="contact-details">
-                            <a class="btn btn-info" href="${pageContext.request.contextPath}/ask/contact_home.do"><span>문의게시판으로 가기</span></a>               
-                        </div> <!-- end .contact-details -->                    
-                                                          
-                                                          
-						<div class="contact-details">
-							<a class="btn btn-success" href="${pageContext.request.contextPath}/ask/qnainsertformview.do">글 작성하기</a>
-						</div>                                   
-						
-						<div class="contact-details">
-							<a class="btn btn-warning" href="${pageContext.request.contextPath}/home.do">메인페이지로 돌아가기</a>
-						</div>
+                    <div class="section-title text-center wow fadeInDown">
+                        <h2>${dto.writer }님의 ${dto.num }번 글 입니다.</h2>                 
+                    </div>				    
 						                                	             
                     </div> <!-- .col-md-2 -->
-                    <div class="col-md-10 col-sm-10">
+                    <div class="col-md-10 col-sm-10" style="padding-left:100px;">
 					<div class="container">
 						<div class="center-block">
-							 <jsp:include page="updateform.jsp"></jsp:include>
+							 <jsp:include page="updateform.jsp" />
 						</div>
 					</div>
 				</div>                    
 
                 </div>
-            </div>
+
         </section>
 
         <!-- #quotes -->

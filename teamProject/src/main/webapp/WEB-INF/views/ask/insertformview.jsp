@@ -56,47 +56,38 @@
 	
 	<!-- 메인 -->
 	
-         <section id="contact">
+       <section id="contact">
             <div class="container">
                 <div class="row">
-
+					<div class="container contFont container2">                  
+				         <div class="row">           
+							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2">
+					            <ul Class="pagination pagination-lg">
+					             	<li class="active"><a href="${pageContext.request.contextPath}/ask/insertformview.do">문의작성<span class="sr-only">(current)</span></a></li>
+					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>					             	
+					             	<li><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터<span class="sr-only">(current)</span></a></li>
+                           			<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>
+					          		<li><a href="${pageContext.request.contextPath}/home.do">메인 페이지<span class="sr-only">(current)</span></a></li>
+					    		</ul>
+				    		</div>
+				    	</div>    
+				    </div>	
+                    
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>문의사항을 남겨주세요.</h2>           
-                        <p></p>
-                    </div>
-                    
-                  
-                    <div class="col-md-2 col-sm-2 wow fadeInRight">
-                        <div class="contact-details">
-                            <a class="btn btn-info" href="${pageContext.request.contextPath}/user/userboardview.do"><span>질문게시판으로 가기</span></a>
-                        </div> <!-- end .contact-details -->
-					
-					<c:if test="${!empty sessionScope.id }">
-                     	<div class="contact-details">
-                            <a class="btn btn-success" href="${pageContext.request.contextPath}/ask/qnalistview.do"><span>1:1 문의목록보기</span></a>               
-                        </div> <!-- end .contact-details -->
-                    </c:if>
-                    
-                    	<div class="contact-details">
-                    		<a class="btn btn-primary" href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터로 가기</a>
-                    	</div>
-                    	
-                  		<div class="contact-details">
-                    		<a class="btn btn-warning" href="${pageContext.request.contextPath}/home.do">메인페이지로 돌아가기</a>
-                    	</div>
-     
-                                                                   	             
-                    </div> <!-- .col-md-4 -->
-                    <div class="col-md-10 col-sm-10">
+                        <h2>${id }님 문의를 남겨주세요!</h2>                 
+                    </div>							    
+						                                	             
+                    </div> <!-- .col-md-2 -->
+                    <div class="col-md-10 col-sm-10" style="padding-left:100px;">
 					<div class="container">
 						<div class="center-block">
-							<jsp:include page="insertform.jsp"></jsp:include>
+							 <jsp:include page="insertform.jsp" />
 						</div>
 					</div>
-				</div>
+				</div>                    
 
                 </div>
-            </div>
+
         </section>
         
        <!-- 메인 끝 -->
