@@ -255,7 +255,7 @@ h4 {
 												<dl>
 													<dt>
 														<img
-															src="${pageContext.request.contextPath}/resources/images/user_image.gif" />
+															src="${pageContext.request.contextPath}/resources/images/re.gif" />
 														<span>${tmp.id }</span>
 														<c:if test="${tmp.num ne tmp.comment_group }">
 									to <strong>${tmp.target_id }</strong>
