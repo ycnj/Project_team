@@ -77,7 +77,7 @@ CREATE TABLE board_ask_comment(
 	num NUMBER PRIMARY KEY, -- 댓글의 글번호
 	writer VARCHAR2(100), -- 댓글 작성자
 	content VARCHAR2(500), -- 댓글 내용
-	target_id VARCHAR2(100), -- 댓글의 대상이 되는 아이디(글작성자)
+	target_id VARCHAR2(100), -- 댓글의 대상이 되는 아이디(글성자)
 	ref_group NUMBER, -- 댓글 그룹번호
 	comment_group NUMBER, -- 원글에 달린 댓글 내에서의 그룹번호
 	deleted CHAR(3) DEFAULT 'no', -- 댓글이 삭제 되었는지 여부 
@@ -129,6 +129,22 @@ CREATE TABLE event_mp
 );
 
 CREATE SEQUENCE event_mp_SEQ;
+
+CREATE TABLE eventImage_mp
+(
+ num NUMBER,
+ ref_group NUMBER,
+ orgFileName  VARCHAR2(100 BYTE),
+ saveFileName  VARCHAR2(100 BYTE),
+ fileSize   NUMBER,
+ REGDATE    DATE
+);
+
+CREATE SEQUENCE eventImage_mp_SEQ;
+
+ALTER TABLE event_mp add PRIMARY KEY(num);
+
+ALTER TABLE eventImage_mp ADD CONSTRAINT event_mp_num FOREIGN KEY (ref_group) REFERENCES event_mp(num);
 
 
 --------------------------FreeboardTable--------------------------

@@ -88,14 +88,15 @@
 	</div>
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">			
-				<form action="saveImage.do" method="post" enctype="multipart/form-data">				
+				<form action="ImageUpload.do?num=${dto.num }" method="post" enctype="multipart/form-data">			
+				<img id="replaceMe" src=""/>	
 				<div class="form-group has-feedback">
 				<label for="myFile">첨부파일</label>
-				<input type="file" name="file" id="myFile" />
+				<input type="file" class="file" name="file" id="myFile" onchange="imageURL(this)"/>
 				</div><br/>
 				<button class="btn btn-success" type="submit">업로드</button>
 				<button class="btn btn-warning" type="reset">취소</button>
-				<a class="btn btn-primary" href="${pageContext.request.contextPath}/event/detail.do?num=${dto.num }">목록</a>
+				<a class="btn btn-primary" href="${pageContext.request.contextPath}/event/list.do">목록</a>
 				</form>
 			</div>
 		</div>
@@ -125,7 +126,21 @@
 <script>
 	$("#nav>li:eq(4)").attr("class", "current");
 </script>
+<script>
+function imageURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
+        reader.onload = function(e) {
+            $('#replaceMe').attr('src', e.target.result)
+             .width(500)
+             .height(500);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
 </body>
 </html>
 

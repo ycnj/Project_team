@@ -25,6 +25,11 @@ public class EventImageDaoImpl implements EventImageDao{
 	}
 
 	@Override
+	public List<EventImageDto> getList(EventImageDto dto) {
+		return session.selectList("eventImage.getList", dto);
+	}
+
+	@Override
 	public EventImageDto getData(int num) {
 		return session.selectOne("eventImage.getData", num);
 	}

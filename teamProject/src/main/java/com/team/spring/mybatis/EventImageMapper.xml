@@ -4,7 +4,7 @@
 	<insert id="insert" parameterType="eventImageDto">
 		INSERT INTO eventImage_mp
 		(num, ref_group, orgFileName, saveFileName, fileSize, regdate)
-		VALUES(eventImage_mp_seq.NEXTVAL, #{ref_group}, #{orgFileName},
+		VALUES(eventImage_mp_seq.NEXTVAL, #{num}, #{orgFileName},
 		 #{saveFileName}, #{fileSize}, SYSDATE)
 	</insert>
 	<delete id="delete" parameterType="int">
@@ -12,9 +12,16 @@
 		WHERE num=#{num}
 	</delete>
 	<select id="getData" parameterType="int" resultType="eventImageDto">
-		SELECT num,ref_group,orgFileName,saveFileName,fileSize,regdate
+		SELECT num, ref_group, orgFileName, saveFileName, fileSize, regdate				
+	 	FROM eventImage_mp
+	  	ORDER BY num ASC
+		WHERE ref_group=#{num}
+	</select>
+	<select id="getList" parameterType="eventImageDto" resultType="eventImageDto">
+		SELECT num, ref_group, orgFileName, saveFileName, fileSize, regdate
 		FROM eventImage_mp
-		WHERE num=#{num}
+		WHERE ref_group=#{ref_group}
+		ORDER BY num ASC
 	</select>
 </mapper>
 

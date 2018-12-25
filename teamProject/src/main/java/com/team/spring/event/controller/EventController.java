@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.team.spring.event.dto.EventDto;
+import com.team.spring.event.dto.EventImageDto;
 import com.team.spring.event.service.EventService;
 
 @Controller
@@ -35,7 +37,7 @@ public class EventController {
 	}
 	@RequestMapping("/event/detail")
 	public ModelAndView detail(HttpServletRequest request) {
-		service.getDetail(request);
+		service.getDetail(request);		
 		return new ModelAndView("event/detail");
 	}
 	
@@ -59,9 +61,16 @@ public class EventController {
 		//dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
 		return new ModelAndView("redirect:/event/detail.do?num="+dto.getNum());
 	}
-	@RequestMapping("event/imageUploadfrom")
-	public ModelAndView authImageUploadform(HttpServletRequest request) {
-		
-		return null;
+	@RequestMapping("event/imageUploadform")
+	@ResponseBody
+	public ModelAndView authImageUploadform(@ModelAttribute EventDto dto, HttpServletRequest request) {
+		service.getDetail(request);
+		return new ModelAndView("event/imageUploadform");
+	}
+	@RequestMapping("/event/ImageUpload")
+	public ModelAndView authImageUpload(@ModelAttribute EventImageDto dto,
+			HttpServletRequest request) {		
+		service.saveImage(dto, request);
+		return new ModelAndView("redirect:/event/detail.do?num="+dto.getRef_group());
 	}
 }
