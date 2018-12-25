@@ -14,7 +14,7 @@
 	<!-- logo -->
 	<h1 class="navbar-brand">
 		<a href="${pageContext.request.contextPath}/home.do"> <img
-			src="${pageContext.request.contextPath}/resources/images/logo.png"
+			src="${pageContext.request.contextPath}/resources/images/logo1_black_right_small.png"
 			alt="Kasper Logo">
 		</a>
 	</h1>

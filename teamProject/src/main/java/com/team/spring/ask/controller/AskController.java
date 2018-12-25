@@ -47,7 +47,7 @@ public class AskController {
 	}	
 	
 	@RequestMapping("/ask/detailview")
-	public ModelAndView getList7(HttpServletRequest request) {
+	public ModelAndView getListdetail(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		service.getList(request);
 		//view 페이지로 forward 이동해서 글 목록 출력하기 
@@ -61,7 +61,7 @@ public class AskController {
 	}
 	
 	@RequestMapping("/ask/insertformview")
-	public ModelAndView authinsertform(HttpServletRequest request) {
+	public ModelAndView authinsertformview(HttpServletRequest request) {
 		service.getList(request);
 		return new ModelAndView("ask/insertformview");
 	}	
