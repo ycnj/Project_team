@@ -20,7 +20,7 @@
 	line-height:1.5em;
 }
 .rsch_input {
-	width:95%;
+	width:85%;
 	
 }
 </style>
@@ -28,70 +28,61 @@
 <body>
 
 <form action="insert.do" method="post" id="frm">
-<table class="rschTbl">
-	<colgroup>
-		<col width="20%"/>
-		<col width="*"/>
-	</colgroup>
-	<tr>
-		<th>설문제목</th>
-		<td style="text-align:right">
-		<textarea name="title" id="title" style="width:95%; height:50px;"></textarea>
-		</td>
-	</tr>
-	<tr>
-		<th>항목</th>
-		<td class="rsch_td">
-		
-		<c:forEach var="i" begin="1" end="10" step="1">
-			<c:if test="${i<10}">&nbsp;</c:if>
-			${i}. <input type="text" name="comm" id="comm" class="rsch_input"/> <br>
-		</c:forEach>
-		
-		</td>
-	</tr>
-	<tr>
-		<th>설문기간</th>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="text" name="sdate" id="sdate"> ~
-			<input type="text" name="edate" id="edate"> 
-		</td>
-	</tr>
-	<tr>
-		<th>사용여부</th>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="use" id="use" value="Y" checked>사용,
-		<input type="radio" name="use" id="use" value="N">미사용
-		</td>
-	</tr>
-	<tr>
-		<th colspan="2" height="50">
-			<button type="submit" onclick="submitContents(this)">저장</button>
-			<button type="reset" id="resetBtn">취소</button>
-		</th>
-	</tr>
-</table>
+	<table class="rschTbl">
+		<colgroup>
+			<col width="20%"/>
+			<col width="*"/>
+		</colgroup>
+		<tr>
+			<th>설문제목</th>
+			<td style="text-align:right">
+			<textarea name="title" id="title" style="width:95%; height:50px;"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<th>항목</th>
+			<td class="rsch_td">
+			
+			<c:forEach var="i" begin="1" end="10" step="1">
+				<c:if test="${i<10}">&nbsp;</c:if>
+				${i}. <input type="text" name="comm+${i}" id="comm" class="rsch_input"/> <br>
+			</c:forEach>
+			
+			</td>
+		</tr>
+		<tr>
+			<th>설문기간</th>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="text" name="sdate" id="sdate"> ~
+				<input type="text" name="edate" id="edate"> 
+			</td>
+		</tr>
+		<tr>
+			<th>사용여부</th>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="use" id="use" value="Y" checked>사용,
+			<input type="radio" name="use" id="use" value="N">미사용
+			</td>
+		</tr>
+		<tr>
+			<th colspan="2" height="50">
+				<button onclick="submitContents()">저장</button>
+				<button type="reset" id="resetBtn">취소</button>
+			</th>
+		</tr>
+	</table>
 </form>
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.3.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/jquery-ui.js"></script>
 <script>	
-  
-	/* $("#sdate,#edate").datepicker(); */
+$(function() {   
+	$("#sdate,#edate").datepicker();
     	
-    function submitContents(elClickedObj) {
-    	alert("ㅇㅇ")
+    function submitContents() {
 		//oEditors.getById["comm"].exec("UPDATE_COMM_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-		
-		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
-		alert("ㅇㅇ")
-		try {
-			elClickedObj.form.submit();
-			alert("ㅇㅇ")
-		} catch(e) {}
-		alert("ㅇㅇ")
-		return false;
+		$("#frm").submit();
 	}
-
+});
 </script>
 </body>
 </html>
