@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,10 +9,7 @@
 <meta charset="UTF-8">
 <title>글목록</title>
 <link rel="stylesheet" href="../resources/css/jquery-ui.css"/>
-<script src="../resources/js/jquery-3.3.1.min.js"></script>
-<script src="../resources/js/jquery-ui.js"></script>
-</head>
-<body>
+
 <style>
 .rschTbl { 
 	width:500px; 
@@ -27,6 +24,10 @@
 	
 }
 </style>
+</head>
+
+<body>
+
 <div class="container">
 	<h3>설문조사목록</h3>
 	<table class="table table-bordered">
@@ -57,6 +58,7 @@
 <div>
 <a href="rschWrite.do">새글작성</a>
 </div>
-
+<script src="../resources/js/jquery-3.3.1.min.js"></script>
+<script src="../resources/js/jquery-ui.js"></script>
 </body>
 </html>

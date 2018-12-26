@@ -10,7 +10,6 @@
 <meta charset="UTF-8">
 <title>설문결과</title>
 <script src="../resources/js/jquery-3.3.1.min.js"></script>
-</head>
 <style>
 .rschTbl { 
 	width:400px; 
@@ -22,6 +21,7 @@
 }
 
 </style>
+</head>
 <body>
 <form id="frm">
 <table class="rschTbl">

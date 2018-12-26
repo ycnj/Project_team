@@ -7,6 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.team.spring.rsch.dto.RschListDto;
 
+<<<<<<< HEAD
+=======
+
+@Repository
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 public class RschDaoImpl implements RschDao {
 	@Autowired
 	private SqlSession session;

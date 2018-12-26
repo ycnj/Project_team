@@ -33,7 +33,7 @@ public class rschController {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		rschService.getList(request);
 		//view 페이지로 forward 이동(해서 글 목록 출력하기 
-		return new ModelAndView("rsch/list");
+		return new ModelAndView("rsch/rschList");
 	}
 	//게시글 작성화면
 	@RequestMapping("/rsch/rschWrite")
@@ -43,8 +43,13 @@ public class rschController {
 	//게시글 작성처리
 	@RequestMapping("/rsch/insert")
 	public ModelAndView authCreate(@ModelAttribute RschListDto dto, HttpServletRequest request) {
+<<<<<<< HEAD
 		rschService.saveComm(dto);
 		return new ModelAndView("redirect:/rsch/rschList.do");
+=======
+		rschService.saveContent(dto);
+		return new ModelAndView("redirect:/home.do");
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 	}
 	//게시글 상세조회
 	@RequestMapping("/rsch/rschJoinList")

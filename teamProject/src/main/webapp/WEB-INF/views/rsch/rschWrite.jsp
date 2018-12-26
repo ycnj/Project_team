@@ -9,12 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>설문등록</title>
-
-<link rel="stylesheet" href="../resources/css/jquery-ui.css"/>
-<script src="../resources/js/jquery-3.3.1.min.js"></script>
-<script src="../resources/js/jquery-ui.js"></script>
-</head>
-
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.css"/>
 <style>
 .rschTbl { 
 	width:800px; 
@@ -29,11 +24,20 @@
 	
 }
 </style>
+<<<<<<< HEAD
 
 
+=======
+</head>
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 <body>
+<<<<<<< HEAD
 <form action="insert.do" method="post">
 <form id="frm">
+=======
+
+<form action="insert.do" method="post" id="frm">
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 <table class="rschTbl">
 	<colgroup>
 		<col width="20%"/>
@@ -73,13 +77,14 @@
 <div>
 	<tr>
 		<th colspan="2" height="50">
-		<input type="button" onclick="submitContents(this);" value="저장" />
-		<button type="reset" id="resetBtn">취소</button>
+			<button type="submit" onclick="submitContents(this)">저장</button>
+			<button type="reset" id="resetBtn">취소</button>
 		</th>
 	</tr>
 </div>
 </table>
 </form>
+<<<<<<< HEAD
 <script>
 $(function() {
     $("#sdate,#edate").datepicker();
@@ -92,6 +97,26 @@ $(function() {
 		try {
 			elClickedObj.form.submit();
 		} catch(e) {}
+=======
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.3.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.js"></script>
+<script>	
+  
+	/* $("#sdate,#edate").datepicker(); */
+    	
+    function submitContents(elClickedObj) {
+    	alert("ㅇㅇ")
+		//oEditors.getById["comm"].exec("UPDATE_COMM_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+		
+		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
+		alert("ㅇㅇ")
+		try {
+			elClickedObj.form.submit();
+			alert("ㅇㅇ")
+		} catch(e) {}
+		alert("ㅇㅇ")
+		return false;
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 	}
 
 </script>
