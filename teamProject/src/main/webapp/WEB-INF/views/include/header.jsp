@@ -22,25 +22,24 @@
 
 </div>
 
-<!-- main nav -->
-<nav class="collapse navigation navbar-collapse navbar-right "
-	role="navigation">
-	<ul id="nav" class="nav navbar-nav">
-		<li><a href="${pageContext.request.contextPath}/home.do">홈</a></li>
-		<li>
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">영화<span class="caret"></span></a>         
-			<ul id="nav" class="nav dropdown-menu">
-			    <li><a href="${pageContext.request.contextPath}/movie/listChart.do">상영중인영화</a></li>
-				<li><a href="#">영화검색</a></li>
-			</ul>
-        </li>
-		<li><a href="${pageContext.request.contextPath}/freeboard/list.do">자유게시판</a></li>
-		<li><a href="${pageContext.request.contextPath}/event/list.do">이벤트</a></li>
-		<li><a href="${pageContext.request.contextPath}/ask/contact_home.do">문의</a></li>
-		<c:choose>
-			<c:when test="${empty sessionScope.id }">
-				<li><a href="${pageContext.request.contextPath}/users/loginform.do">Login</a></li>
-			</c:when>
+                    <!-- main nav -->
+                    <nav class="collapse navigation navbar-collapse navbar-right " role="navigation">
+                        <ul id="nav" class="nav navbar-nav">
+                        	<li><a href="${pageContext.request.contextPath}/home.do">홈</a></li>
+							<li>
+						        <a href="#" class="dropdown-toggle" data-toggle="dropdown">영화<span class="caret"></span></a>         
+								<ul id="nav" class="nav dropdown-menu">
+								    <li><a href="${pageContext.request.contextPath}/movie/listChart.do">상영중인영화</a></li>
+									<li><a href="${pageContext.request.contextPath}/movie/findmovie.do">영화검색</a></li>
+								</ul>
+					        </li>
+							<li><a href="${pageContext.request.contextPath}/freeboard/list.do">자유게시판</a></li>
+                            <li><a href="${pageContext.request.contextPath}/event/list.do">이벤트</a></li>                
+                            <li><a href="${pageContext.request.contextPath}/ask/contact_home.do">문의</a></li>
+                        <c:choose>
+                        	<c:when test="${empty sessionScope.id }">
+                            <li><a href="${pageContext.request.contextPath}/users/loginform.do">Login</a></li>
+                            </c:when>
 			<c:otherwise>
 				<li>
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">MyInfo<span class="caret"></span></a>         
@@ -55,8 +54,8 @@
 				</li>
 				
 			</c:otherwise>
-		</c:choose>
-
-	</ul>
-</nav>
-<!-- /main nav -->
+                        </c:choose>
+                        
+                        </ul>
+                    </nav>
+                    <!-- /main nav -->

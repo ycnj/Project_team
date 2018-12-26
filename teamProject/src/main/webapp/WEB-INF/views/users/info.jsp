@@ -151,7 +151,7 @@
 								<td>${dto.rdate }</td>
 							</tr>
 						</table>
-                    	<a class="btn btn-info" href="updateform.do">회원정보 수정</a>
+                    	<a class="btn btn-info" href="updateform.do" >회원정보 수정</a>
 						<a class="btn btn-warning" href="javascript:deleteConfirm()">회원 탈퇴</a>
                     </div>
                     <div class="about-us text-center wow fadeInDown">

@@ -153,8 +153,8 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
+
 	$("#nav>li:eq(6)").attr("class", "current");
-	
 	$(function(){
 
    	    jQuery(window).scroll(function () {

@@ -53,6 +53,7 @@ public class MovieChartController {
 	public Map<String, Object> authLiketo(HttpServletRequest request) {
 		return service.liketo(request);
 	}	
+
 }
 
 

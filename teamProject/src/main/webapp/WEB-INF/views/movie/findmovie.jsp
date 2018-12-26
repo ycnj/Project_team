@@ -7,19 +7,7 @@
 <head>
 <!-- link 로딩 -->
 <jsp:include page="../include/MSC1.jsp" />
-	<title>event/list.jsp</title>
-	<style>
-		.top-img{
-             position: relative;
-             height: 400px;
-             padding: 0;
-             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/단순배경2.jpg) 50% 0 no-repeat;
-             background-size: cover;
-         }
-         .service-features {
-		    background-color: #6e94b599;
-		}
-	</style>
+	<title>movie/findmovie.jsp</title>
 </head>
 <body>
 
@@ -41,17 +29,22 @@
         ========================== -->
 
 	<section id="service-bottom">
-		<div class="top-img">
-		</div>
 		<div class="container">
-			
+			<div class="mobile-device">
+				<img data-wow-delay="0.2s"
+					class="img-responsive black  wow fadeInLeftBig"
+					src="${pageContext.request.contextPath }/resources/images/icons/iphone-black.png" alt="iPhone Black"> <img
+					data-wow-delay="0.5s"
+					class="img-responsive white  wow fadeInLeftBig"
+					src="${pageContext.request.contextPath }/resources/images/icons/iphone-white.png" alt="iPhone White">
+			</div>
 			<div class="service-features wow fadeInRight">
-				<h3>이벤트페이지란 무엇인가...</h3>
+				<h3>OUR DESIGNS COMES WITH...</h3>
 				<ul>
-					<li>1</li>
-					<li>2</li>
-					<li>3</li>
-					<li>4</li>
+					<li>Responsive Design</li>
+					<li>Modern And Clean Design</li>
+					<li>Clean Code</li>
+					<li>Browser Friendly</li>
 				</ul>
 			</div>
 		</div>
@@ -65,22 +58,22 @@
 <section id="portfolio">
 <div class="section-title text-center wow fadeInDown">
 	<h2>event</h2>
-	<!-- 
-	<h4>이미지 로드 테스트 혜워니~</h4>
-	<img src="${pageContext.request.contextPath}/upload/20181217151443f3f45907-6d87-4969-aa54-06537dddfd48.jpg" alt="" />
-	-->
+
 </div>	
-	<div id="projects" class="clearfix">
-	<c:forEach items="${list }" var="tmp">
-		<figure class="mix portfolio-item" style="display: inline-block;">					
-			<a href="detail.do?num=${tmp.num }"><img style="width:372px;height:290px;"  class="img-responsive" src="${pageContext.request.contextPath}/upload/${tmp.saveFileName}"/></a>
-			<figcaption class="mask">
-	            <h3>${tmp.title }</h3>
-	        </figcaption>			
-       	</figure>		
-	</c:forEach>
-	</div>
+
 	<!-- 페이징 처리 -->
+	<div class="container">
+		<form action="findmovie.do">
+		<input id="query" name="query" type="text" value="영화제목"/>
+		<button class="btn btn-info" type="submit">전송
+		</button>
+		</form>
+		<table class="table">
+		<tr>
+			<td></td>
+		</tr>
+		</table>
+	</div>
 	<div class="page-display text-center">
 		<ul class="pagination">
 		<c:choose>
@@ -151,20 +144,8 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
-	$("#nav>li:eq(5)").attr("class", "current");
+$("#nav>li:eq(1)").attr("class", "current");
 	
-	$(function(){
-
-   	    jQuery(window).scroll(function () {
-	   	        if (jQuery(window).scrollTop() > 50) {
-	   	            jQuery("#navigation").css("background-color","#00C7FC");
-	   	            jQuery("#navigation").addClass("animated-nav");
-	   	        } else {
-	   	            jQuery("#navigation").css("background-color","transparent");
-	   	            jQuery("#navigation").removeClass("animated-nav");
-	   	        }
-	   	    });
-	   	});
 </script>
 
 </body>

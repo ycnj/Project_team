@@ -311,7 +311,9 @@
 	<script src="${pageContext.request.contextPath }/resources/js/wow.min.js"></script>
 	<!-- theme custom scripts -->
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
+
 	<script>
+<<<<<<< HEAD
        $("#nav>li:eq(4)").attr("class","current"); 
        
        $(function(){
@@ -326,6 +328,9 @@
 	   	        }
 	   	    });
 	   	});
+=======
+            $("#nav>li:eq(4)").attr("class","current");        
+>>>>>>> branch 'MasterComiit' of https://github.com/ycnj/Project_team.git
     </script>
 </body>
 </html>

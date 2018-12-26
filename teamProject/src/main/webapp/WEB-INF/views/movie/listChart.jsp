@@ -44,17 +44,29 @@
 			height: 60px;
 		}
 		@media (min-width: 768px) {
+<<<<<<< HEAD
+		  .c1 {
+=======
 		  .container2 {
+>>>>>>> branch 'MasterComiit' of https://github.com/ycnj/Project_team.git
 		    width: 1100px;
 		  }
 		}
 		@media (min-width: 992px) {
+<<<<<<< HEAD
+		  .c1 {
+=======
 		  .container2 {
+>>>>>>> branch 'MasterComiit' of https://github.com/ycnj/Project_team.git
 		    width: 1100px;
 		  }
 		}
 		@media (min-width: 1200px) {
+<<<<<<< HEAD
+		  .c1 {
+=======
 		  .container2 {
+>>>>>>> branch 'MasterComiit' of https://github.com/ycnj/Project_team.git
 		    width: 1100px;
 		  }
 		}
@@ -143,6 +155,7 @@
         End #service-bottom
         ========================== -->
 	<!-- 메인 -->
+
 		<br /><br /><br />			
         <div class="container contFont container2">
 			<div class="section-title text-center wow fadeInUp">
