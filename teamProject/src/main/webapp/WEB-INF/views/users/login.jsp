@@ -53,7 +53,8 @@
 					</c:when>
 					<c:otherwise>
 						<p>
-							아이디 혹은 비밀번호가 틀려요. <a href="loginform.do">다시 로그인 하기</a>
+							아이디 혹은 비밀번호가 틀려요. 
+							<a style="color: red;" href="loginform.do">다시 로그인 하기</a>
 						</p>
 					</c:otherwise>
 				</c:choose>
