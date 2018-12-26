@@ -8,6 +8,12 @@
 <!-- link 로딩 -->
 <jsp:include page="../include/MSC1.jsp" />
 	<title>Home</title>
+	<style>
+		#contact{
+			padding-top: 10px;
+		}
+	</style>
+	
 </head>
 <body>
 
@@ -60,7 +66,7 @@
                 
 					<div class="container contFont">                  
 				         <div class="row">           
-							<div class="col-md-8" style="margin-left: 520px">
+							<div class="col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-5">
 					            <ul Class="pagination pagination-lg">
 									<c:if test="${not empty sessionScope.id || sessionScope.id eq 'master' }">
 					             	<li class="active"><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>
@@ -69,12 +75,12 @@
 					    		</ul>
 				    		</div>
 				    	</div>    
-				    </div> 	     
+				    </div> 	     				    
 				    
-				    
-				    <div class="section-title text-center wow fadeInDown" style="margin-left:450px;">
+				    <div class="section-title text-center wow fadeInDown">
                         <h2>Q&A 게시판 입니다.</h2>
                     </div>        
+                    
                     
                     </div> <!-- .col-md-4 -->
                     <div class="col-md-10 col-sm-10">

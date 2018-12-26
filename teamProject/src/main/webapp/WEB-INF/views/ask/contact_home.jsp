@@ -69,10 +69,10 @@
 				         <div class="row">           
 							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2" style="padding-left: 180px;">
 					            <ul Class="pagination pagination-lg">					             						          							             
-					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             	                          					          				
-					          		<c:if test="${not empty id }">
-					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의 목록보기<span class="sr-only">(current)</span></a></li>					          	
-					          		</c:if>														          		
+					             	<c:if test="${not empty sessionScope.id || sessionScope.id eq 'master' }">
+					             	<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>
+					             	</c:if>						            					             	
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>   				          						          													          		
 					    		</ul>
 				    		</div>
 				    	</div>    
