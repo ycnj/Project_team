@@ -80,41 +80,14 @@
 					
 					
                     <div class="section-title text-center wow fadeInDown" style="padding: 50px; padding-right: 1px;">
-                        <h2>고객센터</h2>                                   
+                        <h2>고객센터</h2>
+                        <img style="margin-left:-30px;" class="section-title text-center wow fadeInDown" src="${pageContext.request.contextPath}/resources/images/center.jpg" alt="고객센터" />						                                                          
                     </div>
+                    
                     
               
 
 
-                        <div id="testimonial">
-
-                            <div class="tst-item clearfix">
-                                <div class="tst-single clearfix">
-                                    <img src="${pageContext.request.contextPath}/resources/images/qna.jpg" alt="Client" class="img-circle">
-                                    <div class="tst-content">
-                                        <a class="btn btn-success" href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판</a>                   
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="tst-item">
-                            
-                                <div class="tst-single clearfix">
-                                    <img src="${pageContext.request.contextPath}/resources/images/qna2.jpg" alt="Client" class="img-circle">
-                                    <div class="tst-content">
-                                    <c:if test="${not empty sessionScope.id }">
-                                        <a class="btn btn-danger" href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록보기</a>                             
-                            		</c:if>
-                                        <span>로그인이 필요합니다.</span>
-                                    </div>
-                                </div>
-							
-                            </div>
-
-                         
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>
