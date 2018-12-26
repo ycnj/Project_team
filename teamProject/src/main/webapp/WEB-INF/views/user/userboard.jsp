@@ -9,8 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 </head>
 <body>
-<div class="container">
-	<h3>유저간 질문게시판 목록입니다.</h3>
+<div class="container container2">
 	<table style="width:880px; height:220px;"class="table table-bordered">
 		<thead>
 			<tr>
@@ -51,12 +50,12 @@
 			<c:choose>
 				<c:when test="${pageNum eq i }">
 					<li class="active">
-						<a href="userlistboard.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="userboardview.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:when>
 				<c:otherwise>
 					<li>
-						<a href="userlistboard.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="userboardview.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:otherwise>
 			</c:choose>

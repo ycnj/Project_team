@@ -1,4 +1,6 @@
 
+--------------------------UsersTable--------------------------
+
 Create table users_mp(
 name varchar2(20) not null, --이름
 rrn varchar2(15) not null, --생년월일
@@ -31,6 +33,9 @@ CREATE TABLE usersRes_mp(
 
 CREATE SEQUENCE userRes_mp_seq;
 
+
+--------------------------MovieInfoTable--------------------------
+
 CREATE TABLE movieInfo(
 	num NUMBER PRIMARY KEY, 	-- 파일번호
 	id VARCHAR2(100), 			-- 작성자
@@ -52,3 +57,109 @@ CREATE TABLE movieInfo_like(
     id VARCHAR2(100) NOT NULL,
     like_check NUMBER DEFAULT 0 NULL 
 );
+
+
+--------------------------AskTable--------------------------
+
+CREATE TABLE board_ask(
+num NUMBER PRIMARY KEY,
+writer VARCHAR2(100) NOT NULL,
+title VARCHAR2(100) NOT NULL,
+content CLOB,
+viewCount NUMBER, 
+regdate DATE
+);
+
+CREATE SEQUENCE board_ask_seq;
+
+-- 댓글 정보를 저장할 테이블
+CREATE TABLE board_ask_comment(
+	num NUMBER PRIMARY KEY, -- 댓글의 글번호
+	writer VARCHAR2(100), -- 댓글 작성자
+	content VARCHAR2(500), -- 댓글 내용
+	target_id VARCHAR2(100), -- 댓글의 대상이 되는 아이디(글작성자)
+	ref_group NUMBER, -- 댓글 그룹번호
+	comment_group NUMBER, -- 원글에 달린 댓글 내에서의 그룹번호
+	deleted CHAR(3) DEFAULT 'no', -- 댓글이 삭제 되었는지 여부 
+	regdate DATE -- 댓글 등록일 
+);
+
+CREATE SEQUENCE board_ask_comment_seq;
+
+
+CREATE TABLE board_user(
+num NUMBER PRIMARY KEY,
+writer VARCHAR2(100) NOT NULL,
+title VARCHAR2(100) NOT NULL,
+content CLOB,
+viewCount NUMBER, 
+regdate DATE
+);
+
+CREATE SEQUENCE board_user_seq;
+
+
+CREATE TABLE board_user_comment(
+	num NUMBER PRIMARY KEY, 
+	writer VARCHAR2(100), 
+	content VARCHAR2(500), 
+	target_id VARCHAR2(100), 
+	ref_group NUMBER, 
+	comment_group NUMBER, 
+	deleted CHAR(3) DEFAULT 'no', 
+	regdate DATE  
+);
+
+CREATE SEQUENCE board_user_comment_seq;
+
+
+--------------------------EventTable--------------------------
+
+CREATE TABLE event_mp
+(
+  NUM        NUMBER,
+  WRITER     VARCHAR2(100 BYTE)                 NOT NULL,
+  TITLE      VARCHAR2(100 BYTE),
+  CONTENT    VARCHAR2(2000 BYTE),  
+  orgFileName  VARCHAR2(100 BYTE),
+  saveFileName  VARCHAR2(100 BYTE),
+  fileSize   NUMBER,
+  VIEWCOUNT  NUMBER,
+  REGDATE    DATE
+);
+
+CREATE SEQUENCE event_mp_SEQ;
+
+
+--------------------------FreeboardTable--------------------------
+
+CREATE TABLE freeboard(
+num NUMBER PRIMARY KEY,
+id VARCHAR2(100) not null,
+title VARCHAR2(100) not null,
+content CLOB,
+orgFileName VARCHAR2(100), -- 원본파일명
+saveFileName VARCHAR2(100), -- 파일 시스템에 저장된 파일명
+fileSize NUMBER, -- 파일의 크기(byte)
+viewCount NUMBER,
+regdate DATE
+);
+
+CREATE SEQUENCE freeboard_seq;
+
+
+--댓글 정보 저장 테이블
+CREATE TABLE freeboardComment(
+num NUMBER PRIMARY KEY,						--댓글 글번호
+id VARCHAR2(100),							--댓글 작성자
+content VARCHAR2(500),						-- 내용
+target_id VARCHAR2(100),					--댓글의 대상이 되는 아이디(글작성자)
+ref_group NUMBER,							-- 댓글 그룹번호
+comment_group NUMBER,						-- 원글에 달린 댓글 내에서의 그룹번호
+deleted CHAR(3) DEFAULT 'no',
+regdate DATE
+);
+
+CREATE SEQUENCE freeboard_comment_seq;
+
+

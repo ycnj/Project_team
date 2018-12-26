@@ -35,4 +35,13 @@
 		
 		<!-- Modernizer Script for old Browsers -->
         <script src="${pageContext.request.contextPath}/resources/js/modernizr-2.6.2.min.js"></script>
+       
+        <style>
+        	.dropdown-menu{
+        		background-color: rgba(0, 0, 0, 0.7);
+        	}
+        	.dropdown-menu>li>a {
+			    color: #fff;
+			}
+        </style>
 

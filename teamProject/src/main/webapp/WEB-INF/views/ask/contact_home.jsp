@@ -57,22 +57,33 @@
         <section id="contact">
             <div class="container">
                 <div class="row">
-				
-                    <div class="section-title text-center wow fadeInDown">
-                        <h2>CONTACT PAGE</h2>                                   
+                
+					<div class="container contFont">                  
+				         <div class="row">           
+							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2" style="padding-left: 65px;">
+					            <ul Class="pagination pagination-lg">
+					             	<li class="active"><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터<span class="sr-only">(current)</span></a></li>
+					          		<li><a href="${pageContext.request.contextPath}/ask/insertformview.do">문의작성</a></li>					             	
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             	                          					          		
+					          		<c:if test="${empty id }">
+					          		<li><a href="${pageContext.request.contextPath}/users/loginform.do">로그인</a></li>
+					          		</c:if>
+					          		<c:if test="${not empty id }">
+					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의 목록보기<span class="sr-only">(current)</span></a></li>					          	
+					          		</c:if>
+									<li><a href="${pageContext.request.contextPath}/home.do">메인 페이지<span class="sr-only">(current)</span></a></li>					          		
+					    		</ul>
+				    		</div>
+				    	</div>    
+				    </div>
+					
+					
+                    <div class="section-title text-center wow fadeInDown" style="padding: 50px; padding-right: 1px;">
+                        <h2>고객센터</h2>                                   
                     </div>
                     
               
-                    <div class="col-md-12 wow fadeInLeft">
 
-                        <div class="subtitle text-center">
-                            <h3>문의 게시판 목록</h3>
-								<a href="${pageContext.request.contextPath}/user/userboardview.do"><span>질문게시판</span></a>
-							<c:if test="${not empty sessionScope.id }">
-								<a href="qnalistview.do"><span>1:1문의목록보기</span></a>
-							</c:if>
-								<a href="qnainsertform.do"><span>1:1문의</span></a>
-                        </div>
 
                         <div id="testimonial">
 
@@ -80,7 +91,7 @@
                                 <div class="tst-single clearfix">
                                     <img src="${pageContext.request.contextPath}/resources/images/qna.jpg" alt="Client" class="img-circle">
                                     <div class="tst-content">
-                                        <a href="../user/userboardview.do">질문게시판</a>                   
+                                        <a class="btn btn-success" href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판</a>                   
                                     </div>
                                 </div>
 
@@ -92,7 +103,7 @@
                                     <img src="${pageContext.request.contextPath}/resources/images/qna2.jpg" alt="Client" class="img-circle">
                                     <div class="tst-content">
                                     <c:if test="${not empty sessionScope.id }">
-                                        <a href="qnalistview.do">1:1문의목록보기</a>
+                                        <a class="btn btn-danger" href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록보기</a>                             
                             		</c:if>
                                         <span>로그인이 필요합니다.</span>
                                     </div>
@@ -104,7 +115,7 @@
                                 <div class="tst-single clearfix">
                                     <img src="${pageContext.request.contextPath}/resources/images/qna3.jpg" alt="Client" class="img-circle">
                                     <div class="tst-content">
-                                        <a href="../ask/qnainsertform.do">1:1문의</a>
+                                        <a class="btn btn-info" href="${pageContext.request.contextPath}/ask/insertformview.do">1:1문의</a>
                                     
                                     </div>
                                 </div>
@@ -135,7 +146,9 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
+
 	$("#nav>li:eq(4)").attr("class", "current");
+
 </script>
 
 </body>

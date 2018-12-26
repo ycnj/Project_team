@@ -26,17 +26,11 @@ public class AskDaoImpl implements AskDao{
 	}
 	
 	@Override
-	public List<AskDto> getList2(AskDto dto) {
-
-		return session.selectList("ask.getList2", dto);
-	}	
-
-	@Override
 	public void insert(AskDto dto) {
 	
 		session.insert("ask.insert", dto);
 	}
-
+	
 	@Override
 	public AskDto getData(AskDto dto) {
 		

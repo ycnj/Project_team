@@ -39,7 +39,6 @@ public class UserController {
 		return new ModelAndView("user/userboard");
 	}
 	
-	
 	@RequestMapping("/user/insertformview")
 	public ModelAndView authgetList3(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
@@ -60,6 +59,7 @@ public class UserController {
 		//view 페이지로 forward 이동해서 새글 작성 폼 출력하기 
 		return new ModelAndView("user/insertform");
 	}
+	
 	@RequestMapping("/user/insert")
 	public ModelAndView authInsert(@ModelAttribute UserDto dto,HttpServletRequest request) {
 		//userDto 객체에 작성자의 아이디를 담아서 
@@ -82,11 +82,11 @@ public class UserController {
 		service.deleteContent(num);
 		return new ModelAndView("redirect:/user/userboardview.do");
 	}
-	@RequestMapping("/user/updateform")
+	@RequestMapping("/user/updateformview")
 	public ModelAndView authUpdateForm(ModelAndView mView, @RequestParam int num, 
 			HttpServletRequest request) {
 		service.getUpdateData(mView, num);
-		mView.setViewName("user/updateform");
+		mView.setViewName("user/updateformview");
 		return mView;
 	}
 	@RequestMapping("/user/update")
@@ -96,6 +96,7 @@ public class UserController {
 		//dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
 		return new ModelAndView("redirect:/user/detail.do?num="+dto.getNum());
 	}
+	
 	@RequestMapping("/user/comment_delete")
 	@ResponseBody
 	public Map<String, Object> authCommentDelete(@RequestParam int num, HttpServletRequest request) {

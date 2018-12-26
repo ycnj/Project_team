@@ -6,7 +6,7 @@
 	<h3>QnA 게시판 목록입니다.</h3>
 	<table style="width:880px; height:220px;" class="table table-bordered">
 		<thead>
-			<tr>
+			<tr>				
 				<th>번호</th>
 				<th>작성자</th>
 				<th>제목</th>
@@ -44,12 +44,12 @@
 			<c:choose>
 				<c:when test="${pageNum eq i }">
 					<li class="active">
-						<a href="qnalist.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="qnalistview.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:when>
 				<c:otherwise>
 					<li>
-						<a href="qnalist.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
+						<a href="qnalistview.do?pageNum=${i }&condition=${condition}&keyword=${encodedKeyword}">${i }</a>
 					</li>
 				</c:otherwise>
 			</c:choose>
@@ -69,7 +69,7 @@
 		</c:choose>
 		</ul>
 	</div>
-	<form action="list5.do" method="get">
+	<form action="qnalistview.do" method="get">
 		<label for="condition">검색조건</label>
 		<select name="condition" id="condition">
 			<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>

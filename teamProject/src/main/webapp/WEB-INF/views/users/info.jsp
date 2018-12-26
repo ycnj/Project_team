@@ -13,7 +13,6 @@
 	.table{
 		width: 95%;
 		color: black;
-
 	}
 	.table th{
 		width: 200px;
@@ -24,8 +23,8 @@
 		color: blue;
 	}
 	.section-center{
-	margin : 0 auto 50px;
-	width: 600px;
+		margin : 0 auto 50px;
+		width: 600px;
 	}
 	
 	.pagination-lg > li > a,
@@ -236,7 +235,7 @@
 		}
 	}
 
-	$("#nav>li:eq(6)").attr("class", "current");
+	$("#nav>li:eq(7)").attr("class", "current");
 
 	$(function(){
 

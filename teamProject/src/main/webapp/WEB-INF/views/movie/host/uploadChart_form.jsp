@@ -10,53 +10,33 @@
 <head>
 <!-- link 로딩 -->
 <jsp:include page="../../include/MSC1.jsp" />
+
 	<title>Home</title>
 	<style>
 		@media (min-width: 768px) {
-		  .container {
+		  .container2 {
 		    width: 1100px;
 		  }
 		}
 		@media (min-width: 992px) {
-		  .container {
+		  .container2 {
 		    width: 1100px;
 		  }
 		}
 		@media (min-width: 1200px) {
-		  .container {
+		  .container2 {
 		    width: 1100px;
 		  }
 		}
-		
-		.form-group{
-			display:inline-block;
-		}
-		.contFont{
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-		font-size: 14px;
-		line-height: 1.42857143;
-		color: #333;
-		}
-		.btn {
-		   display: inline-block;
-		   padding: 6px 12px;
-		   margin-bottom: 0;
-		   font-size: 14px;
-		   font-weight: normal;
-		   line-height: 1.42857143;
-		   text-align: center;
-		   white-space: nowrap;
-		   vertical-align: middle;
-		   -ms-touch-action: manipulation;
-		   touch-action: manipulation;
-		   cursor: pointer;
-		   -webkit-user-select: none;
-		   -moz-user-select: none;
-		   -ms-user-select: none;
-		   user-select: none;
-		   background-image: none;
-		   border: 1px solid transparent;
-		   border-radius: 4px;
+		.top-img{
+             position: relative;
+             height: 400px;
+             padding: 0;
+             background: url(${pageContext.request.contextPath }/resources/img/배경화면/모털엔진.jpg) 50% 0 no-repeat;
+             background-size: cover;
+         }
+         .service-features {
+		    background-color: #6e94b599;
 		}
 
 	</style>	
@@ -80,15 +60,10 @@
         ========================== -->
 
 	<section id="service-bottom">
-		<div class="container" >
-			<div class="mobile-device">
-				<img data-wow-delay="0.2s"
-					class="img-responsive black  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-black.png" alt="iPhone Black"> <img
-					data-wow-delay="0.5s"
-					class="img-responsive white  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-white.png" alt="iPhone White">
-			</div>
+		<div class="top-img">
+		</div>
+		<div class="container">
+			
 			<div class="service-features wow fadeInRight">
 				<h3>OUR DESIGNS COMES WITH...</h3>
 				<ul>
@@ -104,31 +79,33 @@
         End #service-bottom
         ========================== -->
 	<!-- 메인 -->
-		<br />
-		<br />
-        <div class="container contFont">
+		<br /><br /><br /><br />		
+        <div class="container contFont container2">
+        	<div class="section-title text-center wow fadeInUp">
+	            <h2><strong>파일 업로드</strong></h2>    
+	        </div>
 			<div class="row">
-				<div class="col-xs-6 cos-sm-4">
-					<h3>파일 업로드</h3>
+				<div class="col-sm-8 col-sm-offset-2">
 					<form action="uploadChart.do" method="post" enctype="multipart/form-data">
 						<div class="form-group has-feedback">
 							<label class="control-label" for="title">영화제목</label>
 							<input class="form-control" type="text" name="title" id="title" autocomplete="off"/>
-						</div>
+						</div><br />
 						<div class="form-group has-feedback">
 							<label class="control-label" for="content">영화주요내용</label>
 							<textarea class="form-control" name="content" id="content" style="width:100%;height:300px;"/></textarea>
-						</div>
+						</div><br />
 						<div class="form-group has-feedback">
 							<label class="control-label" for="opendate">개봉날짜</label>
-							<input class="form-control" type="date" name="opendate" id="opendate" autocomplete="off"/>
-						</div>
+							<input class="form-control" type="text" name="opendate" id="opendate" autocomplete="off"/>
+						</div><br />
 						<div class="form-group has-feedback">
 							<label class="control-label" for="myFile">첨부파일</label>
 							<input class="form-control" type="file" name="file" id="myFile"/>
-						</div>
+						</div><br />
 						<button class="btn btn-success" type="submit">업로드</button>
 						<button class="btn btn-warning" type="reset">취소</button>
+						<a class="btn btn-primary" href="${pageContext.request.contextPath}/movie/listChart.do">목록</a>
 					</form>
 				</div>
 
@@ -226,6 +203,20 @@
 <!-- javascript	 -->
 <script>
 	$("#nav>li:eq(1)").attr("class", "current");
+	
+	$(function(){
+
+	    jQuery(window).scroll(function () {
+	        if (jQuery(window).scrollTop() > 50) {
+	            jQuery("#navigation").css("background-color","#00C7FC");
+	            jQuery("#navigation").addClass("animated-nav");
+	        } else {
+	            jQuery("#navigation").css("background-color","transparent");
+	            jQuery("#navigation").removeClass("animated-nav");
+	        }
+	    });	    
+	});
+	
 </script>
 
 </body>

@@ -63,16 +63,16 @@
 </head>
 <body>
 <div class="container">
-	<a href="qnalistview.do">글 목록보기</a>
+	<a class="btn btn-primary" href="qnalistview.do">글 목록보기</a>
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
-	<h3>카페 글 상세 보기</h3>
+	<h3>문의목록 입니다.</h3>
 	<c:if test="${dto.prevNum ne 0 }">
-		<a href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
+		<a class="btn btn-warning" href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
 	</c:if>
 	<c:if test="${dto.nextNum ne 0 }">
-		<a href="detail.do?num=${dto.nextNum }&condition=${condition}&keyword=${encodedKeyword}">다음글</a>
+		<a class="btn btn-success" href="detail.do?num=${dto.nextNum }&condition=${condition}&keyword=${encodedKeyword}">다음글</a>
 	</c:if>
 	<table class="table table-bordered table-condensed">
 		<tr>
@@ -98,9 +98,9 @@
 	</table>
 	<div class="content">${dto.content }</div>
 	<!-- 로그인된 아이디와 글작성자가 같을때만 수정, 삭제 링크 제공 -->
-	<c:if test="${ sessionScope.id eq dto.writer }">
-		<a href="updateform.do?num=${dto.num }">수정</a>
-		<a href="javascript:deleteConfirm(${dto.num })">삭제</a>
+	<c:if test="${ sessionScope.id eq dto.writer || sessionScope.id eq 'master' }">
+		<a class="btn btn-info" href="updateformview.do?num=${dto.num }">수정</a>
+		<a class="btn btn-danger" href="javascript:deleteConfirm(${dto.num })">삭제</a>
 	</c:if>
 	<!-- 댓글 목록 -->
 	<div class="comments">
@@ -114,7 +114,7 @@
 						</c:if>
 						<dl>
 							<dt>
-								<img src="${pageContext.request.contextPath}/resources/images/user_image.gif"/>
+								<img src="${pageContext.request.contextPath}/resources/images/master_icon.png"/>
 								<span>${tmp.writer }</span>
 								<c:if test="${tmp.num ne tmp.comment_group }">
 									to <strong>${tmp.target_id }</strong>
@@ -135,7 +135,8 @@
 								<pre>${tmp.content }</pre>
 							</dd>
 						</dl>
-						<form class="comment-insert-form" action="comment_insert.do" method="post">
+						<c:if test="${id eq 'master' }">
+							<form class="comment-insert-form" action="comment_insert.do" method="post">
 							<!-- 덧글 그룹 -->
 							<input type="hidden" name="ref_group" value="${dto.num }" />
 							<!-- 덧글 대상 -->
@@ -143,9 +144,10 @@
 							<input type="hidden" name="comment_group" value="${tmp.comment_group }" />
 							<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다.</c:if></textarea>
 							<button type="submit">등록</button>
-						</form>	
+							</form>	
+						</c:if>
 						<!-- 로그인한 아이디와 댓글의 작성자와 같으면 수정폼 출력 -->				
-						<c:if test="${id eq tmp.writer }">
+						<c:if test="${id eq 'master' }">
 							<form class="comment-update-form" action="comment_update.do">
 								<input type="hidden" name="num" value="${tmp.num }" />
 								<textarea name="content">${tmp.content }</textarea>
@@ -163,14 +165,16 @@
 		<div class="clearfix"></div>
 		<!-- 원글에 댓글을 작성할수 있는 폼 -->
 		<div class="comment_form">
+			<c:if test="${id eq 'master' }">
 			<form action="comment_insert.do" method="post">
 				<!-- 댓글의 그룹번호는 원글의 글번호 -->
 				<input type="hidden" name="ref_group" value="${dto.num }"/>
 				<!-- 댓글의 대상자는 원글의 작성자 -->
 				<input type="hidden" name="target_id" value="${dto.writer }"/>
-				<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다.</c:if></textarea>
+				<textarea name="content"></textarea>
 				<button type="submit">등록</button>
 			</form>
+			</c:if>		
 		</div>
 	</div>
 </div>
@@ -224,7 +228,7 @@
 				success:function(responseData){
 					if(responseData.isSuccess){
 						var sel="#comment"+num;
-						$(sel).text("삭제된 댓글 입니다.");
+						$(sel).text("관리자에 의해 삭제된 댓글입니다.");
 					}
 				}
 			});
