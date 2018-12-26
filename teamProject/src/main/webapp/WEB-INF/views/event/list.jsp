@@ -65,17 +65,17 @@
 <section id="portfolio">
 <div class="section-title text-center wow fadeInDown">
 	<h2>event</h2>
-	<!-- 
-	<h4>이미지 로드 테스트 혜워니~</h4>
-	<img src="${pageContext.request.contextPath}/upload/20181217151443f3f45907-6d87-4969-aa54-06537dddfd48.jpg" alt="" />
-	-->
+	<br />
+	<c:if test="${id eq 'joo' }">
+	<h1><a class="btn btn-info" href="${pageContext.request.contextPath}/event/uploadform.do">이벤트 업로드</a></h1>
+	</c:if>
 </div>	
 	<div id="projects" class="clearfix">
 	<c:forEach items="${list }" var="tmp">
 		<figure class="mix portfolio-item" style="display: inline-block;">					
 			<a href="detail.do?num=${tmp.num }"><img style="width:372px;height:290px;"  class="img-responsive" src="${pageContext.request.contextPath}/upload/${tmp.saveFileName}"/></a>
 			<figcaption class="mask">
-	            <h3>${tmp.title }</h3>
+	            <h3 style="width:330px">${tmp.title }</h3>
 	        </figcaption>			
        	</figure>		
 	</c:forEach>
@@ -123,10 +123,7 @@
 			</c:otherwise>
 		</c:choose>			
 		</ul>
-	</div>
-	<div class="container">
-		<a class="btn btn-info" href="${pageContext.request.contextPath}/event/uploadform.do">이벤트 업로드</a>
-	</div>
+	</div>	
 </section>
 	
 	<!-- 본문 끝 -->

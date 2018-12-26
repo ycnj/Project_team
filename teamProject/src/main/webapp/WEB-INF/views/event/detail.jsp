@@ -56,17 +56,23 @@
 	<!-- 본문 -->
 	
 <section id="portfolio">
-<div class="section-title text-center wow fadeInDown">
+<div class="section-title text-center wow fadeInDown" style="width:700px;">
 	<h2>event</h2>
 	<h3>${dto.title }</h3>
 	<div id="projects" class="clearfix">	
-	<img style="width:372px;height:290px;" class="img-responsive" src="${pageContext.request.contextPath}/upload/${dto.saveFileName}"/>		
-	</div><div><h2>${dto.content }</h2></div>          
+	<c:forEach var="tmp" items="${imageList }">
+		<img class="img-responsive" src="${pageContext.request.contextPath}/upload/${tmp.saveFileName}"/>
+	</c:forEach>			
+	</div><div><h2>${dto.content }</h2></div>   
+	<br />
+	<br />      
 	<ul  class="list-inline" style="display: inline;">
-		<li><a href="list.do">목록으로</a></li>
-		<li><a href="uploadform.do">이벤트 업로드</a></li>
-		<li><a href="updateform.do?num=${dto.num }">이벤트 수정</a></li>
-		<li><a href="delete.do?num=${dto.num }">이벤트 삭제</a></li>
+		<li><a class="btn btn-info" href="list.do">목록</a></li>
+		<c:if test="${id eq 'joo' }">
+		<li><a class="btn btn-success" href="imageUploadform.do?num=${dto.num }">상세이미지 관리</a></li>
+		<!-- <li><a class="btn btn-warning" href="updateform.do?num=${dto.num }">수정</a></li> -->
+		<li><a class="btn btn-danger" href="delete.do?num=${dto.num }">삭제</a></li>
+		</c:if>
 	</ul>
 </div>	
 </section>

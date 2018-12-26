@@ -7,7 +7,34 @@
 <head>
 <!-- link 로딩 -->
 <jsp:include page="../include/MSC1.jsp" />
-	<title>event/uploadform.jsp</title>
+<title>event/uploadform.jsp</title>
+<style>
+	@media (min-width: 768px) {
+	  .container2 {
+	    width: 1100px;
+	  }
+	}
+	@media (min-width: 992px) {
+	  .container2 {
+	    width: 1100px;
+	  }
+	}
+	@media (min-width: 1200px) {
+	  .container2 {
+	    width: 1100px;
+	  }
+	}
+	.top-img{
+            position: relative;
+            height: 400px;
+            padding: 0;
+            background: url(${pageContext.request.contextPath }/resources/img/배경화면/모털엔진.jpg) 50% 0 no-repeat;
+            background-size: cover;
+        }
+        .service-features {
+	    background-color: #6e94b599;
+	}
+</style>
 </head>
 <body>
 
@@ -54,21 +81,34 @@
         ========================== -->
 
 	<!-- 본문 -->
-	
-<section id="portfolio">
-<div class="section-title text-center wow fadeInDown container">
-	<h2>event</h2>
-		<form action="upload.do" method="post" enctype="multipart/form-data">
-		<label for="title">제목</label>
-		<input type="text" name="title" id="title"/><br/>
-		<label for="content">내용</label>
-		<textarea name="content" id="content" cols="30" rows="10"></textarea>
-		<label for="myFile">첨부파일</label>
-		<input type="file" name="file" id="myFile" /><br/>
-		<button type="submit">업로드</button>
-	</form>
+	<br /><br /><br /><br />
+	<div class="container contFont container2">
+       	<div class="section-title text-center wow fadeInUp">
+		<h2>event</h2>
 	</div>
-</section>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">			
+				<form action="upload.do" method="post" enctype="multipart/form-data">
+				<div class="form-group has-feedback">
+				<label for="title">제목</label>
+				<input class="form-control" type="text" name="title" id="title"/><br/>
+				</div><br />
+				<div class="form-group has-feedback">
+				<label class="control-label" for="content">내용</label>
+				<textarea class="form-control" name="content" id="content" style="width:100%;height:300px;"></textarea>
+				</div><br />
+				<img id="replaceMe" src=""/>	
+				<div class="form-group has-feedback">
+				<label for="myFile">첨부파일</label>
+				<input type="file" class="file" name="file" id="myFile" onchange="imageURL(this)" />
+				</div><br/>
+				<button class="btn btn-success" type="submit">업로드</button>
+				<button class="btn btn-warning" type="reset">취소</button>
+				<a class="btn btn-primary" href="${pageContext.request.contextPath}/event/list.do">목록</a>
+				</form>
+			</div>
+		</div>
+	</div>
 	
 	<!-- 본문 끝 -->
 
@@ -94,7 +134,21 @@
 <script>
 	$("#nav>li:eq(4)").attr("class", "current");
 </script>
+<script>
+function imageURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
+        reader.onload = function(e) {
+            $('#replaceMe').attr('src', e.target.result)
+             .width(200)
+             .height(200);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
 </body>
 </html>
 

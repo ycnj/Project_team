@@ -12,13 +12,18 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.team.spring.event.dao.EventDao;
+import com.team.spring.event.dao.EventImageDao;
 import com.team.spring.event.dto.EventDto;
+import com.team.spring.event.dto.EventImageDto;
 
 @Service
 public class EventServiceImpl implements EventService {
 
 	@Autowired
 	private EventDao eventDao;
+	@Autowired
+	private EventImageDao eventImageDao;
+	
 	static final int PAGE_ROW_COUNT=8;
 	//하단 디스플레이 페이지 갯수 
 	static final int PAGE_DISPLAY_COUNT=3;	
@@ -69,12 +74,18 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public void getDetail(HttpServletRequest request) {
 		int num=Integer.parseInt(request.getParameter("num"));
-		EventDto dto=new EventDto();
+		EventDto dto=new EventDto();		
 		dto.setNum(num);
 		
 		EventDto resultDto=eventDao.getData(num);
 		eventDao.addViewCount(num);
 		request.setAttribute("dto", resultDto);
+		
+		
+		EventImageDto dto2=new EventImageDto();
+		dto2.setRef_group(num);
+		List<EventImageDto> imageList=eventImageDao.getList(dto2);
+		request.setAttribute("imageList", imageList);	
 	}
 	// 컨텐츠 삭제 서비스
 	@Override
@@ -113,14 +124,13 @@ public class EventServiceImpl implements EventService {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		String id="ragu";//(String)request.getSession().getAttribute("id");
+		String id=(String)request.getSession().getAttribute("id");
 		dto.setWriter(id);
 		dto.setOrgFileName(orgFileName);
 		dto.setSaveFileName(saveFileName);
 		dto.setFileSize(fileSize);
-		//FileDao 객체를 이용해서 DB 에 저장하기
-		eventDao.insert(dto);	
-		
+		//EventDao 객체를 이용해서 DB 에 저장하기
+		eventDao.insert(dto);		
 	}
 	// 조회수 증가 서비스
 	@Override
@@ -131,7 +141,88 @@ public class EventServiceImpl implements EventService {
 	//컨텐츠 수정 서비스
 	@Override
 	public void updateContent(EventDto dto, HttpServletRequest request) {
-		eventDao.update(dto);		
+		//파일을 저장할 폴더의 절대 경로를 얻어온다.
+		String realPath=request.getSession()
+				.getServletContext().getRealPath("/upload");				
+		MultipartFile mFile=dto.getFile();
+		//원본 파일명
+		String orgFileName=mFile.getOriginalFilename();
+		//파일 사이즈
+		long fileSize=mFile.getSize();
+		//저장할 파일의 상세 경로
+		String filePath=realPath+File.separator;
+		//디렉토리를 만들 파일 객체 생성
+		File file=new File(filePath);
+		if(!file.exists()){//디렉토리가 존재하지 않는다면
+			file.mkdir();//디렉토리를 만든다.
+		}
+		//파일 시스템에 저장할 파일명을 만든다. (겹치치 않게)
+		String saveFileName=System.currentTimeMillis()+orgFileName;
+		try{
+			//upload 폴더에 파일을 저장한다.
+			mFile.transferTo(new File(filePath+saveFileName));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		String id=(String)request.getSession().getAttribute("id");
+		dto.setWriter(id);
+		dto.setOrgFileName(orgFileName);
+		dto.setSaveFileName(saveFileName);
+		dto.setFileSize(fileSize);
+		//EventDao 객체를 이용해서 DB 에 저장하기			
+		eventDao.update(dto);	
+	}
+	
+	@Override
+	public void saveImage(EventImageDto dto, HttpServletRequest request) {
+		String realPath=request.getSession()
+				.getServletContext().getRealPath("/upload");		
+		MultipartFile mFile=dto.getFile();
+		//원본 파일명
+		String orgFileName=mFile.getOriginalFilename();
+		//파일 사이즈
+		long fileSize=mFile.getSize();
+		//저장할 파일의 상세 경로
+		String filePath=realPath+File.separator;
+		//디렉토리를 만들 파일 객체 생성
+		File file=new File(filePath);
+		if(!file.exists()){//디렉토리가 존재하지 않는다면
+			file.mkdir();//디렉토리를 만든다.
+		}
+		//파일 시스템에 저장할 파일명을 만든다. (겹치치 않게)
+		String saveFileName=System.currentTimeMillis()+orgFileName;
+		try{
+			//upload 폴더에 파일을 저장한다.
+			mFile.transferTo(new File(filePath+saveFileName));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		dto.setOrgFileName(orgFileName);
+		dto.setSaveFileName(saveFileName);
+		dto.setFileSize(fileSize);
+		eventImageDao.insert(dto);
+	}
+
+	@Override
+	public void deleteImage(int num, HttpServletRequest request, HttpServletResponse response) {
+		EventImageDto dto=eventImageDao.getData(num);
+		eventImageDao.delete(num);
+		String path=request.getServletContext().getRealPath("upload")+
+				File.separator+dto.getSaveFileName();
+		new File(path).delete();
+	}
+	@Override
+	public void getImageDetail(HttpServletRequest request) {
+		
+	}
+	@Override
+	public void getImageList(HttpServletRequest request) {
+		int num=Integer.parseInt(request.getParameter("num"));
+		EventImageDto dto=new EventImageDto();
+		dto.setRef_group(num);		
+		List<EventImageDto> resultDto=eventImageDao.getList(dto);
+		request.setAttribute("imageList", resultDto);	
 	}
 
 }

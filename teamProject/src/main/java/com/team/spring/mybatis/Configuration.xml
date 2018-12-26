@@ -18,7 +18,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.team.spring.movieChart.dto.MovieChartDto" alias="movieChartDto"/>
 		<typeAlias type="com.team.spring.movieChart.dto.MovieChartLikeDto" alias="movieChartLikeDto"/>
 		<!-- 이벤트 -->
-		<typeAlias type="com.team.spring.event.dto.EventDto" alias="eventDto"/>		
+		<typeAlias type="com.team.spring.event.dto.EventDto" alias="eventDto"/>
+		<typeAlias type="com.team.spring.event.dto.EventImageDto" alias="eventImageDto"/>		
 	</typeAliases>
 	
 	<mappers>
@@ -38,6 +39,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/team/spring/mybatis/MovieChartLikeMapper.xml"/>
 		<!-- 이벤트 -->
 		<mapper resource="com/team/spring/mybatis/EventMapper.xml"/>	
+		<mapper resource="com/team/spring/mybatis/EventImageMapper.xml"/>
 	</mappers>	
 </configuration>
 
