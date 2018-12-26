@@ -43,7 +43,7 @@ public class rschController {
 	//게시글 작성처리
 	@RequestMapping("/rsch/insert")
 	public ModelAndView authCreate(@ModelAttribute RschListDto dto, HttpServletRequest request) {
-		rschService.saveContent(dto);
+		rschService.saveComm(dto);
 		return new ModelAndView("redirect:/rsch/rschList.do");
 	}
 	//게시글 상세조회
@@ -55,14 +55,14 @@ public class rschController {
 	//게시글 수정
 	@RequestMapping("/rsch/update")
 	public ModelAndView authUpdate(@ModelAttribute RschListDto dto,HttpServletRequest request) {
-		rschService.updateContent(dto);
+		rschService.updateComm(dto);
 		return new ModelAndView("redirect:/rsch/rschList.do?num="+dto.getCd());
 	}
 	//게시글 삭제
 	@RequestMapping("/rsch/delete")
 	@ResponseBody
 	public Map<String, Object> authCommentDelete(@RequestParam int cd, HttpServletRequest request) {
-		rschService.deleteContent(cd);
+		rschService.deleteComm(cd);
 		Map<String, Object> map=new HashMap<>();
 		map.put("isSuccess", true);
 		return map;

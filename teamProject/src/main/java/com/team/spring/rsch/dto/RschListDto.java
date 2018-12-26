@@ -9,10 +9,17 @@ public class RschListDto {
 	private int rdate;
 	private String comm;
 	private int cnt;
+	//페이징 처리를 위한 필드
+		private int startRowNum;
+		private int endRowNum;
+		//이전글, 다음글의 글번호를 담을 필드
+		private int prevNum;
+		private int nextNum;
 
 	
 	public RschListDto() {}
-	public RschListDto(int cd, String title, int sdate, int edate, String use, int rdate, String comm, int cnt) {
+	public RschListDto(int cd, String title, int sdate, int edate, String use, int rdate, String comm, int cnt, int startRowNum,
+			int endRowNum, int prevNum, int nextNum) {
 		
 		super();
 		this.cd = cd;
@@ -23,6 +30,10 @@ public class RschListDto {
 		this.rdate = rdate;
 		this.comm = comm;
 		this.cnt = cnt;
+		this.startRowNum = startRowNum;
+		this.endRowNum = endRowNum;
+		this.prevNum = prevNum;
+		this.nextNum = nextNum;
 
 	}
 	public int getCd() {
@@ -72,6 +83,31 @@ public class RschListDto {
 	}
 	public void SetCnt(int cnt) {
 		this.cnt = cnt;
+		
+	}
+	public int getStartRowNum() {
+		return startRowNum;
+	}
+	public void setStartRowNum(int startRowNum) {
+		this.startRowNum = startRowNum;
+	}
+	public int getEndRowNum() {
+		return endRowNum;
+	}
+	public void setEndRowNum(int endRowNum) {
+		this.endRowNum = endRowNum;
+	}
+	public int getPrevNum() {
+		return prevNum;
+	}
+	public void setPrevNum(int prevNum) {
+		this.prevNum = prevNum;
+	}
+	public int getNextNum() {
+		return nextNum;
+	}
+	public void setNextNum(int nextNum) {
+		this.nextNum = nextNum;
 	}
 
 	

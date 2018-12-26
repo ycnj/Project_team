@@ -30,21 +30,9 @@
 }
 </style>
 
-<script>
-$(function() {
-    $("#sdate,#edate").datepicker();
-    
-    function submitContents(elClickedObj) {
-		oEditors.getById["comm"].exec("UPDATE_COMM_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-		
-		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
-		
-		try {
-			elClickedObj.form.submit();
-		} catch(e) {}
-	}
-</script>
+
 <body>
+<form action="insert.do" method="post">
 <form id="frm">
 <table class="rschTbl">
 	<colgroup>
@@ -82,14 +70,31 @@ $(function() {
 		<input type="radio" name="use" id="use" value="N">미사용
 		</td>
 	</tr>
+<div>
 	<tr>
 		<th colspan="2" height="50">
 		<input type="button" onclick="submitContents(this);" value="저장" />
 		<button type="reset" id="resetBtn">취소</button>
 		</th>
 	</tr>
+</div>
 </table>
 </form>
+<script>
+$(function() {
+    $("#sdate,#edate").datepicker();
+    
+    function submitContents(elClickedObj) {
+		oEditors.getById["comm"].exec("UPDATE_COMM_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+		
+		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
+		
+		try {
+			elClickedObj.form.submit();
+		} catch(e) {}
+	}
+
+</script>
 </body>
 </html>
 
