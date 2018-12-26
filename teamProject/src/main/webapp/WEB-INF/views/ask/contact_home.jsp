@@ -46,7 +46,7 @@
 		<div class="container">
 			
 			<div class="service-features wow fadeInRight">
-				<h3>문의란 무엇인가...</h3>
+				<h3>문의란 무엇인가....</h3>
 				<ul>
 					<li>1</li>
 					<li>2</li>
