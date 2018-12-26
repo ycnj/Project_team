@@ -128,12 +128,6 @@
 	
 	<!-- 본문 끝 -->
 
-        <!-- #quotes -->
-        <section id="quotes">
-			<jsp:include page="../include/quotes.jsp" />
-        </section>
-        
-        <!-- End #quotes -->
 
 
         <!-- #footer -->
