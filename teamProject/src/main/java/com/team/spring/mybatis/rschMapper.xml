@@ -2,25 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="rsch">
 		<insert id="insert" parameterType="rschlistDto">
-		INSERT INTO board_rsch
+		INSERT INTO rschmain
 		(cd, title, sdate, edate, use, rdate, comm,cnt)
 		VALUES(board_rsch_seq.NEXTVAL, #{title}, #{comm}, #{cnt},
 		sdate, rdate)
 	</insert>
 	<update id="update" parameterType="rschlistDto">
-		UPDATE board_rsch
+		UPDATE rschmain
 		SET title=#{title}, comm=#{comm}
 		WHERE cd=#{cd}
 	</update>
 	<delete id="delete" parameterType="int">
-		DELETE FROM board_rsch
+		DELETE FROM rschmain
 		WHERE cd=#{cd}
 	</delete>
 
 		<select id="getList" parameterType="rschlistDto" resultType="rschlistDto">
 		SELECT *
 		 	  FROM (SELECT cd, title, sdate, edate, rdate
-			        FROM board_rsch
+			        FROM rschmain
 			        <where>
 						<if test="writer != null">
 							OR writer LIKE '%'||#{writer}||'%'

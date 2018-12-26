@@ -33,7 +33,7 @@ public class rschController {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
 		rschService.getList(request);
 		//view 페이지로 forward 이동(해서 글 목록 출력하기 
-		return new ModelAndView("rsch/list");
+		return new ModelAndView("rsch/rschList");
 	}
 	//게시글 작성화면
 	@RequestMapping("/rsch/rschWrite")

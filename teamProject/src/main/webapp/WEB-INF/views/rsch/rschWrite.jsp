@@ -11,10 +11,6 @@
 <title>설문등록</title>
 
 <link rel="stylesheet" href="../resources/css/jquery-ui.css"/>
-<script src="../resources/js/jquery-3.3.1.min.js"></script>
-<script src="../resources/js/jquery-ui.js"></script>
-</head>
-
 <style>
 .rschTbl { 
 	width:800px; 
@@ -29,23 +25,10 @@
 	
 }
 </style>
-
-<script>
-$(function() {
-    $("#sdate,#edate").datepicker();
-    
-    function submitContents(elClickedObj) {
-		oEditors.getById["comm"].exec("UPDATE_COMM_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-		
-		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
-		
-		try {
-			elClickedObj.form.submit();
-		} catch(e) {}
-	}
-</script>
+</head>
 <body>
-<form id="frm">
+
+<form action="insert.do" method="post" id="frm">
 <table class="rschTbl">
 	<colgroup>
 		<col width="20%"/>
@@ -84,12 +67,29 @@ $(function() {
 	</tr>
 	<tr>
 		<th colspan="2" height="50">
-		<input type="button" onclick="submitContents(this);" value="저장" />
-		<button type="reset" id="resetBtn">취소</button>
+			<button type="submit" onclick="submitContents(this)">저장</button>
+			<button type="reset" id="resetBtn">취소</button>
 		</th>
 	</tr>
 </table>
 </form>
+<script src="../resources/js/jquery-3.3.1.min.js"></script>
+<script src="../resources/js/jquery-ui.js"></script>
+<script>
+$(function() {
+    $("#sdate,#edate").datepicker();
+    
+    function submitContents(elClickedObj) {
+		oEditors.getById["comm"].exec("UPDATE_COMM_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+		
+		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
+		
+		try {
+			elClickedObj.form.submit();
+		} catch(e) {}
+	}
+});
+</script>
 </body>
 </html>
 
