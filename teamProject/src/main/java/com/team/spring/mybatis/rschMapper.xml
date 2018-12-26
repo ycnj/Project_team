@@ -1,48 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="rsch">
-	<!-- 01.게시글 전체 목록 -->
-	<select id="listAll" resultType="rschListDto">
-		SELECT
-			cd,
-			title,
-			sdate,
-			edate,
-			use,
-			rdate
-		FROM
-			RSCHMAIN
-		ORDER BY
-			cd desc,
-			rdate desc	
-	</select>
-	<!-- 02. 게시글 작성 -->
-	<insert id = "create">
-		INSERT INTO RSCHMAIN (
-			title,
-			comm,
-			sdate,
-			edate
-			#{title},
-			#{content},
-			#{writer}
-		)
+		<insert id="insert" parameterType="rschlistDto">
+		INSERT INTO board_cafe
+		(cd, title, sdate, edate, use, rdate, comm,cnt)
+		VALUES(board_rsch_seq.NEXTVAL, #{title}, #{comm}, #{cnt},
+		sdate, rdate)
 	</insert>
-	<!-- 03. 게시글 상세보기 -->
-	<select id="view" resultType="rschListDto">
-		SELECT * FROM RSCHSUB
-		WHERE cd = #{cd}
-	</select>
-	<!-- 수정처리 -->
-	<update id="updateArticle">
-		UPDATE RSCHSUB SET
-			title = #{title},
-			comm = #{comm}
-		WHERE cd = #{cd}
+	<update id="update" parameterType="rschlistDto">
+		UPDATE board_rsch
+		SET title=#{title}, comm=#{comm}
+		WHERE cd=#{cd}
 	</update>
-	<!-- 게시글 삭제 -->
-	<delete id="deleteArticle">
-		DELETE FROM RSCHMAIN
-		WHERE cd= #{cd}
+	<delete id="delete" parameterType="int">
+		DELETE FROM board_rsch
+		WHERE cd=#{cd}
 	</delete>
+
+		<select id="getList" parameterType="rschlistDto" resultType="rschlistDto">
+		SELECT *
+		 	  FROM (SELECT cd, title, sdate, edate, rdate
+			        FROM board_rsch
+			        <where>
+						<if test="writer != null">
+							OR writer LIKE '%'||#{writer}||'%'
+						</if>
+						<if test="title != null">
+							OR title LIKE '%'||#{title}||'%'
+						</if>
+						<if test="content != null">
+							OR content LIKE '%'||#{content}||'%'
+						</if>
+					</where>
+			        ORDER BY cd DESC) result1)
+	
+	</select>
 </mapper>

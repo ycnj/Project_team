@@ -1,6 +1,8 @@
 package com.team.spring.rsch.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.team.spring.rsch.dto.RschListDto;
@@ -51,15 +54,18 @@ public class rschController {
 }
 	//게시글 수정
 	@RequestMapping("/rsch/update")
-	public String update(@ModelAttribute RschListDto dto) throws Exception{
-		rschService.update(dto);
-		return "redirect:rschList.do";
+	public ModelAndView authUpdate(@ModelAttribute RschListDto dto,HttpServletRequest request) {
+		rschService.updateContent(dto);
+		return new ModelAndView("redirect:/rsch/rschList.do?num="+dto.getCd());
 	}
 	//게시글 삭제
 	@RequestMapping("/rsch/delete")
-	public String delete(@RequestParam int cd) throws Exception{
-		rschService.delete(cd);
-		return "redirect:rschList.do";
+	@ResponseBody
+	public Map<String, Object> authCommentDelete(@RequestParam int cd, HttpServletRequest request) {
+		rschService.deleteContent(cd);
+		Map<String, Object> map=new HashMap<>();
+		map.put("isSuccess", true);
+		return map;
 	}
 	
 

@@ -34,29 +34,15 @@
 $(function() {
     $("#sdate,#edate").datepicker();
     
-    $("#saveBtn").click(function(){
-    	if($("#title").val().trim() == "") {
-    		alert("설문제목을 입력해주세요.");
-    		$("#title").val("");
-    		$("#title").focus();
-    		return false;
-    	}
-			success: function(data) {
-				if(data.trim() == "1") {
-					alert("저장하였습니다.");
-					location = "${pageContext.request.contextPath }/rsch/rschList.do";
-				} else {
-					alert("저장 실패했습니다. 다시 시도해 주세요.");
-				}
-			},
-			error: function () {
-				alert("오류발생 ");
-			}
-			document.submit();
-		}); 
-    });
-
-});
+    function submitContents(elClickedObj) {
+		oEditors.getById["comm"].exec("UPDATE_COMM_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+		
+		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
+		
+		try {
+			elClickedObj.form.submit();
+		} catch(e) {}
+	}
 </script>
 <body>
 <form id="frm">
@@ -98,7 +84,7 @@ $(function() {
 	</tr>
 	<tr>
 		<th colspan="2" height="50">
-		<button type="button" id="saveBtn">저장</button>
+		<input type="button" onclick="submitContents(this);" value="저장" />
 		<button type="reset" id="resetBtn">취소</button>
 		</th>
 	</tr>

@@ -23,7 +23,7 @@ public class RschServiceImpl implements RschService {
 	@Override
 	public void getList(HttpServletRequest request) {
 		RschListDto dto=new RschListDto();
-		RschListDto resultDto=rschDao.getData(dto);
+		List<RschListDto> list=rschDao.getList(dto);
 		
 	}
 
