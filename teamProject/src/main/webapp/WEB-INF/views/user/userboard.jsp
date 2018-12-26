@@ -9,11 +9,12 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 </head>
 <body>
-<div class="container container2">
-	<table style="width:880px; height:220px;"class="table table-bordered">
+<div class="container">
+		<div class="col-md-9 col-md-offset-1">
+	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th width="10%">번호</th>
+				<th width="10%" >번호</th>
 				<th width="20%">작성자</th>
 				<th width="30%">제목</th>
 				<th width="20%">조회수</th>
@@ -32,7 +33,7 @@
 		</c:forEach>
 		</tbody>
 	</table>
-	<div class="page-display">
+	<div class="page-display" style="text-align:center;">
 		<ul class="pagination">
 		<c:choose>
 			<c:when test="${startPageNum ne 1}">
@@ -90,18 +91,6 @@
 			<strong>${totalRow }</strong> 개의 글이 검색되었습니다.</p>
 	</c:if>	
 </div><!-- /.container -->
+</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

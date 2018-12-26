@@ -60,7 +60,7 @@
                 
 					<div class="container contFont">                  
 				         <div class="row">           
-							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2">
+							<div class="col-md-8" style="margin-left: 370px">
 					            <ul Class="pagination pagination-lg">
 									<c:if test="${not empty sessionScope.id || sessionScope.id eq 'master' }">
 					             	<li class="active"><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>
@@ -76,8 +76,8 @@
 				    </div> 	     
 				    
 				    
-				    <div class="section-title text-center wow fadeInDown">
-                        <h2>${id}님 문의 목록입니다.</h2>
+				    <div class="section-title text-center wow fadeInDown" style="margin-left:450px;">
+                        <h2>Q&A 게시판 입니다.</h2>
                     </div>        
                     
                     </div> <!-- .col-md-4 -->
@@ -120,8 +120,3 @@
 
 </body>
 </html>
-
-	
-
-
-

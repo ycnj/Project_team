@@ -76,7 +76,7 @@
                 <div class="row">
 					<div class="container contFont container2">                  
 				         <div class="row">           
-							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2">
+							<div class="col-md-8 col-md-offset-2" style="margin-left: 300px">
 					            <ul Class="pagination pagination-lg">
 					             	<li class="active"><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>
 					             	<li><a href="${pageContext.request.contextPath}/user/insertformview.do">글작성하기</a></li>
@@ -99,7 +99,7 @@
                     </div> <!-- .col-md-2 -->
                     <div class="col-md-10 col-sm-10">
 					<div class="container">
-						<div class="center-block" style="margin: -100px; margin-left: 30px;">
+						<div class="center-block" >
 							 <jsp:include page="userboard.jsp" />
 						</div>
 					</div>
@@ -134,8 +134,3 @@
 
 </body>
 </html>
-
-
-
-
-

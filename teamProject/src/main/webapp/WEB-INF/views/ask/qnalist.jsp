@@ -3,8 +3,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 
 <div class="container">
-	<h3>QnA 게시판 목록입니다.</h3>
-	<table style="width:880px; height:220px;" class="table table-bordered">
+	<h3  class="col-md-8 col-md-offset-2">${id}님 문의 목록입니다.</h3>
+		<div class="col-md-8 col-md-offset-2">
+	<table class="table table-bordered">
 		<thead>
 			<tr>				
 				<th>번호</th>
@@ -26,7 +27,7 @@
 		</c:forEach>
 		</tbody>
 	</table>
-	<div class="page-display">
+	<div class="page-display " style="text-align:center;">
 		<ul class="pagination">
 		<c:choose>
 			<c:when test="${startPageNum ne 1}">
@@ -84,14 +85,4 @@
 			<strong>${totalRow }</strong> 개의 글이 검색되었습니다.</p>
 	</c:if>	
 </div><!-- /.container -->
-
-
-
-
-
-
-
-
-
-
-
+</div>
