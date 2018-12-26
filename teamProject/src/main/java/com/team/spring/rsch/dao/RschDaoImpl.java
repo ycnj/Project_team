@@ -2,27 +2,30 @@ package com.team.spring.rsch.dao;
 
 import java.util.List;
 
-
-
-import javax.inject.Inject;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import com.team.spring.rsch.dto.RschListDto;
 
+<<<<<<< HEAD
+=======
 
 @Repository
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 public class RschDaoImpl implements RschDao {
-	
 	@Autowired
-	SqlSession session;
+	private SqlSession session;
+
+
+	@Override
+	public int getCount(RschListDto dto) {
+		return session.selectOne("rsch.getCount", dto);
+	}
 
 	@Override
 	public List<RschListDto> getList(RschListDto dto) {
 		return session.selectList("rsch.getList", dto);
-	}
+		}
 
 	@Override
 	public void insert(RschListDto dto) {
@@ -36,21 +39,26 @@ public class RschDaoImpl implements RschDao {
 	}
 
 	@Override
-	public void delete(int cd) {
-		session.delete("rsch.delete", cd);
+	public void addViewCount(int cd) {
+		session.update("cafe.addViewCount", cd);
 		
+	}
+
+	@Override
+	public void delete(int cd) {
+		session.delete("cafe.delete", cd);
 	}
 
 	@Override
 	public RschListDto getData(int cd) {
-		return session.selectOne("rsch.getData", cd);
-	}
+		return session.selectOne("cafe.getData", cd);
+		}
+
+
 
 	@Override
 	public void update(RschListDto dto) {
 		session.update("rsch.update", dto);
-		
-	}
-}
-	
+		}
 
+}

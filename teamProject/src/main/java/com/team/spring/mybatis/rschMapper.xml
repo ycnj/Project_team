@@ -1,22 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="rsch">
+<<<<<<< HEAD
 	<insert id="insert" parameterType="rschlistDto">
+=======
+		<insert id="insert" parameterType="rschlistDto">
+<<<<<<< HEAD
+		INSERT INTO RSCHMAIN
+=======
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 		INSERT INTO rschmain
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 		(cd, title, sdate, edate, use, rdate, comm,cnt)
-		VALUES(board_rsch_seq.NEXTVAL, #{title}, #{comm}, #{cnt},
+		VALUES(RSCHMAIN, #{title}, #{comm}, #{cnt},
 		sdate, rdate)
 	</insert>
 	<update id="update" parameterType="rschlistDto">
+<<<<<<< HEAD
+		UPDATE RSCHMAIN
+=======
 		UPDATE rschmain
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 		SET title=#{title}, comm=#{comm}
 		WHERE cd=#{cd}
 	</update>
 	<delete id="delete" parameterType="int">
+<<<<<<< HEAD
+		DELETE FROM RSCHMAIN
+=======
 		DELETE FROM rschmain
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 		WHERE cd=#{cd}
 	</delete>
 
+<<<<<<< HEAD
+		<select id="getList" parameterType="rschlistDto" resultType="rschlistDto">
+		SELECT *
+		 	  FROM (SELECT cd, title, sdate, edate, rdate
+			        FROM RSCHMAIN
+			        <where>
+						<if test="title != null">
+							OR writer LIKE '%'||#{title}||'%'
+						</if>
+						<if test="comm != null">
+							OR title LIKE '%'||#{comm}||'%'
+						</if>
+					</where>
+			        ORDER BY cd DESC) result1)
+	
+=======
 	<select id="getList" parameterType="rschlistDto" resultType="rschlistDto">
 	SELECT *
 	 	  FROM (SELECT cd, title, sdate, edate, rdate
@@ -33,5 +65,6 @@
 					</if>
 				</where>
 		        ORDER BY cd DESC) result1)	
+>>>>>>> branch 'kim1' of https://github.com/ycnj/Project_team.git
 	</select>
 </mapper>
