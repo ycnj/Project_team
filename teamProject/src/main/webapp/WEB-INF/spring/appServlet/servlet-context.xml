@@ -63,6 +63,7 @@
 	<context:component-scan base-package="com.team.spring" />
 	<context:component-scan base-package="com.team.spring.ask.*" />
 	<context:component-scan base-package="com.team.spring.user.*" />
+	<context:component-scan base-package="com.team.spring.faq.*" />
 	<!-- users 하위 페키지를 모두 컴포넌트 스켄하기 -->
 	<context:component-scan base-package="com.team.spring.users.*" />
 	<!-- movieChart 하위 페키지를 모두 컴포넌트 스켄하기 -->

@@ -7,34 +7,7 @@
 <head>
 <!-- link 로딩 -->
 <jsp:include page="../include/MSC1.jsp" />
-	<title>Home</title>	
-<style>
-	@media (min-width: 768px) {
-	  .container2 {
-	    width: 1100px;
-	  }
-	}
-	@media (min-width: 992px) {
-	  .container2 {
-	    width: 1100px;
-	  }
-	}
-	@media (min-width: 1200px) {
-	  .container2 {
-	    width: 1100px;
-	  }
-	.top-img{
-            position: relative;
-            height: 400px;
-            padding: 0;
-            background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/단순배경1.jpg) 50% 0 no-repeat;
-            background-size: cover;
-        }
-        .service-features {
-	    background-color: #6e94b599;
-	}
-  }
-</style>
+	<title>Home</title>
 </head>
 <body>
 
@@ -54,10 +27,17 @@
 	<!--
         #service-bottom
         ========================== -->
+
 	<section id="service-bottom">
-		<div class="top-img">
-			</div>
 		<div class="container">
+			<div class="mobile-device">
+				<img data-wow-delay="0.2s"
+					class="img-responsive black  wow fadeInLeftBig"
+					src="${pageContext.request.contextPath }/resources/images/icons/iphone-black.png" alt="iPhone Black"> <img
+					data-wow-delay="0.5s"
+					class="img-responsive white  wow fadeInLeftBig"
+					src="${pageContext.request.contextPath }/resources/images/icons/iphone-white.png" alt="iPhone White">
+			</div>
 			<div class="service-features wow fadeInRight">
 				<h3>OUR DESIGNS COMES WITH...</h3>
 				<ul>
@@ -79,34 +59,22 @@
                 <div class="row">
 					<div class="container contFont container2">                  
 				         <div class="row">           
-							<div class="col-md-8 col-md-offset-2" style="margin-left: 460px">
-					            <ul Class="pagination pagination-lg">
-					             	<li class="active"><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             	                          
+							<div class="col-sm-8 col-sm-offset-2 col-xs-offset-2" style="padding-left:260px;">
+					            <ul Class="pagination pagination-lg">					             
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             	                          
 					          		<c:if test="${!empty sessionScope.id }">
-					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록<span class="sr-only">(current)</span></a></li>
-					          		</c:if>     					          						          		
+					          		<li class="active"><a href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록<span class="sr-only">(current)</span></a></li>
+					          		</c:if>     					          							          		
 					    		</ul>
 				    		</div>
 				    	</div>    
 				    </div>	
-                   
-                    <div class="section-title text-center wow fadeInDown" style="padding: 50px; padding-right: 1px;">
-                        <h2>질문게시판</h2>                                   
+                    <div class="section-title text-center wow fadeInDown">
+                        <h2>FAQ 게시판</h2>                 
                     </div>
-                    
-              				    
-						                                	             
-                    </div> <!-- .col-md-2 -->
-                    <div class="col-md-10 col-sm-10">
-					<div class="container">
-						<div class="center-block" >
-							 <jsp:include page="userboard.jsp" />
-						</div>
-					</div>
-				</div>                    
-
-                </div>
-
+                        <jsp:include page="detail.jsp"></jsp:include>               
+               	 </div>
+            </div>
         </section>
 
         <!-- #quotes -->
@@ -129,8 +97,13 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
-	$("#nav>li:eq(6)").attr("class", "current");
+	$("#nav>li:eq(5)").attr("class", "current");
 </script>
-
+				
 </body>
 </html>
+
+
+
+
+

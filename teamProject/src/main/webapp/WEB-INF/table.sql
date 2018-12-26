@@ -59,7 +59,18 @@ CREATE TABLE movieInfo_like(
 );
 
 
---------------------------AskTable--------------------------
+--------------------------AskTable + FAQ Table 추가--------------------------
+
+CREATE TABLE board_faq(
+num NUMBER PRIMARY KEY,
+writer VARCHAR2(100) NOT NULL,
+title VARCHAR2(100) NOT NULL,
+content CLOB,
+viewCount NUMBER,
+regdate DATE
+);
+
+CREATE SEQUENCE board_faq_seq;
 
 CREATE TABLE board_ask(
 num NUMBER PRIMARY KEY,

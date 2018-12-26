@@ -8,6 +8,18 @@
 <!-- link 로딩 -->
 <jsp:include page="../include/MSC1.jsp" />
 	<title>Home</title>
+	<style>		
+		.top-img{
+             position: relative;
+             height: 400px;
+             padding: 0;
+             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/call1.jpg) 50% 0 no-repeat;
+             background-size: cover;
+         }
+         .service-features {
+		    background-color: #6e94b599;
+		}
+	</style>	
 </head>
 <body>
 
@@ -29,15 +41,10 @@
         ========================== -->
 
 	<section id="service-bottom">
-		<div class="container">
-			<div class="mobile-device">
-				<img data-wow-delay="0.2s"
-					class="img-responsive black  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-black.png" alt="iPhone Black"> <img
-					data-wow-delay="0.5s"
-					class="img-responsive white  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-white.png" alt="iPhone White">
+		<div class="top-img">
 			</div>
+		<div class="container">
+			
 			<div class="service-features wow fadeInRight">
 				<h3>OUR DESIGNS COMES WITH...</h3>
 				<ul>
@@ -111,7 +118,7 @@
 <script>
 
 
-	$("#nav>li:eq(5)").attr("class", "current");
+	$("#nav>li:eq(6)").attr("class", "current");
 </script>
 
 </body>

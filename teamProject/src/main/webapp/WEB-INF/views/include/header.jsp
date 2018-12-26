@@ -32,10 +32,17 @@
 								    <li><a href="${pageContext.request.contextPath}/movie/listChart.do">상영중인영화</a></li>
 									<li><a href="${pageContext.request.contextPath}/movie/findmovie.do">영화검색</a></li>
 								</ul>
-					        </li>
+					        </li>					        
 							<li><a href="${pageContext.request.contextPath}/freeboard/list.do">자유게시판</a></li>
-                            <li><a href="${pageContext.request.contextPath}/event/list.do">이벤트</a></li>                
-                            <li><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터</a></li>
+                            <li><a href="${pageContext.request.contextPath}/event/list.do">이벤트</a></li>
+                          	<li> 
+                            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">문의<span class="caret"></span></a>
+                            	<ul id="nav" class="nav dropdown-menu">                
+                            		<li><a href="${pageContext.request.contextPath}/faq/faqlistview.do">FAQ</a></li>
+                            		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록</a></li>
+                            		<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판</a></li>
+                            	</ul>
+                            </li>
                         <c:choose>
                         	<c:when test="${empty sessionScope.id }">
                             <li><a href="${pageContext.request.contextPath}/users/loginform.do">Login</a></li>

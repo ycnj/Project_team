@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.team.spring.freeboard.dto.FreeBoardDto" alias="freeboardDto"/>
 		<typeAlias type="com.team.spring.freeboard.dto.FreeBoardCommentDto" alias="freeboardCommentDto"/>
 		<!-- 질문게시판 -->
+		<typeAlias type="com.team.spring.faq.dto.FaqDto" alias="faqDto"/>
 		<typeAlias type="com.team.spring.ask.dto.AskDto" alias="askDto"/>
 		<typeAlias type="com.team.spring.ask.dto.AskCommentDto" alias="askCommentDto"/>
 		<typeAlias type="com.team.spring.user.dto.UserDto" alias="userDto"/>
@@ -29,6 +30,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/team/spring/mybatis/FreeBoardMapper.xml"/>
 		<mapper resource="com/team/spring/mybatis/FreeBoardCommentMapper.xml"/>
 		<!-- 질문게시판 -->
+		<mapper resource="com/team/spring/mybatis/FaqMapper.xml" />
 		<mapper resource="com/team/spring/mybatis/AskMapper.xml" />
 		<mapper resource="com/team/spring/mybatis/AskCommentMapper.xml" />
 		<mapper resource="com/team/spring/mybatis/UserMapper.xml"/>

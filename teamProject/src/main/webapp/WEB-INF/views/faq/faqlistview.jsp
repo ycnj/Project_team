@@ -7,34 +7,19 @@
 <head>
 <!-- link 로딩 -->
 <jsp:include page="../include/MSC1.jsp" />
-	<title>Home</title>	
-<style>
-	@media (min-width: 768px) {
-	  .container2 {
-	    width: 1100px;
-	  }
-	}
-	@media (min-width: 992px) {
-	  .container2 {
-	    width: 1100px;
-	  }
-	}
-	@media (min-width: 1200px) {
-	  .container2 {
-	    width: 1100px;
-	  }
-	.top-img{
-            position: relative;
-            height: 400px;
-            padding: 0;
-            background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/단순배경1.jpg) 50% 0 no-repeat;
-            background-size: cover;
-        }
-        .service-features {
-	    background-color: #6e94b599;
-	}
-  }
-</style>
+	<title>Home</title>
+	<style>		
+		.top-img{
+             position: relative;
+             height: 400px;
+             padding: 0;
+             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/faq1.jpeg) 50% 0 no-repeat;
+             background-size: cover;
+         }
+         .service-features {
+		    background-color: #6e94b599;
+		}
+	</style>	
 </head>
 <body>
 
@@ -54,10 +39,12 @@
 	<!--
         #service-bottom
         ========================== -->
+
 	<section id="service-bottom">
 		<div class="top-img">
 			</div>
 		<div class="container">
+			
 			<div class="service-features wow fadeInRight">
 				<h3>OUR DESIGNS COMES WITH...</h3>
 				<ul>
@@ -74,39 +61,39 @@
         ========================== -->
 
 
-       <section id="contact">
+         <section id="contact">
             <div class="container">
                 <div class="row">
-					<div class="container contFont container2">                  
+                
+					<div class="container contFont">                  
 				         <div class="row">           
-							<div class="col-md-8 col-md-offset-2" style="margin-left: 460px">
+							<div class="col-md-8" style="margin-left: 520px">
 					            <ul Class="pagination pagination-lg">
-					             	<li class="active"><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             	                          
-					          		<c:if test="${!empty sessionScope.id }">
-					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록<span class="sr-only">(current)</span></a></li>
-					          		</c:if>     					          						          		
+									<c:if test="${not empty sessionScope.id || sessionScope.id eq 'master' }">
+					             	<li class="active"><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>
+					             	</c:if>						            					             	
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             				             	                         					          							          							          		
 					    		</ul>
 				    		</div>
 				    	</div>    
-				    </div>	
-                   
-                    <div class="section-title text-center wow fadeInDown" style="padding: 50px; padding-right: 1px;">
-                        <h2>질문게시판</h2>                                   
-                    </div>
+				    </div> 	     
+				    
+				    
+				    <div class="section-title text-center wow fadeInDown" style="margin-left:450px;">
+                        <h2>FAQ 게시판 입니다.</h2>
+                    </div>        
                     
-              				    
-						                                	             
-                    </div> <!-- .col-md-2 -->
+                    </div> <!-- .col-md-4 -->
                     <div class="col-md-10 col-sm-10">
 					<div class="container">
-						<div class="center-block" >
-							 <jsp:include page="userboard.jsp" />
+						<div class="center-block">
+							<jsp:include page="faqlist.jsp"></jsp:include>
 						</div>
 					</div>
-				</div>                    
+				</div>
 
                 </div>
-
+            </div>
         </section>
 
         <!-- #quotes -->
@@ -129,6 +116,8 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
+
+
 	$("#nav>li:eq(6)").attr("class", "current");
 </script>
 
