@@ -63,13 +63,10 @@
 				         <div class="row">           
 							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2">
 					            <ul Class="pagination pagination-lg">
-					             	<li class="active"><a href="${pageContext.request.contextPath}/user/insertformview.do">질문작성<span class="sr-only">(current)</span></a></li>
-					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>
-					             	<li><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터<span class="sr-only">(current)</span></a></li>                           
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					                                       
 					          		<c:if test="${!empty sessionScope.id }">
-					          		<li><a href="${pageContext.request.contextPath}/ask/insertformview.do">1:1문의<span class="sr-only">(current)</span></a></li>
-					          		</c:if>     
-					          		<li><a href="${pageContext.request.contextPath}/home.do">메인 페이지<span class="sr-only">(current)</span></a></li>					          		
+					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록<span class="sr-only">(current)</span></a></li>
+					          		</c:if>     					          		
 					    		</ul>
 				    		</div>
 				    	</div>    

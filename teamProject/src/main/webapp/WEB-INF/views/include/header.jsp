@@ -35,7 +35,7 @@
 					        </li>
 							<li><a href="${pageContext.request.contextPath}/freeboard/list.do">자유게시판</a></li>
                             <li><a href="${pageContext.request.contextPath}/event/list.do">이벤트</a></li>                
-                            <li><a href="${pageContext.request.contextPath}/ask/contact_home.do">문의</a></li>
+                            <li><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터</a></li>
                         <c:choose>
                         	<c:when test="${empty sessionScope.id }">
                             <li><a href="${pageContext.request.contextPath}/users/loginform.do">Login</a></li>

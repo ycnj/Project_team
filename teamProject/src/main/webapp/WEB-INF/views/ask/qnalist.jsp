@@ -27,6 +27,7 @@
 		</c:forEach>
 		</tbody>
 	</table>
+	<a href="insertformview.do" class="btn btn-primary pull-right">글쓰기</a>
 	<div class="page-display " style="text-align:center;">
 		<ul class="pagination">
 		<c:choose>
