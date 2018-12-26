@@ -68,7 +68,7 @@
 	<br />      
 	<ul  class="list-inline" style="display: inline;">
 		<li><a class="btn btn-info" href="list.do">목록</a></li>
-		<c:if test="${id eq 'joo' }">
+		<c:if test="${id eq 'master' }">
 		<li><a class="btn btn-success" href="imageUploadform.do?num=${dto.num }">상세이미지 관리</a></li>
 		<!-- <li><a class="btn btn-warning" href="updateform.do?num=${dto.num }">수정</a></li> -->
 		<li><a class="btn btn-danger" href="delete.do?num=${dto.num }">삭제</a></li>

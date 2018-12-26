@@ -113,12 +113,13 @@
                 <div class="row">
 
                     <div class="section-title text-center wow fadeInUp">
-                        <h2>About Us</h2>
-					<a href="movie/uploadChart_form.do">영화등록하기</a> 
-					<a href="movie/listChart.do">리스트보기</a> 
-					<a href="users/usersRes/detail.do">디테일</a>
-				</div>
-                    
+                        <h2>Awesome</h2>
+                    	
+					</div>
+					<div>
+						<iframe width="1214" height="683" src="https://www.youtube.com/embed/vLRZ6U1XMfc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+                    <br /><br />
                     <div class="about-us text-center wow fadeInDown">
                         <img src="${pageContext.request.contextPath}/resources/images/movie1.png" alt="About Us" class="img-responsive">
                     </div>

@@ -42,7 +42,7 @@
                             </c:when>
 			<c:otherwise>
 				<li>
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">MyInfo<span class="caret"></span></a>         
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">${id }님 Info<span class="caret"></span></a>         
 					<ul id="nav" class="nav dropdown-menu">
 					    <li><a href="${pageContext.request.contextPath}/users/info.do">내정보</a></li>
 						<li><a href="${pageContext.request.contextPath}/users/resDetail.do">예매내역</a></li>

@@ -66,7 +66,7 @@
 <div class="section-title text-center wow fadeInDown">
 	<h2>event</h2>
 	<br />
-	<c:if test="${id eq 'joo' }">
+	<c:if test="${id eq 'master' }">
 	<h1><a class="btn btn-info" href="${pageContext.request.contextPath}/event/uploadform.do">이벤트 업로드</a></h1>
 	</c:if>
 </div>	
