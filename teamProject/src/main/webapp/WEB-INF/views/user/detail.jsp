@@ -68,10 +68,10 @@
 	</c:if>
 	<h3>게시판글 상세보기</h3>
 	<c:if test="${dto.prevNum ne 0 }">
-		<a href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
+		<a class="btn btn-warning" href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
 	</c:if>
 	<c:if test="${dto.nextNum ne 0 }">
-		<a href="detail.do?num=${dto.nextNum }&condition=${condition}&keyword=${encodedKeyword}">다음글</a>
+		<a class="btn btn-success" href="detail.do?num=${dto.nextNum }&condition=${condition}&keyword=${encodedKeyword}">다음글</a>
 	</c:if>
 	<table class="table table-bordered table-condensed">
 		<tr>
@@ -113,7 +113,10 @@
 						</c:if>
 						<dl>
 							<dt>
-								<img src="${pageContext.request.contextPath}/resources/images/qna2.gif"/>
+								<c:choose>
+								<c:when test="${tmp.writer eq 'master' }"><img src="${pageContext.request.contextPath}/resources/images/qna.jpg"/></c:when>
+								<c:otherwise><img src="${pageContext.request.contextPath}/resources/images/re.gif"/></c:otherwise>
+								</c:choose>
 								<span>${tmp.writer }</span>
 								<c:if test="${tmp.num ne tmp.comment_group }">
 									to <strong>${tmp.target_id }</strong>

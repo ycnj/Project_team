@@ -63,16 +63,16 @@
 </head>
 <body>
 <div class="container">
-	<a href="qnalistview.do">글 목록보기</a>
+	<a class="btn btn-primary" href="qnalistview.do">글 목록보기</a>
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>
 	<h3>문의목록 입니다.</h3>
 	<c:if test="${dto.prevNum ne 0 }">
-		<a href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
+		<a class="btn btn-warning" href="detail.do?num=${dto.prevNum }&condition=${condition}&keyword=${encodedKeyword}">이전글</a>
 	</c:if>
 	<c:if test="${dto.nextNum ne 0 }">
-		<a href="detail.do?num=${dto.nextNum }&condition=${condition}&keyword=${encodedKeyword}">다음글</a>
+		<a class="btn btn-success" href="detail.do?num=${dto.nextNum }&condition=${condition}&keyword=${encodedKeyword}">다음글</a>
 	</c:if>
 	<table class="table table-bordered table-condensed">
 		<tr>
@@ -99,8 +99,8 @@
 	<div class="content">${dto.content }</div>
 	<!-- 로그인된 아이디와 글작성자가 같을때만 수정, 삭제 링크 제공 -->
 	<c:if test="${ sessionScope.id eq dto.writer || sessionScope.id eq 'master' }">
-		<a href="updateformview.do?num=${dto.num }">수정</a>
-		<a href="javascript:deleteConfirm(${dto.num })">삭제</a>
+		<a class="btn btn-info" href="updateformview.do?num=${dto.num }">수정</a>
+		<a class="btn btn-danger" href="javascript:deleteConfirm(${dto.num })">삭제</a>
 	</c:if>
 	<!-- 댓글 목록 -->
 	<div class="comments">
