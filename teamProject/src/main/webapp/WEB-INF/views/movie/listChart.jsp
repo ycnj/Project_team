@@ -96,7 +96,7 @@
              position: relative;
              height: 400px;
              padding: 0;
-             background: url(${pageContext.request.contextPath }/resources/images/배경화면/모털엔진.jpg) 50% 0 no-repeat;
+             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/모털엔진.jpg) 50% 0 no-repeat;
              background-size: cover;
          }
          .service-features {

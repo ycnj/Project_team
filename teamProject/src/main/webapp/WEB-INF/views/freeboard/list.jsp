@@ -14,6 +14,18 @@
         ============================================= -->
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
 	rel="stylesheet" type="text/css">
+	<style>
+		.top-img{
+             position: relative;
+             height: 400px;
+             padding: 0;
+             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/단순배경3.jpg) 50% 0 no-repeat;
+             background-size: cover;
+         }
+         .service-features {
+		    background-color: #6e94b599;
+		}
+	</style>
 </head>
 <body>
 
@@ -35,22 +47,17 @@
         ========================== -->
 
 	<section id="service-bottom">
+		<div class="top-img">
+		</div>
 		<div class="container">
-			<div class="mobile-device">
-				<img data-wow-delay="0.2s"
-					class="img-responsive black  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-black.png" alt="iPhone Black"> <img
-					data-wow-delay="0.5s"
-					class="img-responsive white  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-white.png" alt="iPhone White">
-			</div>
+			
 			<div class="service-features wow fadeInRight">
-				<h3>OUR DESIGNS COMES WITH...</h3>
+				<h3>자유게시판이란 무엇인가...</h3>
 				<ul>
-					<li>Responsive Design</li>
-					<li>Modern And Clean Design</li>
-					<li>Clean Code</li>
-					<li>Browser Friendly</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
 				</ul>
 			</div>
 		</div>
@@ -245,7 +252,7 @@
 				<div class="col-lg-12">
 
 					<div class="footer-logo wow fadeInDown">
-						<img src="${pageContext.request.contextPath }/resources/images/logo.png" alt="logo">
+						<img src="${pageContext.request.contextPath }/resources/images/logo1_white.png" alt="logo">
 					</div>
 
 					<div class="footer-social wow fadeInUp">
@@ -305,8 +312,21 @@
 	<!-- theme custom scripts -->
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 	<script>
-            $("#nav>li:eq(4)").attr("class","current");        
-        </script>
+       $("#nav>li:eq(4)").attr("class","current"); 
+       
+       $(function(){
+
+   	    jQuery(window).scroll(function () {
+	   	        if (jQuery(window).scrollTop() > 50) {
+	   	            jQuery("#navigation").css("background-color","#00C7FC");
+	   	            jQuery("#navigation").addClass("animated-nav");
+	   	        } else {
+	   	            jQuery("#navigation").css("background-color","transparent");
+	   	            jQuery("#navigation").removeClass("animated-nav");
+	   	        }
+	   	    });
+	   	});
+    </script>
 </body>
 </html>
 
