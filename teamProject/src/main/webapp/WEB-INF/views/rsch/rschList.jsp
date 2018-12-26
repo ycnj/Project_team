@@ -9,9 +9,7 @@
 <meta charset="UTF-8">
 <title>글목록</title>
 <link rel="stylesheet" href="../resources/css/jquery-ui.css"/>
-<script src="../resources/js/jquery-3.3.1.min.js"></script>
-<script src="../resources/js/jquery-ui.js"></script>
-</head>
+
 <style>
 .rschTbl { 
 	width:500px; 
@@ -26,6 +24,8 @@
 	
 }
 </style>
+</head>
+
 <body>
 
 <div class="container">
@@ -58,6 +58,7 @@
 <div>
 <a href="rschWrite.do">새글작성</a>
 </div>
-
+<script src="../resources/js/jquery-3.3.1.min.js"></script>
+<script src="../resources/js/jquery-ui.js"></script>
 </body>
 </html>

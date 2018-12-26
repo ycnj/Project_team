@@ -44,7 +44,7 @@ public class rschController {
 	@RequestMapping("/rsch/insert")
 	public ModelAndView authCreate(@ModelAttribute RschListDto dto, HttpServletRequest request) {
 		rschService.saveContent(dto);
-		return new ModelAndView("redirect:/rsch/rschList.do");
+		return new ModelAndView("redirect:/home.do");
 	}
 	//게시글 상세조회
 	@RequestMapping("/rsch/rschJoinList")

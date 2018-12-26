@@ -17,22 +17,21 @@
 		WHERE cd=#{cd}
 	</delete>
 
-		<select id="getList" parameterType="rschlistDto" resultType="rschlistDto">
-		SELECT *
-		 	  FROM (SELECT cd, title, sdate, edate, rdate
-			        FROM rschmain
-			        <where>
-						<if test="writer != null">
-							OR writer LIKE '%'||#{writer}||'%'
-						</if>
-						<if test="title != null">
-							OR title LIKE '%'||#{title}||'%'
-						</if>
-						<if test="content != null">
-							OR content LIKE '%'||#{content}||'%'
-						</if>
-					</where>
-			        ORDER BY cd DESC) result1)
-	
+	<select id="getList" parameterType="rschlistDto" resultType="rschlistDto">
+	SELECT *
+	 	  FROM (SELECT cd, title, sdate, edate, rdate
+		        FROM rschmain
+		        <where>
+					<if test="writer != null">
+						OR writer LIKE '%'||#{writer}||'%'
+					</if>
+					<if test="title != null">
+						OR title LIKE '%'||#{title}||'%'
+					</if>
+					<if test="content != null">
+						OR content LIKE '%'||#{content}||'%'
+					</if>
+				</where>
+		        ORDER BY cd DESC) result1)	
 	</select>
 </mapper>
