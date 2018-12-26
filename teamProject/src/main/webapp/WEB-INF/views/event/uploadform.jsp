@@ -97,9 +97,10 @@
 				<label class="control-label" for="content">내용</label>
 				<textarea class="form-control" name="content" id="content" style="width:100%;height:300px;"></textarea>
 				</div><br />
+				<img id="replaceMe" src=""/>	
 				<div class="form-group has-feedback">
 				<label for="myFile">첨부파일</label>
-				<input type="file" name="file" id="myFile" />
+				<input type="file" class="file" name="file" id="myFile" onchange="imageURL(this)" />
 				</div><br/>
 				<button class="btn btn-success" type="submit">업로드</button>
 				<button class="btn btn-warning" type="reset">취소</button>
@@ -133,7 +134,21 @@
 <script>
 	$("#nav>li:eq(4)").attr("class", "current");
 </script>
+<script>
+function imageURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
+        reader.onload = function(e) {
+            $('#replaceMe').attr('src', e.target.result)
+             .width(200)
+             .height(200);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
 </body>
 </html>
 
