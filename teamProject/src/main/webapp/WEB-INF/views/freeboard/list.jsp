@@ -304,9 +304,10 @@
 	<script src="${pageContext.request.contextPath }/resources/js/wow.min.js"></script>
 	<!-- theme custom scripts -->
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
+
 	<script>
-            $("#nav>li:eq(2)").attr("class","current");        
-        </script>
+            $("#nav>li:eq(4)").attr("class","current");        
+    </script>
 </body>
 </html>
 

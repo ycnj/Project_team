@@ -144,11 +144,8 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
-	$("#nav>li:eq(1)").attr("class", "current");
+$("#nav>li:eq(1)").attr("class", "current");
 	
-	var list=${list };
-	var actors=list.items[0].actor;
-	$("#")
 </script>
 
 </body>

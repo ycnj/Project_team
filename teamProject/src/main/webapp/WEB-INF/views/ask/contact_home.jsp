@@ -147,7 +147,7 @@
 <!-- javascript	 -->
 <script>
 
-	$("#nav>li:eq(4)").attr("class", "current");
+	$("#nav>li:eq(6)").attr("class", "current");
 
 </script>
 
