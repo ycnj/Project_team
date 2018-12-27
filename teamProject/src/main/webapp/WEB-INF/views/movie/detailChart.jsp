@@ -102,7 +102,19 @@
          .service-features {
 		    background-color: #6e94b599;
 		}
-
+		.detail_table td{
+			text-align: left;
+			padding : 3px 3px 3px 7px
+		}
+		.container2{
+			margin-bottom: 100px;
+		}
+		#liketo_form{
+			display: inline;
+		}
+		.font-size1{
+			font-size: 17px;
+		}
 	</style>	
 </head>
 <body>
@@ -157,120 +169,120 @@
 			<hr style="height: 3px;" color="black" />
 			<br />
 			<div class="row">
-				<c:forEach items="${list }" var="tmp" varStatus="status">	
-					<div class="col-xs-6 col-sm-3">
-						<div class="panel panel-primary">
-							<div class="panel-heading"
-							 style="<c:if test="${status.count gt 4 }">color: #fff; background-color: black; border-color: black;</c:if>" >
-								<h4>NO.${status.count}</h4>
-								<c:if test="${id eq 'master' }">
-									<a class="btn pull-right" href="${pageContext.request.contextPath }/movie/delete.do?num=${tmp.num }">
-										<span class="glyphicon glyphicon-remove"></span>
-									</a>
-								</c:if>						
-							</div>
-							<div class="panel-body">
-								<a href="detailChart.do?num=${tmp.num }&no=${status.count}"><img class="img-responsive" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName }"/></a>
-							</div>
-							<div class="panel-footer">
-								<div class="font-sizeUp">
-									<c:choose>
-										<c:when test="${fn:length(tmp.title) > 12}">
-											<c:out value="${fn:substring(tmp.title, 0, 11)}..."/>
-		         							</c:when>
-										<c:otherwise>
-											<c:out value="${tmp.title}" />
-										</c:otherwise>
-									</c:choose>
-								</div>
-								<fmt:parseDate value="${tmp.opendate }" var="dateFmt2" pattern="yyyy-MM-dd HH:mm:ss" />
-								<fmt:formatDate value="${dateFmt2 }" pattern="yyyy-MM-dd" /> &nbsp;개봉 <br />
-								<form id="liketo_form">
-									<span class="liketo">${tmp.liketo }</span>  
+				<div class="col-sm-3">
+					<img class="img-responsive" src="${pageContext.request.contextPath }/upload/${dto.saveFileName }"/>
+				</div>
+				<div class="col-sm-7">
+					<table class="detail_table">
+						<tr>
+							<td><h1><b>${dto.title }</b></h1></td>
+						</tr>							
+						<tr>
+							<td></td>
+						</tr>
+						<tr class="font-size1">
+							<td>
+								<b>개봉일</b> :
+								<fmt:parseDate value="${dto.opendate }" var="dateFmt2" pattern="yyyy-MM-dd HH:mm:ss" />
+								<fmt:formatDate value="${dateFmt2 }" pattern="yyyy-MM-dd" />
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+						<tr class="font-size1">
+							<td><b>추천</b>
+								<form id="liketo_form">									 
 									<span class="glyphicon glyphicon-heart"></span>
-									<input type="hidden" name="movieInfoNum" value="${tmp.num }" />
-								</form>	
-							</div>
-						</div>
-					</div>			
-				</c:forEach>
+									<input type="hidden" name="movieInfoNum" value="${dto.num }" />
+								</form>	: <span class="liketo">${dto.liketo }</span> 
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+						<tr class="font-size1">
+							<td><b>영화개요</b> : ${dto.content }</td>
+						</tr>
+					</table>
+				</div>						
 			</div>
 		</div>
-			<!-- ------------------------------------페이지 처리1-------------------------------------->
-		<div class="container contFont">	
-			<div class="row">
-				
-				<div class="text-center">
-					<ul class="pagination">
-					<c:if test="${startPageNum ne 1 }">
-						<li>
-							<a href="listChart.do?pageNum=${startPageNum-1}&condition=${condition }&keyword=${encodedKeyword }">&laquo;</a>
-						</li>
-					</c:if>
-					<c:if test="${startPageNum eq 1 }">
-						<li class="disabled">
-							<a href="javascript:">&laquo;</a>
-						</li>
-					</c:if>
-						<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }" step="1">
-							<c:if test="${pageNum eq i }">
-								<li>
-									<a href="listChart.do?pageNum=${i }&condition=${condition }&keyword=${encodedKeyword }">${i }</a>
-								</li>
+		<div class="clearfix"></div>
+		<!-- 댓글 목록 -->
+		<div class="comments">
+			<ul>
+			<c:forEach items="${commentList }" var="tmp">
+				<c:choose>
+	<%-- 			<c:when test="${tmp.deleted eq 'no '}">	no가 3칸으로들어가버려서.. --%>
+					<c:when test="${tmp.deleted ne 'yes'}">					
+						<li class="comment" id="comment${tmp.num }" <c:if test="${tmp.num ne tmp.comment_group }">style="padding-left:50px;"</c:if> >
+							<c:if test="${tmp.num ne tmp.comment_group }">
+								<img class="reply_icon" src="${pageContext.request.contextPath }/resources/images/re.gif" />
 							</c:if>
-							<c:if test="${pageNum ne i }">
-								<li>					
-									<a href="listChart.do?pageNum=${i }&condition=${condition }&keyword=${encodedKeyword }">${i }</a>
-								</li>
+							<dl>
+								<dt>
+									<img src="${pageContext.request.contextPath }/resources/images/user_image.gif" />
+									<span>${tmp.id }</span>
+									<c:if test="${tmp.num ne tmp.comment_group }">
+										to <strong>${tmp.target_id }</strong>
+									</c:if>
+									<span>${tmp.regdate }</span>
+									<!-- 반복문 도는곳에 아이디 넣지않기! -->						
+									<a href="javascript:" class="reply_link">답글</a>
+									<c:choose>
+										<c:when test="${id eq tmp.id }">
+											<a href="javascript:" class="comment-update-link">수정</a>&nbsp;&nbsp;
+											<a href="javascript:deleteComment(${tmp.num })">삭제</a>
+										</c:when>
+										<c:otherwise>
+											<a href="javascript:">신고</a>
+										</c:otherwise>
+									</c:choose>
+								</dt>
+								<dd>
+									<pre>${tmp.content }</pre>
+								</dd>
+							</dl>
+							<form class="comment-insert-form" action="${pageContext.request.contextPath }/movie/comment_insert.do" method="post">
+								<!-- 덧글 그룹 -->
+								<input type="hidden" name="ref_group" value="${dto.num }" />
+								<!-- 덧글 대상 -->
+								<input type="hidden" name="target_id" value="${tmp.id }" />
+								<input type="hidden" name="comment_group" value="${tmp.comment_group }" />
+								<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다.</c:if></textarea>
+								<button type="submit">등록</button>
+							</form>
+							<!-- 로그인한 아이디와 댓글의 작성자와 같으면 수정폼 출력 -->
+							<c:if test="${id eq tmp.id }">
+								<form class="comment-update-form" action="${pageContext.request.contextPath }/movie/comment_update.do">
+									<input type="hidden" name="num" value="${tmp.num }" />
+									<textarea name="content">${tmp.content }</textarea>
+									<button type="submit">수정</button>
+								</form>
 							</c:if>
-						</c:forEach>
-						<c:if test="${endPageNum lt totalPageCount}">
-							<li>
-								<a href="listChart.do?pageNum=${endPageNum+1 }&condition=${condition }&keyword=${encodedKeyword }">&raquo;</a>
-							</li>
-						</c:if>
-						<c:if test="${endPageNum ge totalPageCount}">
-							<li class="disabled">
-								<a href="javascript:">&raquo;</a>
-							</li>
-						</c:if>
-					</ul>
-				</div>
-				
-				<!-- ------------------------------------페이지 처리2------------------------------------ -->				
-				<div class="col-sm-6 col-sm-offset-3">
-					<!-- keyword 검색어 form -->
-					<form action="${pageContext.request.contextPath }/movie/listChart.do" method="post">
-						<div class="form-group">
-							<label for="condition">검색조건</label>
-							<select class="form-control" name="condition" id="condition">
-								<option value="titlename" <c:if test="${condition eq 'titlename' }"> selected</c:if>>제목+파일명</option>
-								<option value="title" <c:if test="${condition eq 'title' }"> selected</c:if>>제목</option>
-								<option value="id" <c:if test="${condition eq 'id' }"> selected</c:if>>작성자</option>
-							</select>
-						</div>
-						<div class="form-group">						
-							<input class="form-control" type="text" value="${keyword }" name="keyword" id="keyword" placeholder="검색어..." />		
-						</div>
-						<button class="btn btn-sm" type="submit">검색</button>
-					</form>
-					<c:choose>
-						<c:when test="${not empty keyword }">
-							<p><strong>${keyword }</strong> 검색어로 검색된 
-							<strong>${totalRow }</strong>개의 파일이 있습니다.</p>
-						</c:when>
-						<c:otherwise>
-							<p><strong>${totalRow }</strong>개의 파일이 있습니다.</p>
-						</c:otherwise>
-					</c:choose>
-				</div>
-			
-			</div><!-- .row -->
-		</div><!-- .container -->
-		
-		<div>
-			<p>${msg }</p>
+						</li>
+					</c:when>
+					<c:otherwise>
+						<li>삭제된 댓글 입니다.</li>
+					</c:otherwise>
+				</c:choose>			
+			</c:forEach>			
+			</ul>
+			<div class="clearfix"></div>
+			<!--  원글에 댓글을 작성할수 있는 폼 -->
+			<div class="comment_form">
+				<form action="${pageContext.request.contextPath }/movie/comment_insert.do" method="post">
+				<!--  댓글의 그룹번호는 원글의 글번호 -->
+				<input type="hidden" name="ref_group" value="${dto.num }" />
+				<!--  댓글의 대상자는 원글의 작성자 -->
+				<input type="hidden" name="target_id" value="${dto.id }" />
+				<textarea name="content"><c:if test="${empty id }">로그인이 필요합니다.</c:if></textarea>
+				<button type="submit">등록</button>
+				</form>
+			</div>
 		</div>
+
 		<br />
 		<br />
         <!--
@@ -394,6 +406,82 @@
 		});
 		return false;
 	})
+	
+	//댓글 수정을 눌렀을때 호출되는 함수
+	$(".comment-update-link").click(function(){
+		$(this)
+		.parent().parent().parent()
+		.find(".comment-update-form")
+		.slideToggle(200);/* 0.2초 */
+	});
+	//댓글 수정폼에 submit 이벤트가 일어났을때 호출되는 함수 등록
+	$(".comment-update-form").on("submit", function(){
+		var url=$(this).attr("action");
+		//폼에 작성된 내용을 query 문자열로 읽어온다.
+		// serialize하면 이렇게됨 : num=x&content=xxx
+		var data=$(this).serialize();
+		//이벤트가 일어난 폼을 선택해서 변수에 담아 놓는다.
+		var $this=$(this);
+		$.ajax({
+			url:url,
+			method:"post", 
+			data:data,
+			success:function(responseData){
+				if(responseData.isSuccess){
+					//폼을 안보이게 한다.
+					$this.slideUp(200);
+					//폼에 입력한 내용 읽어오기
+					var content=$this.find("textarea").val();
+					//pre 요소에 수정 반영하기
+					$this.parent().find("pre").text(content);
+				}
+			}
+		});
+		//폼 제출 막긱
+		return false;
+		
+	});
+	//댓글 삭제를 눌렀을때 호출되는 함수
+	function deleteComment(num){
+		var isDelete=confirm("확인을 누르면 댓글이 삭제 됩니다.");
+		if(isDelete){
+			$.ajax({
+				url:"${pageContext.request.contextPath }/movie/comment_delete.do",
+				method:"post",
+				data:{num:num},/* data:{"num":num}, 원래 방이름은 따옴표가맞음. 근데없어도 진행됨.*/
+				success:function(responseData){
+					if(responseData.isSuccess){
+						var sel="#comment"+num;
+						$(sel).text("삭제된 댓글 입니다.");
+					}
+				}
+			});
+		}
+	}
+	//폼에 submit 이벤트가 일어 났을때 실행할 함수 등록
+	$(".comments form").on("submit", function(){
+		//로그인 여부
+		var isLogin=${not empty id};
+		if(!isLogin){
+			alert("로그인 페이지로 이동 합니다.");
+			location.href="${pageContext.request.contextPath }/users/loginform.do?url=${pageContext.request.contextPath }/movie/detail.do?num=${dto.num}";
+			return false;
+		}
+	});
+
+	//답글 달기 링크를 클릭했을때 실행할 함수
+	$(".comment .reply_link").click(function(){
+		$(this)
+		.parent().parent().parent()
+		.find(".comment-insert-form")
+		.slideToggle(200);/* 0.2초 */
+		
+		var text = $(this).text();
+		$(this).text(
+			text == "답글" ? "닫기" : "답글"
+		);
+		
+	});
 </script>
 
 </body>

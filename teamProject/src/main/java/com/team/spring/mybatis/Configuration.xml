@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.team.spring.users.dto.UsersResDto" alias="usersResDto"/>
 		<typeAlias type="com.team.spring.movieChart.dto.MovieChartDto" alias="movieChartDto"/>
 		<typeAlias type="com.team.spring.movieChart.dto.MovieChartLikeDto" alias="movieChartLikeDto"/>
+		<typeAlias type="com.team.spring.movieChart.dto.MovieChartCommentDto" alias="movieChartCommentDto"/>		
 		<!-- 이벤트 -->
 		<typeAlias type="com.team.spring.event.dto.EventDto" alias="eventDto"/>
 		<typeAlias type="com.team.spring.event.dto.EventImageDto" alias="eventImageDto"/>		
@@ -37,6 +38,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/team/spring/mybatis/UsersResMapper.xml"/>
 		<mapper resource="com/team/spring/mybatis/MovieChartMapper.xml"/>
 		<mapper resource="com/team/spring/mybatis/MovieChartLikeMapper.xml"/>
+		<mapper resource="com/team/spring/mybatis/MovieChartCommentMapper.xml"/>
 		<!-- 이벤트 -->
 		<mapper resource="com/team/spring/mybatis/EventMapper.xml"/>	
 		<mapper resource="com/team/spring/mybatis/EventImageMapper.xml"/>
