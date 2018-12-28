@@ -85,6 +85,18 @@ h4 {
 #uploadBtn {
 	display: none;
 }
+
+.top-img{
+           position: relative;
+           height: 400px;
+           padding: 0;
+           background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/단순배경3.jpg) 50% 0 no-repeat;
+           background-size: cover;
+       }
+       .service-features {
+    background-color: #6e94b599;
+}
+
 </style>
 </head>
 <body>
@@ -107,23 +119,17 @@ h4 {
         ========================== -->
 
 	<section id="service-bottom">
+		<div class="top-img">
+		</div>
 		<div class="container">
-			<div class="mobile-device">
-				<img data-wow-delay="0.2s"
-					class="img-responsive black  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-black.png"
-					alt="iPhone Black"> <img data-wow-delay="0.5s"
-					class="img-responsive white  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-white.png"
-					alt="iPhone White">
-			</div>
+			
 			<div class="service-features wow fadeInRight">
-				<h3>OUR DESIGNS COMES WITH...</h3>
+				<h3>자유게시판이란 무엇인가...</h3>
 				<ul>
-					<li>Responsive Design</li>
-					<li>Modern And Clean Design</li>
-					<li>Clean Code</li>
-					<li>Browser Friendly</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
 				</ul>
 			</div>
 		</div>
@@ -152,7 +158,7 @@ h4 {
 			<!--여기다! 22222222222222222222222222222222222222222222222222222222222  -->
 
 			<div class="row">
-				<div class="container">
+				<div class="container contFont">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 							<p>
@@ -198,7 +204,7 @@ h4 {
         #count
         ========================== -->
 
-	<section id="count">
+	<!-- <section id="count">
 		<div class="container">
 			<div class="row">
 				<div class="counter-section clearfix">
@@ -250,7 +256,7 @@ h4 {
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!--
         End #count
         ========================== -->
@@ -266,10 +272,8 @@ h4 {
 				<div class="col-lg-12">
 
 					<div class="footer-logo wow fadeInDown">
-						<img
-							src="${pageContext.request.contextPath }/resources/img/logo.png"
-							alt="logo">
-					</div>
+                            <img src="${pageContext.request.contextPath}/resources/images/logo1_white.png" alt="logo">
+                        </div>
 
 					<div class="footer-social wow fadeInUp">
 						<h3>We are social</h3>
@@ -287,8 +291,7 @@ h4 {
 
 					<div class="copyright">
 
-						Shared by <i class="fa fa-love"></i><a
-							href="https://bootstrapthemes.co">BootstrapThemes</a>
+						© M & P <i class="fa fa-love"></i><a href="#">All Rights Reserved</a>
 
 					</div>
 
@@ -339,8 +342,7 @@ h4 {
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 	<script>
 		$("#nav>li:eq(3)").attr("class", "current");
-	</script>
-	<script>
+		
 		var oEditors = [];
 
 		//추가 글꼴 목록

@@ -14,18 +14,18 @@
         ============================================= -->
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
 	rel="stylesheet" type="text/css">
-	<style>
-		.top-img{
-             position: relative;
-             height: 400px;
-             padding: 0;
-             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/단순배경3.jpg) 50% 0 no-repeat;
-             background-size: cover;
-         }
-         .service-features {
-		    background-color: #6e94b599;
-		}
-	</style>
+<style>
+	.top-img{
+            position: relative;
+            height: 400px;
+            padding: 0;
+            background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/단순배경3.jpg) 50% 0 no-repeat;
+            background-size: cover;
+        }
+        .service-features {
+	    background-color: #6e94b599;
+	}
+</style>
 </head>
 <body>
 
@@ -71,7 +71,7 @@
         #service
         ========================== -->
 	<section id="service">
-		<div class="container">
+		<div class="container contFont">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section-title text-center wow fadeInDown">
@@ -184,7 +184,7 @@
         #count
         ========================== -->
 
-	<section id="count">
+	<!-- <section id="count">
 		<div class="container">
 			<div class="row">
 				<div class="counter-section clearfix">
@@ -236,81 +236,23 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!--
         End #count
         ========================== -->
 
 
 
-	<!--
-        #footer
-        ========================== -->
-	<footer id="footer" class="text-center">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-
-					<div class="footer-logo wow fadeInDown">
-						<img src="${pageContext.request.contextPath }/resources/images/logo1_white.png" alt="logo">
-					</div>
-
-					<div class="footer-social wow fadeInUp">
-						<h3>We are social</h3>
-						<ul class="text-center list-inline">
-							<li><a href="http://goo.gl/RqhEjP"><i
-									class="fa fa-facebook fa-lg"></i></a></li>
-							<li><a href="http://goo.gl/hUfpSB"><i
-									class="fa fa-twitter fa-lg"></i></a></li>
-							<li><a href="http://goo.gl/r4xzR4"><i
-									class="fa fa-google-plus fa-lg"></i></a></li>
-							<li><a href="http://goo.gl/k9zAy5"><i
-									class="fa fa-dribbble fa-lg"></i></a></li>
-						</ul>
-					</div>
-
-					<div class="copyright">
-
-						Shared by <i class="fa fa-love"></i><a
-							href="https://bootstrapthemes.co">BootstrapThemes</a>
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--
-        End #footer
-        ========================== -->
+	<!-- #footer -->
+        <footer id="footer" class="text-center">
+   			<jsp:include page="../include/footer.jsp" />
+        </footer>
+        <!-- End #footer -->
 
 
-	<!--
-        JavaScripts
-        ========================== -->
 
-	<!-- main jQuery -->
-	<script src="${pageContext.request.contextPath }/resources/js/vendor/jquery-1.11.1.min.js"></script>
-	<!-- Bootstrap -->
-	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<!-- jquery.nav -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.nav.js"></script>
-	<!-- Portfolio Filtering -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.mixitup.min.js"></script>
-	<!-- Fancybox -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.fancybox.pack.js"></script>
-	<!-- Parallax sections -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.parallax-1.1.3.js"></script>
-	<!-- jQuery Appear -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.appear.js"></script>
-	<!-- countTo -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-countTo.js"></script>
-	<!-- owl carousel -->
-	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
-	<!-- WOW script -->
-	<script src="${pageContext.request.contextPath }/resources/js/wow.min.js"></script>
-	<!-- theme custom scripts -->
-	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
+<!-- js파일 로딩 -->
+<jsp:include page="../include/MSC2.jsp" />
 
 	<script>
 

@@ -21,7 +21,7 @@
 
                         <div class="copyright">
                            
-                           Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
+                           © M & P <i class="fa fa-love"></i><a href="#">All Rights Reserved</a>
 
                         </div>
 

@@ -12,6 +12,16 @@
 		#contact{
 			padding-top: 10px;
 		}
+		.top-img{
+             position: relative;
+             height: 400px;
+             padding: 0;
+             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/단순배경1.jpg) 50% 0 no-repeat;
+             background-size: cover;
+         }
+         .service-features {
+		    background-color: #6e94b599;
+		}
 	</style>
 	
 </head>
@@ -35,22 +45,17 @@
         ========================== -->
 
 	<section id="service-bottom">
+		<div class="top-img">
+		</div>
 		<div class="container">
-			<div class="mobile-device">
-				<img data-wow-delay="0.2s"
-					class="img-responsive black  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-black.png" alt="iPhone Black"> <img
-					data-wow-delay="0.5s"
-					class="img-responsive white  wow fadeInLeftBig"
-					src="${pageContext.request.contextPath }/resources/images/icons/iphone-white.png" alt="iPhone White">
-			</div>
+			
 			<div class="service-features wow fadeInRight">
-				<h3>OUR DESIGNS COMES WITH...</h3>
+				<h3>문의란 무엇인가....</h3>
 				<ul>
-					<li>Responsive Design</li>
-					<li>Modern And Clean Design</li>
-					<li>Clean Code</li>
-					<li>Browser Friendly</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
 				</ul>
 			</div>
 		</div>
@@ -61,10 +66,10 @@
 
 
          <section id="contact">
-            <div class="container">
+            <div class="container contFont">
                 <div class="row">
                 
-					<div class="container contFont">                  
+					<div class="container ">                  
 				         <div class="row">           
 							<div class="col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-5">
 					            <ul Class="pagination pagination-lg">
@@ -117,7 +122,7 @@
 <script>
 
 
-	$("#nav>li:eq(5)").attr("class", "current");
+$("#nav>li:eq(6)").attr("class", "current");
 </script>
 
 </body>

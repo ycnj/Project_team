@@ -175,8 +175,8 @@
                 <div class="row wow zoomIn">
                     <div class="col-lg-12">
                         <div class="call-to-action text-center">
-                            <p>“ACCUMSAN ID CURABITUR ET PORTITOR MAURIS BLANDIT DOLOR LOREM SOME EST OUR DONEC STIN LORTIOS”</p>
-                            <span>John Doe</span>
+                            <p>안녕하세요 M&P 입니다.</p>
+                            <span>M & P</span>
                         </div>
                     </div>
                 </div>
@@ -196,7 +196,7 @@
                     <div class="col-lg-12">
 
                         <div class="footer-logo wow fadeInDown">
-                            <img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="logo">
+                            <img src="${pageContext.request.contextPath}/resources/images/logo1_white.png" alt="logo">
                         </div>
 
                         <div class="footer-social wow fadeInUp">
@@ -211,7 +211,7 @@
 
                         <div class="copyright">
                            
-                           Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
+                           © M & P <i class="fa fa-love"></i><a href="#">All Rights Reserved</a>
 
                         </div>
 
