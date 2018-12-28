@@ -51,7 +51,7 @@
                         <div class="carousel-caption">
                             <div class="animated bounceInRight">
                                 <h2>범블비</h2>
-                                <h4>현재 상영중!</h4>&nbsp;&nbsp;<a class="btn btn-danger btn-sm btn-res" href="#">예매</a>
+                                <h4>현재 상영중!</h4>&nbsp;&nbsp;<a class="btn btn-danger btn-sm btn-res" href="${pageContext.request.contextPath }/movie/listChart.do">예매하러가기</a>
                                 <p>1987년, 범블비는 미국 캘리포니아의 작은 해변가 마을 폐차장에서 피난처를 찾고, 18세가 된 찰리는 세상을 살아가기 위해 고군분투한다. 그러던 중 찰리가 우연히 부서진 범블비를 발견하고 다시 고치려다 범블비가 평범한 폭스바겐 비틀이 아니라는 것을 깨닫게 된다.</p>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                         <div class="carousel-caption">
                             <div class="animated bounceInDown">
                                 <h2>보헤미안 랩소디</h2><br>
-                                <h4>현재 상영중!</h4>&nbsp;&nbsp;<a class="btn btn-danger btn-sm btn-res" href="#">예매</a>
+                                <h4>현재 상영중!</h4>&nbsp;&nbsp;<a class="btn btn-danger btn-sm btn-res" href="${pageContext.request.contextPath }/movie/listChart.do">예매하러가기</a>
                                 <p>공항에서 수하물 노동자로 일하며 음악의 꿈을 키우던 이민자 출신의 아웃사이더 ‘파록버사라’ 보컬을 구하던 로컬 밴드에 들어가게 되면서 ‘프레디 머큐리’라는 이름으로 밴드 ‘퀸’을 이끌게 된다. 시대를 앞서가는 독창적인 음악과 화려한 퍼포먼스로 관중들을 사로잡으며 성장하던 ‘퀸’은 라디오와 방송에서 외면을 받을 것이라는 음반사의 반대에도 불구하고 무려 6분 동안 이어지는 실험적인 곡 ‘보헤미안 랩소디’로 대성공을 거두며 월드스타 반열에 오른다. 그러나 독보적인 존재감을 뿜어내던 ‘프레디 머큐리’는 솔로 데뷔라는 유혹에 흔들리게 되고 결국 오랜 시간 함께 해왔던 멤버들과 결별을 선언하게 되는데… 세상에서 소외된 아웃사이더에서 전설의 록밴드 ‘퀸’ 되기까지, 우리가 몰랐던 그들의 진짜 이야기가 시작된다!</p>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                          <div class="carousel-caption">
                             <div class="animated bounceInUp">
                                 <h2>스타이즈본</h2><br>
-                                <h4>현재 상영중!</h4>&nbsp;&nbsp;<a class="btn btn-danger btn-sm btn-res" href="#">예매</a>
+                                <h4>현재 상영중!</h4>&nbsp;&nbsp;<a class="btn btn-danger btn-sm btn-res" href="${pageContext.request.contextPath }/movie/listChart.do">예매하러가기</a>
                                 <p>노래에 놀라운 재능을 가졌지만 외모에는 자신이 없는 무명가수 앨리(레이디 가가)는 공연을 하던 바에서 우연히 톱스타 잭슨 메인(브래들리 쿠퍼)을 만나게 된다. 자신의 모든 것을 사랑해주는 잭슨의 도움으로 앨리는 자기 안의 열정을 폭발시키며 최고의 스타로 거듭나지만, 잭슨은 어린 시절의 상처와 예술가적 고뇌 속에서 점점 무너져가는데…</p>
                             </div>
                         </div>
