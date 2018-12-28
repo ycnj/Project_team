@@ -35,14 +35,14 @@
 					        </li>
 							<li><a href="${pageContext.request.contextPath}/freeboard/list.do">자유게시판</a></li>
                             <li><a href="${pageContext.request.contextPath}/event/list.do">이벤트</a></li>                
-                            <li><a href="${pageContext.request.contextPath}/ask/contact_home.do">문의</a></li>
+                            <li><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터</a></li>
                         <c:choose>
                         	<c:when test="${empty sessionScope.id }">
                             <li><a href="${pageContext.request.contextPath}/users/loginform.do">Login</a></li>
                             </c:when>
 			<c:otherwise>
 				<li>
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">${id} Info<span class="caret"></span></a>         
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">${id }님 Info<span class="caret"></span></a>         
 					<ul id="nav" class="nav dropdown-menu">
 					    <li><a href="${pageContext.request.contextPath}/users/info.do">내정보</a></li>
 						<li><a href="${pageContext.request.contextPath}/users/resDetail.do">예매내역</a></li>

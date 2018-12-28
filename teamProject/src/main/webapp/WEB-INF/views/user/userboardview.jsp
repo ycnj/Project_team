@@ -24,6 +24,9 @@
 	    width: 1100px;
 	  }
 	}
+	#contact{
+		padding-top: 10px;
+	}
 </style>
 </head>
 <body>
@@ -76,24 +79,20 @@
                 <div class="row">
 					<div class="container contFont container2">                  
 				         <div class="row">           
-							<div class="col-md-8 col-md-offset-2" style="margin-left: 300px">
+							<div class="col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-5">
 					            <ul Class="pagination pagination-lg">
-					             	<li class="active"><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>
-					             	<li><a href="${pageContext.request.contextPath}/user/insertformview.do">글작성하기</a></li>
-					             	<li><a href="${pageContext.request.contextPath}/ask/contact_home.do">고객센터<span class="sr-only">(current)</span></a></li>                           
-					          		<c:if test="${!empty sessionScope.id }">
-					          		<li><a href="${pageContext.request.contextPath}/ask/insertformview.do">1:1문의<span class="sr-only">(current)</span></a></li>
-					          		</c:if>     					          	
-					          		<li><a href="${pageContext.request.contextPath}/home.do">메인 페이지<span class="sr-only">(current)</span></a></li>
+					             	<c:if test="${not empty sessionScope.id || sessionScope.id eq 'master' }">
+					             	<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>
+					             	</c:if>						            					             	
+					             	<li class="active"><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>   				          						          		
 					    		</ul>
 				    		</div>
 				    	</div>    
 				    </div>	
                    
-                    <div class="section-title text-center wow fadeInDown" style="padding: 50px; padding-right: 1px;">
+                    <div class="section-title text-center wow fadeInDown">
                         <h2>질문게시판</h2>                                   
-                    </div>
-                    
+                    </div>                    
               				    
 						                                	             
                     </div> <!-- .col-md-2 -->
