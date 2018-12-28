@@ -11,6 +11,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.ItemList;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,17 +30,14 @@ public class MovieSercServiceImpl implements MovieSercService{
 	
 	@Override
 	public void Mserc (ModelAndView mView, MovieSercDto dto) {
-		//String query = request.getParameter("query");
         StringBuffer response = new StringBuffer();
+		List<MovieDto> list=new ArrayList<>();
 
 		String query=dto.getQuery();
-		//ModelAndView mView=new ModelAndView();
-		MovieDto result=new MovieDto();
-		List<MovieDto> list=new ArrayList<>();
+		
         try {
             String text = URLEncoder.encode(query, "UTF-8");
             String apiURL = "https://openapi.naver.com/v1/search/movie.json?query="+ text; // json 결과
-            //String apiURL = "https://openapi.naver.com/v1/search/movie.xml?query="+ text; // xml 결과
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");
@@ -51,24 +51,37 @@ public class MovieSercServiceImpl implements MovieSercService{
                 br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
             }
             String inputLine;
-            //StringBuffer response = new StringBuffer();
+            
             while ((inputLine = br.readLine()) != null) {
                 response.append(inputLine);
             }
-            br.close();
             
-            //System.out.println(response.append(list));
-            //System.out.println(response.toString());
+            br.close();
+            JSONParser parser = new JSONParser();
+            JSONObject obj = (JSONObject) parser.parse(response.toString());
+            JSONArray item= (JSONArray) obj.get("items");
+            System.out.println("결과 1:" + item);
+
+            for(int i =0; i<item.size(); i++) {
+            	MovieDto dto1=new MovieDto();
+            	JSONObject tmp = (JSONObject)item.get(i);        		
+        		dto1.setTitle((String)tmp.get("title"));
+            	dto1.setImage((String)tmp.get("image"));
+            	dto1.setLink((String)tmp.get("link"));
+            	dto1.setSubtitle((String)tmp.get("subtitle"));
+            	dto1.setDirector((String)tmp.get("director"));
+            	dto1.setActor((String)tmp.get("actor"));
+            	dto1.setPubDate((String)tmp.get("pubDate"));
+            	dto1.setUserRating((String)tmp.get("userRating"));
+
+            	list.add(dto1);
+            }
+
         } catch (Exception e) {
             System.out.println(e);
         }
+        mView.addObject("list", list);
         
-        mView.addObject("list", response.getClass());
-        System.out.println(mView.addObject("list", response));
-        
-/*		ItemList l1 = new ItemList();
-		l1.add(response.toString());*/
-		
 	}
 
 }

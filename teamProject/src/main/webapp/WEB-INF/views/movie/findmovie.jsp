@@ -9,6 +9,7 @@
 <jsp:include page="../include/MSC1.jsp" />
 	<title>movie/findmovie.jsp</title>
 </head>
+
 <body>
 
 	<!--
@@ -57,24 +58,52 @@
 	
 <section id="portfolio">
 <div class="section-title text-center wow fadeInDown">
-	<h2>event</h2>
+	<h2>영화검색</h2>
 
 </div>	
 
 	<!-- 페이징 처리 -->
 	<div class="container">
 		<form action="findmovie.do">
-		<input id="query" name="query" type="text" value="영화제목"/>
+		<input id="query" name="query" type="text" value="제목" />
 		<button class="btn btn-info" type="submit">전송
 		</button>
 		</form>
-		<table class="table">
-		<tr>
-			<td></td>
+		<table class="table" style="width: 1000px;">
+		<thead>
+			<tr>
+				<th>No.</th>
+				<th>이미지</th>
+				<th>제목</th>
+				<th>제작년도</th>
+				<th>평점</th>
+				<th>감독</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach items="${list }" var="tmp" begin="0" varStatus="status">
+		<tr >
+			<td rowspan="2" width="30px" align="center">${status.index+1 }</td>
+			<td rowspan="2" width="170px"><img style="height: 95%" src="${tmp.image }"/></td>
+			<td width="400px">
+				<a href="${tmp.link }">
+					<strong>${tmp.title }</strong></a> <c:if test="${!empty tmp.subtitle  }">(${tmp.subtitle })</c:if></td>
+			<td>${tmp.pubDate }</td>
+			<td>${tmp.userRating }</td>
+			<td>${tmp.director }</td>
 		</tr>
+		<tr>
+			<td>출연배우 : ${tmp.actor }</td>
+		</tr>
+
+		</c:forEach>
+
+		</tbody>
 		</table>
 	</div>
-	<div class="page-display text-center">
+	
+	
+<%-- 	<div class="page-display text-center">
 		<ul class="pagination">
 		<c:choose>
 			<c:when test="${startPageNum ne 1}">
@@ -119,7 +148,7 @@
 	</div>
 	<div class="container">
 		<a class="btn btn-info" href="${pageContext.request.contextPath}/event/uploadform.do">이벤트 업로드</a>
-	</div>
+	</div> --%>
 </section>
 	
 	<!-- 본문 끝 -->
@@ -145,7 +174,7 @@
 <!-- javascript	 -->
 <script>
 $("#nav>li:eq(1)").attr("class", "current");
-	
+
 </script>
 
 </body>
