@@ -24,14 +24,18 @@ CREATE TABLE usersRes_mp(
 	id VARCHAR2(50),			--(users id foreign key)
 	num Number Primary Key,		--예매번호
 	movieName VARCHAR2(50),		--예매한 영화 이름
-	price NUMBER DEFAULT 0,		--예매금액(예매누적금액)
+	saveFileName VARCHAR2(100),	--예매한 영화 포스터이름
+	price NUMBER DEFAULT 0,		--예매금액
 	paymentWay VARCHAR2(50), 	--결제수단
 	currCon NUMBER DEFAULT 0,	--현재상태(예매,환불)
 	point NUMBER DEFAULT 0,		--포인트
 	regdate DATE				--예매일(예매일 기준 취소가능일 표시)
 );
 
-CREATE SEQUENCE userRes_mp_seq;
+CREATE SEQUENCE usersRes_mp_seq
+	start with 127485
+	increment BY 4
+;
 
 
 --------------------------MovieInfoTable--------------------------
@@ -54,7 +58,7 @@ CREATE SEQUENCE movieInfo_seq;
 -- 댓글 정보를 저장할 테이블
 CREATE TABLE movieInfo_comment(
 	num NUMBER PRIMARY KEY, 		-- 댓글의 글번호
-	writer VARCHAR2(100), 			-- 댓글 작성자
+	id VARCHAR2(100), 				-- 댓글 작성자
 	content VARCHAR2(500), 			-- 댓글 내용
 	target_id VARCHAR2(100), 		-- 댓글의 대상이 되는 아이디(글작성자)
 	ref_group NUMBER,				-- 댓글 그룹번호

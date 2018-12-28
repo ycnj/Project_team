@@ -31,33 +31,6 @@
 		.form-group{
 			display:inline-block;
 		}
-		.contFont{
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-		font-size: 14px;
-		line-height: 1.42857143;
-		color: #333;
-		}
-		.btn {
-		   display: inline-block;
-		   padding: 6px 12px;
-		   margin-bottom: 0;
-		   font-size: 14px;
-		   font-weight: normal;
-		   line-height: 1.42857143;
-		   text-align: center;
-		   white-space: nowrap;
-		   vertical-align: middle;
-		   -ms-touch-action: manipulation;
-		   touch-action: manipulation;
-		   cursor: pointer;
-		   -webkit-user-select: none;
-		   -moz-user-select: none;
-		   -ms-user-select: none;
-		   user-select: none;
-		   background-image: none;
-		   border: 1px solid transparent;
-		   border-radius: 4px;
-		}
 		
 		.pagination-lg > li > a,
 		.pagination-lg > li > span {
@@ -79,7 +52,15 @@
 		.row{
 			text-align: center;
 		}
-		
+		.img-responsive{
+			max-height: 160px;
+		}
+		.col-sm-10{
+			margin-bottom: 20px; 
+		}
+		.table-hover{
+			margin-top: 20px;
+		}
 	</style>	
 </head>
 <body>
@@ -141,29 +122,42 @@
 		                </div>                    		
 						<h4><strong>회원등급 : ${grade}</strong></h4>
 						<hr style="height: 3px;" color="black" />
-						<div class="col-sm-10 col-sm-offset-1">			
-							<table class="table table-hover table-bordered text-center">
-								<tr>
-									<td rowspan="4"><img style="display:inline-block;max-width:80px;" 
-									src="${pageContext.request.contextPath }/resources/images/movie/포스터/아쿠아맨.jpg"/></td>
-								</tr>
-								<tr>
-									<td>${dto.movieName}</td>
-									<td><strong>예매번호 : ${dto.num }</strong></td>
-								</tr>
-								<tr>
-									<td>관람일시 2018.12.15 상영관 6관(x)</td>
-									<td>관람극장 CGV 용산 관람좌석 E11(x)</td>
-								</tr>
-								<tr>
-									<td>결제날짜 ${dto.regdate} 매수 일반1</td>
-									<td>결제수단 ${dto.paymentWay}:${dto.price }</td>
-								</tr>
-							</table>
+					</div>
+					<c:if test="${empty list }">
+						<div class="col-sm-10 col-sm-offset-1">	
+							<p>- 예매 내역이 없습니다 -</p>
 						</div>
-	            	</div>
-					
-	
+					</c:if>
+					<c:forEach items="${list }" var="tmp" varStatus="status">
+						<div class="col-sm-10 col-sm-offset-1">								
+							<div class="col-sm-3">
+								<img class="img-responsive" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName }"/>					
+							</div>
+							<div class="col-sm-7">			
+								<table class="table table-hover table-bordered text-center">
+									<tr>
+										<td><strong>${tmp.movieName}</strong></td>
+										<td><strong>예매번호</strong> : ${tmp.num }</td>
+									</tr>
+									<tr>
+										<td><strong>관람일시</strong>: 2018.12.15 상영관 6관</td>
+										<td><strong>관람극장</strong>: M&P 용산 관람좌석 E11</td>
+									</tr>
+									<tr>
+										<td><strong>결제날짜</strong>: 
+											<fmt:parseDate value="${tmp.regdate}" var="dateFmt2" pattern="yyyy-MM-dd HH:mm:ss" />
+											<fmt:formatDate value="${dateFmt2 }" pattern="yyyy-MM-dd" />
+										</td>
+										<td><strong>결제내역</strong>: ${tmp.paymentWay}, ${tmp.price }원, 일반1</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<br /><br />
+					</c:forEach>
+							
+						
+	            	
 				
 				</div><!-- .row -->
 			</div><!-- .container -->		
@@ -183,7 +177,16 @@
         <br />
         <br />
         <section id="quotes">
-			<jsp:include page="../include/quotes.jsp" />
+	        <div class="container">
+	            <div class="row wow zoomIn">
+	                <div class="col-lg-12">
+	                    <div class="call-to-action text-center">
+	                        <p>M&P VIP에 도전하세요!</p>
+	                        <span>M&P</span>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
         </section>
         
         <!-- End #quotes -->

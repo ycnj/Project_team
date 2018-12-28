@@ -1,6 +1,6 @@
 package com.team.spring.users.dao;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +15,8 @@ public class UsersResDaoImpl implements UsersResDao{
 	private SqlSession session;
 
 	@Override
-	public UsersResDto getData(String id) {
-		return session.selectOne("usersRes.getData", id);
+	public List<UsersResDto> getData(String id) {
+		return session.selectList("usersRes.getData", id);
 	}
 
 	@Override

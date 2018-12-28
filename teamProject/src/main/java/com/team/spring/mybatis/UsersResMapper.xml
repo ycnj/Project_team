@@ -3,8 +3,8 @@
 <mapper namespace="usersRes">
 	<insert id="insert" parameterType="usersResDto">
 		INSERT INTO usersRes_mp
-		(id, num, movieName, price, paymentWay, currCon, point, regdate)
-		VALUES(#{id}, usersRes_seq.NEXTVAL, #{movieName}, #{moviePrice}, #{paymentWay}, #{currCon}, #{point}, SYSDATE)
+		(id, num, movieName, saveFileName, price, paymentWay, point, regdate)
+		VALUES(#{id}, usersRes_mp_seq.NEXTVAL, #{movieName}, #{saveFileName}, #{price}, #{paymentWay}, #{point}, SYSDATE)
 	</insert>
 	<select id="getSumPrice" parameterType="string" resultType="int">
 		SELECT sum(price) sumPrice
@@ -12,9 +12,10 @@
 		WHERE id=#{id} AND currCon=0
 	</select>
 	<select id="getData" parameterType="string" resultType="usersResDto">
-		SELECT id, num, movieName, price, paymentWay, currCon, point, regdate
+		SELECT id, num, movieName, saveFileName, price, paymentWay, currCon, point, regdate
 		FROM usersRes_mp
 		WHERE id=#{id}
+		AND to_char(regdate, 'yyyy-mm-dd') <![CDATA[ > ]]> to_char(add_months(sysdate,-1),'yyyy-mm-dd')
 	</select>
 	<update id="cancelRes" parameterType="usersResDto">
 		UPDATE usersRes_mp

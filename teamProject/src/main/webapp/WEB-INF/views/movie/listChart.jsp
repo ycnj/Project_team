@@ -102,7 +102,13 @@
          .service-features {
 		    background-color: #6e94b599;
 		}
-
+		#liketo_form{
+			display: inline;
+		}
+		.panel-footer button{
+			float: right;
+			padding: 3px 10px;
+		}
 	</style>	
 </head>
 <body>
@@ -170,7 +176,7 @@
 								</c:if>						
 							</div>
 							<div class="panel-body">
-								<a href="detailChart.do?num=${tmp.num }&no=${status.count}"><img class="img-responsive" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName }"/></a>
+								<a href="detailChart.do?num=${tmp.num }"><img class="img-responsive" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName }"/></a>
 							</div>
 							<div class="panel-footer">
 								<div class="font-sizeUp">
@@ -189,7 +195,14 @@
 									<span class="liketo">${tmp.liketo }</span>  
 									<span class="glyphicon glyphicon-heart"></span>
 									<input type="hidden" name="movieInfoNum" value="${tmp.num }" />
-								</form>	
+								</form>
+								<button class="btn btn-warning btn-sm" onclick="reserve(${tmp.num })">예매</button>
+								<form action="${pageContext.request.contextPath }/users/reserve.do" method="post" id="reserve_form${tmp.num }">
+									<input type="hidden" name="saveFileName" value="${tmp.saveFileName }" />
+									<input type="hidden" name="movieInfoNum" value="${tmp.num }" />
+									<input type="hidden" name="movieName" value="${tmp.title }" />
+									<input type="hidden" name="paymentWay" value="카드결제" />	
+								</form>
 							</div>
 						</div>
 					</div>			
@@ -371,29 +384,37 @@
 	            jQuery("#navigation").removeClass("animated-nav");
 	        }
 	    });
+	    
+	    
+	    $(".glyphicon-heart").click(function(){
+			var $this=$(this);
+			var data=$this.parent().serialize();
+			var id='${id}';
+			if(id==null || id==""){
+				alert("로그인하세요.");
+				return;
+			}		
+			$.ajax({
+				url:"${pageContext.request.contextPath }/movie/liketo.do",
+				method:"post",
+				data:data,
+				success:function(responseData){
+					$this
+					.parent()
+					.find('.liketo')
+					.text(responseData.liketo);			
+				}
+			});
+			return false;
+		})		
+		
 	});
 	
-	$(".glyphicon-heart").click(function(){
-		var $this=$(this);
-		var data=$this.parent().serialize();
-		var id='${id}';
-		if(id==null || id==""){
-			alert("로그인하세요.");
-			return;
-		}		
-		$.ajax({
-			url:"${pageContext.request.contextPath }/movie/liketo.do",
-			method:"post",
-			data:data,
-			success:function(responseData){
-				$this
-				.parent()
-				.find('.liketo')
-				.text(responseData.liketo);			
-			}
-		});
-		return false;
-	})
+	function reserve(num){
+    	$("#reserve_form"+num).submit();
+    }
+	
+	
 </script>
 
 </body>

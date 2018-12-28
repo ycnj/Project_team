@@ -23,12 +23,6 @@ public class MovieChartController {
 	@Autowired
 	private MovieChartService service;
 	
-	@RequestMapping("/movie/detailChart")
-	public String getData(@RequestParam int num, @RequestParam int no, HttpServletRequest request) {
-		service.getData(request, num, no);
-		return "movie/detailChart";
-	}
-	
 	@RequestMapping("/movie/listChart")
 	public String getList(HttpServletRequest request) {
 		service.getList(request);
@@ -62,7 +56,13 @@ public class MovieChartController {
 		return service.liketo(request);
 	}	
 	
-	@RequestMapping("/cafe/comment_delete")
+	@RequestMapping("/movie/detailChart")
+	public String getData(@RequestParam int num, HttpServletRequest request) {
+		service.getData(request, num);
+		return "movie/detailChart";
+	}
+	
+	@RequestMapping("/movie/comment_delete")
 	@ResponseBody
 	public Map<String, Object> authCommentDelete(@RequestParam int num, HttpServletRequest request) {
 		// num 은 삭제할 댓글의 글번호 이다.
@@ -71,13 +71,13 @@ public class MovieChartController {
 		map.put("isSuccess", true);
 		return map;
 	}
-	@RequestMapping("/cafe/comment_insert")
+	@RequestMapping("/movie/comment_insert")
 	public ModelAndView authCommentInsert(@RequestParam int ref_group, HttpServletRequest request) {
 		service.saveComment(request);
-		return new ModelAndView("redirect:/cafe/detail.do?num="+ref_group);
+		return new ModelAndView("redirect:/movie/detailChart.do?num="+ref_group);
 	}
 	
-	@RequestMapping("/cafe/comment_update")
+	@RequestMapping("/movie/comment_update")
 	@ResponseBody
 	public Map<String, Object> authCommentUpdate(@ModelAttribute MovieChartCommentDto dto, HttpServletRequest request){
 		service.updateComment(dto);

@@ -8,7 +8,7 @@ public interface UsersResService {
 	//예매 내역 불러오기
 	public void showInfo(HttpServletRequest request);
 	//예매 내역 넣기
-	public void buyTicket(UsersResDto dto);
+	public void buyTicket(UsersResDto dto, HttpServletRequest request);
 	//누적금액 불러오기
 	public void getSumPrice(HttpServletRequest request);
 	//예매 취소

@@ -39,6 +39,7 @@ public class MovieChartDaoImpl implements MovieChartDao{
 		session.insert("movieChart.insert", dto);
 	}
 	
+	@Override
 	public boolean addLikeCnt(int num) {
 		int flag=session.update("movieChart.addLikeCnt", num);
 		if (flag > 0) {
@@ -47,6 +48,7 @@ public class MovieChartDaoImpl implements MovieChartDao{
 			return false;
 		}
 	}
+	
 }
 
 

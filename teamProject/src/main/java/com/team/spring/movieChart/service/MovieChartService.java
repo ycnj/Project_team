@@ -17,7 +17,7 @@ public interface MovieChartService {
 	public void saveFile(MovieChartDto dto, HttpServletRequest request);
 	public void getFileData(ModelAndView mView, int num);
 	public Map<String, Object> liketo(HttpServletRequest request);
-	public void getData(HttpServletRequest request, int num, int no);
+	public void getData(HttpServletRequest request, int num);
 	public void deleteComment(int num);
 	public void saveComment(HttpServletRequest request);
 	public void updateComment(MovieChartCommentDto dto);

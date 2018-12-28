@@ -15,27 +15,29 @@ public class MovieChartCommentDaoImpl implements MovieChartCommentDao{
 
 	@Override
 	public List<MovieChartCommentDto> getList(int ref_group) {		
-		return session.selectList("cafeComment.getList", ref_group);
+		return session.selectList("movieChartComment.getList", ref_group);
 	}
 
 	@Override
 	public void delete(int num) {
-		session.update("cafeComment.delete", num);
+		session.update("movieChartComment.delete", num);
 	}
 
 	@Override
 	public void insert(MovieChartCommentDto dto) {
-		session.insert("cafeComment.insert", dto);		
+		System.out.println("------");
+		System.out.println(dto.getId());
+		session.insert("movieChartComment.insert", dto);		
 	}
 
 	@Override
 	public int getSequence() {
-		return session.selectOne("cafeComment.getSequence");
+		return session.selectOne("movieChartComment.getSequence");
 	}
 
 	@Override
 	public void update(MovieChartCommentDto dto) {
-		session.update("cafeComment.update", dto);
+		session.update("movieChartComment.update", dto);
 	}
 	
 	

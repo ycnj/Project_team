@@ -215,11 +215,13 @@ public class MovieChartServiceImpl implements MovieChartService{
 	}
 
 	@Override
-	public void getData(HttpServletRequest request, int num, int no) {
+	public void getData(HttpServletRequest request, int num) {
 		MovieChartDto dto=dao.getData(num);
-		
+		//댓글목록
+		List<MovieChartCommentDto> commentList=
+				commentDao.getList(num);
+		request.setAttribute("commentList", commentList);
 		request.setAttribute("dto", dto);
-		request.setAttribute("no", no);
 	}
 
 	@Override
@@ -241,7 +243,7 @@ public class MovieChartServiceImpl implements MovieChartService{
 		String comment_group=request.getParameter("comment_group");
 		//저장할 댓글의 primary key 값을 미리 얻어낸다.
 		int seq=commentDao.getSequence();
-		//댓글 정보를 CafeCommentDto 객체에 담는다.
+		//댓글 정보를 MovieChartCommentDto 객체에 담는다.
 		MovieChartCommentDto dto=new MovieChartCommentDto();
 		dto.setNum(seq);
 		dto.setId(id);;

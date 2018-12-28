@@ -20,10 +20,10 @@ public class UsersResController {
 		return "users/resDetail";
 	}
 	
-	@RequestMapping("/users/reservation")
-	public String buyTicket(UsersResDto dto) {
-		service.buyTicket(dto);
-		return "users/resDetail";
+	@RequestMapping("/users/reserve")
+	public String buyTicket(UsersResDto dto, HttpServletRequest request) {
+		service.buyTicket(dto, request);
+		return "redirect:/users/resDetail.do";
 	}
 
 	@RequestMapping("/users/cancel")

@@ -5,6 +5,7 @@ public class UsersResDto {
 	private String id;
 	private int num;
 	private String movieName;
+	private String saveFileName;
 	private int price;
 	private String paymentWay;
 	private int currCon;
@@ -14,13 +15,15 @@ public class UsersResDto {
 	//디폴트 생성자 
 	public UsersResDto() {}
 
-	public UsersResDto(String id, int num, String movieName, int price, String paymentWay, int currCon, int point, String regdate) {
+	public UsersResDto(String id, int num, String movieName, String saveFileName, int price, String paymentWay,
+			int currCon, int point, String regdate) {
 		super();
 		this.id = id;
 		this.num = num;
 		this.movieName = movieName;
+		this.saveFileName = saveFileName;
 		this.price = price;
-		this.paymentWay=paymentWay;
+		this.paymentWay = paymentWay;
 		this.currCon = currCon;
 		this.point = point;
 		this.regdate = regdate;
@@ -50,6 +53,14 @@ public class UsersResDto {
 		this.movieName = movieName;
 	}
 
+	public String getSaveFileName() {
+		return saveFileName;
+	}
+
+	public void setSaveFileName(String saveFileName) {
+		this.saveFileName = saveFileName;
+	}
+
 	public int getPrice() {
 		return price;
 	}
@@ -57,8 +68,7 @@ public class UsersResDto {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
-	
+
 	public String getPaymentWay() {
 		return paymentWay;
 	}

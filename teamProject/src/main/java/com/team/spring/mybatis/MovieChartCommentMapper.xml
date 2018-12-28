@@ -13,8 +13,8 @@
 	</update>
 	<insert id="insert" parameterType="movieChartCommentDto">
 		INSERT INTO movieInfo_comment
-		(num, writer, content, target_id, ref_group, comment_group, regdate)
-		VALUES(#{num}, #{writer}, #{content}, #{target_id},
+		(num, id, content, target_id, ref_group, comment_group, regdate)
+		VALUES(#{num}, #{id}, #{content}, #{target_id},
 			#{ref_group}, #{comment_group}, SYSDATE)
 	</insert>
 	<select id="getSequence" resultType="int">
@@ -24,7 +24,7 @@
 	</select>
 	<!-- DUAL:컬럼1, 로우1 -->
 	<select id="getList" parameterType="int" resultType="movieChartCommentDto">
-		SELECT num, writer, content, target_id, ref_group, comment_group,
+		SELECT num, id, content, target_id, ref_group, comment_group,
 			   deleted, regdate
 		FROM movieInfo_comment
 		WHERE ref_group=#{num}
