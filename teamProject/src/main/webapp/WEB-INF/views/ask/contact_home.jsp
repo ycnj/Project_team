@@ -43,7 +43,7 @@
 	<section id="service-bottom">
 		<div class="top-img">
 		</div>
-		<div class="container">
+		<div class="container contFont">
 			
 			<div class="service-features wow fadeInRight">
 				<h3>문의란 무엇인가....</h3>
@@ -62,7 +62,7 @@
 
 
         <section id="contact">
-            <div class="container">
+            <div class="container contFont">
                 <div class="row">
                 
 					<div class="container contFont">                  

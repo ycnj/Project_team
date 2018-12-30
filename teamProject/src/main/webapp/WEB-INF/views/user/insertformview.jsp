@@ -16,7 +16,7 @@
         Fixed Navigation
         ==================================== -->
         <header id="navigation" class="navbar-fixed-top" >
-        	<div class="container">
+        	<div class="container contFont">
 				<jsp:include page="../include/header.jsp" />
             </div>			
         </header>
@@ -30,7 +30,7 @@
         ========================== -->
 
 	<section id="service-bottom">
-		<div class="container">
+		<div class="container contFont">
 			<div class="mobile-device">
 				<img data-wow-delay="0.2s"
 					class="img-responsive black  wow fadeInLeftBig"
@@ -57,7 +57,7 @@
 	<!-- 메인 -->
 	
        <section id="contact">
-            <div class="container">
+            <div class="container contFont">
                 <div class="row">
 					<div class="container contFont container2">                  
 				         <div class="row">           

@@ -4,7 +4,7 @@
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 </head>
 <body>
-<div class="container">
+<div class="container contFont">
 	<h3>글정보 수정 폼입니다.</h3>
 	<form action="update.do" method="post">
 		<input type="hidden" name="num" value="${dto.num }" />

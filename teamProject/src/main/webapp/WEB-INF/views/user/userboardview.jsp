@@ -42,7 +42,7 @@
         Fixed Navigation
         ==================================== -->
         <header id="navigation" class="navbar-fixed-top" >
-        	<div class="container">
+        	<div class="container contFont">
 				<jsp:include page="../include/header.jsp" />
             </div>			
         </header>
@@ -57,7 +57,7 @@
 	<section id="service-bottom">
 		<div class="top-img">
 			</div>
-		<div class="container">
+		<div class="container contFont">
 			<div class="service-features wow fadeInRight">
 				<h3>OUR DESIGNS COMES WITH...</h3>
 				<ul>
@@ -75,7 +75,7 @@
 
 
        <section id="contact">
-            <div class="container">
+            <div class="container contFont">
                 <div class="row">
 					<div class="container contFont container2">                  
 				         <div class="row">           

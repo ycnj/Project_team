@@ -62,17 +62,18 @@
 
 
          <section id="contact">
-            <div class="container">
+            <div class="container contFont">
                 <div class="row">
                 
 					<div class="container contFont">                  
 				         <div class="row">           
-							<div class="col-md-8" style="margin-left: 520px">
+							<div class="col-md-8" style="margin-left: 470px">
 					            <ul Class="pagination pagination-lg">
 									<c:if test="${not empty sessionScope.id || sessionScope.id eq 'master' }">
-					             	<li class="active"><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>
+					             	<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>
 					             	</c:if>						            					             	
-					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             				             	                         					          							          							          		
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>		
+					             	<li class="active"><a href="${pageContext.request.contextPath}/faq/faqlistview.do">FAQ 목록</a></li>			             				             	                         					          							          							          		
 					    		</ul>
 				    		</div>
 				    	</div>    

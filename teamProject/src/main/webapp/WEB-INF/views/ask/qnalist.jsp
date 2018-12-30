@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 
-<div class="container">
+<div class="container contFont">
 	<h3  class="col-md-8 col-md-offset-2">${id}님 문의 목록입니다.</h3>
 		<div class="col-md-8 col-md-offset-2">
 	<table class="table table-bordered">

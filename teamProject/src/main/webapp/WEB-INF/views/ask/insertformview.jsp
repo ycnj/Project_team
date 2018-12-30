@@ -16,7 +16,7 @@
         Fixed Navigation
         ==================================== -->
         <header id="navigation" class="navbar-fixed-top" >
-        	<div class="container">
+        	<div class="container contFont">
 				<jsp:include page="../include/header.jsp" />
             </div>			
         </header>
@@ -30,7 +30,7 @@
         ========================== -->
 
 	<section id="service-bottom">
-		<div class="container">
+		<div class="container contFont">
 			<div class="mobile-device">
 				<img data-wow-delay="0.2s"
 					class="img-responsive black  wow fadeInLeftBig"
@@ -57,14 +57,17 @@
 	<!-- 메인 -->
 	
        <section id="contact">
-            <div class="container">
+            <div class="container contFont">
                 <div class="row">
 					<div class="container contFont container2">                  
 				         <div class="row">           
-							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2">
+							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2" style="margin-left:390px">
 					            <ul Class="pagination pagination-lg">					             	
-					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>					             						             	
-                           			<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					          		
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             	                          
+					          		<c:if test="${!empty sessionScope.id }">
+					          		<li class="active"><a href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록<span class="sr-only">(current)</span></a></li>
+									</c:if>  					          	
+					          		<li><a href="${pageContext.request.contextPath}/faq/faqlistview.do">FAQ 목록</a></li>				
 					    		</ul>
 				    		</div>
 				    	</div>    

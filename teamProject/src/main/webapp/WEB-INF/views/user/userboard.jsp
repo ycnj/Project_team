@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 </head>
 <body>
-<div class="container">
+<div class="container contFont">
 		<div class="col-md-9 col-md-offset-1">
 	<table class="table table-bordered">
 		<thead>
@@ -34,7 +34,7 @@
 		</tbody>
 	</table>
 	<a href="insertformview.do" class="btn btn-primary pull-right">글쓰기</a>
-	<div class="page-display" style="text-align:center;">
+	<div class="page-display contFont" style="text-align:center;">
 		<ul class="pagination">
 		<c:choose>
 			<c:when test="${startPageNum ne 1}">

@@ -62,7 +62,7 @@
 </style>
 </head>
 <body>
-<div class="container">
+<div class="container contFont">
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
 	</c:if>

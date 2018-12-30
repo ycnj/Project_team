@@ -62,7 +62,7 @@
 </style>
 </head>
 <body>
-<div class="container">
+<div class="container contFont">
 	<a class="btn btn-primary" href="qnalistview.do">글 목록보기</a>
 	<c:if test="${not empty keyword }">
 		<p> <strong>${keyword }</strong> 검색어로 검색된 결과 입니다.</p>
@@ -162,7 +162,7 @@
 			</c:choose>
 		</c:forEach>
 		</ul>
-		<div class="clearfix"></div>
+		<div class="clearfix contFont"></div>
 		<!-- 원글에 댓글을 작성할수 있는 폼 -->
 		<div class="comment_form">
 			<c:if test="${id eq 'master' }">
