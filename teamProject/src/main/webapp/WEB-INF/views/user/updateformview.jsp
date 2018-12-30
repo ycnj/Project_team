@@ -61,12 +61,13 @@
                 <div class="row">
 					<div class="container contFont container2">                  
 				         <div class="row">           
-							<div class="col-sm-8 col-sm-offset-2 col-xs-offset-2" style="padding-left:260px;">
+							<div class="col-sm-8 col-sm-offset-2 col-xs-offset-2" style="padding-left:200px;">
 					            <ul Class="pagination pagination-lg">					             
 					             	<li class="active"><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             	                          
 					          		<c:if test="${!empty sessionScope.id }">
 					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록<span class="sr-only">(current)</span></a></li>
-					          		</c:if>     					          							          
+					          		</c:if>     	
+					          		<li><a href="${pageContext.request.contextPath}/faq/faqlistview.do">FAQ 목록</a></li>  					          							          
 					    		</ul>
 				    		</div>
 				    	</div>    
@@ -109,7 +110,7 @@
 <jsp:include page="../include/MSC2.jsp" />
 <!-- javascript	 -->
 <script>
-	$("#nav>li:eq(5)").attr("class", "current");
+	$("#nav>li:eq(6)").attr("class", "current");
 </script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 	<script>
