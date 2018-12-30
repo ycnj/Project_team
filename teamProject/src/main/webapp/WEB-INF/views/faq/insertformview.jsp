@@ -68,13 +68,7 @@
                 <div class="row">
 					<div class="container contFont container2">                  
 				         <div class="row">           
-							<div class="col-sm-8 col-sm-offset-3 col-xs-offset-2" style="margin-left:430px;">
-					            <ul Class="pagination pagination-lg">					             	
-					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>					             						             	
-                           			<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>
-                           			<li class="active"><a href="${pageContext.request.contextPath}/faq/faqlistview.do">FAQ 목록</a></li>								          		
-					    		</ul>
-				    		</div>
+
 				    	</div>    
 				    </div>	
                     

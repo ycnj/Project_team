@@ -80,20 +80,12 @@
                 <div class="row">
 					<div class="container contFont container2">                  
 				         <div class="row">           
-							<div class="col-md-8 col-md-offset-2" style="margin-left: 410px">
-					            <ul Class="pagination pagination-lg">
-					             	<li class="active"><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             	                          
-					          		<c:if test="${!empty sessionScope.id }">
-					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록<span class="sr-only">(current)</span></a></li>
-					          		</c:if>     	
-					          		<li><a href="${pageContext.request.contextPath}/faq/faqlistview.do">FAQ 목록</a></li>  					          						          		
-					    		</ul>
-				    		</div>
+
 				    	</div>    
 				    </div>	
                    
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>질문게시판</h2>                                   
+                        <h2 style="margin-left:90px;">질문게시판</h2>                                   
                     </div>
                     
               				    
