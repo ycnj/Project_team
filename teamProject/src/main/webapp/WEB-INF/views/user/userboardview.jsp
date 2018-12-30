@@ -92,7 +92,7 @@
 				    	</div>    
 				    </div>	
                    
-                    <div class="section-title text-center wow fadeInDown" style="padding: 50px; padding-right: 1px;">
+                    <div class="section-title text-center wow fadeInDown">
                         <h2>질문게시판</h2>                                   
                     </div>
                     

@@ -67,13 +67,13 @@
                 
 					<div class="container contFont">                  
 				         <div class="row">           
-							<div class="col-md-8" style="margin-left: 470px">
+							<div class="col-md-8" style="margin-left: 450px">
 					            <ul Class="pagination pagination-lg">
-									<c:if test="${not empty sessionScope.id || sessionScope.id eq 'master' }">
-					             	<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">문의목록</a></li>
-					             	</c:if>						            					             	
-					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>		
-					             	<li class="active"><a href="${pageContext.request.contextPath}/faq/faqlistview.do">FAQ 목록</a></li>			             				             	                         					          							          							          		
+					             	<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판<span class="sr-only">(current)</span></a></li>					             	                          
+					          		<c:if test="${!empty sessionScope.id }">
+					          		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록<span class="sr-only">(current)</span></a></li>
+					             	<li class="active"><a href="${pageContext.request.contextPath}/faq/faqlistview.do">FAQ 목록</a></li>								    
+					          		</c:if>     	             				             	                         					          							          							          		
 					    		</ul>
 				    		</div>
 				    	</div>    

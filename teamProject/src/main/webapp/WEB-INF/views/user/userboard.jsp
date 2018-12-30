@@ -10,15 +10,15 @@
 </head>
 <body>
 <div class="container contFont">
-		<div class="col-md-9 col-md-offset-1">
+		<div class="col-md-8 col-md-offset-2">
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th width="10%" >번호</th>
-				<th width="20%">작성자</th>
-				<th width="30%">제목</th>
-				<th width="20%">조회수</th>
-				<th width="20%">등록일</th>
+				<th>번호</th>
+				<th>작성자</th>
+				<th>제목</th>
+				<th>조회수</th>
+				<th>등록일</th>
 			</tr>
 		</thead>
 		<tbody>
