@@ -98,8 +98,8 @@
 	<div class="content contFont">${dto.content }</div>
 	<!-- 로그인된 아이디와 글작성자가 같을때만 수정, 삭제 링크 제공 -->
 	<c:if test="${ sessionScope.id eq dto.writer }">
-		<a href="${pageContext.request.contextPath}/user/updateformview.do?num=${dto.num }">수정</a>
-		<a href="javascript:deleteConfirm(${dto.num })">삭제</a>
+		<a class="btn btn-info" href="${pageContext.request.contextPath}/user/updateformview.do?num=${dto.num }">수정</a>
+		<a class="btn btn-danger" href="javascript:deleteConfirm(${dto.num })">삭제</a>
 	</c:if>
 	<!-- 댓글 목록 -->
 	<div class="comments contFont">
