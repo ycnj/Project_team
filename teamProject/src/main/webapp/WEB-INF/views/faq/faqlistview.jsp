@@ -13,7 +13,7 @@
              position: relative;
              height: 400px;
              padding: 0;
-             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/faq1.jpeg) no-repeat;
+             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/faq2.png) no-repeat;
              background-size: cover;
          }
          .service-features {
@@ -43,18 +43,6 @@
 	<section id="service-bottom">
 		<div class="top-img">
 			</div>
-		<div class="container">
-			
-			<div class="service-features wow fadeInRight">
-				<h3>OUR DESIGNS COMES WITH...</h3>
-				<ul>
-					<li>Responsive Design</li>
-					<li>Modern And Clean Design</li>
-					<li>Clean Code</li>
-					<li>Browser Friendly</li>
-				</ul>
-			</div>
-		</div>
 	</section>
 	<!--
         End #service-bottom

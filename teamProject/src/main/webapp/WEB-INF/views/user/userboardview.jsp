@@ -57,18 +57,6 @@
 	<section id="service-bottom">
 		<div class="top-img">
 			</div>
-		<div class="container">
-			
-			<div class="service-features wow fadeInRight">
-				<h3>OUR DESIGNS COMES WITH...</h3>
-				<ul>
-					<li>Responsive Design</li>
-					<li>Modern And Clean Design</li>
-					<li>Clean Code</li>
-					<li>Browser Friendly</li>
-				</ul>
-			</div>
-		</div>
 	</section>
 	<!--
         End #service-bottom

@@ -14,7 +14,7 @@
              position: relative;
              height: 400px;
              padding: 0;
-             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/faq1.jpeg) no-repeat;
+             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/faq2.png) no-repeat;
              background-size: cover;
          }
          .service-features {

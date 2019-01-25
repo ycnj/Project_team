@@ -13,7 +13,7 @@
              position: relative;
              height: 407px;
              padding: 0;
-             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/call1.jpg) no-repeat;
+             background: url(${pageContext.request.contextPath }/resources/images/movie/배경화면/qst2.jpg) no-repeat;
              background-size: cover;
          }
          .service-features {
