@@ -40,7 +40,6 @@
                             	<ul id="nav" class="nav dropdown-menu">                
                             		<li><a href="${pageContext.request.contextPath}/faq/faqlistview.do">FAQ</a></li>
                             		<li><a href="${pageContext.request.contextPath}/ask/qnalistview.do">1:1문의목록</a></li>
-                            		<li><a href="${pageContext.request.contextPath}/user/userboardview.do">질문게시판</a></li>
                             	</ul>
                             </li>
                         <c:choose>

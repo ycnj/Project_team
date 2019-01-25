@@ -22,14 +22,6 @@ public class AskController {
 	@Autowired
 	private AskService service;
 	
-	@RequestMapping("/ask/contact_home")
-	public ModelAndView getList(HttpServletRequest request) {
-		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
-		service.getList(request);
-		//view 페이지로 forward 이동해서 글 목록 출력하기 
-		return new ModelAndView("ask/contact_home");
-	}
-	
 	@RequestMapping("/ask/qnalist")
 	public ModelAndView getListQNA(HttpServletRequest request) {
 		//HttpServletRequest 객체를 전달해서 필요한 모델이 담기게 한다. 
