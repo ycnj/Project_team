@@ -1,5 +1,3 @@
-# Project_team
-
 # 메인 페이지  
 
 
